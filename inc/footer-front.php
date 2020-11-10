@@ -1,4 +1,5 @@
 </div><!-- .container -->
+<<<<<<< HEAD
 
     <footer class="footer">
         <div wrap="wrap-footer">
@@ -32,7 +33,7 @@
                   </ul>
               </nav>
           </div>
-      </div>
-  </footer>
+  </div>
+</footer>
 </body>
 </html>
