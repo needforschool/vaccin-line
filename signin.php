@@ -6,9 +6,10 @@ $errors = array();
 $succes = false;
 if (!empty($_POST['submitted'])) {
     // faille xss
-    $nom = cleanXss($_POST['pseudo']);
-    $prenom = cleanXss($_POST['email']);
-    $
+    $nom = cleanXss($_POST['nom']);
+    $prenom = cleanXss($_POST['prenom']);
+    $age = cleanXss($_POST['age']);
+    $sexe = cleanXss($_POST['sexe']);
     $email = cleaXss($_POST['email']);
     $password1 = cleanXss($_POST['password1']);
     $password2 = cleanXss($_POST['password2']);
