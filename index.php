@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="asset/css/style.css">
+  <link rel="stylesheet" href="asset/css/style-front.css">
 </head>
 <body>
   <div class="wrap">
