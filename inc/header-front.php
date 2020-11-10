@@ -18,8 +18,8 @@
           <nav>
             <ul class="navbar">
               <li><a href="#">home</a></li>
-              <li><a href="#">inscription</a></li>
-              <li><a href="#">connexion</a></li>
+              <li><a href="signin.php">inscription</a></li>
+              <li><a href="login.php">connexion</a></li>
               <li><a href="#">déconnexion</a></li>
               <li><a href="admin/index.php">admin</a></li>
             </ul>
