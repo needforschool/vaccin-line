@@ -66,13 +66,8 @@ table {
 a {
 	text-decoration: none;
 }
-.wrap {
-	max-width: 1440px;
-	width: 100%;
-	margin: 0 auto;
-}
 .wrap-header {
-  max-width: 1220px;
+  max-width: 1440px;
 	width: 100%;
 	margin: 0 auto;
 }
