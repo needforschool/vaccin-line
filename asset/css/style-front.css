@@ -63,3 +63,61 @@ table {
 .clear {
   *zoom:1;
 }
+a {
+	text-decoration: none;
+}
+.wrap {
+	max-width: 1440px;
+	width: 100%;
+	margin: 0 auto;
+}
+.wrap-header {
+  max-width: 1220px;
+	width: 100%;
+	margin: 0 auto;
+}
+header {
+	background-color: #575fcf;
+}
+.logo-header {
+	display: flex;
+	justify-content: center;
+	padding: 20px 0 20px 0;
+}
+.logo {
+	background:url(../img/header-logo.png) no-repeat;
+	width: 270px;
+	height: 65px;
+}
+.nav {
+	display: flex;
+	justify-content: center;
+	padding-bottom: 20px;
+}
+ul.navbar {
+	width: 490px;
+}
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.5vw;
+	letter-spacing: 0.1em;
+	position: relative;
+}
+ul.navbar li a {
+	color: #fff;
+	font-family:  'Bebas Neue', cursive;
+}
+ul.navbar li a::after {
+	content: "";
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 3px;
+	background: #0fbcf9;
+	transform: scale(0);
+	transition: transform 0.2s ease-in-out;
+}
+ul.navbar li:hover a::after {
+	transform: scale(1);
+}
