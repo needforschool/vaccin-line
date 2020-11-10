@@ -384,31 +384,6 @@ footer {
 	align-items: center;
 }
 
-/* .social {
-  display: flex;
-}
-.social a {
-  width:123px;
-  height: 123px;
-  background: url('../img/social-icons.png');
-  border-radius: 100%;
-}
-.social li {
-  display: flex;
-	margin-right: 3px;
-}
-.social a.facebook {
-	background-position: -496px -940px;
-}
-.social a.twitter {
-	background-position: -345px -1242px;
-}
-.social a.facebook:hover {
-	background-position: -496px -36px;
-}
-.social a.twitter:hover {
-	background-position: -345px -337px;
-} */
 .creator {
   display: flex;
 }
