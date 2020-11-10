@@ -123,15 +123,12 @@ ul.navbar li:hover a::after {
     width: 100%;
     margin: 0 auto;
     background-color: #4bcffa;
-} 
+}
 
 footer {
 	background-color: #333;
 	color: #fff;
 
-}
-.logo {
-    background: url('../img/logo.jpg');
 }
 .social {
     display: flex;
