@@ -6,7 +6,7 @@ $title = 'Connexion';
 
 include('inc/header-front.php');
 
-$succes = false;
+$success = false;
 $errors = array();
 
 if (!empty($_POST['submitted'])) {
@@ -25,10 +25,12 @@ if (!empty($_POST['submitted'])) {
                     'nom' => $user['nom'],
                     'prenom' => $user['prenom'],
                     'email' => $user['email'],
+                    'sexe' => $user['sexe'],
                     'ip' => $_SERVER['REMOTE_ADDR']
                 );
                 debug($user);
                 echo 'pass ok';
+                $success = true;
                 if ($user['role'] == 'role_admin') {
                     header('Location: admin/index.php');
                     die();
