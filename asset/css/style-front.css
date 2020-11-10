@@ -128,7 +128,6 @@ ul.navbar li:hover a::after {
 footer {
 	background-color: #333;
 	color: #fff;
-
 }
 .social {
     display: flex;
