@@ -27,7 +27,6 @@ if (!empty($_POST['submitted'])) {
                     'email' => $user['email'],
                     'ip' => $_SERVER['REMOTE_ADDR']
                 );
-                debug($user);
                 echo 'pass ok';
                 if ($user['role'] == 'role_admin') {
                     header('Location: admin/index.php');
