@@ -25,23 +25,23 @@ function validationText($errors,$data,$key,$min,$max) {
     }
     return $errors;
   }
-  
-  function isLogged(){
-    if(!empty($_SESSION['user'])) {
-      if(!empty($_SESSION['user']['id']) && is_numeric($_SESSION['user']['id'])) {
-        if(!empty($_SESSION['user']['pseudo'])) {
-          if(!empty($_SESSION['user']['role'])) {
-            if($_SESSION['user']['role'] == 'abonne' || $_SESSION['user']['role'] == 'admin') {
-              if(!empty($_SESSION['user']['ip']) && $_SESSION['user']['ip'] == $_SERVER['REMOTE_ADDR']) {
-                return true;
-              }
-            }
-          }
+
+  function est_connecte(): bool
+  {
+    $isLogged = true;
+    if (empty($_SESSION['user'])) {
+      $isLogged = false;
+      return $isLogged;
+    } else {
+      foreach ($_SESSION['user'] as $key => $value) {
+        if (!isset($key) && !isset($value)) {
+          $isLogged = false;
+          return $isLogged;
         }
       }
     }
-    return false;
-}
+    return $isLogged;
+  }
 
 
 

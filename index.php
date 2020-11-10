@@ -3,10 +3,14 @@ session_start();
 include('inc/pdo.php');
 include('inc/function.php');
 $title = 'Home';
-debug($_SESSION);
+<<<<<<< HEAD
+=======
+// debug($_SESSION);
+>>>>>>> 439b0cc6b8c7892aba9821ec16e34aa2053d60ab
 
 include('inc/header-front.php');?>
 
+</script>
 <section>
   <div class="wrap-section">
     <div class="bigbox">
@@ -16,32 +20,30 @@ include('inc/header-front.php');?>
         <a href="#">book a visit</a>
       </div>
       <div class="button">
-
-      <div class="effect">
-        <!-- effect btn -->
-        <a href="#"  class="btn_inscription">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          inscription
-        </a>
+        <div class="effect">
+          <!-- effect btn -->
+          <a href="#"  class="btn_inscription">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            inscription
+          </a>
+        </div>
+        <div class="effect">
+          <!-- effect btn -->
+          <a href="#"  class="btn_connexion">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            connexion
+          </a>
+        </div>
       </div>
-      <div class="effect">
-        <!-- effect btn -->
-        <a href="#"  class="btn_connexion">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          connexion
-        </a>
-      </div>
-    </div>
     </div>
   </div>
 </section>
 
 
 <?php include('inc/footer-front.php');
-

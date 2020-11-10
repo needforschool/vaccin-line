@@ -63,12 +63,15 @@ table {
 .clear {
   *zoom:1;
 }
+
 /* Perso */
 
 a {
 	text-decoration: none;
 }
+
 /* HEADER */
+
 .wrap-header {
   max-width: 1440px;
 	width: 100%;
@@ -119,13 +122,8 @@ ul.navbar li a::after {
 ul.navbar li:hover a::after {
 	transform: scale(1);
 }
-.wrap-footer {
-  max-width: 1220px;
-    width: 100%;
-    margin: 0 auto;
-    background-color: #4bcffa;
-}
 /* SECTION 1 */
+
 .wrap-section {
 	max-width: 1440px;
 	width: 100%;
@@ -140,24 +138,45 @@ section {
 	display: flex;
 }
 .stats {
-	margin-top: 200px;
+	margin-top: 150px;
 	width: 700px;
 	height: 500px;
 	background-color: #fff;
 	position: absolute;
 	font-family:  'Bebas Neue', cursive;
-	padding: 30px
+	padding: 30px;
+	border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+ 	box-shadow: 20px 20px rgba(0,0,0,.15);
+ 	transition: all .4s ease;
 }
-.stats h1 {font-size: 3em;color: #575fcf;margin-bottom: 30px;}
-.stats p {font-size: 1.5em;color: #575fcf;opacity: 0.5;margin-bottom: 40px;}
-.stats a {font-size: 1.5em;color: #575fcf;opacity: 0.7}
-.stats a:hover {color: #0fbcf9;}
+.stats:hover{
+	border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+  box-shadow: 10px 10px rgba(0,0,0,.25);
+}
+.stats h1 {
+	font-size: 3em;
+	color: #575fcf;
+	margin-bottom: 30px;
+}
+.stats p {
+	font-size: 1.5em;
+	color: #575fcf;
+	opacity: 0.5;
+	margin-bottom: 40px;
+}
+.stats a {
+	font-size: 1.5em;
+	color: #575fcf;
+	opacity: 0.7
+}
+.stats a:hover {
+	color: #0fbcf9;
+}
 .button {
 	width: 400px;
 	display: flex;
 	justify-content: space-between;
 }
-
 a.btn_inscription {
 	font-family:  'Bebas Neue', cursive;
 	font-size: 1.5em;
@@ -176,7 +195,6 @@ a.btn_inscription {
 a:hover.btn_inscription {
 	color: #fff;
 	background: #575fcf;
-	box-shadow: 0 0 10px #575fcf, 0 0 40px #575fcf, 0 0 80px #575fcf;
 	transition-delay: 1s;
 }
 a.btn_inscription span {
@@ -247,7 +265,6 @@ a.btn_connexion {
 a:hover.btn_connexion {
 	color: #fff;
 	background: #575fcf;
-	box-shadow: 0 0 10px #575fcf, 0 0 40px #575fcf, 0 0 80px #575fcf;
 	transition-delay: 1s;
 }
 a.btn_connexion span {
@@ -301,89 +318,81 @@ a:hover.btn_connexion span:nth-child(4) {
 	transition-delay: 0.75s;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* FOOTER */
+
+.wrap-footer {
+  max-width: 1440px;
+	width: 100%;
+	margin: 0 auto;
+}
 footer {
 	background-color: #575fcf;
 }
-.social {
-    display: flex;
+.columns {
+	display: flex;
 }
-.social a {
-    width:123px;
-    height: 123px;
-    background: url('../img/social-icons.png');
-    border-radius: 100%;
+.column1 {
+	width: 35%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family:  'Bebas Neue', cursive;
+	font-size: 1.5em;
+	padding: 20px;
+	color: #fff;
 }
-.social li {
-    display: flex;
-	margin-right: 3px;
-	}
-.social a.facebook {
-	background-position: -496px -940px;
+.column1 a {
+	font-size: 1em;
+	color: #fff;
+	opacity: 0.7
 }
-.social a.instagram {
-	background-position: -43px -1091px;
+.column1 a:hover {
+	color: #0fbcf9;
 }
-.social a.twitter {
-	background-position: -345px -1242px;
+.column-title {
+	margin-bottom: 10px;
 }
-.social a.facebook:hover {
-	background-position: -496px -36px;
+.column1 img {
+	margin-bottom: 10px;
 }
-.social a.instagram:hover {
-	background-position: -43px -186px;
+.column2 {
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 30px;
 }
-.social a.twitter:hover {
-	background-position: -345px -337px;
+.fab {
+	color: #fff;
+	font-size: 70px;
+}
+.fab:hover {
+	color: #0fbcf9;
+}
+.column3 {
+	width: 35%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family:  'Bebas Neue', cursive;
+	font-size: 1.5em;
+	padding: 20px;
+	color: #fff;
 }
 .creator {
-    display: flex;
+	display: flex;
+	align-items: center;
+}
+
+.creator {
+  display: flex;
 }
 .bottom-bar {
-	margin-bottom: 30px;
 	padding: 15px;
   background-color: #1f1f1f;
   color: #fff;
   display: flex;
+	justify-content: center;
+	font-family:  'Bebas Neue', cursive;
+	font-size: 1em;
 }
-.bottom-bar .nav {
-	display: flex;
-}
-.bottom-bar .nav li {
-	margin-left: 5px;
-}
-<<<<<<< HEAD
-=======
-.copyright {
-
-}
->>>>>>> 79e508f7e589e67acd6c61b1786a3b5da99ee426

@@ -1,6 +1,9 @@
 <?php
 include('../inc/pdo.php');
 include('../inc/function.php');
+if (!est_connecte()) {
+  header('Location: 403.php');
+}
 $title = 'Manage user';
 
 include('inc/header-back.php');
