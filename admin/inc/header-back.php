@@ -32,8 +32,9 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon ">
+                    <!-- <i class="fas fa-laugh-wink"></i> -->
+                    <i class="fas fa-hand-holding-medical"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Vaccin'Line</div>
             </a>
@@ -48,11 +49,11 @@
                     <span>Dashboard</span></a>
 
                 <a class="nav-link" href="manage-user.php">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-user-md"></i>
                     <span>Manage User</span></a>
 
                 <a class="nav-link" href="manage-vaccin.php">
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="fas fa-syringe"></i>
                     <span>Manage Vaccin</span></a>
             </li>
 

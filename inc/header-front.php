@@ -8,7 +8,6 @@
   <title><?php echo $title ?></title>
 </head>
 <body>
-  <div class="wrap">
     <header>
       <div class="wrap-header">
         <div class="logo-header">
