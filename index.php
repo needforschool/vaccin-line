@@ -3,10 +3,11 @@ session_start();
 include('inc/pdo.php');
 include('inc/function.php');
 $title = 'Home';
-debug($_SESSION);
+// debug($_SESSION);
 
 include('inc/header-front.php');?>
 
+</script>
 <section>
   <div class="wrap-section">
     <div class="bigbox">
