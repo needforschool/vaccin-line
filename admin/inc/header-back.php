@@ -48,11 +48,11 @@
                     <span>Dashboard</span></a>
 
                 <a class="nav-link" href="manage-user.php">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-user-md"></i>
                     <span>Manage User</span></a>
 
                 <a class="nav-link" href="manage-vaccin.php">
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="fas fa-syringe"></i>
                     <span>Manage Vaccin</span></a>
             </li>
 
