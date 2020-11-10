@@ -8,14 +8,21 @@
 <body>
   <div class="wrap">
     <header>
-      <nav>
-        <ul>
-          <li><a href="index.php"></a></li>
-          <li><a href="inscription.php"></a></li>
-          <li><a href="connexion.php"></a></li>
-          <li><a href="logout.php"></a></li>
-        </ul>
-      </nav>
+      <div class="wrap-header">
+        <div class="logo-header">
+          <a href="#"><div class="logo"></div></a>
+        </div>
+        <div class="nav">
+          <nav>
+            <ul class="navbar">
+              <li><a href="#">home</a></li>
+              <li><a href="#">inscription</a></li>
+              <li><a href="#">connexion</a></li>
+              <li><a href="#">déconnexion</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </header>
     <div class="container">
 
