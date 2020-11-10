@@ -97,7 +97,7 @@ ul.navbar {
 .navbar {
 	display: flex;
 	justify-content: space-between;
-	font-size: 1.5vw;
+	font-size: 1.5em;;
 	letter-spacing: 0.1em;
 	position: relative;
 }
@@ -123,15 +123,11 @@ ul.navbar li:hover a::after {
     width: 100%;
     margin: 0 auto;
     background-color: #4bcffa;
-} 
+}
 
 footer {
 	background-color: #333;
 	color: #fff;
-
-}
-.logo {
-    background: url('../img/logo.jpg');
 }
 .social {
     display: flex;
@@ -180,3 +176,9 @@ footer {
 .bottom-bar .nav li {
 	margin-left: 5px;
 }
+<<<<<<< HEAD
+=======
+.copyright {
+
+}
+>>>>>>> 79e508f7e589e67acd6c61b1786a3b5da99ee426

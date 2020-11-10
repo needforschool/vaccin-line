@@ -1,4 +1,5 @@
 </div><!-- .container -->
+
     <footer class="footer">
         <div wrap="wrap-footer">
             <div class="columns">
@@ -7,7 +8,6 @@
                     <img src="#" alt="Vaccin'Line"><br><br> 
                     <ul class="social">
                         <li><a href="#" class="facebook"></a></li>
-                        <li><a href="#" class="instagram"></a></li>
                         <li><a href="#" class="twitter"></a></li>
                     </ul>
                 </div>
@@ -28,11 +28,11 @@
                   <ul>
                     <li><a href="#">Contact</a></li>
                     <li><a href="#">Mentions légales</a></li>
+
                   </ul>
-                </nav>
-            </div>
-        </div>
-    </footer>
-  </div><!-- .wrap -->
+              </nav>
+          </div>
+      </div>
+  </footer>
 </body>
 </html>
