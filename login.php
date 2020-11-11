@@ -28,7 +28,8 @@ if (!empty($_POST['submitted'])) {
                     'age' => $user['age'],
                     'email' => $user['email'],
                     'civilite' => $user['civilite'],
-                    'ip' => $_SERVER['REMOTE_ADDR']
+                    'ip' => $_SERVER['REMOTE_ADDR'],
+                    'role' => $user['role']
                 );
                 $success = true;
                 if ($user['role'] == 'role_admin') {
