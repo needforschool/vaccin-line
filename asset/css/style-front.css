@@ -384,6 +384,9 @@ footer {
 	align-items: center;
 }
 
+.creator li a{
+	margin-left: 5px;
+}
 .creator {
   display: flex;
 }
