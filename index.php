@@ -3,10 +3,6 @@ session_start();
 include('inc/pdo.php');
 include('inc/function.php');
 $title = 'Home';
-<<<<<<< HEAD
-=======
-// debug($_SESSION);
->>>>>>> 439b0cc6b8c7892aba9821ec16e34aa2053d60ab
 
 include('inc/header-front.php');?>
 
