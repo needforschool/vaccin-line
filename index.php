@@ -3,7 +3,12 @@ session_start();
 include('inc/pdo.php');
 include('inc/function.php');
 $title = 'Home';
+
+// debug($_SESSION);
+
+
 debug($_SESSION);
+
 
 include('inc/header-front.php');
 
@@ -52,7 +57,7 @@ include('inc/header-front.php');
 
   <section>
     <p>bonjour <?php echo $_SESSION['user']['prenom']; ?></p>
-    
+
   </section>
 
 <?php endif; ?>
