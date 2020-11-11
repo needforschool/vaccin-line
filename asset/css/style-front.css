@@ -145,7 +145,7 @@ section {
 	position: absolute;
 	font-family:  'Bebas Neue', cursive;
 	padding: 30px;
-	border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+	border-radius: 10px;
  	box-shadow: 20px 20px rgba(0,0,0,.15);
  	transition: all .4s ease;
 }
