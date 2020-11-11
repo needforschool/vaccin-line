@@ -66,3 +66,5 @@ if (!empty($_POST['submitted'])) {
 <input type="submit" name="submitted" value="Connexion">
 
 </form>
+
+<?php include('inc/footer-front.php');
