@@ -19,16 +19,17 @@ if (!empty($_POST['submitted'])) {
         $query->execute();
         $user = $query->fetch();
         if(!empty($user)) {
-            if ($password == $user['password']){
+            if ((password_verify($password, $user['password']))){
                 $_SESSION['user'] = array(
                     'id' => $user['id'],
                     'nom' => $user['nom'],
                     'prenom' => $user['prenom'],
+                    'date_naissance' => $user['date_naissance'],
+                    'age' => $user['age'],
                     'email' => $user['email'],
-                    'sexe' => $user['sexe'],
+                    'civilite' => $user['civilite'],
                     'ip' => $_SERVER['REMOTE_ADDR']
                 );
-                echo 'pass ok';
                 $success = true;
                 if ($user['role'] == 'role_admin') {
                     header('Location: admin/index.php');
