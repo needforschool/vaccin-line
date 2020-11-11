@@ -14,7 +14,7 @@ include('inc/header-front.php');
 
 ?>
 
-</script>
+
 <!-- Non connecté -->
 <?php if(empty($_SESSION) ) : ?>
 <section>
