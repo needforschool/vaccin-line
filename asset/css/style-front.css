@@ -122,14 +122,6 @@ ul.navbar li a::after {
 ul.navbar li:hover a::after {
 	transform: scale(1);
 }
-.wrap-footer {
-  max-width: 1220px;
-    width: 100%;
-    margin: 0 auto;
-    background-color: #4bcffa;
-}
-
-
 /* SECTION 1 */
 
 .wrap-section {
@@ -334,8 +326,7 @@ a:hover.btn_connexion span:nth-child(4) {
 	margin: 0 auto;
 }
 footer {
-	background-color: #333;
-	color: #fff;
+	background-color: #575fcf;
 }
 .columns {
 	display: flex;
@@ -358,12 +349,6 @@ footer {
 .column1 a:hover {
 	color: #0fbcf9;
 }
-
-
-.social a.twitter {
-	background-position: -345px -1242px;
-}
-
 .column-title {
 	margin-bottom: 10px;
 }
@@ -377,18 +362,12 @@ footer {
 	align-items: center;
 	padding: 30px;
 }
-
-
-.social a.twitter:hover {
-	background-position: -345px -337px;
-}
 .fab {
 	color: #fff;
 	font-size: 70px;
 }
 .fab:hover {
 	color: #0fbcf9;
-
 }
 .column3 {
 	width: 35%;
@@ -405,23 +384,14 @@ footer {
 	align-items: center;
 }
 
+.creator li a{
+	margin-left: 5px;
+}
 .creator {
   display: flex;
 }
 .bottom-bar {
 	padding: 15px;
-
-    background-color: #1f1f1f;
-    color: #fff;
-    display: flex;
-}
-.bottom-bar .nav {
-	display: flex;
-}
-.bottom-bar .nav li {
-	margin-left: 5px;
-}
-{
   background-color: #1f1f1f;
   color: #fff;
   display: flex;
@@ -429,4 +399,3 @@ footer {
 	font-family:  'Bebas Neue', cursive;
 	font-size: 1em;
 }
-
