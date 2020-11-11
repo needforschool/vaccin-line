@@ -1,129 +1,154 @@
 <?php
 include('inc/pdo.php');
 include('inc/function.php');
-
+$title = 'Inscription';
 $errors = array();
 $succes = false;
 if (!empty($_POST['submitted'])) {
-    // faille xss
     $nom = cleanXss($_POST['nom']);
     $prenom = cleanXss($_POST['prenom']);
-    $age = cleanXss($_POST['age']);
-    $sexe = cleanXss($_POST['sexe']);
-    $email = cleaXss($_POST['email']);
+    $date_naissance = cleanXss($_POST['date_naissance']);
+    $civilite = cleanXss($_POST['civilite']);
+    $email = cleanXss($_POST['email']);
     $password1 = cleanXss($_POST['password1']);
     $password2 = cleanXss($_POST['password2']);
-    if (!empty($pseudo)) {
-        if(mb_strlen($pseudo) < 3) {
-            $errors['pseudo'] = 'Min 3 caracteres';
-        } elseif(mb_strlen($pseudo) > 50) {
-            $errors['pseudo'] = 'Max 50 caracteres';
-        } else {
-            // no error
-            $sql = "SELECT * FROM users WHERE pseudo = :pseudo";
-            $query = $pdo->prepare($sql);
-            $query->bindValue(':pseudo',$pseudo,PDO::PARAM_STR);
-            $query->execute();
-            $userpseudo = $query->fetch();
+    $pseudo = $nom . '_' . $prenom;
 
-            if (!empty($userpseudo)) {
-                $errors['pseudo'] = 'ce pseudo existe déja';
-            }
-            else {
-
-            }
+    //Verif civilité
+    if(!empty($civilite)) {
+        
+    } else {
+        $errors['civilite'] = 'Veuillez renseignez ce champ';
+    }
+   
+    // Verif nom 
+    if(!empty($nom)) {
+        if(mb_strlen($nom) < 2) {
+            $errors['nom'] = 'Veuillez entrer un nom valide (2 caracteres minimum)';
         }
     } else {
-        $errors['pseudo'] = 'Veuillez renseigner ce champ';
+        $errors['nom'] = 'Veuillez renseignez ce champ';
     }
+    // Verif prenom
+    if(!empty($prenom)) {
+        if(mb_strlen($prenom) < 2) {
+            $errors['prenom'] = 'Veuillez entrer un prenom valide (2 caracteres minimum)';
+        }
+    } else {
+        $errors['prenom'] = 'Veuillez renseignez ce champ';
+    }
+    // Verif date_naissance
+    if(!empty($date_naissance)) {
+        if(mb_strlen($date_naissance) != 10) {
+            $errors['date_naissance'] = 'Veuillez entrer un date_naissance valide (entre 1 et 110)';
+        } else {
+            $am = date('Y');
+            $an = explode('-', $date_naissance);
+            $age = ($am - $an[0]);
+
+            $date_naissance = date("d-m-Y", strtotime($date_naissance)); 
+
+            echo $date_naissance;
+        }
+    } else {
+        $errors['date_naissance'] = 'Veuillez renseignez ce champ';
+    }
+    // Verif E-mail 
     if (!empty($email)) {
-        // no error
-        $sql = "SELECT * FROM users WHERE email = :email";
-        $query = $pdo->prepare($sql);
-        $query->bindValue(':email',$email,PDO::PARAM_STR);
-        $query->execute();
-        $useremail = $query->fetch();
-
-        if (!empty($useremail)) {
-            $errors['email'] = 'cette email est déja utilisée';
+        if(mb_strlen($email) < 5 ) {
+            $errors['email'] = 'Veuillez entrer un email valide (plus de 5 caractéres)';
         } else {
-            // no errors
+            $sql = "SELECT * FROM vl_users WHERE email = :email";
+            $query = $pdo->prepare($sql);
+            $query->bindValue(':email',$email,PDO::PARAM_STR);
+            $query->execute();
+            $useremail = $query->fetch();
+
+            if (!empty($useremail)) {
+                $errors['email'] = 'Cette adresse email est utilisée';
+            }
         }
     } else {
-        $errors['email'] = 'Veuillez renseigner ce champ';
+        $errors['email'] = 'Veuillez renseignez ce champ';
     }
+    // Verif MDP et Hashash 
     if (!empty($password1)) {
-        if (mb_strlen($password1) < 6) {
-            $errors['password1'] = 'Min 6 caracteres';
+        if(mb_strlen($password1) < 8) {
+            $errors['password1'] = 'Votre mot de passe doit faire 8 caractere minimum';
         }
     } else {
-        $errors['password1'] = 'Veuillez renseigner ce champ';
+        $errors['password1'] = 'Veuillez renseignez ce champ';
     }
-
     if (!empty($password2)) {
-        //no errors
+
     } else {
-        $errors['password2'] = 'Veuillez renseigner ce champ';
+        $errors['password2'] = 'Veuillez renseignez ce champ';
     }
 
-    if ($password1 != $password2) {
-        $errors['password2'] = 'Les mot de passe ne sont pas identiques';  
+    if ($password2 != $password1) {
+        $errors['password1'] = 'Les mot de passe ne sont pas identiques';
     }
 
-    if(count($errors) == 0) {
-        $success = true;
+    if (count($errors) == 0) {
+        $succes = true;
 
         $passwordHash = password_hash($password1, PASSWORD_DEFAULT);
-        $token = substr(md5(time()), 0, 16);
-        
-        $role = 'abonne';
+        $token = openssl_random_pseudo_bytes(16);
+        $token = bin2hex($token);
+        $role = 'role_user';
 
-        $sql = "INSERT INTO users (pseudo,email,password,created_at,token,role)
-            VALUES (:pseudo,:email,:passwordHash,NOW(),:token,:role)";
+        $sql = "INSERT INTO vl_users (nom,prenom,password,email,token,date_naissance,created_at,civilite,role,age)
+                VALUES (:nom,:prenom,:passwordHash,:email,:token,:date_naissance,NOW(),:civilite,:role,:age)";
         $query = $pdo->prepare($sql);
-        $query->bindValue(':pseudo',$pseudo,PDO::PARAM_STR);
+        $query->bindValue(':nom',$nom,PDO::PARAM_STR);
+        $query->bindValue(':prenom',$prenom,PDO::PARAM_STR);
+        $query->bindValue(':date_naissance',$date_naissance,PDO::PARAM_STR);
+        $query->bindValue(':civilite',$civilite,PDO::PARAM_STR);
         $query->bindValue(':email',$email,PDO::PARAM_STR);
         $query->bindValue(':passwordHash',$passwordHash,PDO::PARAM_STR);
-        $query->bindValue(':token',$token,PDO::PARAM_STR);
         $query->bindValue(':role',$role,PDO::PARAM_STR);
+        $query->bindValue(':token',$token,PDO::PARAM_STR);
+        $query->bindValue(':age',$age,PDO::PARAM_STR);
         $query->execute();
 
-        header('Location: index.php');
-        exit();
     }
+    
 }
 
-include('inc/header.php');
+
+ 
+include('inc/header-front.php');
+
 ?>
+<form action="signin.php" method="post" class="formulaire">
 
-<h1>Sign in</h1>
+<select name="civilite" id="civilite" >
+    <option value="">--Civilité--</option>
+    <option value="monsieur">Monsieur</option>
+    <option value="madame">Madame</option>
+</select>
+<span class="error"><?php if(!empty($errors['civilite'])) { echo $errors['civilite']; } ?></span>
 
-<!-- pseudo -->
-<!-- email -->
-<!-- password x2 -->
-<form action="inscription.php" method="post" class="formulaire">
+<input type="text" name="nom" placeholder="Nom" value="<?php if(!empty($_POST['nom'])) { echo $_POST['nom']; } ?>">
+<span class="error"><?php if(!empty($errors['nom'])) { echo $errors['nom']; } ?></span>
 
-<label for="pseudo"> Pseudo :</label>
-<span class="error"><?php if(!empty($errors['pseudo'])) { echo $errors['pseudo']; } ?></span>
-<input type="text" name="pseudo" value="<?php if(!empty($_POST['pseudo'])) { echo $_POST['pseudo']; } ?>">
-<br>
-<label for="email"> Email :</label>
+<input type="text" name="prenom" placeholder="Prenom" value="<?php if(!empty($_POST['prenom'])) { echo $_POST['prenom']; } ?>">
+<span class="error"><?php if(!empty($errors['prenom'])) { echo $errors['prenom']; } ?></span>
+
+<input type="date" name="date_naissance" placeholder="date_naissance" value="<?php if(!empty($_POST['date_naissance'])) { echo $_POST['date_naissance']; } ?>">
+<span class="error"><?php if(!empty($errors['date_naissance'])) { echo $errors['date_naissance']; } ?></span>
+
+<input type="text" name="email" placeholder="E-mail" value="<?php if(!empty($_POST['email'])) { echo $_POST['email']; } ?>">
 <span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; } ?></span>
-<input type="email" name="email" value="<?php if(!empty($_POST['email'])) { echo $_POST['email']; } ?>">
-<br>
-<label for="pass"> Password :</label>
+
+<input type="password" name="password1" placeholder="Mot de passe" value="<?php if(!empty($_POST['password1'])) { echo $_POST['password1']; } ?>">
 <span class="error"><?php if(!empty($errors['password1'])) { echo $errors['password1']; } ?></span>
-<input type="password" name="password1" value="<?php if(!empty($_POST['password1'])) { echo $_POST['password1']; } ?>">
-<br>
-<label for="comfirmpass">Confirm password :</label>
-<span class="error"><?php if(!empty($errors['password2'])) { echo $errors['password2']; } ?></span>
-<input type="password" name="password2" value="<?php if(!empty($_POST['password2'])) { echo $_POST['password2']; } ?>">
-<br>
+
+<input type="password" name="password2" placeholder="Confirmation" value="<?php if(!empty($_POST['password2'])) { echo $_POST['password2']; } ?>">
+
 <input type="submit" name="submitted" value="Envoyer">
 
 </form>
 
 <?php
-
-include('inc/footer.php');
-
+include('inc/footer-front.php');
