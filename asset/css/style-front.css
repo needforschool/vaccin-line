@@ -624,3 +624,13 @@ footer {
 	font-family:  'Bebas Neue', cursive;
 	font-size: 1em;
 }
+
+.BB {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.MB {
+	width: 25%;
+}

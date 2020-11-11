@@ -62,6 +62,7 @@ if (!empty($_POST['submitted'])) {
       <form action="login.php" method="post">
         <div class="w50">
           <input type="email" name="email" required="" value="<?php if(!empty($_POST['email'])) { echo $_POST['email']; } ?>">
+          <span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; }?></span>
           <label>Email</label>
         </div>
         <div class="w50">
