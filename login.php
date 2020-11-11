@@ -28,6 +28,7 @@ if (!empty($_POST['submitted'])) {
                     'age' => $user['age'],
                     'email' => $user['email'],
                     'civilite' => $user['civilite'],
+                    'role' => $user['role'],
                     'ip' => $_SERVER['REMOTE_ADDR']
                 );
                 $success = true;

@@ -12,14 +12,32 @@ include('inc/header-front.php');
 </script>
 <!-- Non connecté -->
 <?php if(empty($_SESSION) ) : ?>
-    die('error 404');
+    
 <?php endif; ?>
 
 <!-- Connecté -->
 <?php if(!empty($_SESSION)) : ?>
 
   <section>
-    <p>bonjour <?php echo $_SESSION['user']['prenom']; ?></p>
+    
+    <form action="addvaccin.php" method="post">
+    
+      <select name="vaccin" id="vaccin">
+        <option value="">--Vaccin--</option>
+        <?php 
+          $sql = "SELECT * FROM vl_vaccins";
+          $query = $pdo->prepare($sql);
+          $query->execute();
+          $vaccins = $query->fetchAll();
+
+          foreach ($vaccins as $vaccin) {
+            echo '<option value="'.$vaccin['nom'].'">'.$vaccin['nom'].'</option>';
+        }
+        ?>
+
+      </select>
+
+    </form>
     
   </section>
 
