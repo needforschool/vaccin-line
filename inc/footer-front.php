@@ -1,5 +1,5 @@
 </div><!-- .container -->
-<<<<<<< HEAD
+
 
     <footer class="footer">
         <div wrap="wrap-footer">
