@@ -20,6 +20,8 @@
     <!-- Custom styles for this template-->
     <link href="asset/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <link rel="icon" type="image/svg+xml" href="hand-holding-medical-solid.svg">
+
 </head>
 
 <body id="page-top">
