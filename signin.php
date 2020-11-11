@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('inc/pdo.php');
 include('inc/function.php');
 $title = 'Inscription';
@@ -111,8 +112,26 @@ if (!empty($_POST['submitted'])) {
         $query->bindValue(':age',$age,PDO::PARAM_STR);
         $query->execute();
 
+        $sql = "SELECT * FROM vl_users WHERE email = :email";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':email',$email,PDO::PARAM_STR);
+        $query->execute();
+        $user = $query->fetch();
+
+        $_SESSION['user'] = array(
+            'id' => $user['id'],
+            'nom' => $user['nom'],
+            'prenom' => $user['prenom'],
+            'date_naissance' => $user['date_naissance'],
+            'age' => $user['age'],
+            'email' => $user['email'],
+            'civilite' => $user['civilite'],
+            'role' => $user['role'],
+            'ip' => $_SERVER['REMOTE_ADDR']
+        );
+        header('Location: index.php');
+        die();
     }
-    
 }
 
 
