@@ -7,7 +7,7 @@ $title = 'Home';
 // debug($_SESSION);
 
 
-debug($_SESSION);
+// debug($_SESSION);
 
 
 include('inc/header-front.php');

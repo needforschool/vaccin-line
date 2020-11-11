@@ -17,12 +17,12 @@ if (!empty($_POST['submitted'])) {
 
     //Verif civilité
     if(!empty($civilite)) {
-        
+
     } else {
         $errors['civilite'] = 'Veuillez renseignez ce champ';
     }
-   
-    // Verif nom 
+
+    // Verif nom
     if(!empty($nom)) {
         if(mb_strlen($nom) < 2) {
             $errors['nom'] = 'Veuillez entrer un nom valide (2 caracteres minimum)';
@@ -47,14 +47,14 @@ if (!empty($_POST['submitted'])) {
             $an = explode('-', $date_naissance);
             $age = ($am - $an[0]);
 
-            $date_naissance = date("d-m-Y", strtotime($date_naissance)); 
+            $date_naissance = date("d-m-Y", strtotime($date_naissance));
 
             echo $date_naissance;
         }
     } else {
         $errors['date_naissance'] = 'Veuillez renseignez ce champ';
     }
-    // Verif E-mail 
+    // Verif E-mail
     if (!empty($email)) {
         if(mb_strlen($email) < 5 ) {
             $errors['email'] = 'Veuillez entrer un email valide (plus de 5 caractéres)';
@@ -72,7 +72,7 @@ if (!empty($_POST['submitted'])) {
     } else {
         $errors['email'] = 'Veuillez renseignez ce champ';
     }
-    // Verif MDP et Hashash 
+    // Verif MDP et Hashash
     if (!empty($password1)) {
         if(mb_strlen($password1) < 8) {
             $errors['password1'] = 'Votre mot de passe doit faire 8 caractere minimum';
@@ -135,39 +135,53 @@ if (!empty($_POST['submitted'])) {
 }
 
 
- 
+
 include('inc/header-front.php');
 
 ?>
-<form action="signin.php" method="post" class="formulaire">
+<section>
+  <div class="wrap-section-inscription-1">
+    <div class="wrap-section-inscription-2">
+      <h2>Inscription</h2>
+      <form action="signin.php" method="post" class="formulaire">
+        <div class="w50">
+          <select name="civilite" id="civilite" >
+            <option value="">--Civilité--</option>
+            <option value="monsieur">Monsieur</option>
+            <option value="madame">Madame</option>
+          </select>
+          <span class="error"><?php if(!empty($errors['civilite'])) { echo $errors['civilite']; } ?></span>
+        </div>
+        <div class="w50">
+          <input type="text" name="nom" placeholder="Nom" value="<?php if(!empty($_POST['nom'])) { echo $_POST['nom']; } ?>">
+          <span class="error"><?php if(!empty($errors['nom'])) { echo $errors['nom']; } ?></span>
+        </div>
+        <div class="w50">
+          <input type="text" name="prenom" placeholder="Prénom" value="<?php if(!empty($_POST['prenom'])) { echo $_POST['prenom']; } ?>">
+          <span class="error"><?php if(!empty($errors['prenom'])) { echo $errors['prenom']; } ?></span>
+        </div>
+        <div class="w50">
+          <input type="date" name="date_naissance" placeholder="date_naissance" value="<?php if(!empty($_POST['date_naissance'])) { echo $_POST['date_naissance']; } ?>">
+          <span class="error"><?php if(!empty($errors['date_naissance'])) { echo $errors['date_naissance']; } ?></span>
+        </div>
+        <div class="w50">
+          <input type="text" name="email" placeholder="E-mail" value="<?php if(!empty($_POST['email'])) { echo $_POST['email']; } ?>">
+          <span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; } ?></span>
+        </div>
+        <div class="w50">
+          <input type="password" name="password1" placeholder="Mot de passe" value="<?php if(!empty($_POST['password1'])) { echo $_POST['password1']; } ?>">
+          <span class="error"><?php if(!empty($errors['password1'])) { echo $errors['password1']; } ?></span>
+        </div>
+        <div class="w50">
+          <input type="password" name="password2" placeholder="Confirmation" value="<?php if(!empty($_POST['password2'])) { echo $_POST['password2']; } ?>">
+        </div>
+        <div class="w50">
+          <input type="submit" name="submitted" value="Envoyer">
+        </div>
+      </form>
 
-<select name="civilite" id="civilite" >
-    <option value="">--Civilité--</option>
-    <option value="monsieur">Monsieur</option>
-    <option value="madame">Madame</option>
-</select>
-<span class="error"><?php if(!empty($errors['civilite'])) { echo $errors['civilite']; } ?></span>
-
-<input type="text" name="nom" placeholder="Nom" value="<?php if(!empty($_POST['nom'])) { echo $_POST['nom']; } ?>">
-<span class="error"><?php if(!empty($errors['nom'])) { echo $errors['nom']; } ?></span>
-
-<input type="text" name="prenom" placeholder="Prenom" value="<?php if(!empty($_POST['prenom'])) { echo $_POST['prenom']; } ?>">
-<span class="error"><?php if(!empty($errors['prenom'])) { echo $errors['prenom']; } ?></span>
-
-<input type="date" name="date_naissance" placeholder="date_naissance" value="<?php if(!empty($_POST['date_naissance'])) { echo $_POST['date_naissance']; } ?>">
-<span class="error"><?php if(!empty($errors['date_naissance'])) { echo $errors['date_naissance']; } ?></span>
-
-<input type="text" name="email" placeholder="E-mail" value="<?php if(!empty($_POST['email'])) { echo $_POST['email']; } ?>">
-<span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; } ?></span>
-
-<input type="password" name="password1" placeholder="Mot de passe" value="<?php if(!empty($_POST['password1'])) { echo $_POST['password1']; } ?>">
-<span class="error"><?php if(!empty($errors['password1'])) { echo $errors['password1']; } ?></span>
-
-<input type="password" name="password2" placeholder="Confirmation" value="<?php if(!empty($_POST['password2'])) { echo $_POST['password2']; } ?>">
-
-<input type="submit" name="submitted" value="Envoyer">
-
-</form>
-
+    </div>
+  </div>
+</section>
 <?php
 include('inc/footer-front.php');
