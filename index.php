@@ -1,9 +1,17 @@
 <?php
+session_start();
 include('inc/pdo.php');
 include('inc/function.php');
 $title = 'Home';
+debug($_SESSION);
 
-include('inc/header-front.php');?>
+include('inc/header-front.php');
+
+?>
+
+</script>
+<!-- Non connecté -->
+<?php if(empty($_SESSION) ) : ?>
 <section>
   <div class="wrap-section">
     <div class="bigbox">
@@ -13,31 +21,39 @@ include('inc/header-front.php');?>
         <a href="#">book a visit</a>
       </div>
       <div class="button">
-
-      <div class="effect">
-        <!-- effect btn -->
-        <a href="#"  class="btn_inscription">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          inscription
-        </a>
+        <div class="effect">
+          <!-- effect btn -->
+          <a href="#"  class="btn_inscription">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            inscription
+          </a>
+        </div>
+        <div class="effect">
+          <!-- effect btn -->
+          <a href="#"  class="btn_connexion">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            connexion
+          </a>
+        </div>
       </div>
-      <div class="effect">
-        <!-- effect btn -->
-        <a href="#"  class="btn_connexion">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          connexion
-        </a>
-      </div>
-    </div>
     </div>
   </div>
 </section>
+<?php endif; ?>
 
+<!-- Connecté -->
+<?php if(!empty($_SESSION)) : ?>
 
+  <section>
+    <p>bonjour <?php echo $_SESSION['user']['prenom']; ?></p>
+    
+  </section>
+
+<?php endif; ?>
 <?php include('inc/footer-front.php');
