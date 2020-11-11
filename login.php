@@ -55,14 +55,26 @@ if (!empty($_POST['submitted'])) {
 
 ?>
 
-
-
-<form action="login.php" method="post">
-
-<input type="email" name="email" placeholder="Email" value="<?php if(!empty($_POST['email'])) { echo $_POST['email']; } ?>">
-<input type="password" name="password" placeholder="Mot de passe">
-<span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; }?></span>
-
-<input type="submit" name="submitted" value="Connexion">
-
-</form>
+<section>
+  <div class="wrap-section-connexion-1">
+    <div class="wrap-section-connexion-2">
+      <h2>connexion</h2>
+      <form action="login.php" method="post">
+        <div class="w50">
+          <input type="email" name="email" required="" value="<?php if(!empty($_POST['email'])) { echo $_POST['email']; } ?>">
+          <label>Email</label>
+        </div>
+        <div class="w50">
+          <input type="password" name="password" required="">
+          <span class="error"><?php if(!empty($errors['password'])) { echo $errors['password']; }?></span>
+          <label>Mot de passe</label>
+        </div>
+        <div class="w50">
+          <input type="submit" name="submitted" value="Login">
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<?php
+include('inc/footer-front.php');
