@@ -72,6 +72,13 @@ body {
 a {
 	text-decoration: none;
 }
+::-webkit-scrollbar {width:9px;}
+::-webkit-scrollbar-thumb {
+	border-radius: 30px;
+	background: #3c40c6;
+	box-shadow: inset 2px 2px 2px rgba(255,255,255,0.25), inset -2px -2px -2px
+							rgba(0,0,0,0.25);
+}
 
 /* HEADER */
 
@@ -118,9 +125,9 @@ ul.navbar li a::after {
 	position: relative;
 	width: 100%;
 	height: 3px;
-	background: #0fbcf9;
+	background: #1dd1a1;
 	transform: scale(0);
-	transition: transform 0.2s ease-in-out;
+	transition: transform 0.3s ease-in-out;
 }
 ul.navbar li:hover a::after {
 	transform: scale(1);
@@ -152,7 +159,6 @@ ul.navbar li:hover a::after {
  	box-shadow: 20px 20px rgba(0,0,0,.15);
  	transition: all .4s ease;
 }
-
 .stats:hover{
 	border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
   box-shadow: 10px 10px rgba(0,0,0,.25);
@@ -166,16 +172,14 @@ ul.navbar li:hover a::after {
 .stats p {
 	font-size: 1.5em;
 	color: #575fcf;
-	opacity: 0.5;
 	margin-bottom: 40px;
+	opacity: 0.9;
+	line-height: 1.2;
 }
-.stats a {
-	font-size: 1.5em;
-	color: #575fcf;
-	opacity: 0.7
-}
-.stats a:hover {
-	color: #0fbcf9;
+.stats strong {
+	font-weight: 900;
+	text-transform: uppercase;
+	opacity: 1;
 }
 .bigbox2 {
 	display: flex;
@@ -209,16 +213,44 @@ ul.navbar li:hover a::after {
 .stats2 p {
 	font-size: 1.5em;
 	color: #575fcf;
-	opacity: 0.5;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
+	opacity: 0.9;
+	line-height: 1.2;
 }
-.stats2 a {
+.bigbox3 {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: url(../img/fond.jpg) no-repeat center fixed;
+	margin-top: 100px;
+	padding: 30px;
+}
+.stats3 {
+	width: 50%;
+	height: auto;
+	background-color: #fff;
+	font-family:  'Comfortaa', cursive;
+	padding: 30px;
+	border-radius: 10px;
+ 	box-shadow: 20px 20px rgba(0,0,0,.15);
+ 	transition: all .4s ease;
+}
+.stats3:hover{
+	border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+  box-shadow: 10px 10px rgba(0,0,0,.25);
+}
+.stats3 h1 {
+	font-size: 3em;
+	color: #575fcf;
+	margin-bottom: 30px;
+	font-family: 'Bebas Neue', cursive;
+}
+.stats3 p {
 	font-size: 1.5em;
 	color: #575fcf;
-	opacity: 0.7
-}
-.stats2 a:hover {
-	color: #0fbcf9;
+	margin-bottom: 40px;
+	opacity: 0.9;
+	line-height: 1.2;
 }
 .button {
 	width: 50%;
@@ -379,10 +411,11 @@ a:hover.btn_connexion span:nth-child(4) {
 	width: 100%;
 	height: 700px;
 	margin: 0 auto;
+	background: url(../img/famille.png) no-repeat center;
 }
 .wrap-section-inscription-2 {
 	position: absolute;
-	top: 80%;
+	top: 70%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 900px;
@@ -519,17 +552,17 @@ input[type=submit]:hover {
  	width: 100%;
  	height: 700px;
  	margin: 0 auto;
+	background: url(../img/picouze.jpg) no-repeat center;
  }
  .wrap-section-connexion-2 {
  	position: absolute;
- 	top: 80%;
+ 	top: 70%;
  	left: 50%;
  	transform: translate(-50%, -50%);
- 	width: 400px;
+ 	width: 450px;
  	padding: 40px;
  	background: rgba(0,0,0,.8);
  	box-sizing: border-box;
- 	box-shadow: 0 15px 25px rgba(0,0,0,.5);
  	border-radius: 10px;
  	box-shadow: 15px 15px rgba(0,0,0,.15);
  }
@@ -635,7 +668,6 @@ footer {
 	color: #fff;
 	opacity: 0.7
 }
-
 .column-title {
 	margin-bottom: 10px;
 }
@@ -671,14 +703,13 @@ footer {
 	color: #fff;
 }
 .column3 a:hover {
-	color: #0fbcf9;
+	color: #1dd1a1;
 	transition: 0.3s;
 }
 .creator {
 	display: flex;
 	align-items: center;
 }
-
 .creator li a{
 	margin-left: 5px;
 }
@@ -694,7 +725,6 @@ footer {
 	font-family:  'Bebas Neue', cursive;
 	font-size: 1em;
 }
-
 .BB {
 	display: flex;
 	flex-direction: row;
