@@ -6,5 +6,7 @@
             "email": "lamy.valentin76770@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "jasongrimes/paginator": "~1.0"
+    }
 }
