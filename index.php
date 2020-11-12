@@ -3,7 +3,7 @@ session_start();
 include('inc/pdo.php');
 include('inc/function.php');
 $title = 'Home';
-$id = $_SESSION['user']['id'];
+// $id = $_SESSION['user']['id'];
 // debug($_SESSION);
 // debug($_SESSION);
 
@@ -52,11 +52,11 @@ include('inc/header-front.php');
 
 <!-- Connecté -->
 <?php if(!empty($_SESSION)) : ?>
- 
+
   <section>
   <div class="wrap">
     <div class="BB">
-      <?php 
+      <?php
         // RECUPERATION ID VACCIN
         $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ";
         $query = $pdo->prepare($sql);
@@ -78,7 +78,7 @@ include('inc/header-front.php');
           $incre += 1;
         }
         $incre = 1;
-        // AFFICHAGE VACCINS 
+        // AFFICHAGE VACCINS
         foreach ($vaccinsinfos as $vaccininfo) {
           echo '<div class="MB MB'. $incre .'">';
             echo '<p>'. $vaccininfo['nom'] . '</p>';
