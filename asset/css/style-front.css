@@ -143,14 +143,15 @@ section {
 }
 .stats {
 	width: 50%;
-	height: 500px;
+	height: auto;
 	background-color: #fff;
-	font-family:  'Bebas Neue', cursive;
+	font-family:  'Comfortaa', cursive;
 	padding: 30px;
 	border-radius: 10px;
  	box-shadow: 20px 20px rgba(0,0,0,.15);
  	transition: all .4s ease;
 }
+
 .stats:hover{
 	border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
   box-shadow: 10px 10px rgba(0,0,0,.25);
@@ -159,6 +160,7 @@ section {
 	font-size: 3em;
 	color: #575fcf;
 	margin-bottom: 30px;
+	font-family: 'Bebas Neue', cursive;
 }
 .stats p {
 	font-size: 1.5em;
@@ -183,9 +185,9 @@ section {
 }
 .stats2 {
 	width: 50%;
-	height: 500px;
+	height: auto;
 	background-color: #fff;
-	font-family:  'Bebas Neue', cursive;
+	font-family:  'Comfortaa', cursive;
 	padding: 30px;
 	border-radius: 10px;
  	box-shadow: 20px 20px rgba(0,0,0,.15);
@@ -200,6 +202,7 @@ section {
 	font-size: 3em;
 	color: #575fcf;
 	margin-bottom: 30px;
+	font-family: 'Bebas Neue', cursive;
 }
 .stats2 p {
 	font-size: 1.5em;
@@ -412,7 +415,7 @@ form {
   color: #fff;
   border: none;
 	font-family:  'Bebas Neue', cursive;
-  font-size: 1.2vw;
+  font-size: 1.2em;
   padding-left: 20px;
   margin-bottom: 5px;
   border-radius: 4px;
@@ -427,8 +430,8 @@ input[type=text] {
   background-color: #575fcf;
   color: #fff;
   border: none;
-	font-family:  'Bebas Neue', cursive;
-  font-size: 1.2vw;
+	font-family:  'Comfortaa', cursive;
+  font-size: 1.2em;
   padding-left: 20px;
   margin-bottom: 5px;
   border-radius: 4px;
@@ -439,8 +442,8 @@ input[type=email] {
   background-color: #575fcf;
   color: #fff;
   border: none;
-	font-family:  'Bebas Neue', cursive;
-  font-size: 1.2vw;
+	font-family:  'Comfortaa', cursive;
+  font-size: 1.2em;
   padding-left: 20px;
   margin-bottom: 5px;
   border-radius: 4px;
@@ -452,7 +455,7 @@ input[type=date] {
   color: #fff;
   border: none;
 	font-family:  'Bebas Neue', cursive;
-  font-size: 1.2vw;
+  font-size: 1.2em;
   padding-left: 20px;
   margin-bottom: 5px;
   border-radius: 4px;
@@ -464,7 +467,7 @@ input[type=time] {
   color: #fff;
   border: none;
 	font-family:  'Bebas Neue', cursive;
-  font-size: 1.2vw;
+  font-size: 1.2em;
   padding-left: 20px;
   margin-bottom: 5px;
   border-radius: 4px;
@@ -476,7 +479,7 @@ input[type=password]{
   color: #fff;
   border: none;
 	font-family:  'Bebas Neue', cursive;
-  font-size: 1.2vw;
+  font-size: 1.2em;
   padding-left: 20px;
   margin-bottom: 5px;
   border-radius: 4px;
@@ -488,7 +491,7 @@ input[type=submit] {
   color: #575fcf;
   border: solid 1px #fff;
 	font-family:  'Bebas Neue', cursive;
-  font-size: 1.2vw;
+  font-size: 1.2em;
 	text-transform: uppercase;
   padding-left: 20px;
   margin-bottom: 5px;
@@ -531,7 +534,7 @@ input[type=submit]:hover {
  	color: #fff;
  	text-align: center;
  	border: none;
- 	font-size: 2.5vw;
+ 	font-size: 2.5em;
 	font-family:  'Bebas Neue', cursive;
  }
  .wrap-section-connexion-2 .w50 {
@@ -574,7 +577,7 @@ input[type=submit]:hover {
 	color: #575fcf;
 	border: solid 1px #fff;
 	font-family:  'Bebas Neue', cursive;
-	font-size: 1.2vw;
+	font-size: 1.2em;
 	text-transform: uppercase;
 	padding-left: 20px;
 	margin-bottom: 5px;
@@ -646,9 +649,12 @@ footer {
 	padding: 20px;
 	color: #fff;
 }
+.column3 a {
+	color: #fff;
+}
 .column3 a:hover {
 	color: #0fbcf9;
-	transition: 0.2s;
+	transition: 0.3s;
 }
 .creator {
 	display: flex;
