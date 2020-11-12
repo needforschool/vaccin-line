@@ -9,6 +9,11 @@ if (!est_connecte()) {
   }
 $title = 'Manage user';
 
+$sql = "SELECT * FROM vl_contacts WHERE status = 1 AND lu = 'non'";
+$query = $pdo->prepare($sql);
+$query->execute();
+$contacts = $query->fetchAll();
+
 $sql = "SELECT * FROM vl_users WHERE status = 1";
 $query = $pdo->prepare($sql);
 $query->execute();
@@ -35,7 +40,7 @@ include('inc/header-back.php');
                 <div class="card-body">
                   <p>Date de naissance : <?php echo ucfirst($user['date_naissance']); ?></p>
                   <p>Civilité : <?php echo ucfirst($user['civilite']); ?></p>
-                  <a href="single.php?id=<?php echo $user['id'] ?>" class="btn btn-info btn-circle">
+                  <a href="single-user.php?id=<?php echo $user['id'] ?>" class="btn btn-info btn-circle">
                       <i class="fas fa-info-circle"></i>
                   </a>
                   <!-- <a  href="#" data-href="delete.php?id=23" data-toggle="modal" data-target="#confirm-delete" class="btn btn-danger btn-circle">
