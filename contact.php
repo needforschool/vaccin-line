@@ -3,7 +3,6 @@ session_start();
 include('inc/pdo.php');
 include('inc/function.php');
 $title = 'Home';
-// debug($_SESSION);
 $succes = false;
 
 include('inc/header-front.php');
@@ -111,6 +110,7 @@ if (!empty($_POST['submitted'])) {
     <?php endif; ?>
     <?php if($succes == true) : ?>
         <p>Merci, Votre message a bien etait pris en compte</p>
+        <a href="index.php">Retour a mon carnet</a>
     <?php endif; ?>
 <?php endif; ?>
 <?php include('inc/footer-front.php');

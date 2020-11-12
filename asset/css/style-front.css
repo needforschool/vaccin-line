@@ -803,6 +803,7 @@ footer {
 	font-family:  'Bebas Neue', cursive;
 	font-size: 1em;
 }
+/* big box et mini box affichage flex vaccin front*/
 .BB {
 	display: flex;
 	flex-direction: row;
@@ -812,3 +813,18 @@ footer {
 .MB {
 	width: 25%;
 }
+.BB1 {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.BB2 {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.MB {
+	width: 25%;
+}
+/* FIN big box et mini box affichage flex vaccin front*/
