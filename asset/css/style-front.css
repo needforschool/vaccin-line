@@ -147,7 +147,7 @@ ul.navbar li:hover a::after {
 	justify-content: space-between;
 	background: url(../img/fond.jpg) no-repeat center fixed;
 	padding: 30px;
-	margin-top: 150px;
+	margin-top: 130px;
 }
 .stats {
 	width: 50%;
