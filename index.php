@@ -89,10 +89,10 @@ include('inc/header-front.php');
           $incre += 1;
         }
         $incre = 1;
+        debug($vaccinsinfos);
         // AFFICHAGE VACCINS
         foreach ($vaccinsinfos as $vaccininfo) {
           echo '<div class="MB MB'. $incre .'">';
-            echo '<p>'. $vaccininfo['nom'] . '</p>';
             echo '<p>'. $vaccininfo['maladie'] . '</p>';
             echo '<p>'. $vaccininfo['descriptif'] . '</p>';
             echo '<p>'. $vaccininfo['renouveler_le'] . '</p>';

@@ -30,6 +30,7 @@
                 <li><a href="logout.php">déconnexion</a></li>
               <?php endif; ?>
                 <li><a href="admin/index.php">admin</a></li>
+                <li><a href="contact.php">Contact</a></li>
             </ul>
           </nav>
         </div>
