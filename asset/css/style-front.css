@@ -628,7 +628,20 @@ input[type=submit]:hover {
 	background-color: #575fcf;
 	color: #fff;
 }
+/* CONTACT */
 
+.w50 textarea {
+	resize: none;
+	background-color: #575fcf;
+  	border: none;
+	font-family:  'Bebas Neue', cursive;
+	font-size: 1.2em;
+	border-radius: 5px;
+}
+textarea::placeholder {
+	color: #fff;
+	  font-family:  'Bebas Neue', cursive;
+  } 
 /* FOOTER */
 
 .wrap-footer {
