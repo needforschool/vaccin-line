@@ -61,7 +61,7 @@ include('inc/header-back.php');
           <tr>
             <th><?php echo ucfirst($vaccin['maladie']); ?></th>
             <th><?php echo ucfirst($vaccin['descriptif']); ?></th>
-            <th><?php echo ucfirst($vaccin['dangerosité']); ?></th>
+            <th <?php if($vaccin['dangerosité'] == 'mortelle'){ echo 'class="text-danger"' ;}elseif($vaccin['dangerosité'] == 'modéré'){echo 'class="text-warning"' ;}elseif($vaccin['dangerosité'] == 'benin'){echo 'class="text-success"' ;} ?> ><?php echo ucfirst($vaccin['dangerosité']); ?></th>
             <th><?php echo ucfirst($vaccin['obligatoire']); ?></th>
           </tr>
           <?php endforeach ?>
