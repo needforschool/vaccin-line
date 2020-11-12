@@ -58,7 +58,20 @@ if (!empty($_POST['submitted'])) {
 }
 
 ?>
-
+<form action="contact.php" method="post">
+    <div class="w50">
+        <input type="email" name="email" require=""value="" placeholder="Votre email">
+    </div>
+    <div class="w50">
+        <input type="text" name="objet" require=""value="" placeholder="Objet">
+    </div>
+    <div class="w50">
+        <textarea name="message" id="" cols="50" rows="8" placeholder="Votre message..."></textarea>
+    </div>
+    <div class="w50">
+          <input type="submit" name="submitted" value="Envoyer">
+        </div>
+</form>
 
 <!-- Non connecté -->
 <?php if(empty($_SESSION) ) : ?>

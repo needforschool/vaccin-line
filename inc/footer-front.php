@@ -11,7 +11,7 @@
         <a href="#"><i class="fab fa-twitter-square"></i></a>
       </div>
       <div class="column3">
-        <h3 class="column-title">Contactez-nous :</h3>
+        <h3 class="column-title">Contactez-nous :  <a href="contact.php"> <i class="fas fa-envelope"></i></a></h3>
         <a href="#">main road, building name, country</a>
         <a href="#">info@company.com</a>
       </div>

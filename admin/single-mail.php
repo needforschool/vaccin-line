@@ -17,7 +17,10 @@ if (!empty($_GET['id']) && is_numeric($_GET['id'])){
   $query->execute();
   $mail = $query->fetch();
 
-  $mail['lu'] = 'non';
+  $sql = "UPDATE vl_contacts SET lu = 'oui' WHERE ID = :id";
+  $query = $pdo->prepare($sql);
+  $query -> bindValue(':id', $id, PDO::PARAM_INT);
+  $query->execute();
 
   $sql = "SELECT * FROM vl_users WHERE email = :email";
   $query = $pdo->prepare($sql);
