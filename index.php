@@ -3,10 +3,8 @@ session_start();
 include('inc/pdo.php');
 include('inc/function.php');
 $title = 'Home';
-
 // debug($_SESSION);
 // debug($_SESSION);
-
 
 include('inc/header-front.php');
 
@@ -21,29 +19,40 @@ include('inc/header-front.php');
       <div class="stats">
         <h1>the science of <br>feeling better</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <a href="#">book a visit</a>
       </div>
-      <div class="button">
-        <div class="effect">
-          <!-- effect btn -->
-          <a href="#"  class="btn_inscription">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            inscription
-          </a>
-        </div>
-        <div class="effect">
-          <!-- effect btn -->
-          <a href="#"  class="btn_connexion">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            connexion
-          </a>
-        </div>
+      <div class="img-stats">
+        <img src="asset/img/vaccination.jpg" alt="">
+      </div>
+    </div>
+    <div class="bigbox2">
+      <div class="stats2">
+        <h1>the science of <br>feeling better</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="img-stats">
+        <img src="asset/img/medical.jpg" alt="">
+      </div>
+    </div>
+    <div class="button">
+      <div class="effect">
+        <!-- effect btn -->
+        <a href="signin.php"  class="btn_inscription">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          inscription
+        </a>
+      </div>
+      <div class="effect">
+        <!-- effect btn -->
+        <a href="login.php"  class="btn_connexion">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          connexion
+        </a>
       </div>
     </div>
   </div>
@@ -52,12 +61,13 @@ include('inc/header-front.php');
 
 <!-- Connecté -->
 <?php if(!empty($_SESSION)) : ?>
- 
+
   <section>
   <div class="wrap">
     <div class="BB">
       <?php 
         $id = $_SESSION['user']['id'];
+
         // RECUPERATION ID VACCIN
         $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ";
         $query = $pdo->prepare($sql);
@@ -79,7 +89,7 @@ include('inc/header-front.php');
           $incre += 1;
         }
         $incre = 1;
-        // AFFICHAGE VACCINS 
+        // AFFICHAGE VACCINS
         foreach ($vaccinsinfos as $vaccininfo) {
           echo '<div class="MB MB'. $incre .'">';
             echo '<p>'. $vaccininfo['nom'] . '</p>';

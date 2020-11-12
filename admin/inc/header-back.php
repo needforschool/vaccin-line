@@ -52,11 +52,11 @@
 
                 <a class="nav-link" href="manage-user.php">
                     <i class="fas fa-user-md"></i>
-                    <span>Manage User</span></a>
+                    <span>Gestion utilisateur</span></a>
 
                 <a class="nav-link" href="manage-vaccin.php">
                     <i class="fas fa-syringe"></i>
-                    <span>Manage Vaccin</span></a>
+                    <span>Gestion vaccin</span></a>
             </li>
 
             <!-- Divider -->
@@ -144,62 +144,40 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
                                 <!-- Counter - Messages -->
-                                <span class="badge badge-danger badge-counter">7</span>
+                                  <?php if (TotalNonLu($contacts) > 0 ): ?>
+                                    <span class="badge badge-danger badge-counter"><?php echo TotalNonLu($contacts) ?></span>
+                                  <?php endif; ?>
                             </a>
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
-                                    Message Center
+                                  <?php if (TotalNonLu($contacts) > 0 ): ?>
+                                    <?php echo TotalNonLu($contacts) ?>
+                                  <?php else: ?>
+                                    0
+                                  <?php endif; ?>  Mail<?php if((TotalNonLu($contacts) > 1)) {echo 's';} ?> non lu
                                 </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="asset/img/undraw_profile_1.svg"
+
+                                <?php if (TotalNonLu($contacts) > 0 ): ?>
+                                    <?php for($i = 0; $i < numberMail(TotalNonLu($contacts)); $i++){ ?>
+                                      <?php if ($contacts[$i]['lu'] == 'non'): ?>
+                                        <a class="dropdown-item d-flex align-items-center" href="#">
+                                          <div class="dropdown-list-image mr-3">
+                                            <img class="rounded-circle" src="asset/img/undraw_profile_1.svg"
                                             alt="">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                            problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="asset/img/undraw_profile_2.svg"
-                                            alt="">
-                                        <div class="status-indicator"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">I have the photos that you ordered last month, how
-                                            would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun · 1d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="asset/img/undraw_profile_3.svg"
-                                            alt="">
-                                        <div class="status-indicator bg-warning"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with
-                                            the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                            alt="">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                    </div>
-                                </a>
+                                            <div class="status-indicator bg-success"></div>
+                                          </div>
+                                          <div class="font-weight-bold">
+                                            <div class="text-truncate"><?php echo $contacts[$i]['object'] ?></div>
+                                              <div class="small text-gray-500"><?php echo $contacts[$i]['email'] ?> · <?php echo date('d/m h:i', strtotime($contacts[$i]['created_at'])); ?></div>
+                                            </div>
+                                          </a>
+                                      <?php endif; ?>
+                                    <?php } ?>
+                                <?php else: ?>
+
+                                <?php endif; ?>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
                         </li>
@@ -211,8 +189,19 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['user']['prenom'] . ' ' . $_SESSION['user']['nom']; ?></span>
+                                <?php if ($_SESSION['user']['age'] < 25 && $_SESSION['user']['civilite'] == 'monsieur') {?>
                                 <img class="img-profile rounded-circle"
-                                    src="asset/img/undraw_profile.svg">
+                                    src="asset/img/undraw_profile_2.svg">
+                                  <?php } elseif ($_SESSION['user']['age'] > 25 && $_SESSION['user']['civilite'] == 'monsieur') {?>
+                                    <img class="img-profile rounded-circle"
+                                        src="asset/img/undraw_profile.svg">
+                                <?php  } elseif ($_SESSION['user']['age'] < 25 && $_SESSION['user']['civilite'] == 'madame') {?>
+                                  <img class="img-profile rounded-circle"
+                                      src="asset/img/undraw_profile_1.svg">
+                                  <?php }elseif ($_SESSION['user']['age'] > 25 && $_SESSION['user']['civilite'] == 'madame') {?>
+                                    <img class="img-profile rounded-circle"
+                                        src="asset/img/undraw_profile_3.svg">
+                                    <?php } ?>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -220,13 +209,13 @@
 
                                 <a class="dropdown-item" href="../index.php">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Return Home
+                                    Retour accueil
                                 </a>
                                 <div class="dropdown-divider"></div>
 
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Se deconnecter
                                 </a>
                             </div>
                         </li>
