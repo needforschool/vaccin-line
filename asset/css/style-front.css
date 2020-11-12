@@ -67,6 +67,7 @@ table {
 /* Perso */
 body {
 	overflow-x: hidden;
+	background-color: #5fb5e8;
 }
 a {
 	text-decoration: none;
@@ -132,14 +133,14 @@ ul.navbar li:hover a::after {
 	height: auto;
 	margin: 0 auto;
 }
-section {
-	background-color: #5fb5e8;
-}
+
 .bigbox {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding-top: 150px;
+	background: url(../img/fond.jpg) no-repeat center fixed;
+	padding: 30px;
+	margin-top: 150px;
 }
 .stats {
 	width: 50%;
@@ -181,7 +182,9 @@ section {
 	flex-direction: row-reverse;
 	align-items: center;
 	justify-content: space-between;
-	padding-top: 150px;
+	background: url(../img/fond.jpg) no-repeat center fixed;
+	margin-top: 100px;
+	padding: 30px;
 }
 .stats2 {
 	width: 50%;
@@ -192,7 +195,6 @@ section {
 	border-radius: 10px;
  	box-shadow: 20px 20px rgba(0,0,0,.15);
  	transition: all .4s ease;
-	margin-bottom: 50px;
 }
 .stats2:hover{
 	border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
@@ -367,6 +369,8 @@ a:hover.btn_connexion span:nth-child(4) {
 	transition-delay: 0.75s;
 }
 /* INSCRIPTION */
+
+
 .wrap-section-inscription-1 {
 	display: flex;
 	justify-content: center;
