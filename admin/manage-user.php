@@ -7,7 +7,7 @@ if (!est_connecte()) {
   } elseif ($_SESSION['user']['role'] != 'role_admin') {
   header('Location: 403.php');
   }
-$title = 'Manage user';
+$title = 'Gestion utilisateur';
 
 $sql = "SELECT * FROM vl_users WHERE status = 1";
 $query = $pdo->prepare($sql);

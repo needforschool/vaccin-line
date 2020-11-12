@@ -29,15 +29,15 @@
     <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Prêt a se deconnecter ?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-body">Selectionner "Se deconnecter" vous deconnectera de votre session</div>
         <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="../logout.php">Logout</a>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+            <a class="btn btn-primary" href="../logout.php">Se deconnecter</a>
         </div>
     </div>
     </div>
@@ -49,14 +49,14 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                Are you sure want delete this user ?
+                Voulez vous vraiment supprimer cet utilisateur ?
             </div>
             <div class="modal-body">
-                If you delete this user, you will loose all the information you have about this one
+                Si vous supprimez cet utilisateur, vous perdrez toutes les données lié à cet utilisateur
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a href="delete-user.php?id=<?php if (!empty($id)) { echo $id;} ?>" class="btn btn-danger btn-ok">Delete</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <a href="delete-user.php?id=<?php if (!empty($id)) { echo $id;} ?>" class="btn btn-danger btn-ok">Supprimer</a>
             </div>
         </div>
     </div>
