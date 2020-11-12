@@ -8,11 +8,39 @@ if (!est_connecte()) {
   header('Location: 403.php');
   }
 $title = 'Boite mail';
+$trier = 1;
 
 $sql = "SELECT * FROM vl_contacts WHERE status = 1 ORDER BY created_at DESC";
 $query = $pdo->prepare($sql);
 $query->execute();
 $contacts = $query->fetchAll();
+
+if(!empty($_POST['submitted'])) {
+  $trier = cleanXss($_POST['tri']);
+
+  if(!empty($trier) && $trier == 2) {
+    $sql = "SELECT * FROM vl_contacts WHERE status = 1 ORDER BY created_at ASC";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    $contacts = $query->fetchAll();
+  } elseif ($trier == 3) {
+      $sql = "SELECT * FROM vl_contacts WHERE status = 1 AND lu = 'oui' ORDER BY created_at DESC";
+      $query = $pdo->prepare($sql);
+      $query->execute();
+      $contacts = $query->fetchAll();
+    } elseif ($trier == 4) {
+        $sql = "SELECT * FROM vl_contacts WHERE status = 1 AND lu = 'non' ORDER BY created_at DESC";
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        $contacts = $query->fetchAll();
+      } elseif ($trier == 1) {
+          $sql = "SELECT * FROM vl_contacts WHERE status = 1 ORDER BY created_at DESC";
+          $query = $pdo->prepare($sql);
+          $query->execute();
+          $contacts = $query->fetchAll();
+        }
+}
+
 
 include('inc/header-back.php');
  ?>
@@ -35,6 +63,16 @@ include('inc/header-back.php');
         <h1 class="h3 mb-4 text-gray-800"><?php echo $title; ?></h1>
 
         <div class="card-body">
+          <form class="mb-3" action="list-mail.php" method="post">
+            <select name="tri" id="tri" class="btn btn-light">
+              <option value="" disabled selected>Trier par</option>
+              <option value="1">Le plus récent</option>
+              <option value="2">Le plus ancien</option>
+              <option value="3">Lu</option>
+              <option value="4">Non lu</option>
+            </select>
+            <input class="btn btn-outline-primary" type="submit" name="submitted" value="Trier">
+          </form>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
