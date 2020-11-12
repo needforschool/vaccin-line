@@ -8,6 +8,11 @@ if (!est_connecte()) {
   header('Location: 403.php');
   }
 
+$sql = "SELECT * FROM vl_contacts WHERE status = 1";
+$query = $pdo->prepare($sql);
+$query->execute();
+$contacts = $query->fetchAll();
+
 if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
   $id = $_GET['id'];
   $sql = "SELECT * FROM vl_users WHERE id = :id";

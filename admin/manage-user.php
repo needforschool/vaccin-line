@@ -14,6 +14,11 @@ $query = $pdo->prepare($sql);
 $query->execute();
 $users = $query->fetchAll();
 
+$sql = "SELECT * FROM vl_contacts WHERE status = 1";
+$query = $pdo->prepare($sql);
+$query->execute();
+$contacts = $query->fetchAll();
+
 include('inc/header-back.php');
  ?>
 

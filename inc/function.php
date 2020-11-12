@@ -48,6 +48,26 @@ function validationText($errors,$data,$key,$min,$max) {
     return date('m/Y', strtotime($englishTime));
   }
 
+  function TotalNonLu($contacts)
+  {
+    $a = 0;
+    foreach ($contacts as $contact) {
+      if ($contact['lu'] == 'non') {
+        ++$a;
+      }
+    }
+    return $a;
+  }
+
+  function numberMail($a)
+  {
+    if ($a < 4) {
+      return $a;
+    }else {
+      return 4;
+    }
+  }
+
 
 
 ?>
