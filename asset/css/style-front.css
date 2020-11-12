@@ -563,7 +563,7 @@ input[type=submit]:hover {
 .wrap-section-connexion-2 .w50 input:focus ~ label,
 .wrap-section-connexion-2 .w50 input:valid ~ label
 {
-	top: -18px;
+	top: -22px;
 	left: 0;
 	color: #575fcf;
 	font-size: 12px;
