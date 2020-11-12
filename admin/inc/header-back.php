@@ -57,6 +57,10 @@
                 <a class="nav-link" href="manage-vaccin.php">
                     <i class="fas fa-syringe"></i>
                     <span>Gestion vaccin</span></a>
+
+                <a class="nav-link" href="list-mail.php">
+                    <i class="fas fa-envelope"></i>
+                    <span>Boite mail</span></a>
             </li>
 
             <!-- Divider -->
@@ -178,7 +182,7 @@
                                 <?php else: ?>
 
                                 <?php endif; ?>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                                <a class="dropdown-item text-center small text-gray-500" href="list-mail.php">Read More Messages</a>
                             </div>
                         </li>
 
@@ -206,6 +210,11 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
+
+                                <a class="dropdown-item" href="list-mail.php">
+                                    <i class="fas fa-envelope fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Boite mail
+                                </a>
 
                                 <a class="dropdown-item" href="../index.php">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
