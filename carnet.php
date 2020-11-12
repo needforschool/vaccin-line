@@ -3,7 +3,7 @@ session_start();
 include('inc/pdo.php');
 include('inc/function.php');
 $title = 'Home';
-
+$id = $_SESSION['user']['id'];
 // debug($_SESSION);
 // debug($_SESSION);
 
@@ -57,7 +57,6 @@ include('inc/header-front.php');
   <div class="wrap">
     <div class="BB">
       <?php 
-        $id = $_SESSION['user']['id'];
         // RECUPERATION ID VACCIN
         $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ";
         $query = $pdo->prepare($sql);
