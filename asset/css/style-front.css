@@ -629,19 +629,97 @@ input[type=submit]:hover {
 	color: #fff;
 }
 /* CONTACT */
-
-.w50 textarea {
-	resize: none;
-	background-color: #575fcf;
-  	border: none;
-	font-family:  'Bebas Neue', cursive;
-	font-size: 1.2em;
-	border-radius: 5px;
+.wrap-section-contact-1 {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ max-width: 1440px;
+ width: 100%;
+ height: 800px;
+ margin: 0 auto;
+ background: url(../img/reunion.png) no-repeat center fixed;
 }
-textarea::placeholder {
-	color: #fff;
-	  font-family:  'Bebas Neue', cursive;
-  }
+.wrap-section-contact-2 {
+ position: absolute;
+ top: 72%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ width: 600px;
+ padding: 20px;
+ background: rgba(0,0,0,.8);
+ box-sizing: border-box;
+ border-radius: 10px;
+ 	box-shadow: 0 15px 25px rgba(0,0,0,.5);
+}
+.wrap-section-contact-2 h2 {
+ margin: 0 0 30px;
+ padding: 0;
+ color: #fff;
+ text-align: center;
+ border: none;
+ font-size: 2.5em;
+ font-family:  'Bebas Neue', cursive;
+}
+.wrap-section-contact-2 .w50 {
+ position: relative;
+ width: 100%;
+}
+.wrap-section-contact-2 .w50 input {
+ width: 100%;
+ padding: 10px 0;
+ font-size: 16px;
+ color: #fff;
+ letter-spacing: 1px;
+ margin-bottom: 30px;
+ border: none;
+ border-bottom: 1px solid #fff;
+ outline: none;
+ background: transparent;
+}
+.wrap-section-contact-2 .w50 label {
+ position: absolute;
+ top: 0;
+ left: 0;
+ padding: 10px 0;
+ font-size: 16px;
+ font-family:  'Bebas Neue', cursive;
+ color: #fff;
+ pointer-events: none;
+ transition: .5s;
+}
+.wrap-section-contact-2 .w50 input:focus ~ label,
+.wrap-section-contact-2 .w50 input:valid ~ label
+{
+ top: -22px;
+ left: 0;
+ color: #575fcf;
+ font-size: 12px;
+}
+.wrap-section-contact-2 .w50 textarea {
+	resize: none;
+	font-family:  'Comfortaa', cursive;
+	font-size: 1.1em;
+	margin-top: 30px;
+}
+.wrap-section-contact-2 .w50 input[type=submit] {
+ background-color: #fff;
+ color: #575fcf;
+ border: solid 1px #fff;
+ font-family:  'Bebas Neue', cursive;
+ font-size: 1.5em;
+ text-transform: uppercase;
+ padding-left: 15px;
+ margin-top: 20px;
+ border-radius: 4px;
+ width: 40%;
+ height: 50px;
+ cursor: pointer;
+}
+.wrap-section-contact-2 .w50 input[type=submit]:hover {
+ background-color: #575fcf;
+ color: #fff;
+}
+
 /* FOOTER */
 
 .wrap-footer {
