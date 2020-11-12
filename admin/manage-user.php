@@ -14,7 +14,7 @@ $query = $pdo->prepare($sql);
 $query->execute();
 $users = $query->fetchAll();
 
-$sql = "SELECT * FROM vl_contacts WHERE status = 1";
+$sql = "SELECT * FROM vl_contacts WHERE status = 1 AND lu = 'non'";
 $query = $pdo->prepare($sql);
 $query->execute();
 $contacts = $query->fetchAll();

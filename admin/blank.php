@@ -9,6 +9,11 @@ if (!est_connecte()) {
   }
 $title = 'Blank';
 
+$sql = "SELECT * FROM vl_contacts WHERE status = 1 AND lu = 'non'";
+$query = $pdo->prepare($sql);
+$query->execute();
+$contacts = $query->fetchAll();
+
 include('inc/header-back.php');
  ?>
 
