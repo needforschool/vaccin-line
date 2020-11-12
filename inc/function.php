@@ -43,6 +43,11 @@ function validationText($errors,$data,$key,$min,$max) {
     return $isLogged;
   }
 
+  function timeToMY($englishTime)
+  {
+    return date('m/Y', strtotime($englishTime));
+  }
+
 
 
 ?>

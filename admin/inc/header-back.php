@@ -211,8 +211,19 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['user']['prenom'] . ' ' . $_SESSION['user']['nom']; ?></span>
+                                <?php if ($_SESSION['user']['age'] < 25 && $_SESSION['user']['civilite'] == 'monsieur') {?>
                                 <img class="img-profile rounded-circle"
-                                    src="asset/img/undraw_profile.svg">
+                                    src="asset/img/undraw_profile_2.svg">
+                                  <?php } elseif ($_SESSION['user']['age'] > 25 && $_SESSION['user']['civilite'] == 'monsieur') {?>
+                                    <img class="img-profile rounded-circle"
+                                        src="asset/img/undraw_profile.svg">
+                                <?php  } elseif ($_SESSION['user']['age'] < 25 && $_SESSION['user']['civilite'] == 'madame') {?>
+                                  <img class="img-profile rounded-circle"
+                                      src="asset/img/undraw_profile_1.svg">
+                                  <?php }elseif ($_SESSION['user']['age'] > 25 && $_SESSION['user']['civilite'] == 'madame') {?>
+                                    <img class="img-profile rounded-circle"
+                                        src="asset/img/undraw_profile_3.svg">
+                                    <?php } ?>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
