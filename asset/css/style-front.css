@@ -552,7 +552,7 @@ input[type=submit]:hover {
  	width: 100%;
  	height: 700px;
  	margin: 0 auto;
-	background: url(../img/picouze.jpg) no-repeat center fixed;
+	background: url(../img/reunion.png) no-repeat center fixed;
  }
  .wrap-section-connexion-2 {
  	position: absolute;
@@ -641,7 +641,7 @@ input[type=submit]:hover {
 textarea::placeholder {
 	color: #fff;
 	  font-family:  'Bebas Neue', cursive;
-  } 
+  }
 /* FOOTER */
 
 .wrap-footer {
