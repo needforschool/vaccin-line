@@ -6,12 +6,12 @@ if (!est_connecte()) {
   header('Location: 403.php');
   } elseif ($_SESSION['user']['role'] != 'role_admin') {
   header('Location: 403.php');
-  }
+}
 
-  $sql = "SELECT * FROM vl_contacts WHERE status = 1 AND lu = 'non'";
-  $query = $pdo->prepare($sql);
-  $query->execute();
-  $contacts = $query->fetchAll();
+$sql = "SELECT * FROM vl_contacts WHERE status = 1 AND lu = 'non'";
+$query = $pdo->prepare($sql);
+$query->execute();
+$contacts = $query->fetchAll();
 
 if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
   $id = $_GET['id'];
@@ -26,11 +26,6 @@ if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
   $query -> bindValue(':id', $id, PDO::PARAM_INT);
   $query->execute();
   $userVaccin = $query->fetchAll();
-
-
-  if ($userVaccin) {
-    // code...
-  }
 
 }
 

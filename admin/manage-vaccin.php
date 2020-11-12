@@ -28,6 +28,7 @@ include('inc/header-back.php');
   <!-- Page Heading -->
   <h1 class="h3 mb-4 text-gray-800"><?php echo $title; ?></h1>
 
+<<<<<<< HEAD
   <!-- /.container-fluid -->
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
@@ -83,6 +84,46 @@ include('inc/header-back.php');
           </ul>
         </nav>
       </div>
+=======
+</div>
+<!-- /.container-fluid -->
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+      <label for="vaccin-search">Search:</label>
+    <input type="search" id="vaccin-search" name="vaccin-search">
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>maladie</th>
+            <th>descriptif</th>
+            <th>dangerosité</th>
+            <th>obligatoire</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>maladie</th>
+            <th>descriptif</th>
+            <th>dangerosité</th>
+            <th>obligatoire</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          <?php foreach ($vaccins as $vaccin): ?>
+          <tr>
+            <th><?php echo ucfirst($vaccin['maladie']); ?></th>
+            <th><?php echo ucfirst($vaccin['descriptif']); ?></th>
+            <th <?php if($vaccin['dangerosité'] == 'mortelle'){ echo 'class="text-danger"' ;}elseif($vaccin['dangerosité'] == 'modéré'){echo 'class="text-warning"' ;}elseif($vaccin['dangerosité'] == 'benin'){echo 'class="text-success"' ;} ?> ><?php echo ucfirst($vaccin['dangerosité']); ?></th>
+            <th><?php echo ucfirst($vaccin['obligatoire']); ?></th>
+          </tr>
+          <?php endforeach ?>
+        </tbody>
+>>>>>>> ff578429e706851d2d750c45a50e17e40248c0ed
     </div>
   </div>
 </div>
