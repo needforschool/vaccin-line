@@ -501,6 +501,7 @@ input[type=submit]:hover {
   background-color: #575fcf;
   color: #fff;
 }
+.error {font-size: .6em;color:red;display: flex;flex-wrap: wrap;}
  /* LOGIN */
  .wrap-section-connexion-1 {
  	display: flex;
