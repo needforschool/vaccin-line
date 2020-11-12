@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="asset/css/style-front.css">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="book-medical-solid.svg">
   <title><?php echo $title ?></title>
   <script src="https://kit.fontawesome.com/4bb9b339d3.js" crossorigin="anonymous"></script>
 </head>
