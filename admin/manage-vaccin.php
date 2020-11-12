@@ -9,6 +9,11 @@ if (!est_connecte()) {
 }
 $title = 'Gestion Vaccin';
 
+$sql = "SELECT * FROM vl_contacts WHERE status = 1";
+$query = $pdo->prepare($sql);
+$query->execute();
+$contacts = $query->fetchAll();
+
 $sql = "SELECT * FROM vl_vaccins ORDER BY id DESC";
 $query = $pdo->prepare($sql);
 $query->execute();
@@ -29,6 +34,8 @@ include('inc/header-back.php');
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+      <label for="vaccin-search">Search:</label>
+    <input type="search" id="vaccin-search" name="vaccin-search">
   </div>
   <div class="card-body">
     <div class="table-responsive">
