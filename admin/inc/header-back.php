@@ -22,9 +22,9 @@
 
     <link rel="icon" type="image/svg+xml" href="hand-holding-medical-solid.svg">
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js%22%3E"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js%22%3E"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </head>
 
