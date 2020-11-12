@@ -26,10 +26,11 @@
                 <li><a href="login.php">connexion</a></li>
               <?php endif; ?>
               <?php if(!empty($_SESSION)) : ?>
-              <li><a href="index.php">Mon Carnet</a></li>
-              <li><a href="logout.php">déconnexion</a></li>
+                <li><a href="carnet.php">Mon Carnet</a></li>
+                <li><a href="logout.php">déconnexion</a></li>
               <?php endif; ?>
-              <li><a href="admin/index.php">admin</a></li>
+                <li><a href="admin/index.php">admin</a></li>
+                <li><a href="contact.php">Contact</a></li>
             </ul>
           </nav>
         </div>
