@@ -96,9 +96,9 @@ header {
 	padding: 20px 0 20px 0;
 }
 .logo {
-	background:url(../img/header-logo.png) no-repeat;
-	width: 270px;
-	height: 65px;
+	background:url(../img/vaccin_line.png) no-repeat;
+	width: 260px;
+	height: 60px;
 }
 .nav {
 	display: flex;
