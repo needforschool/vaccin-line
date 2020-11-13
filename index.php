@@ -36,7 +36,7 @@ if(!empty($_POST['submitted'])) {
     <div class="bigbox">
       <div class="stats">
         <h1>Utiliser notre carnet ?</h1>
-        <p>Le carnet de vaccination est un carnet dans lequel sont notées toutes les vaccinations d’une personne. Ce carnet est très pratique : il vous permet de savoir quelles vaccinations vous avez reçues et si vous êtes à jour de vos vaccinations. Il vous suffit donc de vous connecter et ne pas oublier de le présenter au professionnel de santé à chaque fois que vous vous faites vacciner. Il est valable toute la vie ! Pour l’obtenir, il suffit de vous <strong>inscrire</strong>. Il est gratuit.</p>
+        <p>Le carnet de vaccination est un carnet dans lequel sont notées toutes les vaccinations d’une personne. Ce carnet est très pratique : il vous permet de savoir quelles vaccinations vous avez reçues et si vous êtes à jour de vos vaccinations. Il vous suffit donc de vous connecter et ne pas oublier de le présenter au professionnel de santé à chaque fois que vous vous faites vacciner. Il est valable toute la vie ! Pour l’obtenir, il suffit de vous <a href="signin.php"><strong>inscrire</strong></a>. Il est gratuit.</p>
       </div>
       <div class="img-stats">
         <img src="asset/img/medical.jpg" alt="">
