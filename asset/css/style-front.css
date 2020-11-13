@@ -751,7 +751,7 @@ input[type=submit]:hover {
   text-align: center;
 }
 .mentions-legales h2 {
-	margin: 10px 0 30px;
+	margin: 20px 0 30px;
 	padding: 0;
 	color: #1dd1a1;
 	text-align: center;
@@ -759,7 +759,9 @@ input[type=submit]:hover {
 	font-size: 2.5vw;
  	font-family:  'Bebas Neue', cursive;
 }
-.mentions-legales h2 {
+.mentions-legales h2:hover {
+	color: #3c40c6;
+	transition: 0.3s;
 }
 /* FOOTER */
 
