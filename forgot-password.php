@@ -55,7 +55,7 @@ include('inc/header-front.php');
 
 <!-- Mode CONNEXION  -->
 <?php if(empty($_SESSION)) : ?>
-  <section id="login">
+  <section id="resetPassword">
     <div class="wrap-section-connexion-1">
       <div class="form-login">
         <h2>mot de passe oublié ?</h2>
