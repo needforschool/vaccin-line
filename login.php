@@ -2,16 +2,15 @@
 session_start();
 include('inc/pdo.php');
 include('inc/function.php');
-$title = 'Connexion';
 
 include('inc/header-front.php');
 
 $success = false;
 $errors = array();
 
-if (!empty($_GET['submitted'])) {
-    $email = cleanXss($_GET['email']);
-    $password = cleanXss($_GET['password']);
+if (!empty($_POST['submitted'])) {
+    $email = cleanXss($_POST['email']);
+    $password = cleanXss($_POST['password']);
     if(!empty($email) && !empty($password)) {
         $sql = "SELECT * FROM vl_users WHERE email = :email";
         $query = $pdo->prepare($sql);
@@ -54,6 +53,13 @@ if (!empty($_GET['submitted'])) {
 }
 
 ?>
+
+<!-- Connecté -->
+<?php if(!empty($_SESSION)) : ?>
+
+  <?php header('Location: index.php'); ?>
+
+<?php endif; ?>
 
 <section>
   <div class="wrap-section-connexion-1">
