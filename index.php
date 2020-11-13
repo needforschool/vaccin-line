@@ -101,10 +101,10 @@ if(!empty($_POST['ajoutvaccin'])) {
 <!-- Connecté -->
 <?php if(!empty($_SESSION)) : ?>
   <!-- Formulaire ajout vaccin  -->
-  <section>
+  <section id="addvaccin">
     <div class="wrap">
       <h3>Ajouter un vaccin :</h3>
-      <form action="index.php" method="post">
+      <form action="index.php" method="post" class>
     
         <select name="vaccin" id="vaccin">
           <option value="">--VACCIN--</option>
