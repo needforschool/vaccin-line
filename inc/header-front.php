@@ -25,6 +25,7 @@
                 <li><a href="index.php">home</a></li>
                 <li><a href="signin.php">inscription</a></li>
                 <li><a href="login.php">connexion</a></li>
+                <li><a href="contact.php">contact</a></li>
               <?php endif; ?>
               <!-- Si connecter -->
               <?php if(!empty($_SESSION)) : ?>
@@ -34,7 +35,7 @@
                 <?php if($title == 'Home') : ?>
                   <li><a href="carnet.php">mon Carnet</a></li>
                 <?php endif; ?>
-                  <li><a href="contact.php">contact</a></li>
+                  
               <?php endif; ?>
                 <li><a href="admin/index.php">admin</a></li>
             </ul>
