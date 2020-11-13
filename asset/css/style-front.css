@@ -75,7 +75,7 @@ a {
 ::-webkit-scrollbar {width:9px;}
 ::-webkit-scrollbar-thumb {
 	border-radius: 30px;
-	background: #3c40c6;
+	background: #18242f;
 	box-shadow: inset 2px 2px 2px rgba(255,255,255,0.25), inset -2px -2px -2px
 							rgba(0,0,0,0.25);
 }
@@ -417,7 +417,7 @@ a:hover.btn_connexion span:nth-child(4) {
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: space-between;
-	background: url(../img/about.jpg) no-repeat center fixed;
+	background: url(../img/apropos.jpg) no-repeat center fixed;
 	padding: 30px;
 	margin-top: 70px;
 }
@@ -425,14 +425,14 @@ a:hover.btn_connexion span:nth-child(4) {
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: space-between;
-	background: url(../img/about.jpg) no-repeat center fixed;
+	background: url(../img/apropos.jpg) no-repeat center fixed;
 	padding: 30px;
 }
 .wrap-about .bigbox4 {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background: url(../img/about.jpg) no-repeat center fixed;
+	background: url(../img/apropos.jpg) no-repeat center fixed;
 	padding: 30px;
 }
 .wrap-about .bigbox-end {
@@ -440,7 +440,7 @@ a:hover.btn_connexion span:nth-child(4) {
 	flex-direction: row-reverse;
 	align-items: center;
 	justify-content: space-between;
-	background: url(../img/about.jpg) no-repeat center fixed;
+	background: url(../img/apropos.jpg) no-repeat center fixed;
 	padding: 30px;
 	margin-bottom: 50px;
 }
@@ -719,7 +719,7 @@ input[type=submit]:hover {
  margin: 0 auto;
  height: 600px;
  padding: 25px;
- background: url(../img/login.jpg) no-repeat center fixed;
+ background: url(../img/resetPassword.jpg) no-repeat center fixed;
 }
 
 /* CONTACT */
