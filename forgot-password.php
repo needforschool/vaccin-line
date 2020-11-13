@@ -35,7 +35,7 @@ if (!empty($_POST['submitted'])) {
           </div>
           <a href="login.php">Retour</a>
           <div class="w50">
-            <input type="submit" name="submitted" value="Login">
+            <input type="submit" name="submitted" value="Envoyer">
           </div>
         </form>
       </div>
