@@ -28,8 +28,13 @@
               <?php endif; ?>
               <!-- Si connecter -->
               <?php if(!empty($_SESSION)) : ?>
-                <li><a href="carnet.php">mon Carnet</a></li>
-                <li><a href="contact.php">contact</a></li>
+                <?php if($title == 'Mon carnet') : ?>
+                  <li><a href="index.php">home</a></li>
+                <?php endif; ?>
+                <?php if($title == 'Home') : ?>
+                  <li><a href="carnet.php">mon Carnet</a></li>
+                <?php endif; ?>
+                  <li><a href="contact.php">contact</a></li>
               <?php endif; ?>
                 <li><a href="admin/index.php">admin</a></li>
             </ul>
@@ -48,9 +53,11 @@
               switch ($_SESSION['user']['civilite']) { 
                 case "monsieur" : 
                   echo '<img src="asset/img/undraw_profile_2.svg" alt="" width="50px"> '; 
+                  echo 'M.';
                   break; 
                 case "madame" : 
                   echo '<img src="asset/img/undraw_profile_1.svg" alt="" width="50px">'; 
+                  echo 'Mme.';
                 break; 
               }
             } else {
@@ -58,8 +65,8 @@
             }
           echo $_SESSION['user']['nom'] . ' '. $_SESSION['user']['prenom']; 
           ?>
-          <a href="logout.php"><img src="asset/img/deconnexion.png" alt="" srcset="" width="30px"></a>
-          <a href="settings.php"><img src="asset/img/parametre.png" alt="" srcset="" width="30px"></a>
+          <a href="logout.php"><img src="asset/img/sign-out-alt-solid.svg" alt="" srcset="" width="30px"></a>
+          <a href="settings.php"><img src="asset/img/sliders-h-solid.svg" alt="" srcset="" width="30px"></a>
           <!-- <img src="asset/img/test/undraw_profile_1.svg" alt="" width="100px">
           <img src="asset/img/test/undraw_profile_2.svg" alt="" width="100px">
           <img src="asset/img/test/undraw_profile_3.svg" alt="" width="100px"> -->
