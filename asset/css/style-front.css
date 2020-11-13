@@ -735,6 +735,27 @@ input[type=submit]:hover {
 	font-family: 'Josefin Sans';
 	font-size: 0.5em;
 }
+
+/* A PROPOS */
+.mentions-legales {
+	position: absolute;
+  width: 700px;
+  padding: 40px;
+  background: rgba(0,0,0,.8);
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(0,0,0,.5);
+  color: #ccc;
+}
+.mentions-legales h2 {
+	margin: 10px 0 30px;
+	padding: 0;
+	color: #1dd1a1;
+	text-align: center;
+	border: none;
+	font-size: 2.5vw;
+ 	font-family:  'Bebas Neue', cursive;
+}
 /* FOOTER */
 
 .wrap-footer {
@@ -823,6 +844,13 @@ footer {
 	color: #fff;
 }
 .mention a:hover {
+	color: #1dd1a1;
+	transition: 0.3s;
+}
+.propos a{
+	color: #fff;
+}
+.propos a:hover {
 	color: #1dd1a1;
 	transition: 0.3s;
 }
