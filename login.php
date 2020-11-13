@@ -77,9 +77,9 @@ if (!empty($_POST['submitted'])) {
           <div class="w50">
             <input type="password" name="password" required="">
             <span class="error"><?php if(!empty($errors['password'])) { echo $errors['password']; }?></span>
-            <a href="">Mot de pass oublié</a>
             <label>Mot de passe</label>
           </div>
+          <a href="">Mot de passe oublié</a>
           <div class="w50">
             <input type="submit" name="submitted" value="Login">
           </div>
