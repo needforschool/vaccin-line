@@ -713,6 +713,15 @@ input[type=submit]:hover {
 	background-color: #575fcf;
 	color: #fff;
 }
+/* RESET PASSWORD */
+#resetPassword {
+ width: 100%;
+ margin: 0 auto;
+ height: 600px;
+ padding: 25px;
+ background: url(../img/login.jpg) no-repeat center fixed;
+}
+
 /* CONTACT */
 #contact {
   width: 100%;
