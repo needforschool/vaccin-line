@@ -27,7 +27,7 @@ $vaccins = $query->fetchAll();
 $sql = "SELECT * FROM vl_contacts";
 $query = $pdo->prepare($sql);
 $query->execute();
-$contacts = $query->fetchAll();
+$email = $query->fetchAll();
 
 $male = 0;
 $female = 0;
@@ -37,7 +37,7 @@ $seniors = 0;
 foreach ($users as $user) {
   if ($user['age'] <= 13) {
     ++$enfants;
-  } elseif ($user['age'] >= 60) {
+  } elseif ($user['age'] > 59) {
     ++$seniors;
   }
 
@@ -105,7 +105,7 @@ include('inc/header-back.php');
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo (count($contacts)) ?></div>
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo (count($email)) ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -204,7 +204,7 @@ include('inc/header-back.php');
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                     Nombre de compte senior (+60 ans)</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $seniors ?></div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-blind fa-2x text-gray-300"></i>
