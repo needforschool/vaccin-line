@@ -109,5 +109,10 @@ if(!empty($_POST['submitted'])) {
         <?php endif; ?>
         <input type="submit" name="enregistrer">
     </form>
+    <!-- Formulaire suppresion  -->
+    <form action="settings.php" method="post">
+
+        
+    </form>
 <?php endif; ?>
 <?php include('inc/footer-front.php');

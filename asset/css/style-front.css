@@ -153,7 +153,7 @@ ul.navbar li:hover a::after {
 	width: 50%;
 	height: auto;
 	background-color: #fff;
-	font-family:  'Comfortaa', cursive;
+	font-family:  'Didact Gothic', cursive;
 	padding: 30px;
 	border-radius: 10px;
  	box-shadow: 20px 20px rgba(0,0,0,.15);
@@ -194,7 +194,7 @@ ul.navbar li:hover a::after {
 	width: 50%;
 	height: auto;
 	background-color: #fff;
-	font-family:  'Comfortaa', cursive;
+	font-family:  'Didact Gothic', cursive;
 	padding: 30px;
 	border-radius: 10px;
  	box-shadow: 20px 20px rgba(0,0,0,.15);
@@ -229,7 +229,7 @@ ul.navbar li:hover a::after {
 	width: 50%;
 	height: auto;
 	background-color: #fff;
-	font-family:  'Comfortaa', cursive;
+	font-family:  'Didact Gothic', cursive;
 	padding: 30px;
 	border-radius: 10px;
  	box-shadow: 20px 20px rgba(0,0,0,.15);
@@ -731,7 +731,11 @@ input[type=submit]:hover {
  background-color: #575fcf;
  color: #fff;
 }
-
+/* MENTION */
+.role {
+	font-family: 'Josefin Sans';
+	font-size: 0.5em;
+}
 /* FOOTER */
 
 .wrap-footer {
@@ -815,6 +819,13 @@ footer {
 	justify-content: center;
 	font-family:  'Bebas Neue', cursive;
 	font-size: 1em;
+}
+.mention a{
+	color: #fff;
+}
+.mention a:hover {
+	color: #1dd1a1; 
+	transition: 0.3s;
 }
 /* big box et mini box affichage flex vaccin front*/
 .BB {
