@@ -10,6 +10,32 @@ $success = false;
 $errors = array();
 
 if (!empty($_POST['submitted'])) {
+
+  //Verification faille XSS
+  $email = cleanXss($_POST['email']);
+
+  //Verification eMail
+  if (!empty($email)) {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $errors['email'] = 'Veuillez renseigner un email valide';
+    }
+  }else {
+    $errors['email'] = 'Veuillez renseigner un email';
+  }
+
+  if (count($errors) == 0) {
+    $sql = "SELECT * FROM vl_users WHERE email = :email";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':email',$email,PDO::PARAM_STR);
+    $query->execute();
+    $user = $query->fetch();
+    if (!empty($user)) {
+      // code...
+    } else{
+      $errors ['email'] = 'l\'email de correspond pas';
+    }
+  }
+
 }
 
 ?>
@@ -27,7 +53,7 @@ if (!empty($_POST['submitted'])) {
     <div class="wrap-section-connexion-1">
       <div class="form-login">
         <h2>mot de passe oublié ?</h2>
-        <form action="login.php" method="post">
+        <form action="forgot-password.php" method="post">
           <div class="w50">
             <input type="email" name="email" required="" value="<?php if(!empty($_POST['email'])) { echo $_POST['email']; } ?>">
             <span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; }?></span>
