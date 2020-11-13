@@ -65,7 +65,7 @@ if (!empty($_POST['submitted'])) {
         <h2>Contact</h2>
         <form action="contact.php" method="post">
           <div class="w50">
-            <input type="email" name="email"<?php if (!empty($_SESSION)) { echo 'value="'. $_SESSION['user']['email'] .'"';}?> <?php if(!empty($_SESSION)) { echo 'readonly' ;} ?> >
+            <input type="email" required="" name="email"<?php if (!empty($_SESSION)) { echo 'value="'. $_SESSION['user']['email'] .'"';}?> <?php if(!empty($_SESSION)) { echo 'readonly' ;} ?> >
             <span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; }?></span>
             <label>Email</label>
           </div>
