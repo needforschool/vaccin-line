@@ -53,13 +53,15 @@ if (!empty($_POST['submitted'])) {
 
         // header('Location: contact.php');
 
+
+
     }
 }
 ?>
 <?php if($succes == false) : ?>
-  <section>
+  <section id="contact">
     <div class="wrap-section-contact-1">
-      <div class="wrap-section-contact-2">
+      <div class="form-contact">
         <h2>Contact</h2>
         <form action="contact.php" method="post">
           <div class="w50">
