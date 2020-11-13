@@ -808,17 +808,32 @@ input[type=submit]:hover {
  color: #fff;
 }
 /* MENTION */
-
+#mention {
+  width: 100%;
+	margin: 0 auto;
+  height: 1080px;
+	padding: 25px;
+	/* background: url(../img/contact.jpg) no-repeat center fixed; */
+}
+.wrap-section-mention {
+ max-width: 1440px;
+ width: 100%;
+ margin: 0 auto;
+ display: flex;
+ justify-content: center;
+}
 .mentions-legales {
 	position: absolute;
-  width: 700px;
-  padding: 40px;
-  background: rgba(0,0,0,.8);
+  width: 960px;
   box-sizing: border-box;
   border-radius: 10px;
-  box-shadow: 0 15px 25px rgba(0,0,0,.5);
+	box-shadow: 0 15px 25px rgba(0,0,0,.5);
+ 	margin-top: 20px;
+  padding: 20px;
+  background: rgba(0,0,0,.8);
+  box-sizing: border-box;
   color: #ccc;
-  text-align: center;
+  text-align: center; */
 }
 .mentions-legales h2 {
 	margin: 20px 0 30px;
@@ -832,6 +847,10 @@ input[type=submit]:hover {
 .mentions-legales h2:hover {
 	color: #3c40c6;
 	transition: 0.3s;
+}
+.mentions-legales p {
+	font-size: 1.5em;
+	font-family:  'Didact Gothic', cursive;
 }
 /* FOOTER */
 
