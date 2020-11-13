@@ -1,4 +1,5 @@
 <?php
+$title = 'Connexion';
 session_start();
 include('inc/pdo.php');
 include('inc/function.php');
@@ -63,9 +64,9 @@ if (!empty($_POST['submitted'])) {
 
 <!-- Mode CONNEXION  -->
 <?php if(empty($_SESSION)) : ?>
-  <section>
+  <section id="login">
     <div class="wrap-section-connexion-1">
-      <div class="wrap-section-connexion-2">
+      <div class="form-login">
         <h2>connexion</h2>
         <form action="login.php" method="post">
           <div class="w50">
