@@ -3,16 +3,18 @@ session_start();
 include('inc/pdo.php');
 include('inc/function.php');
 $title = 'Home';
-// debug($_SESSION);
-// debug($_SESSION);
 
 $errors = array();
 
+
+
 include('inc/header-front.php');
 
-if(!empty($_POST['submitted'])) {
+if(!empty($_POST['ajoutvaccin'])) {
   $vaccin = cleanXss($_POST['vaccin']);
   $date = cleanXss($_POST['date']);
+  $id_user = $_SESSION['user']['id'];
+  
   if(!empty($vaccin)) {
 
   } else {
@@ -22,6 +24,16 @@ if(!empty($_POST['submitted'])) {
 
   } else {
     $errors['date'] = 'Veuillez renseignez ce champ'; 
+  }
+
+  if(count($errors) == 0) {
+    $sql = "INSERT INTO vl_user_vaccin (id_user,id_vaccin,fait_le)
+    VALUES (:id_user,:vaccin,:date)";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':id_user',$id_user,PDO::PARAM_STR);
+    $query->bindValue(':vaccin',$vaccin,PDO::PARAM_STR);
+    $query->bindValue(':date',$date,PDO::PARAM_STR);
+    $query->execute();
   }
    
 }
@@ -88,114 +100,104 @@ if(!empty($_POST['submitted'])) {
 
 <!-- Connecté -->
 <?php if(!empty($_SESSION)) : ?>
-
+  <!-- Formulaire ajout vaccin  -->
   <section>
-  <div class="wrap">
-    <h3>Ajouter un vaccin :</h3>
-    <form action="index.php" method="post">
+    <div class="wrap">
+      <h3>Ajouter un vaccin :</h3>
+      <form action="index.php" method="post">
     
-      <select name="vaccin" id="vaccin">
-        <option value="">--VACCIN--</option>
-        <?php 
-          $sql = "SELECT * FROM vl_vaccins ORDER BY maladie ASC";
-          $query = $pdo->prepare($sql);
-          $query->execute();
-          $selects = $query->fetchAll();
+        <select name="vaccin" id="vaccin">
+          <option value="">--VACCIN--</option>
+          <?php 
+            $sql = "SELECT * FROM vl_vaccins ORDER BY maladie ASC";
+            $query = $pdo->prepare($sql);
+            $query->execute();
+            $selects = $query->fetchAll();
 
-          foreach($selects as $select) {
-            echo '<option value="' . $select['maladie'].'">'. $select['maladie'] . '</option>';
-          } 
-          debug($selects);
-        ?>
+            foreach($selects as $select) {
+              echo '<option value="' . $select['id'].'">'. $select['maladie'] . '</option>';
+            } 
+          ?>
       </select>
       <span class="error"><?php if(!empty($errors['vaccin'])) { echo $errors['vaccin']; }?></span>
       <input type="date" name="date">
       <span class="error"><?php if(!empty($errors['date'])) { echo $errors['date']; }?></span>
-      <input type="submit" name="submited">
+      <input type="submit" name="ajoutvaccin">
     </form>
-    <!-- RAPPEL VACCIN Vous pouvez modifier les class si vous voulez -->
-    <h1>Vos prochains rappel de vaccin :</h1>
+    <!-- RAPPEL VACCINs -->
+    <br><br><br><br><br>
+    <h1>Vos prochains rappels de vaccin :</h1>
     <br>
     <div class="BB1">
-      <?php
-        $id = $_SESSION['user']['id'];
-
-        // RECUPERATION ID VACCIN
-        $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ";
+    <?php
+      $id = $_SESSION['user']['id'];
+      // Recuperation des données de la table vl_vaccin
+        $sql = "SELECT * FROM vl_vaccins";
         $query = $pdo->prepare($sql);
         $query->execute();
-        $vaccinsid = $query->fetchAll();
-        $vaccins = array();
-        $incre = 0 ;
-        foreach ($vaccinsid as $vaccinid) {
-          $vaccins[$incre] = $vaccinid['id_vaccin'] ;
-          $incre += 1 ;
-        }
-        $incre = 0;
-        $vaccinsinfos = array();
-        // RECUPERATION INFO VACCIN VIA ID
-        foreach ($vaccins as $vaccin) {
-          $sql = "SELECT * FROM vl_vaccins WHERE id = $vaccin";
-          $query = $pdo->prepare($sql);
-          $query->execute();
-          $vaccinsinfos[$incre] = $query->fetch();
-          $incre += 1;
-        }
-        $incre = 1;
-        
-        // AFFICHAGE VACCINS
-        foreach ($vaccinsinfos as $vaccininfo) {
-          echo '<div class="MB MB'. $incre .'">';
-            echo '<p>'. $vaccininfo['maladie'] . '</p>';
-            echo '<p>'. $vaccininfo['descriptif'] . '</p>';
-            echo '<p>'. $vaccininfo['renouveler_le'] . '</p>';
-            echo '<p>'. $vaccininfo['expiration'] . '</p>';
-          echo '</div>';
-          $incre += 1;
-        }
-      ?>
-      </div>
-      <br>
-      <h1>Vos derniers vaccins :</h1>
-      <br>
-      <div class="BB2">
-
-      <?php
-        $id = $_SESSION['user']['id'];
-
-        // RECUPERATION ID VACCIN
-        $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ";
+        $vaccins = $query->fetchAll();
+        // debug($vaccins);
+      // Recuperation des données de la table vl_user_vaccin
+        $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ORDER BY fait_le ASC LIMIT 3";
         $query = $pdo->prepare($sql);
         $query->execute();
-        $vaccinsid = $query->fetchAll();
-        $vaccins = array();
-        $incre = 0 ;
-        foreach ($vaccinsid as $vaccinid) {
-          $vaccins[$incre] = $vaccinid['id_vaccin'] ;
-          $incre += 1 ;
+        $user_vaccins = $query->fetchAll();
+        // debug($user_vaccins);
+
+      // Affichage des 3 derniers vaccin
+      $incre_MB = 1;
+      $incre_fait_le = 0;
+      // debug($vaccins[1]);
+      foreach ($vaccins as $vaccin) {
+        echo '<div class="MB MB'. $incre_MB .'">';
+          echo '<p> Vaccin : '. $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie'] . '</p>';
+          echo '<p> Fait le : '. $user_vaccins[$incre_fait_le]['fait_le'] . '</p>';
+        echo '</div>';
+        $incre_MB += 1;
+        $incre_fait_le +=1;
+        if($incre_fait_le > 2) {
+          break;
         }
-        $incre = 0;
-        // RECUPERATION INFO VACCIN VIA ID
-        foreach ($vaccins as $vaccin) {
-          $sql = "SELECT * FROM vl_vaccins WHERE id = $vaccin";
-          $query = $pdo->prepare($sql);
-          $query->execute();
-          $vaccinsinfos[$incre] = $query->fetch();
-          $incre += 1;
+      }
+        ?>
+    </div>
+    <br>
+    <!-- derniers VACCINs -->
+    <h1>Vos derniers vaccins :</h1>
+    <br>
+    <div class="BB2">
+      <?php
+      $id = $_SESSION['user']['id'];
+      // Recuperation des données de la table vl_vaccin
+        $sql = "SELECT * FROM vl_vaccins";
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        $vaccins = $query->fetchAll();
+        // debug($vaccins);
+      // Recuperation des données de la table vl_user_vaccin
+        $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ORDER BY fait_le DESC LIMIT 3";
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        $user_vaccins = $query->fetchAll();
+        // debug($user_vaccins);
+
+      // Affichage des 3 derniers vaccin
+      $incre_MB = 1;
+      $incre_fait_le = 0;
+      // debug($vaccins[1]);
+      foreach ($vaccins as $vaccin) {
+        echo '<div class="MB MB'. $incre_MB .'">';
+          echo '<p> Vaccin : '. $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie'] . '</p>';
+          echo '<p> Fait le : '. $user_vaccins[$incre_fait_le]['fait_le'] . '</p>';
+        echo '</div>';
+        $incre_MB += 1;
+        $incre_fait_le +=1;
+        if($incre_fait_le > 2) {
+          break;
         }
-        $incre = 1;
-        // AFFICHAGE VACCINS
-        foreach ($vaccinsinfos as $vaccininfo) {
-          echo '<div class="MB MB'. $incre .'">';
-            echo '<p>'. $vaccininfo['maladie'] . '</p>';
-            echo '<p>'. $vaccininfo['descriptif'] . '</p>';
-            echo '<p>'. $vaccininfo['renouveler_le'] . '</p>';
-            echo '<p>'. $vaccininfo['expiration'] . '</p>';
-          echo '</div>';
-          $incre += 1;
-        }
+      }
       ?>
-      </div>
+    </div>
   </section>
 
 <?php endif; ?>

@@ -402,31 +402,32 @@ a:hover.btn_connexion span:nth-child(4) {
 }
 /* INSCRIPTION */
 
-
+#inscription {
+ width: 100%;
+ margin: 0 auto;
+ height: 700px;
+ padding: 25px;
+ background: url(../img/inscription.jpg) no-repeat center fixed;
+}
 .wrap-section-inscription-1 {
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	max-width: 1440px;
-	width: 100%;
-	height: 700px;
-	margin: 0 auto;
-	background: url(../img/famille.png) no-repeat center fixed;
+  justify-content: center;
+  align-items: center;
+  max-width: 1440px;
+  width: 100%;
+  height: 600px;
+  margin: 0 auto;
 }
-.wrap-section-inscription-2 {
+.form-inscription {
 	position: absolute;
-	top: 70%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 900px;
-	height: 500px;
-	padding: 40px;
-	background: rgba(0,0,0,.8);
-	box-sizing: border-box;
-	box-shadow: 0 15px 25px rgba(0,0,0,.5);
-	border-radius: 10px;
+  width: 700px;
+  padding: 40px;
+  background: rgba(0,0,0,.8);
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(0,0,0,.5);
 }
-.wrap-section-inscription-2 h2 {
+.form-inscription h2 {
 	margin: 0 0 30px;
 	padding: 0;
 	color: #fff;
@@ -442,9 +443,8 @@ form {
 }
 .w50 {
 	width: 50%;
-	height: 20%;
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: wrap-reverse;
 	justify-content: center;
 	position: relative;
 }
@@ -468,7 +468,7 @@ input[type=text] {
   background-color: #575fcf;
   color: #fff;
   border: none;
-	font-family:  'Didact Gothic', cursive;
+	font-family: 'Didact Gothic', sans-serif;
   font-size: 1.2em;
   padding-left: 20px;
   margin-bottom: 5px;
@@ -480,7 +480,7 @@ input[type=email] {
   background-color: #575fcf;
   color: #fff;
   border: none;
-	font-family:  'Didact Gothic', cursive;
+	font-family: 'Didact Gothic', sans-serif;
   font-size: 1.2em;
   padding-left: 20px;
   margin-bottom: 5px;
@@ -544,30 +544,32 @@ input[type=submit]:hover {
 }
 .error {font-size: .8em;color:red;}
  /* LOGIN */
+ #login {
+	width: 100%;
+	margin: 0 auto;
+	height: 600px;
+	padding: 25px;
+	background: url(../img/login.jpg) no-repeat center fixed;
+ }
  .wrap-section-connexion-1 {
  	display: flex;
  	justify-content: center;
  	align-items: center;
  	max-width: 1440px;
  	width: 100%;
- 	height: 700px;
+ 	height: 550px;
  	margin: 0 auto;
-	background: url(../img/reunion.png) no-repeat center fixed;
  }
- .wrap-section-connexion-2 {
- 	position: absolute;
-	margin: 0 auto;
- 	/* top: 70%;
- 	left: 50%;
- 	transform: translate(-50%, -50%); */
- 	width: 450px;
+ .form-login {
+	position: absolute;
+	width: 450px;
  	padding: 40px;
- 	background: rgba(0,0,0,.8);
- 	box-sizing: border-box;
- 	border-radius: 10px;
- 	box-shadow: 15px 15px rgba(0,0,0,.15);
+  background: rgba(0,0,0,.8);
+  box-sizing: border-box;
+  border-radius: 10px;
+	box-shadow: 0 15px 25px rgba(0,0,0,.5);
  }
- .wrap-section-connexion-2 h2 {
+ .form-login h2 {
  	margin: 0 0 30px;
  	padding: 0;
  	color: #fff;
@@ -576,11 +578,11 @@ input[type=submit]:hover {
  	font-size: 2.5em;
 	font-family:  'Bebas Neue', cursive;
  }
- .wrap-section-connexion-2 .w50 {
+ .form-login .w50 {
 	position: relative;
 	width: 100%;
  }
- .wrap-section-connexion-2 .w50 input {
+ .form-login .w50 input {
 	width: 100%;
 	padding: 10px 0;
 	font-size: 16px;
@@ -592,7 +594,7 @@ input[type=submit]:hover {
 	outline: none;
  	background: transparent;
  }
- .wrap-section-connexion-2 .w50 label {
+ .form-login .w50 label {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -603,38 +605,42 @@ input[type=submit]:hover {
 	pointer-events: none;
 	transition: .5s;
  }
-.wrap-section-connexion-2 .w50 input:focus ~ label,
-.wrap-section-connexion-2 .w50 input:valid ~ label
+.form-login .w50 input:focus ~ label,
+.form-login .w50 input:valid ~ label
 {
 	top: -22px;
 	left: 0;
 	color: #575fcf;
 	font-size: 12px;
 }
-.wrap-section-connexion-2 .w50 input[type=submit] {
+ .form-login .w50 a {
+	padding: 10px;
+	font-family: 'Josefin Sans', sans-serif;
+	color: #575fcf;
+ }
+.form-login .w50 input[type=submit] {
 	background-color: #fff;
 	color: #575fcf;
 	border: solid 1px #fff;
 	font-family:  'Bebas Neue', cursive;
-	font-size: 1.2em;
+	font-size: 1.4em;
 	text-transform: uppercase;
-	padding-left: 20px;
+	padding-left: 10px;
 	margin-bottom: 5px;
 	border-radius: 4px;
-	width: 95%;
-	height: 70px;
+	width: 50%;
+	height: 60px;
 	cursor: pointer;
 }
-.wrap-section-connexion-2 .w50 input[type=submit]:hover {
+.form-login .w50 input[type=submit]:hover {
 	background-color: #575fcf;
 	color: #fff;
 }
 /* CONTACT */
 #contact {
-
   width: 100%;
 	margin: 0 auto;
-  height: 700px;
+  height: 750px;
 	padding: 25px;
 	background: url(../img/contact.jpg) no-repeat center fixed;
 }
@@ -654,6 +660,7 @@ input[type=submit]:hover {
  box-sizing: border-box;
  border-radius: 10px;
  	box-shadow: 0 15px 25px rgba(0,0,0,.5);
+	margin-top: 20px;
 }
 .form-contact h2 {
  margin: 0 0 30px;
@@ -669,7 +676,7 @@ input[type=submit]:hover {
  width: 100%;
 }
 .form-contact .w50 input {
- width: 100%;
+ width: 80%;
  padding: 10px 0;
  font-size: 16px;
  color: #fff;
@@ -701,7 +708,7 @@ input[type=submit]:hover {
 }
 .form-contact .w50 textarea {
 	resize: none;
-	font-family:  'Didact Gothic', cursive;
+	font-family: 'Didact Gothic', sans-serif;
 	font-size: 1.1em;
 	margin-top: 30px;
 }
@@ -741,6 +748,7 @@ footer {
 .columns {
 	display: flex;
 	align-items: center;
+	height: 150px;
 }
 .column1 {
 	width: 35%;
@@ -815,7 +823,7 @@ footer {
 	color: #fff;
 }
 .mention a:hover {
-	color: #1dd1a1; 
+	color: #1dd1a1;
 	transition: 0.3s;
 }
 /* big box et mini box affichage flex vaccin front*/
@@ -852,14 +860,14 @@ footer {
 	width: 60px;
 	height: 34px;
   }
-  
+
   /* Hide default HTML checkbox */
   .switch input {
 	opacity: 0;
 	width: 0;
 	height: 0;
   }
-  
+
   /* The slider */
   .slider {
 	position: absolute;
@@ -872,7 +880,7 @@ footer {
 	-webkit-transition: .4s;
 	transition: .4s;
   }
-  
+
   .slider:before {
 	position: absolute;
 	content: "";
@@ -884,26 +892,26 @@ footer {
 	-webkit-transition: .4s;
 	transition: .4s;
   }
-  
+
   input:checked + .slider {
 	background-color: #2196F3;
   }
-  
+
   input:focus + .slider {
 	box-shadow: 0 0 1px #2196F3;
   }
-  
+
   input:checked + .slider:before {
 	-webkit-transform: translateX(26px);
 	-ms-transform: translateX(26px);
 	transform: translateX(26px);
   }
-  
+
   /* Rounded sliders */
   .slider.round {
 	border-radius: 34px;
   }
-  
+
   .slider.round:before {
 	border-radius: 50%;
-  } 
+  }

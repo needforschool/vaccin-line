@@ -3,8 +3,6 @@ session_start();
 include('inc/pdo.php');
 include('inc/function.php');
 $title = 'Home';
-// debug($_SESSION);
-// debug($_SESSION);
 
 $id = $_SESSION['user']['id'];
 
@@ -19,7 +17,13 @@ if (!empty($_POST['enregister'])) {
     }
 }
 
-if(!empty($_POST['submitted'])) {
+if (!empty($_POST['supprimer'])) {
+    if (condition) {
+        # code...
+    }
+}
+
+if(!empty($_POST['modifmdp'])) {
     $pass = cleanXss($_POST['pass']);
     $newpass1 = cleanXss($_POST['newpass']);
     $newpass2 = cleanXss($_POST['newpassconfirm']);
@@ -31,9 +35,8 @@ if(!empty($_POST['submitted'])) {
     $user = $query->fetch();
 
     if(password_verify($pass,$user['password']) == true) {
-        echo 'ok';
         if (!empty($newpass1)) {
-            if ($newpass1 > 8) {
+            if ($newpass1 < 8) {
                 if(!empty($newpass2)) {
                     if ($newpass1 == $newpass2) {
                         # code...
@@ -44,12 +47,10 @@ if(!empty($_POST['submitted'])) {
             } else {
                 $errors['newpass1'] = "8 caracteres minimum";
             }
-        }
-        else {
+        } else {
             $errors['newpass1'] = "Veuillez renseigner ce champ";
         }
-    }
-    else {
+    } else {
         $errors['newpass2'] = "Erreur mot de passe";
     }
 
@@ -85,7 +86,7 @@ if(!empty($_POST['submitted'])) {
             <span class="error"><?php if(!empty($errors['newpass1'])) { echo $errors['newpass1']; } ?></span>
             <input type="password" name="newpassconfirm" placeholder="Confirmation nouveau mot de passe">
             <span class="error"><?php if(!empty($errors['newpass2'])) { echo $errors['newpass2']; } ?></span> 
-            <input type="submit" name="submitted">
+            <input type="submit" name="modifmdp" value="Changer le mot de passe">
         </form>
     <?php endif; ?>
     <?php if($passchange == true) : ?>
@@ -109,10 +110,10 @@ if(!empty($_POST['submitted'])) {
         <?php endif; ?>
         <input type="submit" name="enregistrer">
     </form>
-    <!-- Formulaire suppresion  -->
+    <!-- Formulaire suppresion compte  -->
     <form action="settings.php" method="post">
-
         
+        <input type="submit" name="supprimer">
     </form>
 <?php endif; ?>
 <?php include('inc/footer-front.php');
