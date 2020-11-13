@@ -615,7 +615,6 @@ input[type=submit]:hover {
 }
  .form-login .w50 a {
 	padding: 10px;
-	margin-bottom: 20px;
 	font-family: 'Josefin Sans', sans-serif;
 	color: #575fcf;
  }
@@ -824,7 +823,7 @@ footer {
 	color: #fff;
 }
 .mention a:hover {
-	color: #1dd1a1; 
+	color: #1dd1a1;
 	transition: 0.3s;
 }
 /* big box et mini box affichage flex vaccin front*/
