@@ -54,17 +54,12 @@ if (!empty($_POST['submitted'])) {
         // header('Location: contact.php');
 
 
-<!-- Connecté -->
-<?php if(!empty($_SESSION)) : ?>
 
-    <!-- debug($_SESSION); -->
-
-   
     }
 }
 ?>
 <?php if($succes == false) : ?>
-  <section>
+  <section id="contact">
     <div class="wrap-section-contact-1">
       <div class="form-contact">
         <h2>Contact</h2>
