@@ -22,7 +22,7 @@
       <p cass="copyright"> &copy; Copyright | Vaccin'Corp 2020 | all rights reserved.</p></div>
       <div class="bottom-bar">
       <p class="mention"><a href="mention.php">Mentions légales</a></p></div>
-      <div class="bottom-bar"><p>/</p></div>
+      <div class="bottom-bar"><p>|</p></div>
       <div class="bottom-bar">
       <p class="propos"><a href="propos.php">À propos</a></p></div>
     </div>

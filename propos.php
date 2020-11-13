@@ -14,7 +14,7 @@ include('inc/header-front.php');?>
 <div class="bigbox">
   <div class="stats">
     <h1>Qui sommes-nous ?</h1>
-    <p>Nous ? Nous sommes juste des étudiants en première année d'un bachelor en développement web, rien de plus ! Entre la team front composée de <a href="#quentin"><strong>Quentin Vannarath</strong></a> et <a href="#enzo"><strong>Enzo Vitorino</strong></a>, la team back composée de <a href="#lucas"><strong>Lucas Bellier</strong></a> et <a href="#valentin"><strong>Valentin Lamy</strong></a>, <a href="#quentin"><strong>Florian Galvani</strong></a> au Full Stack, notre chef de projet  a du soucis a se faire !</p>
+    <p>Nous ? Nous sommes juste des étudiants en première année d'un bachelor en développement web, rien de plus ! Entre la team front composée de <a href="#quentin"><strong>Quentin Vannarath</strong></a>, <a href="#enzo"><strong>Enzo Vitorino</strong></a> et <a href="#florian"><strong>Florian Galvani</strong></a>, la team back composée de <a href="#lucas"><strong>Lucas Bellier</strong></a> et <a href="#valentin"><strong>Valentin Lamy</strong></a>, la concurence a du soucis a se faire !</p>
   </div>
 </div>
 <div class="bigbox2">
@@ -41,7 +41,7 @@ include('inc/header-front.php');?>
 </div>
 <div class="bigbox">
   <div class="stats">
-    <h1 id="florian">Florian AKA Legilmalas</h1><p class="role">(Full Stack)</p>
+    <h1 id="florian">Florian AKA Legilmalas</h1><p class="role">(Team Front)</p>
   </div>
   <div class="img-stats">
     <img src="asset/img/florian.png" alt="">
