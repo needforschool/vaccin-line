@@ -2,7 +2,7 @@
 session_start();
 include('inc/pdo.php');
 include('inc/function.php');
-$title = 'Home';
+$title = 'Mon carnet';
 $id = $_SESSION['user']['id'];
 // debug($_SESSION);
 // debug($_SESSION);

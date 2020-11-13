@@ -13,6 +13,12 @@ $passchange = false;
 
 include('inc/header-front.php');
 
+if (!empty($_POST['enregister'])) {
+    if (condition) {
+        # code...
+    }
+}
+
 if(!empty($_POST['submitted'])) {
     $pass = cleanXss($_POST['pass']);
     $newpass1 = cleanXss($_POST['newpass']);
@@ -64,12 +70,12 @@ if(!empty($_POST['submitted'])) {
 
 <!-- Non connecté -->
 <?php if(empty($_SESSION) ) : ?>
-    
+    <?php  header('Location: connexion.php');?>
 <?php endif; ?>
 
 <!-- Connecté -->
 <?php if(!empty($_SESSION)) : ?>
-    <!-- Affichage formulaire changement de mdp -->
+    <!-- Formulaire changement de mdp -->
     <?php if($passchange == false) : ?>
         <h4>Modifier votre mot de passe</h4>
         <form action="settings.php" method="post">
@@ -85,5 +91,28 @@ if(!empty($_POST['submitted'])) {
     <?php if($passchange == true) : ?>
         <h4>Mot de passe modifié !</h4>
     <?php endif; ?>
+    <!-- Formulaire modification parametre -->
+    <form action="settings.php" method="post"></form>
+        <h4>Mode jour/nuit</h4>
+        <?php $journuit = "nuit"; ?>
+        <?php if($journuit == "jour") : ?>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        <?php endif; ?>
+        <?php if($journuit == "nuit") : ?>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+            </label>
+        <?php endif; ?>
+        <input type="submit" name="enregistrer">
+    </form>
+    <!-- Formulaire suppresion  -->
+    <form action="settings.php" method="post">
+
+        
+    </form>
 <?php endif; ?>
 <?php include('inc/footer-front.php');
