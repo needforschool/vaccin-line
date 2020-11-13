@@ -172,6 +172,7 @@ ul.navbar li:hover a::after {
 	line-height: 1.3;
 }
 .stats strong {
+	color: #18242f;
 	font-weight: 900;
 	text-transform: uppercase;
 	opacity: 1;
@@ -401,7 +402,6 @@ a:hover.btn_connexion span:nth-child(4) {
 	height: auto;
 	margin: 0 auto;
 }
-
 .wrap-about .bigbox {
 	display: flex;
 	align-items: center;
@@ -427,7 +427,6 @@ a:hover.btn_connexion span:nth-child(4) {
 	justify-content: space-between;
 	background: url(../img/about.jpg) no-repeat center fixed;
 	padding: 30px;
-	margin-top: 5px;
 }
 .wrap-about .bigbox4 {
 	display: flex;
@@ -435,7 +434,6 @@ a:hover.btn_connexion span:nth-child(4) {
 	justify-content: space-between;
 	background: url(../img/about.jpg) no-repeat center fixed;
 	padding: 30px;
-	margin-top: 5px;
 }
 .wrap-about .bigbox-end {
 	display: flex;
@@ -444,12 +442,39 @@ a:hover.btn_connexion span:nth-child(4) {
 	justify-content: space-between;
 	background: url(../img/about.jpg) no-repeat center fixed;
 	padding: 30px;
-	margin-top: 5px;
 	margin-bottom: 50px;
 }
-
-
-
+.age {
+	font-family: 'Josefin Sans';
+	font-weight: bold;
+	font-size: 0.5em;
+}
+.role {
+	font-family: 'Josefin Sans';
+	font-size: 0.5em;
+}
+.wrap-about .stats a  {color: #18242f;}
+.wrap-about .stats-about {
+	width: 60%;
+	height: auto;
+	background-color: #575fcf;
+	font-family:  'Didact Gothic', cursive;
+	padding: 30px;
+	border-radius: 10px;
+}
+.wrap-about .stats-about h1 {
+	font-size: 2em;
+	color: #fff;
+	margin-bottom: 5px;
+	font-family: 'Bebas Neue', cursive;
+}
+.wrap-about .stats-about p {
+	font-size: 1.3em;
+	color: #fff;
+	margin-bottom: 40px;
+	opacity: 0.9;
+	line-height: 1.3;
+}
 /* INSCRIPTION */
 
 #inscription {
@@ -783,12 +808,7 @@ input[type=submit]:hover {
  color: #fff;
 }
 /* MENTION */
-.role {
-	font-family: 'Josefin Sans';
-	font-size: 0.5em;
-}
 
-/* A PROPOS */
 .mentions-legales {
 	position: absolute;
   width: 700px;
