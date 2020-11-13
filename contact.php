@@ -2,7 +2,7 @@
 session_start();
 include('inc/pdo.php');
 include('inc/function.php');
-$title = 'Home';
+$title = 'Contact';
 $succes = false;
 
 include('inc/header-front.php');
