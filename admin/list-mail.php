@@ -96,7 +96,7 @@ include('inc/header-back.php');
                     <tbody>
                       <?php foreach ($contacts as $contact): ?>
                       <tr>
-                        <th><?php if($contact['lu'] == 'oui'){ echo '<i class="fas fa-bookmark" title="Lu"></i>'; } elseif($contact['lu'] == 'non'){ echo '<i class="far fa-bookmark" title="Non lu"></i>'; }?> - <a href="single-mail.php?id=<?php echo $contact['id'] ?>"><?php echo ucfirst($contact['email']); ?></a></th>
+                        <th><?php if($contact['lu'] == 'oui'){ echo '<i class="far fa-bookmark" title="Lu"></i>'; } elseif($contact['lu'] == 'non'){ echo '<i class="fas fa-bookmark" title="Non lu"></i>'; }?> - <a href="single-mail.php?id=<?php echo $contact['id'] ?>"><?php echo ucfirst($contact['email']); ?></a></th>
                         <th><?php echo ucfirst($contact['object']); ?></th>
                         <th><?php echo date('d/m h:i', strtotime($contact['created_at'])); ?></th>
                       </tr>

@@ -139,9 +139,9 @@ if (!empty($_POST['submitted'])) {
 include('inc/header-front.php');
 
 ?>
-<section>
+<section id="inscription">
   <div class="wrap-section-inscription-1">
-    <div class="wrap-section-inscription-2">
+    <div class="form-inscription">
       <h2>Inscription</h2>
       <form action="signin.php" method="post" class="formulaire">
         <div class="w50">

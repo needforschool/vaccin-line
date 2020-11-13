@@ -18,7 +18,10 @@
     </div>
   </div>
     <div class="bottom-bar">
-      <p cass="copyright"> &copy; Copyright | Vaccin'Corp 2020 | all rights reserved.</p>
+    <div class="bottom-bar copyright">
+      <p cass="copyright"> &copy; Copyright | Vaccin'Corp 2020 | all rights reserved.</p></div>
+      <div class="bottom-bar mention">
+      <p class=" mention.php"><a href="mention.php">Mentions légales</a></p></div>
     </div>
 </footer>
 </body>
