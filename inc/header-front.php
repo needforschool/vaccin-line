@@ -31,9 +31,11 @@
               <?php if(!empty($_SESSION)) : ?>
                 <?php if($title == 'Mon carnet') : ?>
                   <li><a href="index.php">home</a></li>
+                  <li><a href="contact.php">contact</a></li>
                 <?php endif; ?>
                 <?php if($title == 'Home') : ?>
                   <li><a href="carnet.php">mon Carnet</a></li>
+                  <li><a href="contact.php">contact</a></li>
                 <?php endif; ?>
                   
               <?php endif; ?>
