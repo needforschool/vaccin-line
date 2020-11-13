@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="asset/css/style-front.css">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="book-medical-solid.svg">
   <title><?php echo $title ?></title>
   <script src="https://kit.fontawesome.com/4bb9b339d3.js" crossorigin="anonymous"></script>
@@ -37,36 +39,36 @@
                   <li><a href="carnet.php">mon Carnet</a></li>
                   <li><a href="contact.php">contact</a></li>
                 <?php endif; ?>
-                  
+
               <?php endif; ?>
                 <li><a href="admin/index.php">admin</a></li>
             </ul>
           </nav>
         </div>
         <!-- formulaire de connexion -->
-        
+
         <!-- Si non connecter -->
         <?php if(empty($_SESSION)) : ?>
 
         <?php endif; ?>
         <!-- Si connecter  -->
         <?php if(!empty($_SESSION)) : ?>
-          <?php 
+          <?php
             if ($_SESSION['user']['age'] > 18)  {
-              switch ($_SESSION['user']['civilite']) { 
-                case "monsieur" : 
-                  echo '<img src="asset/img/undraw_profile_2.svg" alt="" width="50px"> '; 
+              switch ($_SESSION['user']['civilite']) {
+                case "monsieur" :
+                  echo '<img src="asset/img/undraw_profile_2.svg" alt="" width="50px"> ';
                   echo  '<p class="nomPrenom">' . 'M.';
-                  break; 
-                case "madame" : 
-                  echo '<img src="asset/img/undraw_profile_1.svg" alt="" width="50px">'; 
+                  break;
+                case "madame" :
+                  echo '<img src="asset/img/undraw_profile_1.svg" alt="" width="50px">';
                   echo '<p>' .'Mme.';
-                break; 
+                break;
               }
             } else {
-              echo '<img src="asset/img/undraw_profile_3.svg" alt="" width="50px">'; 
+              echo '<img src="asset/img/undraw_profile_3.svg" alt="" width="50px">';
             }
-          echo  $_SESSION['user']['nom'] . ' '. $_SESSION['user']['prenom'] . '</p>'; 
+          echo  $_SESSION['user']['nom'] . ' '. $_SESSION['user']['prenom'] . '</p>';
           ?>
           <a href="logout.php"><img src="asset/img/sign-out-alt-solid.svg" alt="" srcset="" width="30px"></a>
           <a href="settings.php"><img src="asset/img/sliders-h-solid.svg" alt="" srcset="" width="30px"></a>
@@ -76,5 +78,5 @@
         <?php endif; ?>
       </div>
     </header>
-  
+
     <div class="container">
