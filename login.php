@@ -61,27 +61,33 @@ if (!empty($_POST['submitted'])) {
 
 <?php endif; ?>
 
-<section>
-  <div class="wrap-section-connexion-1">
-    <div class="wrap-section-connexion-2">
-      <h2>connexion</h2>
-      <form action="login.php" method="post">
-        <div class="w50">
-          <input type="email" name="email" required="" value="<?php if(!empty($_POST['email'])) { echo $_POST['email']; } ?>">
-          <span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; }?></span>
-          <label>Email</label>
-        </div>
-        <div class="w50">
-          <input type="password" name="password" required="">
-          <span class="error"><?php if(!empty($errors['password'])) { echo $errors['password']; }?></span>
-          <label>Mot de passe</label>
-        </div>
-        <div class="w50">
-          <input type="submit" name="submitted" value="Login">
-        </div>
-      </form>
+<!-- Mode CONNEXION  -->
+<?php if(empty($_SESSION)) : ?>
+  <section>
+    <div class="wrap-section-connexion-1">
+      <div class="wrap-section-connexion-2">
+        <h2>connexion</h2>
+        <form action="login.php" method="post">
+          <div class="w50">
+            <input type="email" name="email" required="" value="<?php if(!empty($_POST['email'])) { echo $_POST['email']; } ?>">
+            <span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; }?></span>
+            <label>Email</label>
+          </div>
+          <div class="w50">
+            <input type="password" name="password" required="">
+            <span class="error"><?php if(!empty($errors['password'])) { echo $errors['password']; }?></span>
+            <a href="">Mot de pass oublié</a>
+            <label>Mot de passe</label>
+          </div>
+          <div class="w50">
+            <input type="submit" name="submitted" value="Login">
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+<?php endif; ?>
+
+<!-- Mode MDP oublier  -->
 <?php
 include('inc/footer-front.php');
