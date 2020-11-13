@@ -20,12 +20,12 @@ include('inc/header-front.php');
 <!-- Connecté -->
 <?php if(!empty($_SESSION)) : ?>
 
-    debug($_SESSION);
+    <!-- debug($_SESSION); -->
 
     <?php if($succes == false) : ?>
-<section>
+<section id="contact">
   <div class="wrap-section-contact-1">
-    <div class="wrap-section-contact-2">
+    <div class="form-contact">
       <h2>Contact</h2>
       <form action="contact.php" method="post">
         <div class="w50">
