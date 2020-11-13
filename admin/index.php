@@ -176,11 +176,11 @@ include('inc/header-back.php');
 
             <!-- Nombre utilsateur enfants -->
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-info shadow h-100 py-2">
+                <div class="card border-left-danger shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Nombre de compte enfants (-13 ans)
+                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Nombre de compte enfants (-13 ans)
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
@@ -196,13 +196,13 @@ include('inc/header-back.php');
                 </div>
             </div>
 
-            <!-- Pending Requests Card Example -->
+            <!-- Nombre de compte senior -->
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     Nombre de compte senior (+60 ans)</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $seniors ?></div>
                             </div>
