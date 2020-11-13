@@ -56,17 +56,17 @@
               switch ($_SESSION['user']['civilite']) { 
                 case "monsieur" : 
                   echo '<img src="asset/img/undraw_profile_2.svg" alt="" width="50px"> '; 
-                  echo 'M.';
+                  echo  '<p class="nomPrenom">' . 'M.';
                   break; 
                 case "madame" : 
                   echo '<img src="asset/img/undraw_profile_1.svg" alt="" width="50px">'; 
-                  echo 'Mme.';
+                  echo '<p>' .'Mme.';
                 break; 
               }
             } else {
               echo '<img src="asset/img/undraw_profile_3.svg" alt="" width="50px">'; 
             }
-          echo $_SESSION['user']['nom'] . ' '. $_SESSION['user']['prenom']; 
+          echo  $_SESSION['user']['nom'] . ' '. $_SESSION['user']['prenom'] . '</p>'; 
           ?>
           <a href="logout.php"><img src="asset/img/sign-out-alt-solid.svg" alt="" srcset="" width="30px"></a>
           <a href="settings.php"><img src="asset/img/sliders-h-solid.svg" alt="" srcset="" width="30px"></a>
