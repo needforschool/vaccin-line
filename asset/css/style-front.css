@@ -556,9 +556,10 @@ input[type=submit]:hover {
  }
  .wrap-section-connexion-2 {
  	position: absolute;
- 	top: 70%;
+	margin: 0 auto;
+ 	/* top: 70%;
  	left: 50%;
- 	transform: translate(-50%, -50%);
+ 	transform: translate(-50%, -50%); */
  	width: 450px;
  	padding: 40px;
  	background: rgba(0,0,0,.8);
@@ -629,21 +630,24 @@ input[type=submit]:hover {
 	color: #fff;
 }
 /* CONTACT */
+#contact {
+
+  width: 100%;
+	margin: 0 auto;
+  height: 700px;
+	padding: 25px;
+	background: url(../img/contact.jpg) no-repeat center fixed;
+}
 .wrap-section-contact-1 {
- display: flex;
- justify-content: center;
- align-items: center;
  max-width: 1440px;
  width: 100%;
- height: 800px;
  margin: 0 auto;
- background: url(../img/reunion.png) no-repeat center fixed;
+ display: flex;
+ justify-content: center;
 }
-.wrap-section-contact-2 {
+.form-contact {
  position: absolute;
- top: 72%;
- left: 50%;
- transform: translate(-50%, -50%);
+ width: 100%;
  width: 600px;
  padding: 20px;
  background: rgba(0,0,0,.8);
@@ -651,7 +655,7 @@ input[type=submit]:hover {
  border-radius: 10px;
  	box-shadow: 0 15px 25px rgba(0,0,0,.5);
 }
-.wrap-section-contact-2 h2 {
+.form-contact h2 {
  margin: 0 0 30px;
  padding: 0;
  color: #fff;
@@ -660,11 +664,11 @@ input[type=submit]:hover {
  font-size: 2.5em;
  font-family:  'Bebas Neue', cursive;
 }
-.wrap-section-contact-2 .w50 {
+.form-contact .w50 {
  position: relative;
  width: 100%;
 }
-.wrap-section-contact-2 .w50 input {
+.form-contact .w50 input {
  width: 100%;
  padding: 10px 0;
  font-size: 16px;
@@ -676,7 +680,7 @@ input[type=submit]:hover {
  outline: none;
  background: transparent;
 }
-.wrap-section-contact-2 .w50 label {
+.form-contact .w50 label {
  position: absolute;
  top: 0;
  left: 0;
@@ -687,21 +691,21 @@ input[type=submit]:hover {
  pointer-events: none;
  transition: .5s;
 }
-.wrap-section-contact-2 .w50 input:focus ~ label,
-.wrap-section-contact-2 .w50 input:valid ~ label
+.form-contact .w50 input:focus ~ label,
+.form-contact .w50 input:valid ~ label
 {
  top: -22px;
  left: 0;
  color: #575fcf;
  font-size: 12px;
 }
-.wrap-section-contact-2 .w50 textarea {
+.form-contact .w50 textarea {
 	resize: none;
 	font-family:  'Comfortaa', cursive;
 	font-size: 1.1em;
 	margin-top: 30px;
 }
-.wrap-section-contact-2 .w50 input[type=submit] {
+.form-contact .w50 input[type=submit] {
  background-color: #fff;
  color: #575fcf;
  border: solid 1px #fff;
@@ -715,7 +719,7 @@ input[type=submit]:hover {
  height: 50px;
  cursor: pointer;
 }
-.wrap-section-contact-2 .w50 input[type=submit]:hover {
+.form-contact .w50 input[type=submit]:hover {
  background-color: #575fcf;
  color: #fff;
 }
