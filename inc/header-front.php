@@ -19,21 +19,58 @@
         <div class="nav">
           <nav>
             <ul class="navbar">
-              
+              <!-- lien header  -->
+              <!-- Si non connecter -->
               <?php if(empty($_SESSION)) : ?>
                 <li><a href="index.php">home</a></li>
                 <li><a href="signin.php">inscription</a></li>
-                <li><a href="login.php">connexion</a></li>
               <?php endif; ?>
+              <!-- Si connecter -->
               <?php if(!empty($_SESSION)) : ?>
-                <li><a href="carnet.php">Mon Carnet</a></li>
-                <li><a href="logout.php">déconnexion</a></li>
+                <li><a href="carnet.php">mon Carnet</a></li>
+                <li><a href="contact.php">contact</a></li>
               <?php endif; ?>
                 <li><a href="admin/index.php">admin</a></li>
-                <li><a href="contact.php">Contact</a></li>
             </ul>
           </nav>
         </div>
+        <!-- formulaire de connexion -->
+        
+        <!-- Si non connecter -->
+        <?php if(empty($_SESSION)) : ?>
+          <form action="login.php" method="get">
+            <input type="email" name="email" required="" value="<?php if(!empty($_POST['email'])) { echo $_POST['email']; } ?>">
+            <span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; }?></span>
+            <label>Email</label>
+            <input type="password" name="password" required="">
+            <span class="error"><?php if(!empty($errors['password'])) { echo $errors['password']; }?></span>
+            <label>Mot de passe</label>
+            <input type="submit" name="submitted" value="Login">
+          </form>
+        <?php endif; ?>
+        <!-- Si connecter  -->
+        <?php if(!empty($_SESSION)) : ?>
+          <?php 
+            if ($_SESSION['user']['age'] > 18)  {
+              switch ($_SESSION['user']['civilite']) { 
+                case "monsieur" : 
+                  echo '<img src="asset/img/undraw_profile_2.svg" alt="" width="50px"> '; 
+                  break; 
+                case "madame" : 
+                  echo '<img src="asset/img/undraw_profile_1.svg" alt="" width="50px">'; 
+                break; 
+              }
+            } else {
+              echo '<img src="asset/img/undraw_profile_3.svg" alt="" width="50px">'; 
+            }
+          echo $_SESSION['user']['nom'] . ' '. $_SESSION['user']['prenom']; 
+          ?>
+          <a href="logout.php"><img src="asset/img/deconnexion.png" alt="" srcset="" width="30px"></a>
+          <a href="settings.php"><img src="asset/img/parametre.png" alt="" srcset="" width="30px"></a>
+          <!-- <img src="asset/img/test/undraw_profile_1.svg" alt="" width="100px">
+          <img src="asset/img/test/undraw_profile_2.svg" alt="" width="100px">
+          <img src="asset/img/test/undraw_profile_3.svg" alt="" width="100px"> -->
+        <?php endif; ?>
       </div>
     </header>
   

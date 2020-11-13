@@ -9,9 +9,9 @@ include('inc/header-front.php');
 $success = false;
 $errors = array();
 
-if (!empty($_POST['submitted'])) {
-    $email = cleanXss($_POST['email']);
-    $password = cleanXss($_POST['password']);
+if (!empty($_GET['submitted'])) {
+    $email = cleanXss($_GET['email']);
+    $password = cleanXss($_GET['password']);
     if(!empty($email) && !empty($password)) {
         $sql = "SELECT * FROM vl_users WHERE email = :email";
         $query = $pdo->prepare($sql);
