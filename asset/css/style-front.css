@@ -879,18 +879,13 @@ footer {
 	align-items: center;
 	color: #fff;
 }
-.column1 a {
-	font-size: 1em;
-	color: #fff;
-	opacity: 0.7
+.column1 img {
+	width: 20%;
 }
 .column-title {
 	margin-bottom: 10px;
 }
-.column1 img:hover {
-	filter: invert(100%);
-	transition: 0.3s;
-}
+
 .column2 {
 	width: 15%;
 	display: flex;

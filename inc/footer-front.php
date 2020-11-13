@@ -4,7 +4,7 @@
   <div class="wrap-footer">
     <div class="columns">
       <div class="column1">
-        <img src="asset/img/header-logo.png" alt="Vaccin'Line">
+        <img src="asset/img/logo_footer.png" alt="Vaccin'Line">
       </div>
       <div class="column2">
         <a href="#"><i class="fab fa-facebook-square"></i></a>
