@@ -67,6 +67,12 @@ include('inc/header-back.php');
               </div>
             </div>
 
+            <a href="reply-mail.php?id=<?php echo $id ?>" class="btn btn-primary ml-3 mb-2 btn-icon-split">
+              <span class="icon text-white-50">
+                <i class="fas fa-reply"></i>
+              </span>
+              <span class="text">Répondre</span>
+            </a>
 
         </div>
         <div class="col-lg-4 justify-content-center">
