@@ -54,42 +54,7 @@ include('inc/header-front.php');
 <?php if(!empty($_SESSION)) : ?>
  
   <section>
-  <div class="wrap">
-    <div class="BB">
-      <?php 
-        // RECUPERATION ID VACCIN
-        $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ";
-        $query = $pdo->prepare($sql);
-        $query->execute();
-        $vaccinsid = $query->fetchAll();
-        $vaccins = array();
-        $incre = 0 ;
-        foreach ($vaccinsid as $vaccinid) {
-          $vaccins[$incre] = $vaccinid['id_vaccin'] ;
-          $incre += 1 ;
-        }
-        $incre = 0;
-        // RECUPERATION INFO VACCIN VIA ID
-        foreach ($vaccins as $vaccin) {
-          $sql = "SELECT * FROM vl_vaccins WHERE id = $vaccin";
-          $query = $pdo->prepare($sql);
-          $query->execute();
-          $vaccinsinfos[$incre] = $query->fetch();
-          $incre += 1;
-        }
-        $incre = 1;
-        // AFFICHAGE VACCINS 
-        foreach ($vaccinsinfos as $vaccininfo) {
-          echo '<div class="MB MB'. $incre .'">';
-            echo '<p>'. $vaccininfo['maladie'] . '</p>';
-            echo '<p>'. $vaccininfo['descriptif'] . '</p>';
-            echo '<p>'. $vaccininfo['renouveler_le'] . '</p>';
-            echo '<p>'. $vaccininfo['expiration'] . '</p>';
-          echo '</div>';
-          $incre += 1;
-        }
-      ?>
-      </div>
+
   </section>
 
 <?php endif; ?>

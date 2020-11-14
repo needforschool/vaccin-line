@@ -953,14 +953,23 @@ footer {
 }
 
 /* big box et mini box affichage flex vaccin front*/
+.wrap-index-vacccins {
+	max-width: 1440px;
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+}
 .BB {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+
 }
 
 .MB {
-	width: 25%;
+	width: 33.33333333%;
+	margin: 0 auto;
+	background-color: red;
 }
 .BB1 {
 	display: flex;
@@ -971,6 +980,7 @@ footer {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	margin-bottom: 40px;
 }
 
 .MB {
