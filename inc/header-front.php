@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="asset/css/style-front.css">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">  
+  <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="book-medical-solid.svg">
   <title><?php echo $title ?></title>
@@ -16,7 +16,7 @@
     <header>
       <div class="wrap-header">
         <div class="logo-header">
-          <a href="#"><div class="logo"></div></a>
+          <a href="#"><img src="asset/img/vaccin_line.png" alt=""></a>
         </div>
         <div class="nav">
           <nav>

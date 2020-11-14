@@ -68,6 +68,26 @@ function validationText($errors,$data,$key,$min,$max) {
     }
   }
 
+  function generateRandomString($length = 10) {
+      $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      $charactersLength = strlen($characters);
+      $randomString = '';
+      for ($i = 0; $i < $length; $i++) {
+          $randomString .= $characters[rand(0, $charactersLength - 1)];
+      }
+      return $randomString;
+  }
+
+  function isActual($token_at) {
+    $token_at = strtotime($token_at);
+    $actualTime = strtotime(date('Y-m-d H:i:s'));
+    $interval = $actualTime - $token_at;
+    if ($interval > 600) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
 
 ?>
