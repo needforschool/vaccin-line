@@ -53,6 +53,7 @@ include('inc/header-front.php');
   <!-- Connecté -->
   <!-- RAPPEL VACCINs -->
   <section id="vaccins">
+    <div class="rappel">
     <h1>Vos prochains rappels de vaccin :</h1>
     <br>
     <div class="BB_carnet">
@@ -68,24 +69,44 @@ include('inc/header-front.php');
         $query = $pdo->prepare($sql);
         $query->execute();
         $user_vaccins = $query->fetchAll();
-        $incre_MB = 1;
         $incre_fait_le = 0;
       ?>
+<<<<<<< HEAD
+      <?php if (!empty($user_vaccins)) : ?>
+        <?php foreach($vaccins as $vaccin) : ?>
+          <div class="MB_carnet">
+            <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
+            <p>Fait le : <?php echo $user_vaccins[$incre_fait_le]['fait_le']; ?></p>
+            <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?> 
+          </div>
+          <?php
+            $incre_fait_le +=1;
+            if($incre_fait_le == count($vaccin)) {
+              break;
+            }
+          ?>
+        <?php endforeach; ?>
+      <?php else : ?>
+        <p>Vous n'avez pas de vaccin actuellement</p>
+      <?php endif; ?>
+      </div>
+=======
       <?php foreach($vaccins as $vaccin) : ?>
         <div class="MB_carnet">
           <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
           <p>Fait le : <?php echo $user_vaccins[$incre_fait_le]['fait_le']; ?></p>
-          <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?> 
+          <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?>
         </div>
         <?php
-          $incre_MB += 1;
           $incre_fait_le +=1;
-          if($incre_fait_le > 2) {
+          if($incre_fait_le == count($vaccin)) {
             break;
           }
         ?>
       <?php endforeach; ?>
     </div>
+  </div>
+>>>>>>> b5274e973d08fecf5aa0c1fd720e1001dad39a18
     </section>
 <?php endif; ?>
 <?php include('inc/footer-front.php');
