@@ -33,6 +33,4 @@ var allowedKeys = {
   
   function activateCheats() {
     document.getElementById("konamicode").style.display = "block";
-
-    
   }

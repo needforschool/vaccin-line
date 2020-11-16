@@ -16,7 +16,7 @@ if (!empty($_POST['submitted'])) {
     // VERIF EMAIL
     if (!empty($email)) {
 
-    }else {
+    } else {
         $errors['email'] = 'Veuillez renseignez ce champ';
     }
     // VERIF Object
@@ -26,7 +26,7 @@ if (!empty($_POST['submitted'])) {
         } elseif (mb_strlen($object) > 100) {
             $errors['object'] = '100 caractere maximum';
         }
-    }else {
+    } else {
         $errors['message'] = 'Veuillez renseignez ce champ';
     }
     // VERIF MESSAGE
@@ -36,7 +36,7 @@ if (!empty($_POST['submitted'])) {
         } elseif (mb_strlen($message) > 1000) {
             $errors['message'] = '1000 caractere maximum';
         }
-    }else {
+    } else {
         $errors['message'] = 'Veuillez renseignez ce champ';
     }
 
@@ -52,9 +52,6 @@ if (!empty($_POST['submitted'])) {
         $query->execute();
 
         // header('Location: contact.php');
-
-
-
     }
 }
 ?>

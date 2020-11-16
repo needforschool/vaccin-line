@@ -470,6 +470,7 @@ a:hover.btn_connexion span:nth-child(4) {
 }
 #konamicode {
 	display: none;
+	transition: 0.5s;
 }
 .wrap-about .bigbox {
 	display: flex;
