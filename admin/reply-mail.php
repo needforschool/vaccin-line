@@ -43,10 +43,10 @@ if (!empty($_POST['submitted'])) {
 
   if (!empty($couriel)) {
     if (!filter_var($couriel, FILTER_VALIDATE_EMAIL)) {
-      $errors['email'] = 'Veuillez renseigner un email valide';
+      $errors['couriel'] = 'Veuillez renseigner un email valide';
     }
   }else {
-    $errors['email'] = 'Veuillez renseigner un email';
+    $errors['couriel'] = 'Veuillez renseigner un email';
   }
 
   if (!empty($content)) {
@@ -114,7 +114,7 @@ include('inc/header-back.php');
         </div>
     <?php  } ?>
 
-        <a href="<?php if(!empty($_GET['id'])){echo 'single-mail.php?id=?id='. $_GET['id'];}else{ echo 'list-mail.php';} ?>" class="btn btn-outline-primary">Retour</a>
+        <a href="<?php if(!empty($_GET['id'])){echo 'single-mail.php?id='. $_GET['id'];}else{ echo 'list-mail.php';} ?>" class="btn btn-outline-primary">Retour</a>
 
         <!-- Page Heading -->
         <h1 class="h3 mb-4 text-center text-gray-800"><?php echo mb_strtoupper($title); ?></h1>
@@ -123,7 +123,7 @@ include('inc/header-back.php');
 
           <div class="row">
             <div class="col">
-              <input type="email" name="couriel" id="couriel" class="form-control <?php if(count($errors['couriel']) != 0) { echo 'is-invalid';} ?>" <?php if(!empty($email)){echo 'value="'. $email['couriel'] .'"';} else {echo 'placeholder="Email"';} ?>>
+              <input type="email" name="couriel" id="couriel" class="form-control <?php if(count($errors['couriel']) != 0) { echo 'is-invalid';} ?>" <?php if(!empty($email)){echo 'value="'. $email['email'] .'"';} else {echo 'placeholder="Email"';} ?>>
               <div class="invalid-feedback">
                 Veuillez remplir correctement ce champ.
               </div>
