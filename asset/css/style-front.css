@@ -495,6 +495,9 @@ a:hover.btn_connexion span:nth-child(4) {
 	height: auto;
 	margin: 0 auto;
 }
+#konamicode {
+	display: none;
+}
 .wrap-about .bigbox {
 	display: flex;
 	align-items: center;
@@ -1211,6 +1214,7 @@ footer {
   	box-sizing: border-box;
   	border-radius: 10px;
 	box-shadow: 0 15px 25px rgba(0,0,0,.5);
+	text-align: center;	
 }
 .MB_carnet {
 	width: 25%;
@@ -1218,6 +1222,11 @@ footer {
 	color: white;
 	text-align: center;
 	padding: 40px 0;
+
+}
+.pasdevaccin {
+	color: #fff;
+	
 }
 /* FIN big box et mini box affichage flex vaccin front*/
 

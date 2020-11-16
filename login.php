@@ -6,6 +6,7 @@ include('inc/function.php');
 
 include('inc/header-front.php');
 
+
 $success = false;
 $errors = array();
 
@@ -54,7 +55,6 @@ if (!empty($_POST['submitted'])) {
 }
 
 ?>
-
 <!-- Connecté -->
 <?php if(!empty($_SESSION)) : ?>
 
