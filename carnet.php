@@ -53,6 +53,7 @@ include('inc/header-front.php');
   <!-- Connecté -->
   <!-- RAPPEL VACCINs -->
   <section id="vaccins">
+    <div class="rappel">
     <h1>Vos prochains rappels de vaccin :</h1>
     <br>
     <div class="BB_carnet">
@@ -74,7 +75,7 @@ include('inc/header-front.php');
         <div class="MB_carnet">
           <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
           <p>Fait le : <?php echo $user_vaccins[$incre_fait_le]['fait_le']; ?></p>
-          <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?> 
+          <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?>
         </div>
         <?php
           $incre_fait_le +=1;
@@ -84,6 +85,7 @@ include('inc/header-front.php');
         ?>
       <?php endforeach; ?>
     </div>
+  </div>
     </section>
 <?php endif; ?>
 <?php include('inc/footer-front.php');
