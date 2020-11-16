@@ -34,9 +34,7 @@ if(!empty($_POST['ajoutvaccin'])) {
     $query->execute();
   }
 
-
 }
-
 ?>
 
 
@@ -47,13 +45,13 @@ if(!empty($_POST['ajoutvaccin'])) {
     <div class="bigbox">
       <div class="stats">
         <h1>Comment utiliser notre carnet ?</h1>
-        <p>Le carnet de vaccination est un carnet dans lequel sont notées toutes les vaccinations d’une personne. Ce carnet est très pratique : il vous permet de savoir quelles vaccinations vous avez reçues et si vous êtes à jour de vos vaccinations. Il vous suffit donc de vous connecter et ne pas oublier de le présenter au professionnel de santé à chaque fois que vous vous faites vacciner. Il est valable toute la vie ! Pour l’obtenir, il suffit de vous <a href="signin.php"><strong>inscrire</strong></a>. Il est gratuit.</p>
+        <p>Le carnet de vaccination est un carnet dans lequel sont notées toutes les vaccinations d’une personne. Ce carnet est très <strong class="very-important-word">pratique</strong> : il vous permet de savoir quelles vaccinations vous avez reçues et si vous êtes à jour. Il vous suffit donc de vous connecter et ne pas oublier de le présenter au professionnel de santé à chaque fois que vous vous faites vacciner. Il est valable toute la vie ! Pour l’obtenir, il suffit de vous <a class="signin.php"><strong>inscrire</strong></a>. Il est <strong class="very-important-word">gratuit</strong>.</p>
       </div>
     </div>
     <div class="bigbox2">
       <div class="stats2">
         <h1>Notre carnet est-il sécurisé ?</h1>
-        <p>Se faire vacciner, c’est se protéger contre une série de maladies dont les complications peuvent être graves voire mortelles. Grâce à la vaccination, on évite de développer ces maladies et on diminue le risque de contaminer d’autres personnes. Se faire vacciner, c’est se protéger soi contre des maladies mais c’est aussi éviter de contaminer d’autres personnes. Réduire les possibilités de contamination est d’autant plus précieux que l’infection concernée est très contagieuse, comme la rougeole ou la grippe.</p>
+        <p>Vos données medicale sont <strong class="very-important-word">précieuses</strong>, et doivent être protégées. C'est pour cela que nous avons mis au point un puissant logiciel de cryptage afin de vous proposer une <strong class="very-important-word">sécurité maximale</strong>. Enfin, vos données sont stockées dans une base de données spéciale, reconnue par le <strong class="very-important-word">gouvernement</strong>. Avec Vaccin 'line, vos données sont protégées et ne seront jamais partagées.</p>
       </div>
     </div>
     <div class="bigbox3">
@@ -93,6 +91,7 @@ if(!empty($_POST['ajoutvaccin'])) {
   <div class="wrap-section">
     <!-- Formulaire ajout vaccin  -->
     <section id="addvaccin">
+
       <div class="wrap-section-add">
         <div class="form-add">
       <h2>Ajouter un vaccin :</h2>
@@ -111,9 +110,13 @@ if(!empty($_POST['ajoutvaccin'])) {
           ?>
         </select>
         <span class="error"><?php if(!empty($errors['vaccin'])) { echo $errors['vaccin']; }?></span>
-        <input type="date" name="date">
-        <span class="error"><?php if(!empty($errors['date'])) { echo $errors['date']; }?></span>
-        <input type="submit" name="ajoutvaccin">
+        <div class="w50">
+          <input type="date" name="date">
+          <span class="error"><?php if(!empty($errors['date'])) { echo $errors['date']; }?></span>
+        </div>
+        <div class="w50">
+          <input type="submit" name="ajoutvaccin">
+        </div>
       </form>
     </section>
     <!-- RAPPEL VACCINs -->
@@ -129,60 +132,63 @@ if(!empty($_POST['ajoutvaccin'])) {
           $query->execute();
           $vaccins = $query->fetchAll();
           // Recuperation des données de la table vl_user_vaccin
-          $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ORDER BY fait_le ASC LIMIT 3";
+          $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ORDER BY fait_le ASC";
           $query = $pdo->prepare($sql);
           $query->execute();
           $user_vaccins = $query->fetchAll();
           $incre_MB = 1;
           $incre_fait_le = 0;
-          // debug($vaccins);
         ?>
         <?php foreach($vaccins as $vaccin) : ?>
-          <div class="MB MB<?php echo $incre_MB; ?>" style="background-color:<?php if(condition); ?>;">
+          <div class="MB MB<?php echo $incre_MB; ?>" style="background-color:<?php if(c); ?>;">
             <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
             <p>Fait le : <?php echo $user_vaccins[$incre_fait_le]['fait_le']; ?></p>
-        <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?>
+
+          <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?>
+
           </div>
+          <?php
+            $incre_MB += 1;
+            $incre_fait_le +=1;
+            if($incre_fait_le > 2) {
+              break;
+            }
+         ?>
+        <?php endforeach; ?>
+      </div>
+      <br>
+      <!-- derniers VACCINs -->
+      <h1>Vos derniers vaccins :</h1>
+      <br>
+      <div class="BB2">
         <?php
-          $incre_MB += 1;
-          $incre_fait_le +=1;
-          if($incre_fait_le > 2) {
-            break;
+          // Recuperation des données de la table vl_user_vaccin
+          $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ORDER BY fait_le DESC LIMIT 3";
+          $query = $pdo->prepare($sql);
+          $query->execute();
+          $user_vaccins = $query->fetchAll();
+          $incre_MB = 1;
+          $incre_fait_le = 0;
+          // Affichage des 3 derniers vaccin
+          $incre_MB = 1;
+          $incre_fait_le = 0;
+          foreach ($vaccins as $vaccin) {
+            echo '<div class="MB MB'. $incre_MB .'">';
+              echo '<p> Vaccin : '. $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie'] . '</p>';
+              echo '<p> Fait le : '. $user_vaccins[$incre_fait_le]['fait_le'] . '</p>';
+            echo '</div>';
+            $incre_MB += 1;
+            $incre_fait_le +=1;
+            if($incre_fait_le > 2) {
+              break;
+            }
           }
         ?>
 
-      <?php endforeach; ?>
-    </div>
-    <br>
-    <!-- derniers VACCINs -->
-    <h1>Vos derniers vaccins :</h1>
-    <br>
-    <div class="BB2">
-      <?php
-      // Recuperation des données de la table vl_user_vaccin
-      $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ORDER BY fait_le DESC LIMIT 3";
-      $query = $pdo->prepare($sql);
-      $query->execute();
-      $user_vaccins = $query->fetchAll();
-      $incre_MB = 1;
-      $incre_fait_le = 0;
-      // Affichage des 3 derniers vaccin
-      $incre_MB = 1;
-      $incre_fait_le = 0;
-      foreach ($vaccins as $vaccin) {
-        echo '<div class="MB MB'. $incre_MB .'">';
-          echo '<p> Vaccin : '. $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie'] . '</p>';
-          echo '<p> Fait le : '. $user_vaccins[$incre_fait_le]['fait_le'] . '</p>';
-        echo '</div>';
-        $incre_MB += 1;
-        $incre_fait_le +=1;
-        if($incre_fait_le > 2) {
-          break;
-        }
-      }
-      ?>
-    </div>
-  </section>
+      </div>
+    </section>
+
   </div>
-<?php endif; ?>
-<?php include('inc/footer-front.php');
+<?php endif;
+  include('inc/footer-front.php');
+?>

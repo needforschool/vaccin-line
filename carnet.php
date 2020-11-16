@@ -51,10 +51,31 @@ include('inc/header-front.php');
 <?php endif; ?>
 
 <!-- Connecté -->
-<?php if(!empty($_SESSION)) : ?>
- 
-  <section>
+<?php
+  // Recuperation des données de la table vl_user_vaccin
+  $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ORDER BY fait_le DESC LIMIT 3";
+  $query = $pdo->prepare($sql);
+  $query->execute();
+  $user_vaccins = $query->fetchAll();
+  if(!empty($_SESSION)) : ?>
 
+  <section class='section-carnet'>
+    <?php if (count($user_vaccins) > 0): ?>
+      <table>
+        <thead>
+          <tr>
+            <th><?php echo implode('</th><th>', array_keys(current($user_vaccins))); ?></th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($user_vaccins as $row): array_map('htmlentities', $row); ?>
+          <tr>
+            <td><?php echo implode('</td><td>', $row); ?></td>
+          </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    <?php endif; ?>
   </section>
 
 <?php endif; ?>

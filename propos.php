@@ -20,13 +20,13 @@ include('inc/header-front.php');?>
     <div class="bigbox2">
       <div class="stats">
         <h1>L'histoire de Vaccin'Line</h1>
-        <p>Vaccin'Line est un projet que nous avons dû réaliser en 2 semaines (du 09/11/2020 au 20/11/2020), avec pour demande de développer un site web permettant aux clients de renseigner leur carnet de vaccination afin d'automatiser celui-ci (informer sur les différents vaccins, rappeler la date des rappels), tout en protégeant les données de nos utilisateurs.</p>
+        <p>Vaccin'Line est un projet que nous avons dû réaliser en 2 semaines (du 09/11/2020 au 20/11/2020), avec pour demande de développer une application web permettant aux clients de renseigner leur carnet de vaccination afin d'automatiser celui-ci (informer sur les différents vaccins, rappeler la date des rappels), tout en protégeant les données de nos utilisateurs.</p>
       </div>
     </div>
     <div class="bigbox-start">
       <div class="stats-about">
         <h1 id="lucas">Lucas AKA ImJustLucas<span class="age"> (19)</span></h1><p class="role">(Chef de projet et Team Back)</p>
-        <p>Le chef / la chef de projet web gère l'ensemble d'un projet de site internet, qu'il s'agisse d'une création ou d'une refonte. Il analyse dans le détail les besoins du client et rédige le cahier des charges, puis coordonne le travail de tous les acteurs du projet.</p>
+        <p>Le chef de projet web gère l'ensemble d'un projet de site internet, qu'il s'agisse d'une création ou d'une refonte. Il analyse dans le détail les besoins du client et rédige le cahier des charges, puis coordonne le travail de tous les acteurs du projet.</p>
       </div>
       <div class="img-stats">
         <img src="asset/img/lucas.jpg" alt="">
