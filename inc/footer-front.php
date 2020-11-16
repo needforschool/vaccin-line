@@ -13,11 +13,8 @@
       <div class="column3">
         <h3 class="column-title">Contactez-nous :  <a href="contact.php"> <i class="fas fa-envelope"></i></a></h3>
         <a href="#">main road, building name, country</a>
-<<<<<<< HEAD
-        <a href="#">vaccin.line@gmail.com</a>
-=======
         <a href="contact.php">vaccin.line@gmail.com</a>
->>>>>>> 4961da9035fb9a9eff0e65111fa9e2dd123cd9e7
+
       </div>
     </div>
   </div>
