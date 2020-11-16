@@ -400,36 +400,10 @@ a:hover.btn_connexion span:nth-child(4) {
 #addvaccin {
  width: 100%;
  margin: 0 auto;
- height: 600px;
+ height: auto;
  padding: 25px;
 }
-.wrap-section-add {
- display: flex;
- justify-content: center;
- align-items: center;
- max-width: 1440px;
- width: 100%;
- height: 550px;
- margin: 0 auto;
-}
-.form-add {
- position: absolute;
- width: 450px;
- padding: 40px;
- background: rgba(0,0,0,.8);
- box-sizing: border-box;
- border-radius: 10px;
- box-shadow: 0 15px 25px rgba(0,0,0,.5);
-}
-.form-add h2 {
- margin: 0 0 30px;
- padding: 0;
- color: #fff;
- text-align: center;
- border: none;
- font-size: 2.5em;
- font-family:  'Bebas Neue', cursive;
-}
+
 #vaccin {
 	background-color: #575fcf;
   color: #fff;
@@ -445,9 +419,19 @@ a:hover.btn_connexion span:nth-child(4) {
 #vaccins {
  	max-width: 1440px;
  	width: 100%;
+	height: 200px;
  	margin: 0 auto;
 }
-#vaccins h1 {
+#vaccins .rappel {
+	width: 60%;
+	height: auto;
+	margin: 0 auto;
+	background-color: #575fcf;
+	font-family:  'Didact Gothic', cursive;
+	padding: 30px;
+	border-radius: 10px;
+}
+.rappel h1 {
 	text-align: center;
 	font-family:  'Didact Gothic', cursive;
 	color: #18242f;

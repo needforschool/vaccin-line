@@ -12,7 +12,7 @@ if(!empty($_POST['ajoutvaccin'])) {
   $vaccin = cleanXss($_POST['vaccin']);
   $date = cleanXss($_POST['date']);
   $id_user = $_SESSION['user']['id'];
-  
+
   if(!empty($vaccin)) {
 
   } else {
@@ -91,12 +91,12 @@ if(!empty($_POST['ajoutvaccin'])) {
   <div class="wrap-section">
     <!-- Formulaire ajout vaccin  -->
     <section id="addvaccin">
-      
+
       <form action="index.php" method="post" class="form-addvaccin">
         <h2>Ajouter un vaccin :</h1>
         <select name="vaccin" id="vaccin">
           <option value="">--VACCIN--</option>
-          <?php 
+          <?php
           $sql = "SELECT * FROM vl_vaccins ORDER BY maladie ASC";
           $query = $pdo->prepare($sql);
           $query->execute();
@@ -104,7 +104,7 @@ if(!empty($_POST['ajoutvaccin'])) {
 
           foreach($selects as $select) {
             echo '<option value="' . $select['id'].'">'. $select['maladie'] . '</option>';
-          } 
+          }
           ?>
         </select>
         <span class="error"><?php if(!empty($errors['vaccin'])) { echo $errors['vaccin']; }?></span>
@@ -119,6 +119,9 @@ if(!empty($_POST['ajoutvaccin'])) {
     </section>
     <!-- RAPPEL VACCINs -->
     <section id="vaccins">
+      <div class="rappel">
+
+
       <h1>Vos prochains rappels de vaccin :</h1>
       <br>
       <div class="BB1">
@@ -141,7 +144,7 @@ if(!empty($_POST['ajoutvaccin'])) {
           <div class="MB MB<?php echo $incre_MB; ?>" style="background-color:<?php if(c); ?>;">
             <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
             <p>Fait le : <?php echo $user_vaccins[$incre_fait_le]['fait_le']; ?></p>
-          <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?> 
+          <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?>
           </div>
           <?php
             $incre_MB += 1;
@@ -156,6 +159,7 @@ if(!empty($_POST['ajoutvaccin'])) {
       <!-- derniers VACCINs -->
       <h1>Vos derniers vaccins :</h1>
       <br>
+        </div>
       <div class="BB2">
         <?php
           // Recuperation des données de la table vl_user_vaccin
@@ -188,4 +192,3 @@ if(!empty($_POST['ajoutvaccin'])) {
 <?php endif;
   include('inc/footer-front.php');
 ?>
-
