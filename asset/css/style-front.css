@@ -80,6 +80,33 @@ a {
 							rgba(0,0,0,0.25);
 }
 
+p.success-message {
+  background-color: #32ff7e;
+  font-size: 2em;
+  color: #fff;
+  padding: 5px 0;
+  text-align: center;
+	border-radius: 5px;
+	width: 100%;
+	max-width: 900px;
+	margin: 10px auto;
+	text-transform: uppercase;
+}
+
+p.error-message {
+  background-color: #c0392b;
+  font-size: 2em;
+  color: #fff;
+  padding: 5px 0;
+  text-align: center;
+	border-radius: 5px;
+	width: 100%;
+	max-width: 900px;
+	margin: 10px auto;
+	text-transform: uppercase;
+}
+
+
 /* HEADER */
 
 .wrap-header {

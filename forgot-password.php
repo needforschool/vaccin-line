@@ -36,7 +36,7 @@ if (!empty($_POST['submitted'])) {
       $query->bindValue(':id',$user['id'],PDO::PARAM_STR);
       $query->execute();
 
-      header('location: reset-password.php?id='. $user['id'] .'&form=no');
+      header('location: reset-password.php?email='. $user['email'] .'&form=no');
     } else{
       $errors ['email'] = 'l\'email de correspond pas';
     }

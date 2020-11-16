@@ -65,6 +65,13 @@ if (!empty($_POST['submitted'])) {
 <!-- Mode CONNEXION  -->
 <?php if(empty($_SESSION)) : ?>
   <section id="login">
+    <?php if(!empty($_GET['error']) && $_GET['error'] == 'yes'){ ?>
+      <p class="error-message">Erreur lors de la modification mot de passe</p>
+    <?php }elseif (!empty($_GET['token']) && $_GET['token'] == 'off') {?>
+      <p class="error-message">Le token n'est plus valable.</p>
+    <?php  }elseif (!empty($_GET['success']) && $_GET['success'] == 'yes') {?>
+      <p class="success-message">Mot de passe modifié avec succès</p>
+    <?php  } ?>
     <div class="wrap-section-connexion-1">
       <div class="form-login">
         <h2>connexion</h2>
