@@ -159,7 +159,7 @@ if(!empty($_POST['ajoutvaccin'])) {
       <!-- derniers VACCINs -->
       <h1>Vos derniers vaccins :</h1>
       <br>
-        </div>
+
       <div class="BB2">
         <?php
           // Recuperation des données de la table vl_user_vaccin
@@ -185,6 +185,7 @@ if(!empty($_POST['ajoutvaccin'])) {
           }
         ?>
 
+      </div>
       </div>
     </section>
 
