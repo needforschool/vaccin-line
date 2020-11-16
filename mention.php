@@ -27,7 +27,7 @@ include('inc/header-front.php');?>
       <h2>CNIL</h2>
       <p>La société Vaccin'Corp conservera dans ses systèmes informatiques et dans des conditions raisonnables de sécurité une preuve de la transaction comprenant le bon de commande et la facture.</p>
       <p>La société Vaccin'Corp a fait l’objet d’une déclaration à la CNIL sous le numéro 1986932.</p>
-      <p>Conformément aux dispositions de la loi 78-17 du 6 janvier 1978 modifiée, l’Utilisateur dispose d’un droit d’accès, de modification et de suppression des informations collectées par Vaccin'Corp. Pour exercer ce droit, il reviendra à l’Utilisateur d’envoyer un message à l’adresse suivante : vaccin-line@gmail.com</p>
+      <p>Conformément aux dispositions de la loi 78-17 du 6 janvier 1978 modifiée, l’Utilisateur dispose d’un droit d’accès, de modification et de suppression des informations collectées par Vaccin'Corp. Pour exercer ce droit, il reviendra à l’Utilisateur d’envoyer un message à l’adresse suivante : vaccin.line@gmail.com</p>
       </div>
     </div>
   </div>
