@@ -15,7 +15,7 @@ include('inc/header-front.php');
 
 <?php if(empty($_SESSION) ) : ?>
   <section id="banner">
-    <img src="asset/img/vaccin_line.png" class="logo">
+    <img src="asset/img/logo.png" class="logo">
     <div class="banner-text">
       <h1>Vaccin'Line</h1>
       <p>Vaccin'Line Le Carnet Du Futur</p>
@@ -178,7 +178,7 @@ include('inc/header-front.php');
             <small>@tomeigeri</small>
           </div>
         </div>
-        <p>Une équipe toujours souriante et sympathique et un délai de service court font que notre choix c'est porté sur Vaccin'Line.</p>
+        <p>Une équipe toujours souriante et sympathique, un délai de service court font que notre choix c'est porté sur Vaccin'Line.</p>
       </div>
     </div>
   </section>
