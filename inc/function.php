@@ -78,5 +78,16 @@ function validationText($errors,$data,$key,$min,$max) {
       return $randomString;
   }
 
+  function isActual($token_at) {
+    $token_at = strtotime($token_at);
+    $actualTime = strtotime(date('Y-m-d H:i:s'));
+    $interval = $actualTime - $token_at;
+    if ($interval > 600) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
 
 ?>

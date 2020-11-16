@@ -4,7 +4,6 @@ session_start();
 include('inc/pdo.php');
 include('inc/function.php');
 
-include('inc/header-front.php');
 
 $success = false;
 $errors = array();
@@ -30,14 +29,21 @@ if (!empty($_POST['submitted'])) {
     $query->execute();
     $user = $query->fetch();
     if (!empty($user)) {
-      // code...
+      $token = generateRandomString(80);
+      $sql = "UPDATE vl_users SET token = :token, token_at = NOW() WHERE id = :id";
+      $query = $pdo->prepare($sql);
+      $query->bindValue(':token',$token,PDO::PARAM_STR);
+      $query->bindValue(':id',$user['id'],PDO::PARAM_STR);
+      $query->execute();
+
+      header('location: reset-password.php?id='. $user['id'] .'&form=no');
     } else{
       $errors ['email'] = 'l\'email de correspond pas';
     }
   }
 
 }
-
+include('inc/header-front.php');
 ?>
 
 <!-- Connecté -->
@@ -49,7 +55,7 @@ if (!empty($_POST['submitted'])) {
 
 <!-- Mode CONNEXION  -->
 <?php if(empty($_SESSION)) : ?>
-  <section id="login">
+  <section id="resetPassword">
     <div class="wrap-section-connexion-1">
       <div class="form-login">
         <h2>mot de passe oublié ?</h2>
