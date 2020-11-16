@@ -1183,7 +1183,6 @@ footer {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-<<<<<<< HEAD
   	background: rgba(0,0,0,.8);
   	box-sizing: border-box;
   	border-radius: 10px;
@@ -1195,9 +1194,6 @@ footer {
 	color: white;
 	text-align: center;
 	padding: 40px 0;
-=======
-
->>>>>>> 89540d3b994895e290f0d02ef3401c699b5623cc
 }
 /* FIN big box et mini box affichage flex vaccin front*/
 

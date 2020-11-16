@@ -68,7 +68,6 @@ include('inc/header-front.php');
         $query = $pdo->prepare($sql);
         $query->execute();
         $user_vaccins = $query->fetchAll();
-        $incre_MB = 1;
         $incre_fait_le = 0;
       ?>
       <?php foreach($vaccins as $vaccin) : ?>
@@ -78,9 +77,8 @@ include('inc/header-front.php');
           <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?> 
         </div>
         <?php
-          $incre_MB += 1;
           $incre_fait_le +=1;
-          if($incre_fait_le > 2) {
+          if($incre_fait_le == count($vaccin)) {
             break;
           }
         ?>
