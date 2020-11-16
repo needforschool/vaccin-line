@@ -530,7 +530,37 @@ hr {
 
 
 
+
 /* MODIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF */
+
+p.success-message {
+  background-color: #32ff7e;
+  font-size: 2em;
+  color: #fff;
+  padding: 5px 0;
+  text-align: center;
+	border-radius: 5px;
+	width: 100%;
+	max-width: 900px;
+	margin: 10px auto;
+	text-transform: uppercase;
+}
+
+p.error-message {
+  background-color: #c0392b;
+  font-size: 2em;
+  color: #fff;
+  padding: 5px 0;
+  text-align: center;
+	border-radius: 5px;
+	width: 100%;
+	max-width: 900px;
+	margin: 10px auto;
+	text-transform: uppercase;
+}
+
+
+
 /* HEADER */
 
 /* .wrap-header {
@@ -924,6 +954,10 @@ a:hover.btn_connexion span:nth-child(4) {
 	width: 100%;
 	height: auto;
 	margin: 0 auto;
+}
+#konamicode {
+	display: none;
+	transition: 0.5s;
 }
 .wrap-about .bigbox {
 	display: flex;
@@ -1464,14 +1498,14 @@ footer {
 .column2 {
 	width: 15%;
 	display: flex;
-<<<<<<< HEAD
+
 	flex-direction: row;
 	margin-left: 42px;
 	margin-right: -50px;
 	align-items: center;
-=======
+
  	justify-content: space-between;
->>>>>>> 32a8a166986256c854e2db92162ce98ec1b18666
+
 	padding: 30px;
 }
 .column2 a {
@@ -1643,6 +1677,7 @@ footer {
   	box-sizing: border-box;
   	border-radius: 10px;
 	box-shadow: 0 15px 25px rgba(0,0,0,.5);
+	text-align: center;	
 }
 .MB_carnet {
 	width: 25%;
@@ -1650,6 +1685,11 @@ footer {
 	color: white;
 	text-align: center;
 	padding: 40px 0;
+
+}
+.pasdevaccin {
+	color: #fff;
+	
 }
 /* FIN big box et mini box affichage flex vaccin front*/
 

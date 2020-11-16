@@ -8,37 +8,11 @@ $errors = array();
 
 include('inc/header-front.php');
 
-if(!empty($_POST['ajoutvaccin'])) {
-  $vaccin = cleanXss($_POST['vaccin']);
-  $date = cleanXss($_POST['date']);
-  $id_user = $_SESSION['user']['id'];
-
-  if(!empty($vaccin)) {
-
-  } else {
-    $errors['vaccin'] = 'Veuillez selectioner un vaccin';
-  }
-  if(!empty($date)) {
-
-  } else {
-    $errors['date'] = 'Veuillez renseignez ce champ';
-  }
-
-  if(count($errors) == 0) {
-    $sql = "INSERT INTO vl_user_vaccin (id_user,id_vaccin,fait_le)
-    VALUES (:id_user,:vaccin,:date)";
-    $query = $pdo->prepare($sql);
-    $query->bindValue(':id_user',$id_user,PDO::PARAM_STR);
-    $query->bindValue(':vaccin',$vaccin,PDO::PARAM_STR);
-    $query->bindValue(':date',$date,PDO::PARAM_STR);
-    $query->execute();
-  }
-
-}
 ?>
 
 
 <!-- Non connecté -->
+
 <?php if(empty($_SESSION) ) : ?>
   <section id="banner">
     <img src="asset/img/vaccin_line.png" class="logo">
@@ -212,6 +186,9 @@ if(!empty($_POST['ajoutvaccin'])) {
 
 
 <!-- <section>
+
+<section>
+
   <div class="wrap-section">
     <div class="bigbox">
       <div class="stats">
@@ -234,15 +211,24 @@ if(!empty($_POST['ajoutvaccin'])) {
     <div class="button">
       <div class="effect"> -->
         <!-- effect btn -->
+
         <!-- <a href="signin.php"  class="btn_inscription">
+
+        <a href="<?php if(empty($_SESSION)){ echo "signin.php";} elseif(!empty($_SESSION)){ echo "carnet.php";} ?>"  class="btn_inscription">
+
           <span></span>
           <span></span>
           <span></span>
           <span></span>
-          inscription
+          <?php if(empty($_SESSION)){ echo "Inscription";} elseif(!empty($_SESSION)){ echo "Mon carnet";} ?>
         </a>
       </div>
+
       <div class="effect"> -->
+
+      <?php if(empty($_SESSION)) : ?>
+      <div class="effect">
+
         <!-- effect btn -->
         <!-- <a href="login.php"  class="btn_connexion">
           <span></span>
@@ -252,8 +238,10 @@ if(!empty($_POST['ajoutvaccin'])) {
           connexion
         </a>
       </div>
+      <?php endif; ?>
     </div>
   </div>
+
 </section> -->
 <?php endif; ?>
 
@@ -369,5 +357,10 @@ if(!empty($_POST['ajoutvaccin'])) {
 
 
 <?php endif;
+
+</section>
+<?php
+
+
   include('inc/footer-front.php');
 ?>
