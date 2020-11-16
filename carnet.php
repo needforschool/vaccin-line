@@ -46,7 +46,7 @@ if(!empty($_POST['ajoutvaccin'])) {
 
 <!-- Non connecté -->
 <?php if(empty($_SESSION) ) : ?>
-<section>
+<!-- <section>
   <div class="wrap-section">
     <div class="bigbox">
       <div class="stats">
@@ -55,9 +55,9 @@ if(!empty($_POST['ajoutvaccin'])) {
         <a href="#">book a visit</a>
       </div>
       <div class="button">
-        <div class="effect">
+        <div class="effect"> -->
           <!-- effect btn -->
-          <a href="#"  class="btn_inscription">
+          <!-- <a href="#"  class="btn_inscription">
             <span></span>
             <span></span>
             <span></span>
@@ -65,9 +65,9 @@ if(!empty($_POST['ajoutvaccin'])) {
             inscription
           </a>
         </div>
-        <div class="effect">
+        <div class="effect"> -->
           <!-- effect btn -->
-          <a href="#"  class="btn_connexion">
+          <!-- <a href="#"  class="btn_connexion">
             <span></span>
             <span></span>
             <span></span>
@@ -78,7 +78,7 @@ if(!empty($_POST['ajoutvaccin'])) {
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <?php endif; ?>
 <?php if(!empty($_SESSION) ) : ?>
   <!-- Connecté -->
@@ -212,6 +212,21 @@ if(!empty($_POST['ajoutvaccin'])) {
         $incre_fait_le = 0;
       ?>
       <?php if (!empty($user_vaccins)) : ?>
+
+        <?php foreach($vaccins as $vaccin) : ?>
+          <div class="MB_carnet">
+            <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
+            <p>Fait le : <?php echo $user_vaccins[$incre_fait_le]['fait_le']; ?></p>
+            <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?>
+          </div>
+          <?php
+            $incre_fait_le +=1;
+            if($incre_fait_le == count($user_vaccins)) {
+              break;
+            }
+          ?>
+        <?php endforeach; ?>
+
         <div class="BB_carnet">
           <?php foreach($vaccins as $vaccin) : ?>
             <div class="MB_carnet">
@@ -227,6 +242,7 @@ if(!empty($_POST['ajoutvaccin'])) {
             ?>
           <?php endforeach; ?>
         </div>
+
       <?php else : ?>
       <p class="pasdevaccin">Vous n'avez pas de vaccin actuellement</p>
       <?php endif; ?>
