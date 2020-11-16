@@ -158,7 +158,7 @@ include('inc/header-front.php');
             <small>@antoinedaniel</small>
           </div>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+        <p>Beaucoup de contenu utile, la mise à jour des vaccins permet de suivre son actualisation. Les données sont sauvegardés et sécurisés. </p>
       </div>
       <div class="testimonial-col">
         <div class="user">
@@ -168,7 +168,7 @@ include('inc/header-front.php');
             <small>@elladanloss</small>
           </div>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Je suis satisfaite de l'offre de l'entreprise. Communiquais avec le service client m'a aidé à trouver exactement ce que je recherchais.</p>
       </div>
       <div class="testimonial-col">
         <div class="user">
@@ -178,7 +178,7 @@ include('inc/header-front.php');
             <small>@tomeigeri</small>
           </div>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+        <p>Une équipe toujours souriante et sympathique et un délai de service court font que notre choix c'est porté sur Vaccin'Line.</p>
       </div>
     </div>
   </section>
