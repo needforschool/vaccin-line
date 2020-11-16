@@ -40,7 +40,178 @@ if(!empty($_POST['ajoutvaccin'])) {
 
 <!-- Non connecté -->
 <?php if(empty($_SESSION) ) : ?>
-<section>
+  <section id="banner">
+    <img src="asset/img/vaccin_line.png" class="logo">
+    <div class="banner-text">
+      <h1>Vaccin'Line</h1>
+      <p>Vaccin'Line Le Carnet Du Futur</p>
+      <div class="banner-btn">
+        <a href="signin.php"><span></span>Inscription</a>
+        <a href="login.php"><span></span>Connexion</a>
+      </div>
+    </div>
+    <div class="log-header">
+
+
+
+
+      <!-- Si non connecter -->
+      <?php if(empty($_SESSION)) : ?>
+
+      <?php endif; ?>
+      <!-- Si connecter  -->
+      <?php if(!empty($_SESSION)) : ?>
+        <?php
+        if ($_SESSION['user']['age'] > 18)  {
+          switch ($_SESSION['user']['civilite']) {
+            case "monsieur" :
+            echo '<img src="asset/img/undraw_profile_2.svg" alt="" width="50px"> ';
+            echo  '<p class="nomPrenom">' . 'M.';
+            break;
+            case "madame" :
+            echo '<img src="asset/img/undraw_profile_1.svg" alt="" width="50px">';
+            echo '<p class="nomPrenom">' .'Mme.';
+            break;
+          }
+        } else {
+          echo '<img src="asset/img/undraw_profile_3.svg" alt="" width="50px">';
+        }
+        echo  $_SESSION['user']['nom'] . ' '. $_SESSION['user']['prenom'] . '</p>';
+        ?>
+
+        <div class="in-out">
+
+          <a href="logout.php"><img src="asset/img/sign-out-alt-solid.svg" alt="" srcset="" width="30px"></a>
+          <a href="settings.php"><img src="asset/img/sliders-h-solid.svg" alt="" srcset="" width="30px"></a>
+        </div>
+      <?php endif; ?>
+    </div>
+  </section>
+  <section id="feature">
+    <div class="title-text">
+      <p>Fonctionnalités</p>
+      <h1>Pourquoi Nous Choisir</h1>
+    </div>
+    <div class="feature-box">
+      <div class="features">
+        <h1>Equipe d'expérience</h1>
+        <div class="features-desc">
+          <div class="feature-icon">
+            <i class="fa fa-check-square-o"></i>
+          </div>
+          <div class="feature-text"></div>
+          <p>Géré et sécurisé par une équipe expérimenté. Le carnet est simple et fonctionnel.Géré et sécurisé par une équipe expérimenté. Le carnet est simple et fonctionnel</p>
+        </div>
+        <h1>Sécurité</h1>
+        <div class="features-desc">
+          <div class="feature-icon">
+            <i class="fa fa-shield"></i>
+          </div>
+          <div class="feature-text"></div>
+          <p>L'adhésion se fait entièrement en ligne, procédure administrative simple et rapide.L'adhésion se fait entièrement en ligne, procédure administrative simple et rapide.</p>
+        </div>
+        <h1>Gratuité</h1>
+        <div class="features-desc">
+          <div class="feature-icon">
+            <i class="fa fa-inr"></i>
+          </div>
+          <div class="feature-text"></div>
+          <p>Notre carnet de vaccination et totalement gratuit et disponible à vie.Notre carnet de vaccination et totalement gratuit et disponible à vie.</p>
+        </div>
+      </div>
+      <div class="features-img">
+        <img src="asset/img/feature.jpg" alt="">
+      </div>
+    </div>
+  </section>
+  <!-- service -->
+  <section id="service">
+    <div class="title-text">
+      <p>SERVICES</p>
+      <h1>Nos Meilleurs Services</h1>
+    </div>
+    <div class="service-box">
+      <div class="single-service">
+        <img src="asset/img/pic1.jpg" alt="">
+        <div class="overlay"></div>
+        <div class="service-desc">
+          <h3>Inscription Valable à Vie</h3>
+          <hr>
+          <p>this is test under description of barber foundation this is test under description of barber foundation.</p>
+        </div>
+      </div>
+      <div class="single-service">
+        <img src="asset/img/pic2.jpg" alt="">
+        <div class="overlay"></div>
+        <div class="service-desc">
+          <h3>Sécurité</h3>
+          <hr>
+          <p>this is test under description of barber foundation this is test under description of barber foundation.</p>
+        </div>
+      </div>
+      <div class="single-service">
+        <img src="asset/img/pic3.jpg" alt="">
+        <div class="overlay"></div>
+        <div class="service-desc">
+          <h3>Automatisation des Tâches</h3>
+          <hr>
+          <p>this is test under description of barber foundation this is test under description of barber foundation.</p>
+        </div>
+      </div>
+      <div class="single-service">
+        <img src="asset/img/pic4.jpg" alt="">
+        <div class="overlay"></div>
+        <div class="service-desc">
+          <h3>Dry Shampoo</h3>
+          <hr>
+          <p>this is test under description of barber foundation this is test under description of barber foundation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- témoignages -->
+  <section id="testimonial">
+    <div class="title-text">
+      <p>TEMOIGNAGES</p>
+      <h1>Commentaires Clients</h1>
+    </div>
+    <div class="testimonial-row">
+      <div class="testimonial-col">
+        <div class="user">
+          <img src="asset/img/img-1.jpg" alt="">
+          <div class="user-info">
+            <h4>ANTOINE DANIEL <i class="fa fa-twitter"></i></h4>
+            <small>@antoinedaniel</small>
+          </div>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+      </div>
+      <div class="testimonial-col">
+        <div class="user">
+          <img src="asset/img/img-2.jpg" alt="">
+          <div class="user-info">
+            <h4>ELLA DANLOSS <i class="fa fa-twitter"></i></h4>
+            <small>@elladanloss</small>
+          </div>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+      <div class="testimonial-col">
+        <div class="user">
+          <img src="asset/img/img-3.jpg" alt="">
+          <div class="user-info">
+            <h4>TOM EIGERI <i class="fa fa-twitter"></i></h4>
+            <small>@tomeigeri</small>
+          </div>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+<!-- <section>
   <div class="wrap-section">
     <div class="bigbox">
       <div class="stats">
@@ -61,9 +232,9 @@ if(!empty($_POST['ajoutvaccin'])) {
       </div>
     </div>
     <div class="button">
-      <div class="effect">
+      <div class="effect"> -->
         <!-- effect btn -->
-        <a href="signin.php"  class="btn_inscription">
+        <!-- <a href="signin.php"  class="btn_inscription">
           <span></span>
           <span></span>
           <span></span>
@@ -71,9 +242,9 @@ if(!empty($_POST['ajoutvaccin'])) {
           inscription
         </a>
       </div>
-      <div class="effect">
+      <div class="effect"> -->
         <!-- effect btn -->
-        <a href="login.php"  class="btn_connexion">
+        <!-- <a href="login.php"  class="btn_connexion">
           <span></span>
           <span></span>
           <span></span>
@@ -83,14 +254,13 @@ if(!empty($_POST['ajoutvaccin'])) {
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <?php endif; ?>
 
 <!-- Connecté -->
 <?php if(!empty($_SESSION)) : ?>
-  <div class="wrap-section">
     <!-- Formulaire ajout vaccin  -->
-    <section id="addvaccin">
+    <section id="vaccins">
 
       <form action="index.php" method="post" class="form-addvaccin">
         <h2>Ajouter un vaccin :</h1>
@@ -157,7 +327,7 @@ if(!empty($_POST['ajoutvaccin'])) {
           <?php endforeach; ?>
         <?php else : ?>
           <p>Vous n'avez pas de vaccin</p>
-        <?php endif;?>        
+        <?php endif;?>
         </div>
       <br>
       <!-- derniers VACCINs -->
@@ -176,7 +346,7 @@ if(!empty($_POST['ajoutvaccin'])) {
           // Affichage des 3 derniers vaccin
           $incre_MB = 1;
           $incre_fait_le = 0;
-          if (!empty($user_vaccins)) { 
+          if (!empty($user_vaccins)) {
             foreach ($vaccins as $vaccin) {
               echo '<div class="MB MB'. $incre_MB .'">';
                 echo '<p> Vaccin : '. $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie'] . '</p>';
@@ -197,7 +367,7 @@ if(!empty($_POST['ajoutvaccin'])) {
       </div>
     </section>
 
-  </div>
+
 <?php endif;
   include('inc/footer-front.php');
 ?>

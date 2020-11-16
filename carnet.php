@@ -15,7 +15,7 @@ include('inc/header-front.php');
 
 <!-- Non connecté -->
 <?php if(empty($_SESSION) ) : ?>
-<section>
+<!-- <section>
   <div class="wrap-section">
     <div class="bigbox">
       <div class="stats">
@@ -24,9 +24,9 @@ include('inc/header-front.php');
         <a href="#">book a visit</a>
       </div>
       <div class="button">
-        <div class="effect">
+        <div class="effect"> -->
           <!-- effect btn -->
-          <a href="#"  class="btn_inscription">
+          <!-- <a href="#"  class="btn_inscription">
             <span></span>
             <span></span>
             <span></span>
@@ -34,9 +34,9 @@ include('inc/header-front.php');
             inscription
           </a>
         </div>
-        <div class="effect">
+        <div class="effect"> -->
           <!-- effect btn -->
-          <a href="#"  class="btn_connexion">
+          <!-- <a href="#"  class="btn_connexion">
             <span></span>
             <span></span>
             <span></span>
@@ -47,7 +47,7 @@ include('inc/header-front.php');
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <?php endif; ?>
 <?php if(!empty($_SESSION) ) : ?>
   <!-- Connecté -->
@@ -76,7 +76,7 @@ include('inc/header-front.php');
           <div class="MB_carnet">
             <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
             <p>Fait le : <?php echo $user_vaccins[$incre_fait_le]['fait_le']; ?></p>
-            <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?> 
+            <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?>
           </div>
           <?php
             $incre_fait_le +=1;
