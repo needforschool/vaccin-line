@@ -639,9 +639,9 @@ input[type=submit]:hover {
 	position: absolute;
 	width: 450px;
  	padding: 40px;
-  background: rgba(0,0,0,.8);
-  box-sizing: border-box;
-  border-radius: 10px;
+  	background: rgba(0,0,0,.8);
+  	box-sizing: border-box;
+  	border-radius: 10px;
 	box-shadow: 0 15px 25px rgba(0,0,0,.5);
  }
  .form-login h2 {
@@ -953,38 +953,119 @@ footer {
 }
 
 /* big box et mini box affichage flex vaccin front*/
-.wrap-index-vacccins {
-	max-width: 1440px;
+#section-addvaccin {
+	
+}
+.form-addvaccin {
+	margin: 0 auto;
+	width: 450px;
+ 	padding: 40px;
+  	background: rgba(0,0,0,.8);
+  	box-sizing: border-box;
+  	border-radius: 10px;
+	box-shadow: 0 15px 25px rgba(0,0,0,.5);
+ }
+ .form-addvaccin h2 {
+ 	margin: 0 0 30px;
+ 	padding: 0;
+ 	color: #fff;
+ 	text-align: center;
+ 	border: none;
+ 	font-size: 2.5em;
+	font-family:  'Bebas Neue', cursive;
+ }
+ .form-addvaccin .w50 {
+	position: relative;
 	width: 100%;
-	height: auto;
-	margin: 0 auto;
+ }
+ .form-addvaccin .w50 input {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #fff;
+	outline: none;
+ 	background: transparent;
+ }
+ .form-addvaccin .w50 label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 16px;
+	font-family:  'Bebas Neue', cursive;
+	color: #fff;
+	pointer-events: none;
+	transition: .5s;
+ }
+.form-addvaccin .w50 input:focus ~ label,
+.form-addvaccin .w50 input:valid ~ label
+{
+	top: -22px;
+	left: 0;
+	color: #575fcf;
+	font-size: 12px;
 }
-.BB {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+ .form-addvaccin a {
+	padding: 10px;
+	margin-bottom: 20px;
+	font-family: 'Josefin Sans', sans-serif;
+	color: #fff;
+	font-weight: bold;
+ }
+.form-addvaccin .w50 input[type=submit] {
+	background-color: #fff;
+	color: #575fcf;
+	border: solid 1px #fff;
+	font-family:  'Bebas Neue', cursive;
+	font-size: 1.4em;
+	text-transform: uppercase;
+	padding-left: 10px;
+	margin-bottom: 5px;
+	border-radius: 4px;
+	width: 50%;
+	height: 60px;
+	cursor: pointer;
+}
+.form-addvaccin .w50 input[type=submit]:hover {
+	background-color: #575fcf;
+	color: #fff;
+}
 
-}
-
-.MB {
-	width: 33.33333333%;
-	margin: 0 auto;
-	background-color: red;
-}
 .BB1 {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+  	background: rgba(0,0,0,.8);
+  	box-sizing: border-box;
+  	border-radius: 10px;
+	box-shadow: 0 15px 25px rgba(0,0,0,.5);
 }
 .BB2 {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	margin-bottom: 40px;
+  	background: rgba(0,0,0,.8);
+  	box-sizing: border-box;
+  	border-radius: 10px;
+	box-shadow: 0 15px 25px rgba(0,0,0,.5);
 }
 
 .MB {
 	width: 25%;
+	margin: 30px auto;
+	color: white;
+	text-align: center;
+	padding: 40px 0;
+}
+.BB2 {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	
 }
 /* FIN big box et mini box affichage flex vaccin front*/
 

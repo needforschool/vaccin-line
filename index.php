@@ -33,10 +33,7 @@ if(!empty($_POST['ajoutvaccin'])) {
     $query->bindValue(':date',$date,PDO::PARAM_STR);
     $query->execute();
   }
-   
-
 }
-
 ?>
 
 
@@ -102,8 +99,9 @@ if(!empty($_POST['ajoutvaccin'])) {
   <div class="wrap-section">
     <!-- Formulaire ajout vaccin  -->
     <section id="addvaccin">
-      <h3>Ajouter un vaccin :</h3>
-      <form action="index.php" method="post" class>
+      
+      <form action="index.php" method="post" class="form-addvaccin">
+        <h2>Ajouter un vaccin :</h1>
         <select name="vaccin" id="vaccin">
           <option value="">--VACCIN--</option>
           <?php 
@@ -118,9 +116,13 @@ if(!empty($_POST['ajoutvaccin'])) {
           ?>
         </select>
         <span class="error"><?php if(!empty($errors['vaccin'])) { echo $errors['vaccin']; }?></span>
-        <input type="date" name="date">
-        <span class="error"><?php if(!empty($errors['date'])) { echo $errors['date']; }?></span>
-        <input type="submit" name="ajoutvaccin">
+        <div class="w50">
+          <input type="date" name="date">
+          <span class="error"><?php if(!empty($errors['date'])) { echo $errors['date']; }?></span>
+        </div>
+        <div class="w50">
+          <input type="submit" name="ajoutvaccin">
+        </div>
       </form>
     </section>
     <!-- RAPPEL VACCINs -->
@@ -136,60 +138,60 @@ if(!empty($_POST['ajoutvaccin'])) {
           $query->execute();
           $vaccins = $query->fetchAll();
           // Recuperation des données de la table vl_user_vaccin
-          $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ORDER BY fait_le ASC LIMIT 3";
+          $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ORDER BY fait_le ASC";
           $query = $pdo->prepare($sql);
           $query->execute();
           $user_vaccins = $query->fetchAll();
           $incre_MB = 1;
           $incre_fait_le = 0;
-          // debug($vaccins);
         ?>
         <?php foreach($vaccins as $vaccin) : ?>
-          <div class="MB MB<?php echo $incre_MB; ?>" style="background-color:<?php if(condition); ?>;">
+          <div class="MB MB<?php echo $incre_MB; ?>" style="background-color:<?php if(c); ?>;">
             <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
             <p>Fait le : <?php echo $user_vaccins[$incre_fait_le]['fait_le']; ?></p>
-        <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?> 
+          <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?> 
           </div>
+          <?php
+            $incre_MB += 1;
+            $incre_fait_le +=1;
+            if($incre_fait_le > 2) {
+              break;
+            }
+         ?>
+        <?php endforeach; ?>
+      </div>
+      <br>
+      <!-- derniers VACCINs -->
+      <h1>Vos derniers vaccins :</h1>
+      <br>
+      <div class="BB2">
         <?php
-          $incre_MB += 1;
-          $incre_fait_le +=1;
-          if($incre_fait_le > 2) {
-            break;
+          // Recuperation des données de la table vl_user_vaccin
+          $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ORDER BY fait_le DESC LIMIT 3";
+          $query = $pdo->prepare($sql);
+          $query->execute();
+          $user_vaccins = $query->fetchAll();
+          $incre_MB = 1;
+          $incre_fait_le = 0;
+          // Affichage des 3 derniers vaccin
+          $incre_MB = 1;
+          $incre_fait_le = 0;
+          foreach ($vaccins as $vaccin) {
+            echo '<div class="MB MB'. $incre_MB .'">';
+              echo '<p> Vaccin : '. $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie'] . '</p>';
+              echo '<p> Fait le : '. $user_vaccins[$incre_fait_le]['fait_le'] . '</p>';
+            echo '</div>';
+            $incre_MB += 1;
+            $incre_fait_le +=1;
+            if($incre_fait_le > 2) {
+              break;
+            }
           }
         ?>
-      
-      <?php endforeach; ?>
-    </div>
-    <br>
-    <!-- derniers VACCINs -->
-    <h1>Vos derniers vaccins :</h1>
-    <br>
-    <div class="BB2">
-      <?php
-      // Recuperation des données de la table vl_user_vaccin
-      $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ORDER BY fait_le DESC LIMIT 3";
-      $query = $pdo->prepare($sql);
-      $query->execute();
-      $user_vaccins = $query->fetchAll();
-      $incre_MB = 1;
-      $incre_fait_le = 0;
-      // Affichage des 3 derniers vaccin
-      $incre_MB = 1;
-      $incre_fait_le = 0;
-      foreach ($vaccins as $vaccin) {
-        echo '<div class="MB MB'. $incre_MB .'">';
-          echo '<p> Vaccin : '. $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie'] . '</p>';
-          echo '<p> Fait le : '. $user_vaccins[$incre_fait_le]['fait_le'] . '</p>';
-        echo '</div>';
-        $incre_MB += 1;
-        $incre_fait_le +=1;
-        if($incre_fait_le > 2) {
-          break;
-        }
-      }
-      ?>
-    </div>
-  </section>
+      </div>
+    </section>
   </div>
-<?php endif; ?>
-<?php include('inc/footer-front.php');
+<?php endif;
+  include('inc/footer-front.php');
+?>
+

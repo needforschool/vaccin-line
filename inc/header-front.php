@@ -39,6 +39,10 @@
                   <li><a href="carnet.php">mon Carnet</a></li>
                   <li><a href="contact.php">contact</a></li>
                 <?php endif; ?>
+                <?php if($title == 'Contact') : ?>
+                  <li><a href="index.php">home</a></li>
+                  <li><a href="carnet.php">mon Carnet</a></li>
+                <?php endif; ?>
 
               <?php endif; ?>
                 <li><a href="admin/index.php">admin</a></li>
