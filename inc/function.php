@@ -88,6 +88,3 @@ function validationText($errors,$data,$key,$min,$max) {
       return true;
     }
   }
-
-
-?>
