@@ -37,7 +37,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.php">
                 <div class="sidebar-brand-icon ">
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                     <i class="fas fa-hand-holding-medical"></i>
@@ -137,7 +137,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['user']['prenom'] . ' ' . $_SESSION['user']['nom']; ?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo mb_strtoupper($_SESSION['user']['nom']) . ' ' . ucfirst($_SESSION['user']['prenom']); ?></span>
                                 <?php if ($_SESSION['user']['age'] < 25 && $_SESSION['user']['civilite'] == 'monsieur') {?>
                                 <img class="img-profile rounded-circle"
                                     src="asset/img/undraw_profile_2.svg">

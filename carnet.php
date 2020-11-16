@@ -49,34 +49,41 @@ include('inc/header-front.php');
   </div>
 </section>
 <?php endif; ?>
-
-<!-- Connecté -->
-<?php
-  // Recuperation des données de la table vl_user_vaccin
-  $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ORDER BY fait_le DESC LIMIT 3";
-  $query = $pdo->prepare($sql);
-  $query->execute();
-  $user_vaccins = $query->fetchAll();
-  if(!empty($_SESSION)) : ?>
-
-  <section class='section-carnet'>
-    <?php if (count($user_vaccins) > 0): ?>
-      <table>
-        <thead>
-          <tr>
-            <th><?php echo implode('</th><th>', array_keys(current($user_vaccins))); ?></th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach ($user_vaccins as $row): array_map('htmlentities', $row); ?>
-          <tr>
-            <td><?php echo implode('</td><td>', $row); ?></td>
-          </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-    <?php endif; ?>
-  </section>
-
+<?php if(!empty($_SESSION) ) : ?>
+  <!-- Connecté -->
+  <!-- RAPPEL VACCINs -->
+  <section id="vaccins">
+    <h1>Vos prochains rappels de vaccin :</h1>
+    <br>
+    <div class="BB_carnet">
+      <?php
+        $id = $_SESSION['user']['id'];
+        // Recuperation des données de la table vl_vaccin
+        $sql = "SELECT * FROM vl_vaccins";
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        $vaccins = $query->fetchAll();
+        // Recuperation des données de la table vl_user_vaccin
+        $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ORDER BY fait_le ASC";
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        $user_vaccins = $query->fetchAll();
+        $incre_fait_le = 0;
+      ?>
+      <?php foreach($vaccins as $vaccin) : ?>
+        <div class="MB_carnet">
+          <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
+          <p>Fait le : <?php echo $user_vaccins[$incre_fait_le]['fait_le']; ?></p>
+          <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?> 
+        </div>
+        <?php
+          $incre_fait_le +=1;
+          if($incre_fait_le == count($vaccin)) {
+            break;
+          }
+        ?>
+      <?php endforeach; ?>
+    </div>
+    </section>
 <?php endif; ?>
 <?php include('inc/footer-front.php');

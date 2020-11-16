@@ -89,5 +89,11 @@ function validationText($errors,$data,$key,$min,$max) {
     }
   }
 
-
-?>
+function isAdmin()
+{
+  if (!est_connecte()) {
+    header('Location: ../admin/403.php');
+    } elseif ($_SESSION['user']['role'] != 'role_admin') {
+    header('Location: ../admin/403.php');
+    }
+}
