@@ -156,7 +156,7 @@ if(!empty($_POST['ajoutvaccin'])) {
             ?>
           <?php endforeach; ?>
         <?php else : ?>
-          <p>Vous n'avez pas de vaccin</p>
+          <p class="pasdevaccin">Vous n'avez pas de vaccin</p>
         <?php endif;?>        
         </div>
       <br>
@@ -189,7 +189,7 @@ if(!empty($_POST['ajoutvaccin'])) {
               }
             }
           } else {
-            echo '<p> Vous n\'avez pas de vaccin actuelement </p>';
+            echo '<p class="pasdevaccin"> Vous n\'avez pas de vaccin actuelement </p>';
           }
         ?>
 

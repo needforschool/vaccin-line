@@ -86,7 +86,7 @@ include('inc/header-front.php');
           ?>
         <?php endforeach; ?>
       <?php else : ?>
-        <p>Vous n'avez pas de vaccin actuellement</p>
+        <p class="pasdevaccin">Vous n'avez pas de vaccin actuellement</p>
       <?php endif; ?>
       </div>
     </section>
