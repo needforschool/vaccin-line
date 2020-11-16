@@ -2,11 +2,7 @@
 session_start();
 include('../inc/pdo.php');
 include('../inc/function.php');
-if (!est_connecte()) {
-  header('Location: 403.php');
-  } elseif ($_SESSION['user']['role'] != 'role_admin') {
-  header('Location: 403.php');
-  }
+isAdmin();
 $title = 'Blank';
 
 $sql = "SELECT * FROM vl_contacts WHERE status = 1 AND lu = 'non'";

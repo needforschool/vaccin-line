@@ -6,6 +6,7 @@ $title = 'Inscription';
 $errors = array();
 $succes = false;
 if (!empty($_POST['submitted'])) {
+
     $nom = cleanXss($_POST['nom']);
     $prenom = cleanXss($_POST['prenom']);
     $date_naissance = cleanXss($_POST['date_naissance']);
@@ -17,7 +18,6 @@ if (!empty($_POST['submitted'])) {
 
     //Verif civilité
     if(!empty($civilite)) {
-
     } else {
         $errors['civilite'] = 'Veuillez renseignez ce champ';
     }
