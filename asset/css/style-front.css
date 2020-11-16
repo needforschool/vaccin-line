@@ -1055,7 +1055,7 @@ footer {
 }
 .bottom-bar {
 	padding: 15px;
-  background-color: #1f1f1f;
+  background-color: #18242f;
   color: #fff;
   display: flex;
 	justify-content: center;
@@ -1072,7 +1072,7 @@ footer {
 
 /* big box et mini box affichage flex vaccin front*/
 #section-addvaccin {
-	
+
 }
 .form-addvaccin {
 	margin: 0 auto;
@@ -1183,7 +1183,7 @@ footer {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	
+
 }
 /* FIN big box et mini box affichage flex vaccin front*/
 
