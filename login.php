@@ -82,6 +82,7 @@ if (!empty($_POST['submitted'])) {
           <a href="forgot-password.php">Mot de passe oublié ?</a>
           <div class="w50">
             <input type="submit" name="submitted" value="Login">
+            <a href="">Mot de pass oublié</a>
           </div>
         </form>
       </div>

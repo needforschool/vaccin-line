@@ -51,45 +51,31 @@ include('inc/header-front.php');
 <?php endif; ?>
 
 <!-- Connecté -->
-<?php if(!empty($_SESSION)) : ?>
- 
-  <section>
-  <div class="wrap">
-    <div class="BB">
-      <?php 
-        // RECUPERATION ID VACCIN
-        $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ";
-        $query = $pdo->prepare($sql);
-        $query->execute();
-        $vaccinsid = $query->fetchAll();
-        $vaccins = array();
-        $incre = 0 ;
-        foreach ($vaccinsid as $vaccinid) {
-          $vaccins[$incre] = $vaccinid['id_vaccin'] ;
-          $incre += 1 ;
-        }
-        $incre = 0;
-        // RECUPERATION INFO VACCIN VIA ID
-        foreach ($vaccins as $vaccin) {
-          $sql = "SELECT * FROM vl_vaccins WHERE id = $vaccin";
-          $query = $pdo->prepare($sql);
-          $query->execute();
-          $vaccinsinfos[$incre] = $query->fetch();
-          $incre += 1;
-        }
-        $incre = 1;
-        // AFFICHAGE VACCINS 
-        foreach ($vaccinsinfos as $vaccininfo) {
-          echo '<div class="MB MB'. $incre .'">';
-            echo '<p>'. $vaccininfo['maladie'] . '</p>';
-            echo '<p>'. $vaccininfo['descriptif'] . '</p>';
-            echo '<p>'. $vaccininfo['renouveler_le'] . '</p>';
-            echo '<p>'. $vaccininfo['expiration'] . '</p>';
-          echo '</div>';
-          $incre += 1;
-        }
-      ?>
-      </div>
+<?php
+  // Recuperation des données de la table vl_user_vaccin
+  $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ORDER BY fait_le DESC LIMIT 3";
+  $query = $pdo->prepare($sql);
+  $query->execute();
+  $user_vaccins = $query->fetchAll();
+  if(!empty($_SESSION)) : ?>
+
+  <section class='section-carnet'>
+    <?php if (count($user_vaccins) > 0): ?>
+      <table>
+        <thead>
+          <tr>
+            <th><?php echo implode('</th><th>', array_keys(current($user_vaccins))); ?></th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($user_vaccins as $row): array_map('htmlentities', $row); ?>
+          <tr>
+            <td><?php echo implode('</td><td>', $row); ?></td>
+          </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    <?php endif; ?>
   </section>
 
 <?php endif; ?>
