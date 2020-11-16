@@ -16,7 +16,7 @@
     <header>
       <div class="wrap-header">
         <div class="logo-header">
-          <a href="#"><img src="asset/img/vaccin_line.png" alt=""></a>
+          <a href="#"><img src="asset/img/logo_header.png" alt=""></a>
         </div>
         <div class="nav">
           <nav>
@@ -82,11 +82,15 @@
                 <?php endif; ?>
 
               <?php endif; ?>
-                
+
             </ul>
           </nav>
         </div>
         <!-- formulaire de connexion -->
+<div class="log-header">
+
+
+
 
         <!-- Si non connecter -->
         <?php if(empty($_SESSION)) : ?>
@@ -103,7 +107,7 @@
                   break;
                 case "madame" :
                   echo '<img src="asset/img/undraw_profile_1.svg" alt="" width="50px">';
-                  echo '<p>' .'Mme.';
+                  echo '<p class="nomPrenom">' .'Mme.';
                 break;
               }
             } else {
@@ -111,12 +115,17 @@
             }
           echo  $_SESSION['user']['nom'] . ' '. $_SESSION['user']['prenom'] . '</p>';
           ?>
+
+          <div class="in-out">
+
           <a href="logout.php"><img src="asset/img/sign-out-alt-solid.svg" alt="" srcset="" width="30px"></a>
           <a href="settings.php"><img src="asset/img/sliders-h-solid.svg" alt="" srcset="" width="30px"></a>
+        </div>
           <!-- <img src="asset/img/test/undraw_profile_1.svg" alt="" width="100px">
           <img src="asset/img/test/undraw_profile_2.svg" alt="" width="100px">
           <img src="asset/img/test/undraw_profile_3.svg" alt="" width="100px"> -->
         <?php endif; ?>
+        </div>
       </div>
     </header>
 

@@ -95,6 +95,9 @@ header {
 	justify-content: center;
 	padding: 20px;
 }
+.logo-header img {
+	width: 300px;
+}
 .nav {
 	display: flex;
 	justify-content: center;
@@ -126,6 +129,24 @@ ul.navbar li a::after {
 }
 ul.navbar li:hover a::after {
 	transform: scale(1);
+}
+.log-header {
+	width: 350px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.in-out {
+	width: auto;
+}
+.nomPrenom {
+	font-size: 20px;
+	font-family:  'Didact Gothic', cursive;
+	color: #fff;
+	font-weight: bold;
+	opacity: 0.8;
 }
 /* SECTION 1 */
 
