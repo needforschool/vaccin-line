@@ -953,9 +953,6 @@ footer {
 }
 
 /* big box et mini box affichage flex vaccin front*/
-#section-addvaccin {
-	
-}
 .form-addvaccin {
 	margin: 0 auto;
 	width: 450px;
@@ -1061,11 +1058,21 @@ footer {
 	text-align: center;
 	padding: 40px 0;
 }
-.BB2 {
+.BB_carnet {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	
+  	background: rgba(0,0,0,.8);
+  	box-sizing: border-box;
+  	border-radius: 10px;
+	box-shadow: 0 15px 25px rgba(0,0,0,.5);
+}
+.MB_carnet {
+	width: 25%;
+	margin: 30px auto;
+	color: white;
+	text-align: center;
+	padding: 40px 0;
 }
 /* FIN big box et mini box affichage flex vaccin front*/
 
