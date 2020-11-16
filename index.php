@@ -140,7 +140,6 @@ if(!empty($_POST['ajoutvaccin'])) {
           $incre_MB = 1;
           $incre_fait_le = 0;
         ?>
-<<<<<<< HEAD
         <?php if(!empty($user_vaccins)) : ?>
           <?php foreach($vaccins as $vaccin) : ?>
             <div class="MB MB<?php echo $incre_MB; ?>" style="background-color:<?php if(c); ?>;">
@@ -151,7 +150,7 @@ if(!empty($_POST['ajoutvaccin'])) {
             <?php
               $incre_MB += 1;
               $incre_fait_le +=1;
-              if($incre_fait_le == count($vaccins)) {
+              if($incre_fait_le == count($user_vaccins)) {
                 break;
               }
             ?>
@@ -160,23 +159,6 @@ if(!empty($_POST['ajoutvaccin'])) {
           <p>Vous n'avez pas de vaccin</p>
         <?php endif;?>        
         </div>
-=======
-        <?php foreach($vaccins as $vaccin) : ?>
-          <div class="MB MB<?php echo $incre_MB; ?>" style="background-color:<?php if(c); ?>;">
-            <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
-            <p>Fait le : <?php echo $user_vaccins[$incre_fait_le]['fait_le']; ?></p>
-          <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelement : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?>
-          </div>
-          <?php
-            $incre_MB += 1;
-            $incre_fait_le +=1;
-            if($incre_fait_le > 2) {
-              break;
-            }
-         ?>
-        <?php endforeach; ?>
-      </div>
->>>>>>> b5274e973d08fecf5aa0c1fd720e1001dad39a18
       <br>
       <!-- derniers VACCINs -->
       <h1>Vos derniers vaccins :</h1>
@@ -202,7 +184,7 @@ if(!empty($_POST['ajoutvaccin'])) {
               echo '</div>';
               $incre_MB += 1;
               $incre_fait_le +=1;
-              if($incre_fait_le == count($vaccins)) {
+              if($incre_fait_le == count($user_vaccins)) {
                 break;
               }
             }
