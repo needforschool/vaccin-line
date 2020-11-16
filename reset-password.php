@@ -4,69 +4,87 @@ session_start();
 include('inc/pdo.php');
 include('inc/function.php');
 
-if (empty($_GET['id'])) {
-  //header('location: admin/403.php');
-}
-
-
 $success = false;
 $errors = array();
 
-if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
-  $id = $_GET['id'];
-  $sql = "SELECT * FROM vl_users WHERE id = :id";
-  $query = $pdo->prepare($sql);
-  $query -> bindValue(':id', $id, PDO::PARAM_INT);
-  $query->execute();
-  $user = $query->fetch();
+//Verification eMail
+if (!empty($_GET['email'])) {
+  $email = cleanXss($_GET['email']);
+  if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $sql = "SELECT * FROM vl_users WHERE email = :email";
+    $query = $pdo->prepare($sql);
+    $query -> bindValue(':email', $email, PDO::PARAM_STR);
+    $query->execute();
+    $user = $query->fetch();
+  } else {
+    header('location: login.php?error=yes');
+  }
+} else {
+    header('location: admin/403.php');
 }
 
 if (!empty($_POST['submitted'])) {
 
-  //Verification XSS
-  $email = cleanXss($_GET['email']);
-  $id = cleanXss($_GET['id']);
-  $token = cleanXss($_GET['token']);
+  //Verification que l'email et le token n'ont pas été modifié
 
-  $password = cleanXss($_POST['password']);
-  $confirmPassword = cleanXss($_POST['confirm-password']);
-
-  if (!empty($password) && !empty($confirmPassword)) {
-    if (mb_strlen($password) < 6) {
-      $errors['password'] = 'Veuillez renseigner au minimum 6 caractères';
-    } elseif ($confirmPassword != $password) {
-      $errors['confirm-password'] = 'Les mots de passe ne correspondent pas';
-    }
-  } else {
-    $errors['password'] = 'Veuillez renseigner ce/ces champs';
-  }
-
-  if (count($errors) == 0) {
-    if ($_GET['token'] == $user['token']) {
-      if (isActual($user['token_at'])) {
-        $sql = "SELECT * FROM vl_users WHERE email = :email AND id = :id";
-        $query = $pdo->prepare($sql);
-        $query->bindValue(':email',$email,PDO::PARAM_STR);
-        $query->bindValue(':id',$id,PDO::PARAM_STR);
-        $query->execute();
-        $user = $query->fetch();
-        if (!empty($user)) {
-          $passhash = password_hash($password, PASSWORD_DEFAULT);
-          $sql = "UPDATE vl_users SET password = :passhash, token = ''  WHERE ID = :id AND email = :email";
-          $query = $pdo->prepare($sql);
-          $query->bindValue(':passhash',$passhash,PDO::PARAM_STR);
-          $query->bindValue(':id',$id,PDO::PARAM_INT);
-          $query->bindValue(':email',$email,PDO::PARAM_STR);
-          $query->execute();
-
-          header('location: login.php?success=yes');
+  if (!empty($_GET['email']) && !empty($_GET['token'])) {
+    $email = cleanXss($_GET['email']);
+    $token = cleanXss($_GET['token']);
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $sql = "SELECT * FROM vl_users WHERE email = :email AND token = :token";
+      $query = $pdo->prepare($sql);
+      $query -> bindValue(':email', $email, PDO::PARAM_STR);
+      $query -> bindValue(':token', $token, PDO::PARAM_STR);
+      $query->execute();
+      $user = $query->fetch();
+      if (!empty($user)) {
+        $password = cleanXss($_POST['password']);
+        $confirmPassword = cleanXss($_POST['confirm-password']);
+        if (!empty($password) && !empty($confirmPassword)) {
+          if (mb_strlen($password) < 6) {
+            $errors['password'] = 'Veuillez renseigner au minimum 6 caractères';
+          } elseif ($confirmPassword != $password) {
+            $errors['confirm-password'] = 'Les mots de passe ne correspondent pas';
+          }
+        } else {
+          $errors['password'] = 'Veuillez renseigner ce/ces champs';
         }
+        if (count($errors) == 0) {
+          if ($token == $user['token']) {
+            if (isActual($user['token_at'])) {
+              $sql = "SELECT * FROM vl_users WHERE email = :email AND token = :token";
+              $query = $pdo->prepare($sql);
+              $query->bindValue(':email',$email,PDO::PARAM_STR);
+              $query->bindValue(':token',$token,PDO::PARAM_STR);
+              $query->execute();
+              $user = $query->fetch();
+              if (!empty($user)) {
+                $passhash = password_hash($password, PASSWORD_DEFAULT);
+                $sql = "UPDATE vl_users SET password = :passhash, token = ''  WHERE ID = :id AND email = :email";
+                $query = $pdo->prepare($sql);
+                $query->bindValue(':passhash',$passhash,PDO::PARAM_STR);
+                $query->bindValue(':id',$id,PDO::PARAM_INT);
+                $query->bindValue(':email',$email,PDO::PARAM_STR);
+                $query->execute();
+
+                header('location: login.php?success=yes');
+              }
+            } else {
+              header('location: login.php?token=off');
+            }
+          } else {
+            header('location: login.php?error=yes');
+          }
+        }
+
       } else {
-        header('location: login.php?token=off');
+        header('location: login.php?error=yes');
       }
     } else {
       header('location: login.php?error=yes');
     }
+  } else {
+      header('location: admin/403.php');
   }
 
 }
@@ -91,7 +109,7 @@ include('inc/header-front.php');
         Identifiant : <?php echo $user['email'] ?><br><br>
         Si vous n'êtes pas l'auteur de cette demande, ignorez simplement cet e-mail.<br><br>
         Pour continuer :<br><br>
-        <a href="reset-password.php?form=yes&email=<?php echo $user['email']; ?>&id=<?php echo $user['id'] ?>&token=<?php echo $user['token'] ?>">Cliquez ici pour réinitialiser votre mot de passe</a><br><br>
+        <a href="reset-password.php?form=yes&email=<?php echo $user['email']; ?>&token=<?php echo $user['token'] ?>">Cliquez ici pour réinitialiser votre mot de passe</a><br><br>
         Merci de votre attention.
       </p>
     </div>
@@ -100,13 +118,13 @@ include('inc/header-front.php');
     <div class="wrap-section-connexion-1">
       <div class="form-login">
         <h2>Nouveau mot de passe</h2>
-        <form action="reset-password.php?email=<?php echo $_GET['email']; ?>&id=<?php echo $_GET['id'] ?>&token=<?php echo $_GET['token'] ?>" method="post">
+        <form action="reset-password.php?form=yes&email=<?php echo $_GET['email']; ?>&token=<?php echo $_GET['token'] ?>" method="post">
           <div class="w50">
-            <input type="password" name="password" placeholder="Nouveau mot de passe" value="<?php if(!empty($_POST['password'])) { echo $_POST['password']; } ?>">
+            <input type="password" name="password" placeholder="Nouveau mot de passe">
             <span class="error"><?php if(!empty($errors['password'])) { echo $errors['password']; } ?></span>
           </div>
           <div class="w50">
-            <input type="password" name="confirm-password" placeholder="Confirmation" value="<?php if(!empty($_POST['confirm-password'])) { echo $_POST['confirm-password']; } ?>">
+            <input type="password" name="confirm-password" placeholder="Confirmation">
           </div>
           <div class="w50">
             <input type="submit" name="submitted" value="Envoyer">
