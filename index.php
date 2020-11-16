@@ -356,11 +356,10 @@ include('inc/header-front.php');
     </section>
 
 
-<?php endif;
+<?php endif;?>
 
 </section>
 <?php
 
 
   include('inc/footer-front.php');
-?>
