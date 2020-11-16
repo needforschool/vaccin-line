@@ -12,7 +12,7 @@ if(!empty($_POST['ajoutvaccin'])) {
   $vaccin = cleanXss($_POST['vaccin']);
   $date = cleanXss($_POST['date']);
   $id_user = $_SESSION['user']['id'];
-  
+
   if(!empty($vaccin)) {
 
   } else {
@@ -33,7 +33,7 @@ if(!empty($_POST['ajoutvaccin'])) {
     $query->bindValue(':date',$date,PDO::PARAM_STR);
     $query->execute();
   }
-   
+
 
 }
 
@@ -49,27 +49,18 @@ if(!empty($_POST['ajoutvaccin'])) {
         <h1>Comment utiliser notre carnet ?</h1>
         <p>Le carnet de vaccination est un carnet dans lequel sont notées toutes les vaccinations d’une personne. Ce carnet est très pratique : il vous permet de savoir quelles vaccinations vous avez reçues et si vous êtes à jour de vos vaccinations. Il vous suffit donc de vous connecter et ne pas oublier de le présenter au professionnel de santé à chaque fois que vous vous faites vacciner. Il est valable toute la vie ! Pour l’obtenir, il suffit de vous <a href="signin.php"><strong>inscrire</strong></a>. Il est gratuit.</p>
       </div>
-      <!-- <div class="img-stats">
-        <img src="asset/img/medical.jpg" alt="">
-      </div> -->
     </div>
     <div class="bigbox2">
       <div class="stats2">
         <h1>Notre carnet est-il sécurisé ?</h1>
         <p>Se faire vacciner, c’est se protéger contre une série de maladies dont les complications peuvent être graves voire mortelles. Grâce à la vaccination, on évite de développer ces maladies et on diminue le risque de contaminer d’autres personnes. Se faire vacciner, c’est se protéger soi contre des maladies mais c’est aussi éviter de contaminer d’autres personnes. Réduire les possibilités de contamination est d’autant plus précieux que l’infection concernée est très contagieuse, comme la rougeole ou la grippe.</p>
       </div>
-      <!-- <div class="img-stats">
-        <img src="asset/img/img-box2.jpg" alt="">
-      </div> -->
     </div>
     <div class="bigbox3">
       <div class="stats3">
         <h1>Eviter la réapparition <br>de dangereuses maladies</h1>
         <p>Certaines maladies semblent avoir disparu en France, ou être devenues très rares. Cependant, la plupart des microbes qui causent ces maladies existent toujours, y compris sur notre territoire. La vaccination doit donc se poursuivre. Ces microbes restent une menace pour les personnes non protégées par la vaccination ou insuffisamment protégées.</p>
       </div>
-      <!-- <div class="img-stats">
-        <img src="asset/img/img-box3.jpg" alt="">
-      </div> -->
     </div>
     <div class="button">
       <div class="effect">
@@ -102,11 +93,13 @@ if(!empty($_POST['ajoutvaccin'])) {
   <div class="wrap-section">
     <!-- Formulaire ajout vaccin  -->
     <section id="addvaccin">
-      <h3>Ajouter un vaccin :</h3>
+      <div class="wrap-section-add">
+        <div class="form-add">
+      <h2>Ajouter un vaccin :</h2>
       <form action="index.php" method="post" class>
         <select name="vaccin" id="vaccin">
           <option value="">--VACCIN--</option>
-          <?php 
+          <?php
           $sql = "SELECT * FROM vl_vaccins ORDER BY maladie ASC";
           $query = $pdo->prepare($sql);
           $query->execute();
@@ -114,7 +107,7 @@ if(!empty($_POST['ajoutvaccin'])) {
 
           foreach($selects as $select) {
             echo '<option value="' . $select['id'].'">'. $select['maladie'] . '</option>';
-          } 
+          }
           ?>
         </select>
         <span class="error"><?php if(!empty($errors['vaccin'])) { echo $errors['vaccin']; }?></span>
@@ -148,7 +141,7 @@ if(!empty($_POST['ajoutvaccin'])) {
           <div class="MB MB<?php echo $incre_MB; ?>" style="background-color:<?php if(condition); ?>;">
             <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
             <p>Fait le : <?php echo $user_vaccins[$incre_fait_le]['fait_le']; ?></p>
-        <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?> 
+        <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?>
           </div>
         <?php
           $incre_MB += 1;
@@ -157,7 +150,7 @@ if(!empty($_POST['ajoutvaccin'])) {
             break;
           }
         ?>
-      
+
       <?php endforeach; ?>
     </div>
     <br>
