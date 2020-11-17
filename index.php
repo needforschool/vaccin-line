@@ -15,7 +15,7 @@ include('inc/header-front.php');
 
 <?php if(empty($_SESSION) ) : ?>
   <section id="banner">
-    <img src="asset/img/logo.png" class="logo">
+    <img src="asset/img/hugologonb.png" class="logo">
     <div class="banner-text">
       <h1>Vaccin'Line</h1>
       <p>Vaccin'Line Le Carnet Du Futur</p>
