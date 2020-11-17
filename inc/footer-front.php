@@ -37,15 +37,14 @@
   </div>
   <div class="footer-row">
     <div class="footer-left">
-      <h1>Heures d'Ouvertures</h1>
-      <p><i class="fa fa-clock-o"></i>Lundi à Vendredi - de 9h à 21h</p>
-      <p><i class="fa fa-clock-o"></i>Samedi à Dimanche - de 8h à 23h</p>
+      <h1>Nous envoyer un mail :</h1>
+      <p><a href="contact.php"><i class="fa fa-envelope"></i> Page contact</a></p>
     </div>
     <div class="footer-right">
-      <h1>Entrer en Contact</h1>
-      <p>30 Route de Paris, Rouen<i class="fa fa-map-marker"></i></p>
+      <h1>Entrer en Contact :</h1>
+      <p>17 Route de Paris, Rouen<i class="fa fa-map-marker"></i></p>
       <p>vaccin.line@gmail.com<i class="fa fa-paper-plane"></i></p>
-      <p>+33 2 32 36 44 59<i class="fa fa-phone"></i></p>
+      <p>+33 1 23 45 67 89<i class="fa fa-phone"></i></p>
     </div>
   </div>
   <div class="social-links">
