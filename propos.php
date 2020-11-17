@@ -50,7 +50,7 @@ include('inc/header-front.php');?>
         </div>
       </div>
       <div class="abouts-img">
-        <img src="asset/img/feature.jpg" alt="">
+        <img src="asset/img/virus-feature.jpg" alt="">
       </div>
     </div>
     
