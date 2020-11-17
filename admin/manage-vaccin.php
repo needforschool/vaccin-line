@@ -64,7 +64,7 @@ include('inc/header-back.php');
                 <th><?php echo ucfirst($vaccin['obligatoire']); ?></th>
                 <th class="gerer">
                   <div class="my-2"></div>
-                    <a href="single-vaccin.php?id=<?php if (!empty($id)) { echo $id;} ?>" class="btn btn-info btn-icon-split">
+                    <a href="single-vaccin.php?id=<?php echo $vaccin['id']; ?>" class="btn btn-info btn-icon-split">
                       <span class="icon text-white-50">
                         <i class="fas fa-info-circle"></i>
                       </span>
