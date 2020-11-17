@@ -5,7 +5,11 @@ include('inc/function.php');
 $title = 'Inscription';
 $errors = array();
 $succes = false;
-if (!empty($_POST['submitted'])) {
+?>
+<section>
+  <img src="asset/img/hugologonb.png" class="logo-fixed">
+</section>
+<?php if (!empty($_POST['submitted'])) {
 
     $nom = cleanXss($_POST['nom']);
     $prenom = cleanXss($_POST['prenom']);

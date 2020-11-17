@@ -156,7 +156,4 @@ include('inc/header-front.php');
   </div>
 </section>
 
-<?php
-
-
-  include('inc/footer-front.php');
+<?php include('inc/footer-front.php'); 

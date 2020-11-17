@@ -6,6 +6,11 @@ $title = 'Contact';
 $succes = false;
 
 include('inc/header-front.php');
+?>
+<section>
+  <img src="asset/img/hugologonb.png" class="logo-fixed">
+</section>
+<?php
 $errors = array();
 
 if (!empty($_POST['submitted'])) {
