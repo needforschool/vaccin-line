@@ -7,8 +7,22 @@ $title = 'Mentions légales';
 //debug($_SESSION);
 
 $errors = array();
-
+?>
+<section>
+  <img src="asset/img/hugologo.png" class="logo-fixed">
+</section>
+<?php
 include('inc/header-front.php');?>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <script type="text/javascript" src="asset/js/konami.js"></script>
 <section id="about">
   <div class="title-text">

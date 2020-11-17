@@ -94,11 +94,14 @@ a {
   height: 100vh;
 }
 .logo {
-  width: 300px;
-  position: absolute;
-  top: 3%;
-  left: 4%;
+	width: 300px;
+	position: absolute;
+
 }
+.logo-fixed {
+	width: 300px;
+	position: absolute;
+ }
 .banner-text {
   text-align: center;
   color: #fff;
