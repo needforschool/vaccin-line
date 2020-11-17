@@ -640,15 +640,15 @@ ul.navbar li:hover a::after {
 	opacity: 0.8;
 } */
 /* SECTION 1 */
-
+/* 
 .wrap-section {
 	max-width: 1440px;
 	width: 100%;
 	height: auto;
 	margin: 0 auto;
-}
+} */
 
-.bigbox {
+/* .bigbox {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -688,7 +688,7 @@ ul.navbar li:hover a::after {
 	font-weight: 900;
 	text-transform: uppercase;
 	opacity: 1;
-}
+} */
 /* .bigbox2 {
 	display: flex;
 	flex-direction: row-reverse;
@@ -960,26 +960,84 @@ a:hover.btn_connexion span:nth-child(4) {
 
 /* ABOUT */
 
-.wrap-about {
-	max-width: 1440px;
+#about {
 	width: 100%;
-	height: auto;
 	margin: 0 auto;
-}
+	height: auto;
+	padding: 25px;
+   }
+   .about-box {
+	width: 80%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	text-align: center;
+  }
+  .abouts {
+	flex-basis: 50%;
+  }
+  .abouts-img {
+	flex-basis: 50%;
+	margin: auto;
+  }
+  .abouts-img img {
+	width: 70%;
+	border-radius: 10px;
+  }
+  .abouts h1 {
+	text-align: left;
+	font-size: 30px;
+	margin-bottom: 10px;
+	font-weight: 100;
+	color: #575fcf;
+  }
+  .abouts-desc {
+	display: flex;
+	align-items: center;
+	margin-bottom: 40px;
+  }
+  
+  .about-icon .fa {
+	width: 50px;
+	height: 50px;
+	font-size: 30px;
+	line-height: 50px;
+	border-radius: 8px;
+	color: #5fb5e8;
+	border: 1px solid #5fb5e8;
+  }
+  .about-icon-hint .fa {
+	width: 25px;
+	height: 25px;
+	font-size: 15px;
+	line-height: 25px;
+	border-radius: 4px;
+	color: #5fb5e8;
+	border: 1px solid #5fb5e8;
+  }
+  .about-text p {
+	padding: 0 20px;
+	text-align: initial;
+  }
+
+  @media screen and (max-width: 770px) {
+	.title-text h1 {
+	  font-size: 35px;
+	}
+	.abouts {
+	  flex-basis: 100%;
+	}
+	.abouts-img {
+	  flex-basis: 100%;
+	}
+	.abouts-img img {
+	  width: 100%;
+	}
+  }
 #konamicode {
 	display: none;
 	transition: 0.5s;
-}
-.wrap-about .bigbox {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	background: url(../img/carnet.jpg) no-repeat center fixed;
-	padding: 30px;
-	margin-top: 80px;
-}
-.wrap-about .bigbox2 {
-	background: url(../img/carnet.jpg) no-repeat center fixed;
 }
 .wrap-about .bigbox-start {
 	display: flex;
