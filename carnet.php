@@ -46,46 +46,14 @@ if(!empty($_POST['ajoutvaccin'])) {
 
 <!-- Non connecté -->
 <?php if(empty($_SESSION) ) : ?>
-<!-- <section>
-  <div class="wrap-section">
-    <div class="bigbox">
-      <div class="stats">
-        <h1>the science of <br>feeling better</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <a href="#">book a visit</a>
-      </div>
-      <div class="button">
-        <div class="effect"> -->
-          <!-- effect btn -->
-          <!-- <a href="#"  class="btn_inscription">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            inscription
-          </a>
-        </div>
-        <div class="effect"> -->
-          <!-- effect btn -->
-          <!-- <a href="#"  class="btn_connexion">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            connexion
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
+
 <?php endif; ?>
 <?php if(!empty($_SESSION) ) : ?>
   <!-- Connecté -->
   <!-- RAPPEL VACCINs -->
-  <div class="wrap-section">
+<section id="carnet">
     <!-- Formulaire ajout vaccin  -->
-    <section id="addvaccin">
+    <div class="addvaccin">
 
       <form action="carnet.php" method="post" class="form-addvaccin">
         <h2>Ajouter un vaccin :</h1>
@@ -111,9 +79,9 @@ if(!empty($_POST['ajoutvaccin'])) {
           <input type="submit" name="ajoutvaccin">
         </div>
       </form>
-    </section>
+        </div>
     <!-- RAPPEL VACCINs -->
-    <section id="vaccins">
+    <div class="vaccins">
       <div class="rappel">
 
 
@@ -190,12 +158,10 @@ if(!empty($_POST['ajoutvaccin'])) {
 
       </div>
       </div>
-    </section>
-
-  </div>
-  <section id="vaccins">
-    <div class="rappel">
-      <h1>Vos vaccins :</h1>
+        </div>
+        <div class="vaccins">
+        <div class="rappel"> 
+        <h1>Vos vaccins :</h1>
       <?php
         $id = $_SESSION['user']['id'];
         // Recuperation des données de la table vl_user_vaccin
@@ -226,7 +192,14 @@ if(!empty($_POST['ajoutvaccin'])) {
       <?php else : ?>
       <p class="pasdevaccin">Vous n'avez pas de vaccin actuellement</p>
       <?php endif; ?>
+      </div>
+      </div>
     </div>
-  </section>
+  <!-- <div class="vaccins">
+    <div class="rappel"> -->
+     
+    <!-- </div>
+  </div> -->
+</section>
 <?php endif; ?>
 <?php include('inc/footer-front.php');

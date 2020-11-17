@@ -24,11 +24,20 @@ include('inc/header-back.php');
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
+  <?php if(!empty($_GET['success']) && $_GET['success'] == 'no'){ ?>
+    <div class="alert alert-danger" role="alert">
+      Erreur lors de l'ajout du vaccin
+    </div>
+  <?php }elseif (!empty($_GET['success']) && $_GET['success'] == 'yes') {?>
+    <div class="alert alert-success" role="alert">
+      Le vaccin a été ajouté
+    </div>
+  <?php } ?>
   <!-- Page Heading -->
   <h1 class="h3 mb-4 text-gray-800"><?php echo $title; ?></h1>
 
   <!-- /.container-fluid -->
+
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -36,6 +45,14 @@ include('inc/header-back.php');
     </div>
     <div class="card-body">
       <div class="table-responsive">
+
+        <a href="add-vaccin.php" class="btn btn-secondary btn-icon-split">
+          <span class="icon text-white-50">
+            <i class="fas fa-arrow-right"></i>
+          </span>
+          <span class="text">Ajouter un vaccin</span>
+        </a>
+
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
@@ -64,21 +81,21 @@ include('inc/header-back.php');
                 <th><?php echo ucfirst($vaccin['obligatoire']); ?></th>
                 <th class="gerer">
                   <div class="my-2"></div>
-                    <a href="single-vaccin.php?id=<?php echo $vaccin['id']; ?>" class="btn btn-info btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-info-circle"></i>
-                      </span>
-                        <span class="text">Info</span>
-                      </a>
-                  </div>
-                </th>
-              </tr>
-            <?php endforeach ?>
-          </tbody>
-        </div>
-      </table>
-    </div>
+                  <a href="single-vaccin.php?id=<?php echo $vaccin['id']; ?>" class="btn btn-info btn-icon-split">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-info-circle"></i>
+                    </span>
+                    <span class="text">Info</span>
+                  </a>
+                </div>
+              </th>
+            </tr>
+          <?php endforeach ?>
+        </tbody>
+      </div>
+    </table>
   </div>
+</div>
 
-  <?php
-  include('inc/footer-back.php');
+<?php
+include('inc/footer-back.php');

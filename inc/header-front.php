@@ -20,7 +20,7 @@
             <li><a href="#banner" class="title">ACCEUIL</a></li>
             <li><a href="signin.php">INSCRIPTION</a></li>
             <li><a href="login.php">CONNEXION</a></li>
-            <li><a href="#feature" class="title">FONCTIONNALITE</a></li>
+            <li><a href="#feature" class="title">fonctionnalités</a></li>
             <li><a href="#service" class="title">SERVICES</a></li>
             <li><a href="#testimonial" class="title">TEMOIGNAGES</a></li>
             <li><a href="#footer" class="title">NOUS CONTACTER</a></li>
@@ -76,7 +76,7 @@
           <?php endif; ?>
           <?php if($title == 'Mentions légales') : ?>
             <li><a href="index.php" class="title">ACCEUIL</a></li>
-            <li><a href="carnet.php">mon Carnet</a></li>
+            <li><a href="carnet.php">MON CARNET</a></li>
             <li><a href="propos.php">À PROPOS</a></li>
           <?php endif; ?>
           <?php if($_SESSION['user']['role'] == 'role_admin') : ?>
