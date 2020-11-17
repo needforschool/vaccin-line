@@ -17,7 +17,7 @@ include('inc/header-front.php');
   <section id="banner">
     <img src="asset/img/hugologonb.png" class="logo">
     <div class="banner-text">
-      <h1>Vaccin'Line</h1>
+      <h1>Vaccin Line</h1>
       <p>Vaccin'Line Le Carnet Du Futur</p>
       <div class="banner-btn">
         <a href="signin.php"><span></span>Inscription</a>
