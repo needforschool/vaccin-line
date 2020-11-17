@@ -22,7 +22,7 @@ if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
   $query -> bindValue(':id', $id, PDO::PARAM_INT);
   $query->execute();
   $userVaccin = $query->fetchAll();
-
+  
 }
 
 $title = mb_strtoupper($user['nom']) . ' ' . ucfirst($user['prenom']);
