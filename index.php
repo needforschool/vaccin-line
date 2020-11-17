@@ -9,6 +9,22 @@ $errors = array();
 include('inc/header-front.php');
 
 ?>
+<<<<<<< HEAD
+
+
+<!-- Non connecté -->
+
+<?php if(empty($_SESSION) ) : ?>
+  <section id="banner">
+    <img src="asset/img/hugologonb.png" class="logo">
+    <div class="banner-text">
+      <h1>Vaccin Line</h1>
+      <p>Vaccin'Line Le Carnet Du Futur</p>
+      <div class="banner-btn">
+        <a href="signin.php"><span></span>Inscription</a>
+        <a href="login.php"><span></span>Connexion</a>
+      </div>
+=======
 <section id="banner">
   <img src="asset/img/hugologonb.png" class="logo">
   <div class="banner-text">
@@ -17,6 +33,7 @@ include('inc/header-front.php');
     <div class="banner-btn">
       <a href="signin.php"><span></span>Inscription</a>
       <a href="login.php"><span></span>Connexion</a>
+>>>>>>> 409d7f96963a62514242f65d6006d064ec0d4e10
     </div>
   </div>
   <div class="log-header">

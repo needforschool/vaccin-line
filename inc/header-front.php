@@ -17,67 +17,67 @@
       <ul>
         <?php if(empty($_SESSION)) : ?>
           <?php if($title == 'Home') : ?>
-            <li><a href="#banner" class="title">accueil</a></li>
-            <li><a href="signin.php">inscription</a></li>
-            <li><a href="login.php">connexion</a></li>
-            <li><a href="#feature" class="title">fonctionnalités</a></li>
-            <li><a href="#service" class="title">services</a></li>
-            <li><a href="#testimonial" class="title">témoignages</a></li>
-            <li><a href="#footer" class="title">nous contacter</a></li>
+            <li><a href="#banner" class="title">ACCEUIL</a></li>
+            <li><a href="signin.php">INSCRIPTION</a></li>
+            <li><a href="login.php">CONNEXION</a></li>
+            <li><a href="#feature" class="title">FONCTIONNALITE</a></li>
+            <li><a href="#service" class="title">SERVICES</a></li>
+            <li><a href="#testimonial" class="title">TEMOIGNAGES</a></li>
+            <li><a href="#footer" class="title">NOUS CONTACTER</a></li>
           <?php endif; ?>
           <?php if($title == 'Contact') : ?>
-            <li><a href="index.php" class="title">acceuil</a></li>
-            <li><a href="signin.php">inscription</a></li>
-            <li><a href="login.php">connexion</a></li>
-            <li><a href="propos.php">à propos</a></li>
+            <li><a href="index.php" class="title">ACCEUIL</a></li>
+            <li><a href="signin.php">INSCRIPTION</a></li>
+            <li><a href="login.php">CONNEXION</a></li>
+            <li><a href="propos.php">À PROPOS</a></li>
           <?php endif; ?>
           <?php if($title == 'Mentions légales') : ?>
-            <li><a href="index.php" class="title">acceuil</a></li>
-            <li><a href="signin.php">inscription</a></li>
-            <li><a href="login.php">connexion</a></li>
-            <li><a href="contact.php" class="title">contact</a></li>
+            <li><a href="index.php" class="title">ACCEUIL</a></li>
+            <li><a href="signin.php">INSCRIPTION</a></li>
+            <li><a href="login.php">CONNEXION</a></li>
+            <li><a href="contact.php" class="title">CONTACT</a></li>
           <?php endif; ?>
           <?php if($title == 'Inscription') : ?>
-            <li><a href="index.php" class="title">acceuil</a></li>
-            <li><a href="login.php">connexion</a></li>
-            <li><a href="propos.php">à propos</a></li>
-            <li><a href="contact.php" class="title">contact</a></li>
+            <li><a href="index.php" class="title">ACCEUIL</a></li>
+            <li><a href="login.php">CONNEXION</a></li>
+            <li><a href="propos.php">À PROPOS</a></li>
+            <li><a href="contact.php" class="title">CONTACT</a></li>
           <?php endif; ?>
           <?php if($title == 'Connexion') : ?>
-            <li><a href="index.php" class="title">acceuil</a></li>
-            <li><a href="signin.php">inscription</a></li>
-            <li><a href="propos.php">à propos</a></li>
-            <li><a href="contact.php">contact</a></li>
+            <li><a href="index.php" class="title">ACCEUIL</a></li>
+            <li><a href="signin.php">INSCRIPTION</a></li>
+            <li><a href="propos.php">À PROPOS</a></li>
+            <li><a href="contact.php">CONTACT</a></li>
           <?php endif; ?>
           <?php if($title == 'Mot de passe oublié') : ?>
-            <li><a href="index.php" class="title">acceuil</a></li>
-            <li><a href="signin.php">inscription</a></li>
-            <li><a href="login.php">connexion</a></li>
-            <li><a href="propos.php">à propos</a></li>
-            <li><a href="contact.php">contact</a></li>
+            <li><a href="index.php" class="title">ACCEUIL</a></li>
+            <li><a href="signin.php">INSCRIPTION</a></li>
+            <li><a href="login.php">CONNEXION</a></li>
+            <li><a href="propos.php">À PROPOS</a></li>
+            <li><a href="contact.php">CONTACT</a></li>
           <?php endif; ?>
         <?php endif; ?>
         <!-- Si connecter -->
         <?php if(!empty($_SESSION)) : ?>
           <?php if($title == 'Mon carnet') : ?>
-            <li><a href="index.php" class="title">acceuil</a></li>
-            <li><a href="contact.php" class="title">contact</a></li>
-            <li><a href="propos.php">à propos</a></li>
+            <li><a href="index.php" class="title">ACCEUIL</a></li>
+            <li><a href="contact.php" class="title">CONTACT</a></li>
+            <li><a href="propos.php">À PROPOS</a></li>
           <?php endif; ?>
           <?php if($title == 'Home') : ?>
-            <li><a href="carnet.php" class="title">mon carnet</a></li>
-            <li><a href="contact.php" class="title">contact</a></li>
-            <li><a href="propos.php">à propos</a></li>
+            <li><a href="carnet.php" class="title">MON CARNET</a></li>
+            <li><a href="contact.php" class="title">CONTACT</a></li>
+            <li><a href="propos.php">À PROPOS</a></li>
           <?php endif; ?>
           <?php if($title == 'Contact') : ?>
-            <li><a href="index.php" class="title">acceuil</a></li>
-            <li><a href="carnet.php">mon Carnet</a></li>
-            <li><a href="propos.php">à propos</a></li>
+            <li><a href="index.php" class="title">ACCEUIL</a></li>
+            <li><a href="carnet.php">MON CARNET</a></li>
+            <li><a href="propos.php">À PROPOS</a></li>
           <?php endif; ?>
           <?php if($title == 'Mentions légales') : ?>
-            <li><a href="index.php" class="title">acceuil</a></li>
+            <li><a href="index.php" class="title">ACCEUIL</a></li>
             <li><a href="carnet.php">mon Carnet</a></li>
-            <li><a href="propos.php">à propos</a></li>
+            <li><a href="propos.php">À PROPOS</a></li>
           <?php endif; ?>
           <?php if($_SESSION['user']['role'] == 'role_admin') : ?>
             <li><a href="admin/index.php">admin</a></li>
