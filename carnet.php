@@ -204,4 +204,5 @@ if(!empty($_POST['ajoutvaccin'])) {
   </div> -->
 </section>
 <?php endif; ?>
-<?php include('inc/footer-front.php');
+<?php 
+  // include('inc/footer-front.php');
