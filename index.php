@@ -64,13 +64,13 @@ include('inc/header-front.php');
     </div>
     <div class="feature-box">
       <div class="features">
-        <h1>Equipe d'expérience</h1>
+        <h1>Professionnel</h1>
         <div class="features-desc">
           <div class="feature-icon">
             <i class="fa fa-check-square-o"></i>
           </div>
           <div class="feature-text"></div>
-          <p>Géré et sécurisé par une équipe expérimenté. Le carnet est simple et fonctionnel.Géré et sécurisé par une équipe expérimenté. Le carnet est simple et fonctionnel</p>
+          <p>Géré et sécurisé par une équipe expérimenté. Le carnet est simple, fonctionnel et moderne.</p>
         </div>
         <h1>Sécurité</h1>
         <div class="features-desc">
@@ -78,7 +78,7 @@ include('inc/header-front.php');
             <i class="fa fa-shield"></i>
           </div>
           <div class="feature-text"></div>
-          <p>L'adhésion se fait entièrement en ligne, procédure administrative simple et rapide.L'adhésion se fait entièrement en ligne, procédure administrative simple et rapide.</p>
+          <p>L'adhésion se fait entièrement en ligne, procédure administrative simple et rapide.</p>
         </div>
         <h1>Gratuité</h1>
         <div class="features-desc">
@@ -86,7 +86,7 @@ include('inc/header-front.php');
             <i class="fa fa-inr"></i>
           </div>
           <div class="feature-text"></div>
-          <p>Notre carnet de vaccination et totalement gratuit et disponible à vie.Notre carnet de vaccination et totalement gratuit et disponible à vie.</p>
+          <p>Notre carnet de vaccination et totalement gratuit et disponible à vie.</p>
         </div>
       </div>
       <div class="features-img">
@@ -107,7 +107,7 @@ include('inc/header-front.php');
         <div class="service-desc">
           <h3>Inscription Valable à Vie</h3>
           <hr>
-          <p>this is test under description of barber foundation this is test under description of barber foundation.</p>
+          <p>Une fois inscrit, votre carnet est valable toute votre vie et vous permet une logistique simple et épurée</p>
         </div>
       </div>
       <div class="single-service">
@@ -116,7 +116,7 @@ include('inc/header-front.php');
         <div class="service-desc">
           <h3>Sécurité</h3>
           <hr>
-          <p>this is test under description of barber foundation this is test under description of barber foundation.</p>
+          <p>Tout les carnets son stockés dans de gigantesque base de données, sécurisé et attesté par le gouvernement</p>
         </div>
       </div>
       <div class="single-service">
@@ -125,16 +125,16 @@ include('inc/header-front.php');
         <div class="service-desc">
           <h3>Automatisation des Tâches</h3>
           <hr>
-          <p>this is test under description of barber foundation this is test under description of barber foundation.</p>
+          <p>Après avoir renseigné un vaccin, notre système vous propose un système de rappel automatique afin de vous garder en santé le plus longtemps possible</p>
         </div>
       </div>
       <div class="single-service">
         <img src="asset/img/pic4.jpg" alt="">
         <div class="overlay"></div>
         <div class="service-desc">
-          <h3>Dry Shampoo</h3>
+          <h3>Un service client au top</h3>
           <hr>
-          <p>this is test under description of barber foundation this is test under description of barber foundation.</p>
+          <p>Peut importe la période, nous vous garantissons une réponse rapide, ainsi qu'une administration aimable !</p>
         </div>
       </div>
     </div>
@@ -164,7 +164,7 @@ include('inc/header-front.php');
             <small>@elladanloss</small>
           </div>
         </div>
-        <p>Je suis satisfaite de l'offre de l'entreprise. Communiquais avec le service client m'a aidé à trouver exactement ce que je recherchais.</p>
+        <p>Je suis satisfaite de l'offre de l'entreprise. Communiquer avec le service client m'a aidé à trouver exactement ce que je recherchais.</p>
       </div>
       <div class="testimonial-col">
         <div class="user">
