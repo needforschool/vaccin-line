@@ -97,7 +97,7 @@
                 } else {
                   echo '<a href="settings.php"><img src="asset/img/undraw_profile_3.svg" alt="" width="63px"></a>';
                 } 
-                echo  $_SESSION['user']['nom'] . ' '. $_SESSION['user']['prenom'] . '</p>';
+                echo  $_SESSION['user']['nom'] . ' '. ucfirst($_SESSION['user']['prenom']) . '</p>';
               ?>
               <div class="in-out">
                 <a href="logout.php"><img src="asset/img/sign-out-alt-solid.svg" alt="" srcset="" width="25px"></a>
