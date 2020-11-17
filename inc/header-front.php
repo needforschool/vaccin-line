@@ -49,6 +49,13 @@
             <li><a href="propos.php">à propos</a></li>
             <li><a href="contact.php">contact</a></li>
           <?php endif; ?>
+          <?php if($title == 'Mot de passe oublié') : ?>
+            <li><a href="index.php" class="title">acceuil</a></li>
+            <li><a href="signin.php">inscription</a></li>
+            <li><a href="login.php">connexion</a></li>
+            <li><a href="propos.php">à propos</a></li>
+            <li><a href="contact.php">contact</a></li>
+          <?php endif; ?>
         <?php endif; ?>
         <!-- Si connecter -->
         <?php if(!empty($_SESSION)) : ?>
