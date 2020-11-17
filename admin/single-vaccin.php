@@ -2,13 +2,15 @@
 session_start();
 include('../inc/pdo.php');
 include('../inc/function.php');
-isAdmin();
+if (!est_connecte()) {
+  header('Location: 403.php');
+} elseif ($_SESSION['user']['role'] != 'role_admin') {
+  header('Location: 403.php');
+}
+
 $title = 'option vaccin';
 
-$sql = "SELECT * FROM vl_vaccins WHERE id = :id";
-$query = $pdo->prepare($sql);
-$query->execute();
-$singleVaccin = $query->fetchAll();
+
 
 include('inc/header-back.php');
 ?>
@@ -28,10 +30,10 @@ include('inc/header-back.php');
       <div class="col-xl-10 col-md-6 mb-4">
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">maladie : <?php echo $singleVaccin['maladie'] ?></h6>
+            <h6 class="m-0 font-weight-bold text-primary">maladie : <?php echo $vaccin['maladie'] ?></h6>
           </div>
           <div class="card-body">
-            <p><?php echo $singleVaccin['descriptif'] ?></p>
+            <p><?php echo $vaccin['descriptif'] ?></p>
           </div>
         </div>
       </div>
@@ -54,7 +56,7 @@ include('inc/header-back.php');
                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                   Dangerosité
                 </div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php if($singleVaccin['dangerosité'] == 'mortelle'){ echo 'class="text-danger"' ;}elseif($singleVaccin$singleVaccin['dangerosité'] == 'modéré'){echo 'class="text-warning"' ;}elseif($singleVaccin['dangerosité'] == 'benin'){echo 'class="text-success"' ;} ?> ><?php echo ucfirst($singleVaccin['dangerosité']); ?>
+                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php if($vaccin['dangerosité'] == 'mortelle'){ echo 'class="text-danger"' ;}elseif($vaccin['dangerosité'] == 'modéré'){echo 'class="text-warning"' ;}elseif($vaccin['dangerosité'] == 'benin'){echo 'class="text-success"' ;} ?> ><?php echo ucfirst($vaccin['dangerosité']); ?>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-birthday-cake fa-2x text-gray-300"></i>
@@ -71,7 +73,7 @@ include('inc/header-back.php');
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                     obligatoire</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $singleVaccin['obligatoire'] ?></div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $vaccin['obligatoire'] ?></div>
                   </div>
                   <div class="col-auto">
                     <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -81,7 +83,7 @@ include('inc/header-back.php');
             </div>
           </div>
 
-          <a href="delete-mail.php?id=<?php echo $singleVaccin['id']; ?>"  class="btn btn-danger ml-3 btn-icon-split">
+          <a href="delete-mail.php?id=<?php echo $vaccin['id']; ?>"  class="btn btn-danger ml-3 btn-icon-split">
             <span class="icon text-white-50">
               <i class="fas fa-trash"></i>
             </span>

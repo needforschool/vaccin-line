@@ -82,28 +82,29 @@
           <?php if($_SESSION['user']['role'] == 'role_admin') : ?>
             <li><a href="admin/index.php">admin</a></li>
           <?php endif; ?>
-          <div class="badge">
-            <?php
-              if ($_SESSION['user']['age'] > 18)  {
-                switch ($_SESSION['user']['civilite']) {
-                  case "monsieur" :
-                    echo '<img src="asset/img/undraw_profile_2.svg" alt="" width="30px"><p class="nomPrenom">' . 'M.';
+          <div class="badge_container">
+            <div class="badge">
+              <?php
+                if ($_SESSION['user']['age'] > 18)  {
+                  switch ($_SESSION['user']['civilite']) {
+                    case "monsieur" :
+                      echo '<a href="settings.php"><img src="asset/img/undraw_profile_2.svg" alt="" width="63px"><p class="nomPrenom"></a>' . 'M.';
+                      break;
+                    case "madame" :
+                      echo '<a href="settings.php"><img src="asset/img/undraw_profile_1.svg" alt="" width="63px"><p class="nomPrenom"></a>' .'Mme.';
                     break;
-                  case "madame" :
-                    echo '<img src="asset/img/undraw_profile_1.svg" alt="" width="30px"><p class="nomPrenom">' .'Mme.';
-                  break;
-                }
-              } else {
-                echo '<img src="asset/img/undraw_profile_3.svg" alt="" width="30px">';
-              }
-            echo  $_SESSION['user']['nom'] . ' '. $_SESSION['user']['prenom'] . '</p>';
-            ?>
-            <div class="in-out">
-              <a href="logout.php"><img src="asset/img/sign-out-alt-solid.svg" alt="" srcset="" width="25px"></a>
-              <a href="settings.php"><img src="asset/img/sliders-h-solid.svg" alt="" srcset="" width="25px"></a>
+                  }
+                } else {
+                  echo '<a href="settings.php"><img src="asset/img/undraw_profile_3.svg" alt="" width="63px"></a>';
+                } 
+                echo  $_SESSION['user']['nom'] . ' '. $_SESSION['user']['prenom'] . '</p>';
+              ?>
+              <div class="in-out">
+                <a href="logout.php"><img src="asset/img/sign-out-alt-solid.svg" alt="" srcset="" width="25px"></a>
+              </div>  
             </div>
           </div>
-        <?php endif; ?>
+          <?php endif; ?>
       </ul>
     </nav>
   </div>
