@@ -2,7 +2,11 @@
 session_start();
 include('../inc/pdo.php');
 include('../inc/function.php');
-isAdmin();
+if (!est_connecte()) {
+  header('Location: 403.php');
+} elseif ($_SESSION['user']['role'] != 'role_admin') {
+  header('Location: 403.php');
+}
 $title = 'Gestion Vaccin';
 
 $sql = "SELECT * FROM vl_contacts WHERE status = 1 AND lu = 'non'";
@@ -39,6 +43,7 @@ include('inc/header-back.php');
               <th>descriptif</th>
               <th>dangerosité</th>
               <th>obligatoire</th>
+              <th>Information</th>
             </tr>
           </thead>
           <tfoot>
@@ -47,6 +52,7 @@ include('inc/header-back.php');
               <th>descriptif</th>
               <th>dangerosité</th>
               <th>obligatoire</th>
+              <th>Information</th>
             </tr>
           </tfoot>
           <tbody>
@@ -56,6 +62,16 @@ include('inc/header-back.php');
                 <th><?php echo ucfirst($vaccin['descriptif']); ?></th>
                 <th <?php if($vaccin['dangerosité'] == 'mortelle'){ echo 'class="text-danger"' ;}elseif($vaccin['dangerosité'] == 'modéré'){echo 'class="text-warning"' ;}elseif($vaccin['dangerosité'] == 'benin'){echo 'class="text-success"' ;} ?> ><?php echo ucfirst($vaccin['dangerosité']); ?></th>
                 <th><?php echo ucfirst($vaccin['obligatoire']); ?></th>
+                <th class="gerer">
+                  <div class="my-2"></div>
+                    <a href="single-vaccin.php?id=<?php if (!empty($id)) { echo $id;} ?>" class="btn btn-info btn-icon-split">
+                      <span class="icon text-white-50">
+                        <i class="fas fa-info-circle"></i>
+                      </span>
+                        <span class="text">Info</span>
+                      </a>
+                  </div>
+                </th>
               </tr>
             <?php endforeach ?>
           </tbody>
