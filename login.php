@@ -1,4 +1,5 @@
 <?php
+
 $title = 'Connexion';
 session_start();
 include('inc/pdo.php');
@@ -6,9 +7,10 @@ include('inc/function.php');
 
 include('inc/header-front.php');
 
-
 $success = false;
 $errors = array();
+
+debug($_SESSION);
 
 if (!empty($_POST['submitted'])) {
     $email = cleanXss($_POST['email']);
@@ -21,6 +23,7 @@ if (!empty($_POST['submitted'])) {
         $user = $query->fetch();
         if(!empty($user)) {
             if ((password_verify($password, $user['password']))){
+
                 $_SESSION['user'] = array(
                     'id' => $user['id'],
                     'nom' => $user['nom'],
@@ -32,15 +35,28 @@ if (!empty($_POST['submitted'])) {
                     'role' => $user['role'],
                     'ip' => $_SERVER['REMOTE_ADDR']
                 );
+
+                $id = $_SESSION['user']['id'];
+                $sql = "SELECT * FROM vl_user_settings WHERE user_id = :id";
+                $query = $pdo->prepare($sql);
+                $query->bindValue(':id',$id,PDO::PARAM_STR);
+                $query->execute();
+                $settings = $query->fetch();
+
+                $_SESSION['settings'] = array(
+                  'jour_nuit' => $settings['jour_nuit']
+                );
+                
+                
                 $success = true;
                 if ($user['role'] == 'role_admin') {
-                    header('Location: admin/index.php');
-                    die();
+                  header('Location: admin/index.php');
+                  die();
                 } elseif ($user['role'] == 'role_user') {
-                    header('Location: index.php');
-                    die();
+                  header('Location: index.php');
+                  die();
                 } else {
-                    echo '404';
+                  echo '404';
                 }
 
             } else {
@@ -58,7 +74,7 @@ if (!empty($_POST['submitted'])) {
 <!-- Connecté -->
 <?php if(!empty($_SESSION)) : ?>
 
-  <?php header('Location: index.php'); ?>
+  <?php // header('Location: index.php'); ?>
 
 <?php endif; ?>
 
@@ -74,7 +90,7 @@ if (!empty($_POST['submitted'])) {
     <?php  } ?>
     <div class="wrap-section-connexion-1">
       <div class="form-login">
-        <h2>connexion</h2>
+        <h2>Connexion</h2>
         <form action="login.php" method="post">
           <div class="w50">
             <input type="email" name="email" required="" value="<?php if(!empty($_POST['email'])) { echo $_POST['email']; } ?>">
@@ -88,7 +104,7 @@ if (!empty($_POST['submitted'])) {
           </div>
           <a href="forgot-password.php">Mot de passe oublié ?</a>
           <div class="w50">
-            <input type="submit" name="submitted" value="Login">
+            <input type="submit" name="submitted" value="connexion">
           </div>
         </form>
       </div>

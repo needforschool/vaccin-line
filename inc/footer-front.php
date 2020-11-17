@@ -30,7 +30,7 @@
 </body>
 </html> -->
 <section id="footer">
-  <img src="asset/img/footer_img.png" class="footer-img" alt="">
+  <img src="asset/img/minilogo.png" class="footer-img" alt="">
   <div class="title-text">
     <p>CONTACT</p>
     <h1>Contactez Nous</h1>

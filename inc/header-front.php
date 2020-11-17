@@ -26,51 +26,51 @@
             <li><a href="#footer" class="title">nous contacter</a></li>
           <?php endif; ?>
           <?php if($title == 'Contact') : ?>
-            <li><a href="index.php">home</a></li>
+            <li><a href="index.php" class="title">acceuil</a></li>
             <li><a href="signin.php">inscription</a></li>
             <li><a href="login.php">connexion</a></li>
-            <li><a href="propos.php">a propos</a></li>
+            <li><a href="propos.php">à propos</a></li>
           <?php endif; ?>
           <?php if($title == 'Mentions légales') : ?>
-            <li><a href="index.php">home</a></li>
+            <li><a href="index.php" class="title">acceuil</a></li>
             <li><a href="signin.php">inscription</a></li>
             <li><a href="login.php">connexion</a></li>
-            <li><a href="contact.php">contact</a></li>
+            <li><a href="contact.php" class="title">contact</a></li>
           <?php endif; ?>
           <?php if($title == 'Inscription') : ?>
-            <li><a href="index.php">home</a></li>
+            <li><a href="index.php" class="title">acceuil</a></li>
             <li><a href="login.php">connexion</a></li>
-            <li><a href="propos.php">a propos</a></li>
-            <li><a href="contact.php">contact</a></li>
+            <li><a href="propos.php">à propos</a></li>
+            <li><a href="contact.php" class="title">contact</a></li>
           <?php endif; ?>
           <?php if($title == 'Connexion') : ?>
-            <li><a href="index.php">home</a></li>
+            <li><a href="index.php" class="title">acceuil</a></li>
             <li><a href="signin.php">inscription</a></li>
-            <li><a href="propos.php">a propos</a></li>
+            <li><a href="propos.php">à propos</a></li>
             <li><a href="contact.php">contact</a></li>
           <?php endif; ?>
         <?php endif; ?>
         <!-- Si connecter -->
         <?php if(!empty($_SESSION)) : ?>
           <?php if($title == 'Mon carnet') : ?>
-            <li><a href="index.php">home</a></li>
-            <li><a href="contact.php">contact</a></li>
-            <li><a href="propos.php">a propos</a></li>
+            <li><a href="index.php" class="title">acceuil</a></li>
+            <li><a href="contact.php" class="title">contact</a></li>
+            <li><a href="propos.php">à propos</a></li>
           <?php endif; ?>
           <?php if($title == 'Home') : ?>
-            <li><a href="carnet.php">mon Carnet</a></li>
-            <li><a href="contact.php">contact</a></li>
-            <li><a href="propos.php">a propos</a></li>
+            <li><a href="carnet.php" class="title">mon carnet</a></li>
+            <li><a href="contact.php" class="title">contact</a></li>
+            <li><a href="propos.php">à propos</a></li>
           <?php endif; ?>
           <?php if($title == 'Contact') : ?>
-            <li><a href="index.php">home</a></li>
+            <li><a href="index.php" class="title">acceuil</a></li>
             <li><a href="carnet.php">mon Carnet</a></li>
-            <li><a href="propos.php">a propos</a></li>
+            <li><a href="propos.php">à propos</a></li>
           <?php endif; ?>
           <?php if($title == 'Mentions légales') : ?>
-            <li><a href="index.php">home</a></li>
+            <li><a href="index.php" class="title">acceuil</a></li>
             <li><a href="carnet.php">mon Carnet</a></li>
-            <li><a href="propos.php">a propos</a></li>
+            <li><a href="propos.php">à propos</a></li>
           <?php endif; ?>
           <?php if($_SESSION['user']['role'] == 'role_admin') : ?>
             <li><a href="admin/index.php">admin</a></li>
