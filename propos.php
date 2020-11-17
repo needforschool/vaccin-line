@@ -24,7 +24,7 @@ include('inc/header-front.php');?>
         <p>Vaccin'Line est un projet que nous avons dû réaliser en 2 semaines (du 09/11/2020 au 20/11/2020), avec pour demande de développer une application web permettant aux clients de renseigner leur carnet de vaccination afin d'automatiser celui-ci (informer sur les différents vaccins, rappeler la date des rappels), tout en protégeant les données de nos utilisateurs.</p>
       </div>
     </div>
-    <div id="konamicode">
+    <div id="onamicode">
       <div class="bigbox-start">
         <div class="stats-about">
           <h1 id="lucas">Lucas AKA ImJustLucas<span class="age"> (19)</span></h1><p class="role">(Chef de projet et Team Back)</p>
