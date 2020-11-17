@@ -66,8 +66,8 @@ include('inc/header-front.php');
         </div>
       </div>
     </div>
-    <div class="abouts-img">
-      <img src="asset/img/about1.jpg" alt="">
+    <div class="features-img">
+      <img src="asset/img/feature.jpg" alt="">
     </div>
   </div>
 </section>
