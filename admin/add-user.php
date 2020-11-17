@@ -3,6 +3,7 @@ session_start();
 include('../inc/pdo.php');
 include('../inc/function.php');
 isAdmin();
+
 $title = 'Ajouter un utilisateur';
 $errors = array();
 
