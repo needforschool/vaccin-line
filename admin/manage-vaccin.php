@@ -36,6 +36,14 @@ include('inc/header-back.php');
     </div>
     <div class="card-body">
       <div class="table-responsive">
+
+        <a href="add-vaccin.php" class="btn btn-secondary btn-icon-split">
+          <span class="icon text-white-50">
+            <i class="fas fa-arrow-right"></i>
+          </span>
+          <span class="text">Ajouter un vaccin</span>
+        </a>
+
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
@@ -64,21 +72,21 @@ include('inc/header-back.php');
                 <th><?php echo ucfirst($vaccin['obligatoire']); ?></th>
                 <th class="gerer">
                   <div class="my-2"></div>
-                    <a href="single-vaccin.php?id=<?php echo $vaccin['id']; ?>" class="btn btn-info btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-info-circle"></i>
-                      </span>
-                        <span class="text">Info</span>
-                      </a>
-                  </div>
-                </th>
-              </tr>
-            <?php endforeach ?>
-          </tbody>
-        </div>
-      </table>
-    </div>
+                  <a href="single-vaccin.php?id=<?php echo $vaccin['id']; ?>" class="btn btn-info btn-icon-split">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-info-circle"></i>
+                    </span>
+                    <span class="text">Info</span>
+                  </a>
+                </div>
+              </th>
+            </tr>
+          <?php endforeach ?>
+        </tbody>
+      </div>
+    </table>
   </div>
+</div>
 
-  <?php
-  include('inc/footer-back.php');
+<?php
+include('inc/footer-back.php');
