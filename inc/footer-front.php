@@ -52,7 +52,7 @@
     <i class="fa fa-instagram"></i>
     <a href="https://twitter.com/VaccinL" target="_blank"><i class="fa fa-twitter"></i></a>
     <i class="fa fa-youtube-play"></i>
-    <p>Copyright Vaccin'Line</p>
+    <p>Copyright Vaccin Line</p>
     <p class="mention"><a href="mention.php">Mentions légales</a> | <a href="propos.php">À propos</a></p>
   </div>
 </section>

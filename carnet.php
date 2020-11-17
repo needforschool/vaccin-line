@@ -53,11 +53,10 @@ if(!empty($_POST['ajoutvaccin'])) {
   <!-- RAPPEL VACCINs -->
 <section id="carnet">
     <!-- Formulaire ajout vaccin  -->
-    <div class="addvaccin">
-
-      <form action="carnet.php" method="post" class="form-addvaccin">
-        <h2>Ajouter un vaccin :</h1>
-        <select name="vaccin" id="vaccin">
+  <div class="addvaccin">
+    <form action="carnet.php" method="post" class="form-addvaccin">
+      <h2>Ajouter un vaccin :</h1>
+      <select name="vaccin" id="vaccin">
           <option value="">--VACCIN--</option>
           <?php
           $sql = "SELECT * FROM vl_vaccins ORDER BY maladie ASC";
@@ -69,7 +68,7 @@ if(!empty($_POST['ajoutvaccin'])) {
             echo '<option value="' . $select['id'].'">'. $select['maladie'] . '</option>';
           }
           ?>
-        </select>
+      </select>
         <span class="error"><?php if(!empty($errors['vaccin'])) { echo $errors['vaccin']; }?></span>
         <div class="w50">
           <input type="date" name="date">
@@ -78,9 +77,9 @@ if(!empty($_POST['ajoutvaccin'])) {
         <div class="w50">
           <input type="submit" name="ajoutvaccin">
         </div>
-      </form>
+    </form>
         </div>
-    <!-- RAPPEL VACCINs -->
+    <!-- RAPPEL VACCINS -->
     <div class="vaccins">
       <div class="rappel">
 
@@ -193,13 +192,8 @@ if(!empty($_POST['ajoutvaccin'])) {
       <p class="pasdevaccin">Vous n'avez pas de vaccin actuellement</p>
       <?php endif; ?>
       </div>
-      </div>
     </div>
-  <!-- <div class="vaccins">
-    <div class="rappel"> -->
-     
-    <!-- </div>
-  </div> -->
+  </div>
 </section>
 <?php endif; ?>
 <?php include('inc/footer-front.php');
