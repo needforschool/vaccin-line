@@ -72,6 +72,7 @@ table {
 a {
 	text-decoration: none;
 }
+/* SCROLLBAR */
 ::-webkit-scrollbar {width:9px;}
 ::-webkit-scrollbar-thumb {
 	border-radius: 30px;
@@ -1017,8 +1018,9 @@ a:hover.btn_connexion span:nth-child(4) {
 	border-radius: 10px;
   }
   .abouts h1 {
+	  
 	text-align: left;
-	font-size: 30px;
+	font-size: 25px;
 	margin-bottom: 10px;
 	font-weight: 100;
 	color: #575fcf;
@@ -1047,6 +1049,12 @@ a:hover.btn_connexion span:nth-child(4) {
 	color: #5fb5e8;
 	border: 1px solid #5fb5e8;
   }
+
+  .about-icon-hint .fa:hover {
+	background: #5fb5e8;
+	color: #fff;
+	transform: translateY(7px);
+  }
   .about-text p {
 	padding: 0 20px;
 	text-align: initial;
@@ -1066,52 +1074,65 @@ a:hover.btn_connexion span:nth-child(4) {
 	  width: 100%;
 	}
   }
+/* .bigbox {
+width: 100%;
+margin: 0 auto;
+height: auto;
+padding: 25px;
+} */
 #konamicode {
 	display: none;
 	transition: 0.5s;
 }
-.wrap-about .bigbox-start {
+.bigbox-start {
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: space-between;
-	background: url(../img/apropos.jpg) no-repeat center fixed;
 	padding: 30px;
 	margin-top: 70px;
+	background: url(../img/about2.jpg) fixed;
+	background-size: cover;
+	background-position: center;
 }
-.wrap-about .bigbox3 {
+.bigbox-left {
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: space-between;
-	background: url(../img/apropos.jpg) no-repeat center fixed;
 	padding: 30px;
+	background: url(../img/about2.jpg) fixed;
+	background-size: cover;
+	background-position: center;
 }
-.wrap-about .bigbox4 {
+.bigbox-right {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background: url(../img/apropos.jpg) no-repeat center fixed;
 	padding: 30px;
+	background: url(../img/about2.jpg) fixed;
+	background-size: cover;
+	background-position: center;
 }
-.wrap-about .bigbox-end {
+.bigbox-end {
 	display: flex;
 	flex-direction: row-reverse;
 	align-items: center;
 	justify-content: space-between;
-	background: url(../img/apropos.jpg) no-repeat center fixed;
 	padding: 30px;
-	margin-bottom: 50px;
+	background: url(../img/about2.jpg) fixed;
+	background-size: cover;
+	background-position: center;
 }
 .age {
 	font-family: 'Poppins', sans-serif;
 	font-weight: bold;
-	font-size: 0.5em;
+	font-size: 15px;
 }
-.role {
+.stats-about p.role {
 	font-family: 'Poppins', sans-serif;
-	font-size: 0.5em;
+	font-size: 20px;
 }
-.wrap-about .stats a  {color: #18242f;}
-.wrap-about .stats-about {
+.stats a  {color: #18242f;}
+.stats-about {
 	width: 60%;
 	height: auto;
 	background-color: #575fcf;
@@ -1119,14 +1140,14 @@ a:hover.btn_connexion span:nth-child(4) {
 	padding: 30px;
 	border-radius: 10px;
 }
-.wrap-about .stats-about h1 {
-	font-size: 2em;
+.stats-about h1 {
+	font-size: 25px;
 	color: #fff;
 	margin-bottom: 5px;
 	font-family: 'Poppins', sans-serif;
 }
-.wrap-about .stats-about p {
-	font-size: 1.3em;
+.stats-about p {
+	font-size: 18px;
 	color: #fff;
 	margin-bottom: 40px;
 	opacity: 0.9;
