@@ -24,11 +24,20 @@ include('inc/header-back.php');
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
+  <?php if(!empty($_GET['success']) && $_GET['success'] == 'no'){ ?>
+    <div class="alert alert-danger" role="alert">
+      Erreur lors de l'ajout du vaccin
+    </div>
+  <?php }elseif (!empty($_GET['success']) && $_GET['success'] == 'yes') {?>
+    <div class="alert alert-success" role="alert">
+      Le vaccin a été ajouté
+    </div>
+  <?php } ?>
   <!-- Page Heading -->
   <h1 class="h3 mb-4 text-gray-800"><?php echo $title; ?></h1>
 
   <!-- /.container-fluid -->
+
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-header py-3">

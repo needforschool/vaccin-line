@@ -16,19 +16,39 @@ if (!empty($_POST['submitted'])) {
   // validation message (min, max)
   $errors = validationText($errors,$maladie,'maladie',5,2000);
   $errors = validationText($errors,$descriptif,'descriptif',5,2000);
-  // if no errors :
+
+  if(!empty($dangerosité)) {
+    if ($dangerosité == 'benin' || $dangerosité == 'modéré' || $dangerosité == 'mortelle') {
+    } else {
+      $errors['dangerosité'] = 'Veuillez selectionner une dangerosité valide';
+    }
+  } else {
+    $errors['dangerosité'] = 'Veuillez renseignez ce champ';
+  }
+
+  if(!empty($obligatoire)) {
+    if ($obligatoire == 'oui' || $obligatoire == 'non') {
+    } else {
+      $errors['obligatoire'] = 'Veuillez selectionner une obligation valide';
+    }
+  } else {
+    $errors['obligatoire'] = 'Veuillez renseignez ce champ';
+  }
+
   if(count($errors) == 0) {
     // INSERT INTO
-    $sql = "INSERT INTO vl_vaccins (maladie,descriptif,dangerosité,obligatoire)
-    VALUES  (:maladie,:descriptif,:dangerosité,:obligatoire)";
+    $sql = "INSERT INTO vl_vaccins (maladie,descriptif,obligatoire,dangerosité)
+    VALUES  (:maladie,:descriptif,:obligatoire,:dangerosité)";
     $query = $pdo->prepare($sql);
     $query->bindValue(':maladie',$maladie,PDO::PARAM_STR);
     $query->bindValue(':descriptif',$descriptif,PDO::PARAM_STR);
-    $query->bindValue(':dangerosité',$dangerosité,PDO::PARAM_STR);
     $query->bindValue(':obligatoire',$obligatoire,PDO::PARAM_STR);
+    $query->bindValue(':dangerosité',$dangerosité,PDO::PARAM_STR);
     $query->execute();
     //redirection
-    header('Location: manage-vaccin.php');
+    header('Location: manage-vaccin.php?success=yes');
+  } else {
+    // header('Location: manage-vaccin.php?success=no');
   }
 }
 
@@ -58,7 +78,7 @@ include('inc/header-back.php');
   <!-- Page Heading -->
   <h1 class="h3 mb-4 text-center text-gray-800"><?php echo mb_strtoupper($title); ?></h1>
 
-  <form class="" action="reply-mail.php<?php if(!empty($_GET['id'])){echo '?id='. $_GET['id'];} ?>" method="post">
+  <form class="" action="add-vaccin.php" method="post">
 
     <div class="row">
       <div class="col">
@@ -80,7 +100,7 @@ include('inc/header-back.php');
       </div>
       <div class="col">
         <select class="form-control <?php if(count($errors['obligatoire']) != 0) { echo 'is-invalid';} ?>" name="obligatoire" id="obligatoire" >
-          <option value="default" <?php if(empty($_POST['obligatoire'])){ echo 'selected'; } ?>>--Obligatoire--</option
+          <option value="default" <?php if(empty($_POST['obligatoire'])){ echo 'selected'; } ?>>--Obligatoire--</option>
           <option value="oui" <?php if(!empty($_POST['obligatoire']) && $_POST['obligatoire'] == 'oui'){ echo 'selected'; } ?>>Oui</option>
           <option value="non" <?php if(!empty($_POST['obligatoire']) && $_POST['obligatoire'] == 'non'){ echo 'selected'; } ?>>Non</option>
         </select>
