@@ -941,39 +941,33 @@ a:hover.btn_connexion span:nth-child(4) {
 } */
 
 /* ADD VACCIN */
-
-#addvaccin {
- width: 100%;
- margin: 0 auto;
- height: auto;
- padding: 25px;
- background: url(../img/ajout.jpg);
- background-position: center;
-	background-repeat: no-repeat;
+#carnet {
+	width: 100%;
+	margin: 0 auto;
+	height: auto;
+	padding: 25px;
+	background: url(../img/ajout.jpg) fixed;
 	background-size: cover;
+	background-position: center
+   }
+.addvaccin {
+	width: 100%;
+	margin: 0 auto;
+	height: auto;
+	padding: 25px;
 }
-
 #vaccin {
 	background-color: #575fcf;
-  color: #fff;
-  border: none;
+	color: #fff;
+	border: none;
 	font-family: 'Poppins', sans-serif;
-  font-size: 1.2em;
-  padding-left: 20px;
-  border-radius: 4px;
+	font-size: 16px;
+	padding-left: 20px;
+	border-radius: 4px;
 	width: 95%;
 	height: 70px;
 }
-#vaccins {
- 	width: 100%;
-	height: auto;
- 	margin: 0 auto;
-	background: url(../img/ajout.jpg);
-	background-position: center;
-	 background-repeat: no-repeat;
-	 background-size: cover;
-}
-#vaccins .rappel {
+.vaccins .rappel {
 	width: 60%;
 	height: auto;
 	margin: 20px auto;
@@ -989,8 +983,6 @@ a:hover.btn_connexion span:nth-child(4) {
 	text-transform: uppercase;
 	font-weight: bold;
 }
-
-
 /* ABOUT */
 
 #about {
@@ -1076,12 +1068,7 @@ a:hover.btn_connexion span:nth-child(4) {
 	  width: 100%;
 	}
   }
-/* .bigbox {
-width: 100%;
-margin: 0 auto;
-height: auto;
-padding: 25px;
-} */
+
 #konamicode {
 	display: none;
 	transition: 0.5s;
@@ -1574,7 +1561,7 @@ input[type=submit]:hover {
 	text-align: center;
 	border: none;
 	font-size: 2.5em;
- 	font-family:  'Bebas Neue', cursive;
+	font-family: 'Poppins', sans-serif;
 }
 .mentions-legales h2:hover {
 	color: #8dc8e8;
@@ -1582,7 +1569,7 @@ input[type=submit]:hover {
 }
 .mentions-legales p {
 	font-size: 1.5em;
-	font-family:  'Didact Gothic', cursive;
+	font-family: 'Poppins', sans-serif;
 	color: #18242f;
 	color: #fff;
 }
@@ -1648,13 +1635,13 @@ footer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	font-family:  'Bebas Neue', cursive;
+	font-family: 'Poppins', sans-serif;
 	font-size: 1.5em;
 	padding: 20px;
 	color: #fff;
 }
 .column3 a {
-	font-family:  'Didact Gothic', cursive;
+	font-family: 'Poppins', sans-serif;
 	text-transform: uppercase;
 	font-size: 16px;
 	color: #fff;
@@ -1680,15 +1667,12 @@ footer {
   color: #fff;
   display: flex;
 	justify-content: center;
-	font-family:  'Bebas Neue', cursive;
+	font-family: 'Poppins', sans-serif;
 	font-size: 1em;
 }
 
 
 /* big box et mini box affichage flex vaccin front*/
-#section-addvaccin {
-
-}
 .form-addvaccin {
 	margin: 0 auto;
 	width: 450px;
@@ -1703,9 +1687,10 @@ footer {
  	padding: 0;
  	color: #fff;
  	text-align: center;
- 	border: none;
- 	font-size: 2.5em;
-	font-family:  'Bebas Neue', cursive;
+	 border: none;
+	 text-transform: uppercase;
+ 	font-size: 30px;
+	 font-family: 'Poppins', sans-serif;
  }
  .form-addvaccin .w50 {
 	position: relative;
@@ -1729,7 +1714,7 @@ footer {
 	left: 0;
 	padding: 10px 0;
 	font-size: 16px;
-	font-family:  'Bebas Neue', cursive;
+	font-family: 'Poppins', sans-serif;
 	color: #fff;
 	pointer-events: none;
 	transition: .5s;
@@ -1745,7 +1730,7 @@ footer {
  .form-addvaccin a {
 	padding: 10px;
 	margin-bottom: 20px;
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	color: #fff;
 	font-weight: bold;
  }
@@ -1753,7 +1738,7 @@ footer {
 	background-color: #fff;
 	color: #575fcf;
 	border: solid 1px #fff;
-	font-family:  'Bebas Neue', cursive;
+	font-family: 'Poppins', sans-serif;
 	font-size: 1.4em;
 	text-transform: uppercase;
 	padding-left: 10px;
