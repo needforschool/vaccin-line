@@ -13,6 +13,7 @@ $errors = array();
 </section>
 <?php
 include('inc/header-front.php');?>
+<!-- <br>
 <br>
 <br>
 <br>
@@ -21,8 +22,7 @@ include('inc/header-front.php');?>
 <br>
 <br>
 <br>
-<br>
-<br>
+<br> -->
 <script type="text/javascript" src="asset/js/konami.js"></script>
 <section id="about">
   <div class="title-text">
