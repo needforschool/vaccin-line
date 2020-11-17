@@ -8,12 +8,37 @@ $id = $_SESSION['user']['id'];
 
 $errors = array();
 $passchange = false;
+debug($_SESSION);
 
 include('inc/header-front.php');
 
 if (!empty($_POST['enregister'])) {
-    if (condition) {
-        # code...
+    echo 'enregisrter';
+    if (!empty($_POST['journuit'])) {
+        echo 'journuit';
+        if ($_POST['journuit'] == 0){
+            $jour_nuit = 'nuit';
+        } elseif ($_POST['journuit'] == 1 ) {
+            $jour_nuit = 'jour';
+        }
+
+        $sql = "UPDATE vl_users_setting SET jour_nuit = :jour_nuit  WHERE ID = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':jour_nuit',$jour_nuit,PDO::PARAM_STR);
+        $query->bindValue(':id',$_SESSION['user']['id'],PDO::PARAM_STR);
+        $query->execute();
+
+        $sql = "SELECT * FROM vl_user_settings WHERE user_id = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id',$id,PDO::PARAM_STR);
+        $query->execute();
+        $settings = $query->fetch();
+
+        $_SESSION['settings'] = array(
+          'jour_nuit' => $settings['jour_nuit']
+        );
+
+        debug($_SESSION);
     }
 }
 
@@ -93,27 +118,26 @@ if(!empty($_POST['modifmdp'])) {
         <h4>Mot de passe modifié !</h4>
     <?php endif; ?>
     <!-- Formulaire modification parametre -->
-    <form action="settings.php" method="post"></form>
+    <form action="settings.php" method="post">
         <h4>Mode jour/nuit</h4>
-        <?php $journuit = "nuit"; ?>
-        <?php if($journuit == "jour") : ?>
+        <?php if($_SESSION['settings']['jour_nuit'] == "jour") : ?>
             <label class="switch">
                 <input type="checkbox">
                 <span class="slider round"></span>
             </label>
         <?php endif; ?>
-        <?php if($journuit == "nuit") : ?>
+        <?php if($_SESSION['settings']['jour_nuit'] == "nuit") : ?>
             <label class="switch">
                 <input type="checkbox" checked>
                 <span class="slider round"></span>
             </label>
         <?php endif; ?>
-        <input type="submit" name="enregistrer">
+        <input type="submit" name="enregistrer" value="Enregister">
     </form>
     <!-- Formulaire suppresion compte  -->
-    <form action="settings.php" method="post">
+    <!-- <form action="settings.php" method="post">
         
-        <input type="submit" name="supprimer">
-    </form>
+        <input type="submit" name="supprimer" value="Supprimer" style="background: red;">
+    </form> -->
 <?php endif; ?>
 <?php include('inc/footer-front.php');
