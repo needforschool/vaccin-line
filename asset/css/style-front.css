@@ -144,6 +144,7 @@ a {
 }
 
 #sideNav {
+	position: relative;
   width: 250px;
   height: 100vh;
   position: fixed;
@@ -160,9 +161,18 @@ nav ul li {
 nav ul li a {
   text-decoration: none;
   color: #fff;
+  text-transform: uppercase;
 }
-nav ul li a.title {
-	text-transform: uppercase;
+.badge {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	display: block ruby;
+	background: chocolate;
+	width: 100%;
+	padding-left: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 }
 #menuBtn {
   width: 50px;

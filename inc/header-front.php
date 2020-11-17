@@ -82,7 +82,27 @@
           <?php if($_SESSION['user']['role'] == 'role_admin') : ?>
             <li><a href="admin/index.php">admin</a></li>
           <?php endif; ?>
-
+          <div class="badge">
+            <?php
+              if ($_SESSION['user']['age'] > 18)  {
+                switch ($_SESSION['user']['civilite']) {
+                  case "monsieur" :
+                    echo '<img src="asset/img/undraw_profile_2.svg" alt="" width="30px"><p class="nomPrenom">' . 'M.';
+                    break;
+                  case "madame" :
+                    echo '<img src="asset/img/undraw_profile_1.svg" alt="" width="30px"><p class="nomPrenom">' .'Mme.';
+                  break;
+                }
+              } else {
+                echo '<img src="asset/img/undraw_profile_3.svg" alt="" width="30px">';
+              }
+            echo  $_SESSION['user']['nom'] . ' '. $_SESSION['user']['prenom'] . '</p>';
+            ?>
+            <div class="in-out">
+              <a href="logout.php"><img src="asset/img/sign-out-alt-solid.svg" alt="" srcset="" width="25px"></a>
+              <a href="settings.php"><img src="asset/img/sliders-h-solid.svg" alt="" srcset="" width="25px"></a>
+            </div>
+          </div>
         <?php endif; ?>
       </ul>
     </nav>
@@ -91,12 +111,9 @@
   <div id="menuBtn">
     <img src="asset/img/menu.png" id="menu">
   </div>
-
-
-
         <!-- formulaire de connexion -->
 
 
 
 
-    <div class="container">
+  <div class="container">

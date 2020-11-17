@@ -25,10 +25,6 @@ include('inc/header-front.php');
       </div>
     </div>
     <div class="log-header">
-
-
-
-
       <!-- Si non connecter -->
       <?php if(empty($_SESSION)) : ?>
 
