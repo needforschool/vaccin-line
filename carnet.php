@@ -193,17 +193,11 @@ if(!empty($_POST['ajoutvaccin'])) {
     </section>
 
   </div>
-
   <section id="vaccins">
     <div class="rappel">
       <h1>Vos vaccins :</h1>
       <?php
         $id = $_SESSION['user']['id'];
-        // Recuperation des données de la table vl_vaccin
-        $sql = "SELECT * FROM vl_vaccins";
-        $query = $pdo->prepare($sql);
-        $query->execute();
-        $vaccins = $query->fetchAll();
         // Recuperation des données de la table vl_user_vaccin
         $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ORDER BY fait_le ASC";
         $query = $pdo->prepare($sql);
@@ -212,20 +206,6 @@ if(!empty($_POST['ajoutvaccin'])) {
         $incre_fait_le = 0;
       ?>
       <?php if (!empty($user_vaccins)) : ?>
-
-        <?php foreach($vaccins as $vaccin) : ?>
-          <div class="MB_carnet">
-            <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
-            <p>Fait le : <?php echo $user_vaccins[$incre_fait_le]['fait_le']; ?></p>
-            <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?>
-          </div>
-          <?php
-            $incre_fait_le +=1;
-            if($incre_fait_le == count($user_vaccins)) {
-              break;
-            }
-          ?>
-        <?php endforeach; ?>
 
         <div class="BB_carnet">
           <?php foreach($vaccins as $vaccin) : ?>

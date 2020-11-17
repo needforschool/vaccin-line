@@ -88,16 +88,16 @@
                 if ($_SESSION['user']['age'] > 18)  {
                   switch ($_SESSION['user']['civilite']) {
                     case "monsieur" :
-                      echo '<a href="settings.php"><img src="asset/img/undraw_profile_2.svg" alt="" width="63px"><p class="nomPrenom"></a>' . 'M.';
+                      echo '<a href="settings.php"><img src="asset/img/undraw_profile_2.svg" alt="" width="63px"></a><p class="nomPrenom">' . 'M.';
                       break;
                     case "madame" :
-                      echo '<a href="settings.php"><img src="asset/img/undraw_profile_1.svg" alt="" width="63px"><p class="nomPrenom"></a>' .'Mme.';
+                      echo '<a href="settings.php"><img src="asset/img/undraw_profile_1.svg" alt="" width="63px"></a><p class="nomPrenom">' .'Mme.';
                     break;
                   }
                 } else {
-                  echo '<a href="settings.php"><img src="asset/img/undraw_profile_3.svg" alt="" width="63px"></a>';
+                  echo '<a href="settings.php"><img src="asset/img/undraw_profile_3.svg" alt="" width="63px"></a><p class="nomPrenom">';
                 } 
-                echo  $_SESSION['user']['nom'] . ' '. ucfirst($_SESSION['user']['prenom']) . '</p>';
+                echo  strtoupper($_SESSION['user']['nom']) . ' '. ucfirst($_SESSION['user']['prenom']) . '</p>';
               ?>
               <div class="in-out">
                 <a href="logout.php"><img src="asset/img/sign-out-alt-solid.svg" alt="" srcset="" width="25px"></a>
