@@ -10,8 +10,6 @@ include('inc/header-front.php');
 $success = false;
 $errors = array();
 
-debug($_SESSION);
-
 if (!empty($_POST['submitted'])) {
     $email = cleanXss($_POST['email']);
     $password = cleanXss($_POST['password']);
@@ -74,7 +72,7 @@ if (!empty($_POST['submitted'])) {
 <!-- Connecté -->
 <?php if(!empty($_SESSION)) : ?>
 
-  <?php // header('Location: index.php'); ?>
+  <?php header('Location: index.php'); ?>
 
 <?php endif; ?>
 
