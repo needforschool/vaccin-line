@@ -6,6 +6,7 @@ isAdmin();
 
 $title = 'Ajouter un vaccin';
 $errors = array();
+
 if (!empty($_POST['submitted'])) {
   // die('ok');
   //protection Faille XSS
@@ -36,20 +37,19 @@ if (!empty($_POST['submitted'])) {
   }
 
   if(count($errors) == 0) {
-    // INSERT INTO
-    $sql = "INSERT INTO vl_vaccins (maladie,descriptif,obligatoire,dangerosité)
-    VALUES  (:maladie,:descriptif,:obligatoire,:dangerosité)";
+
+    $sql = "INSERT INTO vl_vaccins (maladie,descriptif,obligatoire,dangerosité) VALUES (:maladie,:description,:obligatoire,:danger)";
     $query = $pdo->prepare($sql);
     $query->bindValue(':maladie',$maladie,PDO::PARAM_STR);
-    $query->bindValue(':descriptif',$descriptif,PDO::PARAM_STR);
+    $query->bindValue(':description',$descriptif,PDO::PARAM_STR);
     $query->bindValue(':obligatoire',$obligatoire,PDO::PARAM_STR);
-    $query->bindValue(':dangerosité',$dangerosité,PDO::PARAM_STR);
+    $query->bindValue(':danger',$dangerosité,PDO::PARAM_STR);
     $query->execute();
+
     //redirection
     header('Location: manage-vaccin.php?success=yes');
-  } else {
-    // header('Location: manage-vaccin.php?success=no');
   }
+
 }
 
 $sql = "SELECT * FROM vl_contacts WHERE status = 1 AND lu = 'non'";
@@ -82,13 +82,13 @@ include('inc/header-back.php');
 
     <div class="row">
       <div class="col">
-        <input type="text" name="maladie" id="maladie" class="form-control <?php if(count($errors['maladie']) != 0) { echo 'is-invalid';} ?>" <?php if(!empty($maladie)){echo 'value="'. $vaccin['maladie'] .'"';} else {echo 'placeholder="maladie"';} ?>>
+        <input type="text" name="maladie" id="maladie" class="form-control <?php if(!empty($errors) && count($errors['maladie']) != 0) { echo 'is-invalid';} ?>" <?php if(!empty($_POST['maladie'])){echo 'value="'. $_POST['maladie'] .'"';} else {echo 'placeholder="maladie"';} ?>>
         <div class="invalid-feedback">
-          Veuillez remplir correctement ce champ.
+          <?php echo $errors['maladie']; ?>
         </div>
       </div>
       <div class="col">
-        <select class="form-control <?php if(count($errors['dangerosité']) != 0) { echo 'is-invalid';} ?>" name="dangerosité" id="dangerosité" >
+        <select class="form-control <?php if(!empty($errors) && count($errors['dangerosité']) != 0) { echo 'is-invalid';} ?>" name="dangerosité" id="dangerosité" >
           <option value="default" <?php if(empty($_POST['dangerosité'])){ echo 'selected'; } ?>>--Dangerosité--</option>
           <option value="benin" <?php if(!empty($_POST['dangerosité']) && $_POST['dangerosité'] == 'benin'){ echo 'selected'; } ?>>Benin</option>
           <option value="modéré" <?php if(!empty($_POST['dangerosité']) && $_POST['dangerosité'] == 'modéré'){ echo 'selected'; } ?>>Modéré</option>
@@ -99,7 +99,7 @@ include('inc/header-back.php');
         </div>
       </div>
       <div class="col">
-        <select class="form-control <?php if(count($errors['obligatoire']) != 0) { echo 'is-invalid';} ?>" name="obligatoire" id="obligatoire" >
+        <select class="form-control <?php if(!empty($errors) && count($errors['obligatoire']) != 0) { echo 'is-invalid';} ?>" name="obligatoire" id="obligatoire" >
           <option value="default" <?php if(empty($_POST['obligatoire'])){ echo 'selected'; } ?>>--Obligatoire--</option>
           <option value="oui" <?php if(!empty($_POST['obligatoire']) && $_POST['obligatoire'] == 'oui'){ echo 'selected'; } ?>>Oui</option>
           <option value="non" <?php if(!empty($_POST['obligatoire']) && $_POST['obligatoire'] == 'non'){ echo 'selected'; } ?>>Non</option>
@@ -110,9 +110,9 @@ include('inc/header-back.php');
       </div>
     </div>
     <div class="mb-3">
-      <textarea name="descriptif" style="resize: none; height: 200px;" class="form-control <?php if(count($errors['descriptif']) != 0) { echo 'is-invalid';} ?> mt-3" id="descriptif" placeholder="le descriptif de la maladie" required></textarea>
+      <textarea name="descriptif" style="resize: none; height: 200px;" class="form-control <?php if(!empty($errors) && count($errors['descriptif']) != 0) { echo 'is-invalid';} ?> mt-3" id="descriptif" placeholder="le descriptif de la maladie" required></textarea>
       <div class="invalid-feedback">
-        Veuillez remplir correctement ce champ.
+        <?php echo $errors['descriptif']; ?>
       </div>
     </div>
 
