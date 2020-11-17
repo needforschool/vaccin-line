@@ -15,7 +15,7 @@ include('inc/header-front.php');
 
 <?php if(empty($_SESSION) ) : ?>
   <section id="banner">
-    <img src="asset/img/logo.png" class="logo">
+    <img src="asset/img/hugologonb.png" class="logo">
     <div class="banner-text">
       <h1>Vaccin'Line</h1>
       <p>Vaccin'Line Le Carnet Du Futur</p>
@@ -86,7 +86,7 @@ include('inc/header-front.php');
             <i class="fa fa-inr"></i>
           </div>
           <div class="feature-text"></div>
-          <p>Notre carnet de vaccination et totalement gratuit et disponible à vie.Notre carnet de vaccination et totalement gratuit et disponible à vie.</p>
+          <p>Notre carnet de vaccination et totalement gratuit et disponible à vie. Vous pouvez vous y connecter quand vous voulez</p>
         </div>
       </div>
       <div class="features-img">
