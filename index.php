@@ -90,7 +90,7 @@ include('inc/header-front.php');
             <i class="fa fa-inr"></i>
           </div>
           <div class="feature-text"></div>
-          <p>Notre carnet de vaccination et totalement gratuit et disponible à vie.</p>
+          <p>Notre carnet de vaccination et totalement gratuit et disponible à vie. Vous pouvez vous y connecter quand vous voulez</p>
         </div>
       </div>
       <div class="features-img">
