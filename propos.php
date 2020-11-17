@@ -22,16 +22,18 @@ include('inc/header-front.php');?>
         <div class="about-icon">
           <i class="fa fa-user-circle"></i>
         </div>
-        <div class="about-text"></div>
-        <p>Nous sommes juste des étudiants en première année d'un bachelor en développement web, rien de plus ! Entre la team front composée de <a href="#quentin"><strong>Quentin Vannarath</strong></a>, <a href="#enzo"><strong>Enzo Vitorino</strong></a> et <a href="#florian"><strong>Florian Galvani</strong></a>, la team back composée de <a href="#lucas"><strong>Lucas Bellier</strong></a> et <a href="#valentin"><strong>Valentin Lamy</strong></a>, la concurence a du soucis a se faire !</p>
+        <div class="about-text">
+          <p>Nous sommes juste des étudiants en première année d'un bachelor en développement web, rien de plus ! Entre la team front composée de <a href="#quentin"><strong>Quentin Vannarath</strong></a>, <a href="#enzo"><strong>Enzo Vitorino</strong></a> et <a href="#florian"><strong>Florian Galvani</strong></a>, la team back composée de <a href="#lucas"><strong>Lucas Bellier</strong></a> et <a href="#valentin"><strong>Valentin Lamy</strong></a>, la concurence a du soucis a se faire !</p>
+        </div>
       </div>
       <h1>Projet: Carnet de Vaccination</h1>
       <div class="abouts-desc">
         <div class="about-icon">
           <i class="fa fa-history"></i>
         </div>
-        <div class="about-text"></div>
-        <p>Vaccin Line est un projet que nous avons dû réaliser en deux semaines (du 09/11/2020 au 20/11/2020), avec pour demande de développer un site web permettant aux clients de renseigner leur carnet de vaccination afin d'automatiser celui-ci (informer sur les différents vaccins, rappeler la date des rappels), tout en protégeant les données de nos utilisateurs.</p>
+        <div class="about-text">
+          <p>Vaccin Line est un projet que nous avons dû réaliser en deux semaines (du 09/11/2020 au 20/11/2020), avec pour demande de développer un site web permettant aux clients de renseigner leur carnet de vaccination afin d'automatiser celui-ci (informer sur les différents vaccins, rappeler la date des rappels), tout en protégeant les données de nos utilisateurs.</p>
+        </div>
       </div>
       <h1>Konami Code#</h1>
       <div class="abouts-desc">
@@ -50,7 +52,7 @@ include('inc/header-front.php');?>
       </div>
     </div>
     <div class="abouts-img">
-      <img src="asset/img/virus-feature.jpg" alt="">
+      <img src="asset/img/about1.jpg" alt="">
     </div>
   </div>
 
@@ -59,7 +61,7 @@ include('inc/header-front.php');?>
       <div class="bigbox-start">
         <div class="stats-about">
           <h1 id="lucas">Lucas AKA ImJustLucas<span class="age"> (19)</span></h1><p class="role">(Chef de projet et Team Back)</p>
-          <p>Très fier de son système de notification des mails</p>
+          <p>Très fier de son système de notification des e-mails</p>
         </div>
         <div class="img-stats">
           <img src="asset/img/lucas.jpg" alt="">
