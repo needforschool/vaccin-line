@@ -145,9 +145,14 @@ include('inc/header-front.php');
       <h2>Inscription</h2>
       <form action="signin.php" method="post" class="formulaire">
         <div class="w50">
-          <select name="civilite" id="civilite" >
-            <option value="">--Civilité--</option>
-            <option value="monsieur">Monsieur</option>
+          <select name="civilite" id="civilite">
+            <?php if(empty($_POST['civilite'])) : ?>
+              <option value="">--Civilité--</option>
+            <?php endif; ?>
+            <?php if(!empty($_POST['civilite'])) : ?>
+              <option value="<?php echo $_POST['civilite'] ?>"><?php echo ucwords($_POST['civilite']) ?></option>
+            <?php endif; ?>
+              <option value="monsieur">Monsieur</option>
             <option value="madame">Madame</option>
           </select>
           <span class="error"><?php if(!empty($errors['civilite'])) { echo $errors['civilite']; } ?></span>

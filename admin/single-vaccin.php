@@ -2,7 +2,12 @@
 session_start();
 include('../inc/pdo.php');
 include('../inc/function.php');
-isAdmin();
+if (!est_connecte()) {
+  header('Location: 403.php');
+} elseif ($_SESSION['user']['role'] != 'role_admin') {
+  header('Location: 403.php');
+}
+
 $title = 'option vaccin';
 
 $sql = "SELECT * FROM vl_contacts WHERE status = 1 AND lu = 'non'";
@@ -82,7 +87,7 @@ include('inc/header-back.php');
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                     obligatoire</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $singleVaccin['obligatoire'] ?></div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $vaccin['obligatoire'] ?></div>
                   </div>
                   <div class="col-auto">
                     <i class="fas fa-info-circle fa-2x text-gray-300"></i>
