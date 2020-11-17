@@ -90,7 +90,7 @@ if (!empty($_POST['submitted'])) {
     <?php  } ?>
     <div class="wrap-section-connexion-1">
       <div class="form-login">
-        <h2>connexion</h2>
+        <h2>Connexion</h2>
         <form action="login.php" method="post">
           <div class="w50">
             <input type="email" name="email" required="" value="<?php if(!empty($_POST['email'])) { echo $_POST['email']; } ?>">
@@ -104,7 +104,7 @@ if (!empty($_POST['submitted'])) {
           </div>
           <a href="forgot-password.php">Mot de passe oublié ?</a>
           <div class="w50">
-            <input type="submit" name="submitted" value="Login">
+            <input type="submit" name="submitted" value="connexion">
           </div>
         </form>
       </div>

@@ -2,131 +2,94 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vaccin'Line</title>
   <link rel="stylesheet" href="asset/css/style-front.css">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="book-medical-solid.svg">
-  <title><?php echo $title ?></title>
-  <script src="https://kit.fontawesome.com/4bb9b339d3.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 </head>
 <body>
-    <header>
-      <div class="wrap-header">
-        <div class="logo-header">
-          <a href="#"><img src="asset/img/logo_header.png" alt=""></a>
-        </div>
-        <div class="nav">
-          <nav>
-            <ul class="navbar">
-              <!-- lien header  -->
-              <!-- Si non connecter -->
-              <?php if(empty($_SESSION)) : ?>
-                <?php if($title == 'Home') : ?>
-                  <li><a href="signin.php">inscription</a></li>
-                  <li><a href="login.php">connexion</a></li>
-                  <li><a href="contact.php">contact</a></li>
-                  <li><a href="propos.php">a propos</a></li>
-                <?php endif; ?>
-                <?php if($title == 'Contact') : ?>
-                  <li><a href="index.php">home</a></li>
-                  <li><a href="signin.php">inscription</a></li>
-                  <li><a href="login.php">connexion</a></li>
-                  <li><a href="propos.php">a propos</a></li>
-                <?php endif; ?>
-                <?php if($title == 'Mentions légales') : ?>
-                  <li><a href="index.php">home</a></li>
-                  <li><a href="signin.php">inscription</a></li>
-                  <li><a href="login.php">connexion</a></li>
-                  <li><a href="contact.php">contact</a></li>
-                <?php endif; ?>
-                <?php if($title == 'Inscription') : ?>
-                  <li><a href="index.php">home</a></li>
-                  <li><a href="login.php">connexion</a></li>
-                  <li><a href="propos.php">a propos</a></li>
-                  <li><a href="contact.php">contact</a></li>
-                <?php endif; ?>
-                <?php if($title == 'Connexion') : ?>
-                  <li><a href="index.php">home</a></li>
-                  <li><a href="signin.php">inscription</a></li>
-                  <li><a href="propos.php">a propos</a></li>
-                  <li><a href="contact.php">contact</a></li>
-                <?php endif; ?>
-              <?php endif; ?>
-              <!-- Si connecter -->
-              <?php if(!empty($_SESSION)) : ?>
-                <?php if($title == 'Mon carnet') : ?>
-                  <li><a href="index.php">home</a></li>
-                  <li><a href="contact.php">contact</a></li>
-                  <li><a href="propos.php">a propos</a></li>
-                <?php endif; ?>
-                <?php if($title == 'Home') : ?>
-                  <li><a href="carnet.php">mon Carnet</a></li>
-                  <li><a href="contact.php">contact</a></li>
-                  <li><a href="propos.php">a propos</a></li>
-                <?php endif; ?>
-                <?php if($title == 'Contact') : ?>
-                  <li><a href="index.php">home</a></li>
-                  <li><a href="carnet.php">mon Carnet</a></li>
-                  <li><a href="propos.php">a propos</a></li>
-                <?php endif; ?>
-                <?php if($title == 'Mentions légales') : ?>
-                  <li><a href="index.php">home</a></li>
-                  <li><a href="carnet.php">mon Carnet</a></li>
-                  <li><a href="propos.php">a propos</a></li>
-                <?php endif; ?>
-                <?php if($_SESSION['user']['role'] == 'role_admin') : ?>
-                  <li><a href="admin/index.php">admin</a></li>
-                <?php endif; ?>
 
-              <?php endif; ?>
-
-            </ul>
-          </nav>
-        </div>
-        <!-- formulaire de connexion -->
-<div class="log-header">
-
-
-
-
-        <!-- Si non connecter -->
+  <div id="sideNav">
+    <nav>
+      <ul>
         <?php if(empty($_SESSION)) : ?>
-
+          <?php if($title == 'Home') : ?>
+            <li><a href="#banner" class="title">accueil</a></li>
+            <li><a href="signin.php">inscription</a></li>
+            <li><a href="login.php">connexion</a></li>
+            <li><a href="#feature" class="title">fonctionnalités</a></li>
+            <li><a href="#service" class="title">services</a></li>
+            <li><a href="#testimonial" class="title">témoignages</a></li>
+            <li><a href="#footer" class="title">nous contacter</a></li>
+          <?php endif; ?>
+          <?php if($title == 'Contact') : ?>
+            <li><a href="index.php" class="title">acceuil</a></li>
+            <li><a href="signin.php">inscription</a></li>
+            <li><a href="login.php">connexion</a></li>
+            <li><a href="propos.php">à propos</a></li>
+          <?php endif; ?>
+          <?php if($title == 'Mentions légales') : ?>
+            <li><a href="index.php" class="title">acceuil</a></li>
+            <li><a href="signin.php">inscription</a></li>
+            <li><a href="login.php">connexion</a></li>
+            <li><a href="contact.php" class="title">contact</a></li>
+          <?php endif; ?>
+          <?php if($title == 'Inscription') : ?>
+            <li><a href="index.php" class="title">acceuil</a></li>
+            <li><a href="login.php">connexion</a></li>
+            <li><a href="propos.php">à propos</a></li>
+            <li><a href="contact.php" class="title">contact</a></li>
+          <?php endif; ?>
+          <?php if($title == 'Connexion') : ?>
+            <li><a href="index.php" class="title">acceuil</a></li>
+            <li><a href="signin.php">inscription</a></li>
+            <li><a href="propos.php">à propos</a></li>
+            <li><a href="contact.php">contact</a></li>
+          <?php endif; ?>
         <?php endif; ?>
-        <!-- Si connecter  -->
+        <!-- Si connecter -->
         <?php if(!empty($_SESSION)) : ?>
-          <?php
-            if ($_SESSION['user']['age'] > 18)  {
-              switch ($_SESSION['user']['civilite']) {
-                case "monsieur" :
-                  echo '<img src="asset/img/undraw_profile_2.svg" alt="" width="50px"> ';
-                  echo  '<p class="nomPrenom">' . 'M.';
-                  break;
-                case "madame" :
-                  echo '<img src="asset/img/undraw_profile_1.svg" alt="" width="50px">';
-                  echo '<p class="nomPrenom">' .'Mme.';
-                break;
-              }
-            } else {
-              echo '<img src="asset/img/undraw_profile_3.svg" alt="" width="50px">';
-            }
-          echo  $_SESSION['user']['nom'] . ' '. $_SESSION['user']['prenom'] . '</p>';
-          ?>
+          <?php if($title == 'Mon carnet') : ?>
+            <li><a href="index.php" class="title">acceuil</a></li>
+            <li><a href="contact.php" class="title">contact</a></li>
+            <li><a href="propos.php">à propos</a></li>
+          <?php endif; ?>
+          <?php if($title == 'Home') : ?>
+            <li><a href="carnet.php" class="title">mon carnet</a></li>
+            <li><a href="contact.php" class="title">contact</a></li>
+            <li><a href="propos.php">à propos</a></li>
+          <?php endif; ?>
+          <?php if($title == 'Contact') : ?>
+            <li><a href="index.php" class="title">acceuil</a></li>
+            <li><a href="carnet.php">mon Carnet</a></li>
+            <li><a href="propos.php">à propos</a></li>
+          <?php endif; ?>
+          <?php if($title == 'Mentions légales') : ?>
+            <li><a href="index.php" class="title">acceuil</a></li>
+            <li><a href="carnet.php">mon Carnet</a></li>
+            <li><a href="propos.php">à propos</a></li>
+          <?php endif; ?>
+          <?php if($_SESSION['user']['role'] == 'role_admin') : ?>
+            <li><a href="admin/index.php">admin</a></li>
+          <?php endif; ?>
 
-          <div class="in-out">
-
-          <a href="logout.php"><img src="asset/img/sign-out-alt-solid.svg" alt="" srcset="" width="30px"></a>
-          <a href="settings.php"><img src="asset/img/sliders-h-solid.svg" alt="" srcset="" width="30px"></a>
-        </div>
-          <!-- <img src="asset/img/test/undraw_profile_1.svg" alt="" width="100px">
-          <img src="asset/img/test/undraw_profile_2.svg" alt="" width="100px">
-          <img src="asset/img/test/undraw_profile_3.svg" alt="" width="100px"> -->
         <?php endif; ?>
-        </div>
-      </div>
-    </header>
+      </ul>
+    </nav>
+  </div>
+
+  <div id="menuBtn">
+    <img src="asset/img/menu.png" id="menu">
+  </div>
+
+
+
+        <!-- formulaire de connexion -->
+
+
+
 
     <div class="container">
