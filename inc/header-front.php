@@ -4,17 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Vaccin'Line</title>
-  <?php if (!empty($_SESSION)) : ?>
-    <?php if ($_SESSION['settings']['jour_nuit'] == 'jour') : ?>
-      <link rel="stylesheet" href="asset/css/style-front.css">
-    <?php elseif ($_SESSION['settings']['jour_nuit'] == 'nuit') : ?>
-      <link rel="stylesheet" href="asset/css/style-front-nuit.css">
-    <?php endif; ?>
-  <?php endif; ?>
-  <?php if (empty($_SESSION)) : ?>
-    <link rel="stylesheet" href="asset/css/style-front.css">   
-  <?php endif; ?>
-
+  <link rel="stylesheet" href="asset/css/style-front.css">   
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins&display=swap" rel="stylesheet">
