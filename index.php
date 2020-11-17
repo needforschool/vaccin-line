@@ -14,10 +14,16 @@ include('inc/header-front.php');
   <div class="banner-text">
     <h1>Vaccin'Line</h1>
     <p>Vaccin'Line Le Carnet Du Futur</p>
-    <div class="banner-btn">
-      <a href="signin.php"><span></span>Inscription</a>
-      <a href="login.php"><span></span>Connexion</a>
-    </div>
+
+      <div class="banner-btn">
+        <?php if(!empty($_SESSION)) : ?>
+          <a href="carnet.php"><span></span>Mon carnet</a>
+        <?php endif; ?>
+        <?php if(empty($_SESSION)) : ?>
+          <a href="signin.php"><span></span>Inscription</a>
+          <a href="login.php"><span></span>Connexion</a>
+        <?php endif; ?>
+      </div>
   </div>
   <div class="log-header">
     <!-- Si non connecter -->
