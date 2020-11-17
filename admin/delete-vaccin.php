@@ -10,7 +10,7 @@ if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
   $query->execute();
   $exist = $query->fetch();
   if (!empty($exist)) {
-    $sql = "UPDATE vl_vaccins SET id_vaccin = 0 WHERE ID = :id";
+    $sql = "DELETE FROM vl_vaccins WHERE id = :id";
     $query = $pdo->prepare($sql);
     $query -> bindValue(':id', $id, PDO::PARAM_INT);
     $query->execute();
