@@ -560,6 +560,12 @@ hr {
 		top: 25%;
 	}
 }
+@media screen and (max-width: 370px) {
+	.footer-img {
+		top: 25%;
+		width: 90%;
+	}
+}
 
 
 
