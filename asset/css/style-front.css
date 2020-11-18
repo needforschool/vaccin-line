@@ -460,19 +460,20 @@ hr {
   background: #efefef;
   position: relative;
 }
+#minifooter {
+	padding: 20px 0 10px;
+  background: #efefef;
+  position: relative;
+}
 
 .footer-row {
   width: 80%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  align-items: flex-start;
 }
-.footer-left,.footer-right {
-  flex-basis: 45%;
-  padding: 10px;
-  margin-bottom: 20px;
-}
+
 .footer-right {
   text-align: right;
 }
@@ -506,6 +507,14 @@ hr {
   top: 35%;
   transform: translate(-50%,-50%);
 }
+.minifooter-img {
+	max-width: 300px;
+	opacity: 0.1;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+  }
 .social-links {
   text-align: center;
 }
