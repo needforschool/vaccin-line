@@ -9,6 +9,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+  <script>
+    var menuBtn = document.getElementById("menuBtn")
+    var sideNav = document.getElementById("sideNav")
+    var menu = document.getElementById("menu")
+
+    sideNav.style.right = "-250px";
+
+    menuBtn.onclick = function(){
+    if (sideNav.style.right == "-250px") {
+      sideNav.style.right = "0";
+      menu.src = "asset/img/close.png";
+    }
+    else {
+      sideNav.style.right = "-250px";
+      menu.src = "asset/img/menu.png";
+      }
+    }
+    var scroll = new SmoothScroll('a[href*="#"]', {
+    speed: 1500,
+    speedAsDuration: true
+    });
+  </script>
 </head>
 <body>
 <?php if ($title == 'Home') : ?>

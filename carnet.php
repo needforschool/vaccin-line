@@ -41,9 +41,6 @@ if(!empty($_POST['ajoutvaccin'])) {
 
 }
 ?>
-
-
-
 <!-- Non connecté -->
 <?php if(empty($_SESSION) ) : ?>
 
