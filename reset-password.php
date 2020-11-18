@@ -6,6 +6,11 @@ include('inc/function.php');
 
 $success = false;
 $errors = array();
+?>
+<section>
+  <img src="asset/img/hugologonb.png" class="logo-fixed">
+</section>
+<?php
 
 //Verification eMail
 if (!empty($_GET['email'])) {
@@ -138,4 +143,4 @@ include('inc/header-front.php');
 
 <!-- Mode MDP oublier  -->
 <?php
-include('inc/footer-front.php');
+include('inc/mini-footer-front.php');
