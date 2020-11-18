@@ -195,4 +195,4 @@ if(!empty($_POST['ajoutvaccin'])) {
 </section>
 <?php endif; ?>
 <?php
-  // include('inc/footer-front.php');
+  include('inc/footer-front.php');
