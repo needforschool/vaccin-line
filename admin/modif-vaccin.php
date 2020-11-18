@@ -14,22 +14,22 @@ if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
   $query -> bindValue(':id', $id, PDO::PARAM_INT);
   $query->execute();
   $singleVaccin = $query->fetch();
-}
+} else {die('404');}
 
 if (!empty($_POST['submitted'])) {
   // die('ok');
   //protection Faille XSS
   $maladie       = cleanXss($_POST['maladie']);
   $descriptif    = cleanXss($_POST['descriptif']);
-  $dangerosité   = cleanXss($_POST['dangerosité']);
+  $danger   = cleanXss($_POST['dangerosité']);
   $obligatoire   = cleanXss($_POST['obligatoire']);
   $expiration    = cleanXss($_POST['expiration']);
   // validation message (min, max)
   $errors = validationText($errors,$maladie,'maladie',5,2000);
   $errors = validationText($errors,$descriptif,'descriptif',5,2000);
 
-  if(!empty($dangerosité)) {
-    if ($dangerosité == 'benin' || $dangerosité == 'modéré' || $dangerosité == 'mortelle') {
+  if(!empty($danger)) {
+    if ($danger == 'benin' || $danger == 'modéré' || $danger == 'mortelle') {
     } else {
       $errors['dangerosité'] = 'Veuillez selectionner une dangerosité valide';
     }
@@ -57,18 +57,18 @@ if (!empty($_POST['submitted'])) {
 
   if(count($errors) == 0) {
 
-    $sql = "UPDATE vl_vaccins SET maladie =[:maladie], descriptif =[:descriptif], obligatoire =[:obligatoire], dangerosité =[:danger], expiration =[:expiration] WHERE id = :id";
-    // $sql = "UPDATE vl_vaccins SET maladie ='.$_POST['maladie'].', descriptif ='.$_POST['descriptif'].', obligatoire ='.$_POST['obligatoire'].', dangerosité ='.$_POST['dangerosité'].', expiration ='.$_POST['expiration'].' WHERE id = :id";
+    $sql = "UPDATE vl_vaccins SET maladie =:maladie, descriptif =:descriptif, obligatoire =:obligatoire, dangerosité =:danger, expiration =:expiration WHERE id = :id";
     $query = $pdo->prepare($sql);
+    $query->bindValue(':id',$id,PDO::PARAM_INT);
     $query->bindValue(':maladie',$maladie,PDO::PARAM_STR);
     $query->bindValue(':description',$descriptif,PDO::PARAM_STR);
     $query->bindValue(':obligatoire',$obligatoire,PDO::PARAM_STR);
-    $query->bindValue(':danger',$dangerosité,PDO::PARAM_STR);
+    $query->bindValue(':danger',$danger,PDO::PARAM_STR);
     $query->bindValue(':expiration',$expiration,PDO::PARAM_INT);
     $query->execute();
 
     //redirection
-    header('Location: manage-vaccin.php?success=yes');
+    // header('Location: manage-vaccin.php?success=yes');
   }
 }
 
@@ -98,12 +98,12 @@ include('inc/header-back.php');
   <!-- Page Heading -->
   <h1 class="h3 mb-4 text-center text-gray-800"><?php echo mb_strtoupper($title); ?></h1>
 
-  <form class="" action="modif-vaccin.php" method="post">
+  <form class="" action="modif-vaccin.php?id=<?php echo $id ?>" method="post">
 
     <div class="row">
       <div class="col">
         <input type="text" name="maladie" id="maladie" class="form-control <?php if(!empty($errors) && count($errors['maladie']) != 0) { echo 'is-invalid';} ?>" <?php if(!empty($_POST['maladie'])){echo 'value="'. $_POST['maladie'] .'"';}
-          else {echo 'value="'. $singleVaccin['maladie'] .'"';} ?>>
+          elseif (!empty($singleVaccin['maladie'])) {echo 'value="'. $singleVaccin['maladie'] .'"';} ?>>
         <div class="invalid-feedback">
           <?php echo $errors['maladie']; ?>
         </div>
