@@ -2,15 +2,12 @@
 session_start();
 include('inc/pdo.php');
 include('inc/function.php');
-$title = 'Mentions légales';
+$title = 'A propos';
 //debug($_SESSION);
 //debug($_SESSION);
 
 $errors = array();
 ?>
-<section>
-  <img src="asset/img/hugologo.png" class="logo-fixed">
-</section>
 <?php
 include('inc/header-front.php');?>
 
