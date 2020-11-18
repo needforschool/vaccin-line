@@ -5,31 +5,8 @@ include('inc/function.php');
 $title = 'Home';
 
 $errors = array();
-
-include('inc/header-front.php');
-
+include('inc/header-front.php')
 ?>
-<section id="banner">
-  <img src="asset/img/hugologonb.png" class="logo">
-  <div class="banner-text">
-    <h1>Vaccin Line</h1>
-    <p>Vaccin Line Le Carnet Du Futur</p>
-    <div class="banner-btn">
-      <a href="signin.php"><span></span>Inscription</a>
-      <a href="login.php"><span></span>Connexion</a>
-    </div>
-  </div>
-  <div class="log-header">
-    <!-- Si non connecter -->
-    <?php if(empty($_SESSION)) : ?>
-
-    <?php endif; ?>
-    <!-- Si connecter  -->
-    <?php if(!empty($_SESSION)) : ?>
-
-    <?php endif; ?>
-  </div>
-</section>
 <!-- feature -->
 <section id="feature">
   <div class="title-text">
@@ -156,4 +133,7 @@ include('inc/header-front.php');
   </div>
 </section>
 
-<?php include('inc/footer-front.php'); 
+<?php
+
+
+  include('inc/footer-front.php');
