@@ -9,38 +9,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-  <script>
-    var menuBtn = document.getElementById("menuBtn")
-    var sideNav = document.getElementById("sideNav")
-    var menu = document.getElementById("menu")
-
-    sideNav.style.right = "-250px";
-
-    menuBtn.onclick = function(){
-    if (sideNav.style.right == "-250px") {
-      sideNav.style.right = "0";
-      menu.src = "asset/img/close.png";
-    }
-    else {
-      sideNav.style.right = "-250px";
-      menu.src = "asset/img/menu.png";
-      }
-    }
-    var scroll = new SmoothScroll('a[href*="#"]', {
-    speed: 1500,
-    speedAsDuration: true
-    });
-  </script>
 </head>
 <body>
 <?php if ($title == 'Home') : ?>
-<section id="banner">
-  <img src="asset/img/hugologonb.png" class="logo">
-  <div class="banner-text">
-    <h1>Vaccin'Line</h1>
-    <p>Vaccin'Line Le Carnet Du Futur</p>
+  <section id="banner">
+    <a href="index.php"><img src="asset/img/hugologonb.png" class="logo"></a>
+    <div class="banner-text">
+      <h1>Vaccin'Line</h1>
+      <p>Vaccin'Line Le Carnet Du Futur</p>
 
-        <div class="banner-btn">
+      <div class="banner-btn">
         <?php if(!empty($_SESSION)) : ?>
           <a href="carnet.php"><span></span>Mon carnet</a>
         <?php endif; ?>
@@ -49,20 +27,20 @@
           <a href="login.php"><span></span>Connexion</a>
         <?php endif; ?>
       </div>
-  </div>
-  <div class="log-header">
-    <!-- Si non connecter -->
-    <?php if(empty($_SESSION)) : ?>
+    </div>
+    <div class="log-header">
+      <!-- Si non connecter -->
+      <?php if(empty($_SESSION)) : ?>
 
-    <?php endif; ?>
-    <!-- Si connecter  -->
-    <?php if(!empty($_SESSION)) : ?>
+      <?php endif; ?>
+      <!-- Si connecter  -->
+      <?php if(!empty($_SESSION)) : ?>
 
-    <?php endif; ?>
-  </div>
-</section>
+      <?php endif; ?>
+    </div>
+  </section>
 <?php else : ?>
-  <img src="asset/img/hugologonb.png" class="logo">
+ <a href="index.php"><img src="asset/img/hugologonb.png" class="logo"></a>
 <?php endif; ?>
 <div id="sideNav">
   <nav>
@@ -163,5 +141,27 @@
 <div id="menuBtn">
   <img src="asset/img/menu.png" id="menu">
 </div>
+<script>
+    var menuBtn = document.getElementById("menuBtn")
+    var sideNav = document.getElementById("sideNav")
+    var menu = document.getElementById("menu")
+
+    sideNav.style.right = "-250px";
+
+    menuBtn.onclick = function(){
+    if (sideNav.style.right == "-250px") {
+      sideNav.style.right = "0";
+      menu.src = "asset/img/close.png";
+    }
+    else {
+      sideNav.style.right = "-250px";
+      menu.src = "asset/img/menu.png";
+      }
+    }
+    var scroll = new SmoothScroll('a[href*="#"]', {
+    speed: 1500,
+    speedAsDuration: true
+    });
+  </script>
       <!-- formulaire de connexion -->
 <div class="container">

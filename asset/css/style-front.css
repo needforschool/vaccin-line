@@ -195,9 +195,10 @@ nav ul li a {
 }
 .badge p {
 	position: absolute;
-	top: 38%;
-	left: 28%;
+	top: 26%;
+	left: 29%;
 	margin-left: 10px;
+	max-width: 1px;
 }
 #menuBtn {
   width: 50px;
