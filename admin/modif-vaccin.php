@@ -7,6 +7,15 @@ isAdmin();
 $title = 'Modifier un vaccin';
 $errors = array();
 
+if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
+  $id = $_GET['id'];
+  $sql = "SELECT * FROM vl_vaccins WHERE id = :id";
+  $query = $pdo->prepare($sql);
+  $query -> bindValue(':id', $id, PDO::PARAM_INT);
+  $query->execute();
+  $singleVaccin = $query->fetch();
+}
+
 if (!empty($_POST['submitted'])) {
   // die('ok');
   //protection Faille XSS
@@ -49,7 +58,7 @@ if (!empty($_POST['submitted'])) {
   if(count($errors) == 0) {
 
     $sql = "UPDATE vl_vaccins SET maladie =[:maladie], descriptif =[:descriptif], obligatoire =[:obligatoire], dangerosité =[:danger], expiration =[:expiration] WHERE id = :id";
-    $sql = "UPDATE vl_vaccins SET maladie ='.$_POST['maladie'].', descriptif ='.$_POST['descriptif'].', obligatoire ='.$_POST['obligatoire'].', dangerosité ='.$_POST['dangerosité'].', expiration ='.$_POST['expiration'].' WHERE id = :id";
+    // $sql = "UPDATE vl_vaccins SET maladie ='.$_POST['maladie'].', descriptif ='.$_POST['descriptif'].', obligatoire ='.$_POST['obligatoire'].', dangerosité ='.$_POST['dangerosité'].', expiration ='.$_POST['expiration'].' WHERE id = :id";
     $query = $pdo->prepare($sql);
     $query->bindValue(':maladie',$maladie,PDO::PARAM_STR);
     $query->bindValue(':description',$descriptif,PDO::PARAM_STR);
@@ -93,17 +102,18 @@ include('inc/header-back.php');
 
     <div class="row">
       <div class="col">
-        <input type="text" name="maladie" id="maladie" class="form-control <?php if(!empty($errors) && count($errors['maladie']) != 0) { echo 'is-invalid';} ?>" <?php if(!empty($_POST['maladie'])){echo 'value="'. $_POST['maladie'] .'"';} else {echo 'placeholder="maladie"';} ?>>
+        <input type="text" name="maladie" id="maladie" class="form-control <?php if(!empty($errors) && count($errors['maladie']) != 0) { echo 'is-invalid';} ?>" <?php if(!empty($_POST['maladie'])){echo 'value="'. $_POST['maladie'] .'"';}
+          else {echo 'value="'. $singleVaccin['maladie'] .'"';} ?>>
         <div class="invalid-feedback">
           <?php echo $errors['maladie']; ?>
         </div>
       </div>
       <div class="col">
         <select class="form-control <?php if(!empty($errors) && count($errors['dangerosité']) != 0) { echo 'is-invalid';} ?>" name="dangerosité" id="dangerosité" >
-          <option value="default" <?php if(empty($_POST['dangerosité'])){ echo 'selected'; } ?>>--Dangerosité--</option>
-          <option value="benin" <?php if(!empty($_POST['dangerosité']) && $_POST['dangerosité'] == 'benin'){ echo 'selected'; } ?>>Benin</option>
-          <option value="modéré" <?php if(!empty($_POST['dangerosité']) && $_POST['dangerosité'] == 'modéré'){ echo 'selected'; } ?>>Modéré</option>
-          <option value="mortelle" <?php if(!empty($_POST['dangerosité']) && $_POST['dangerosité'] == 'mortelle'){ echo 'selected'; } ?>>Mortelle</option>
+          <option value="default" <?php if(empty($_POST['dangerosité'])){ echo 'selected'; } ?>></option>
+          <option value="benin" <?php if(!empty($_POST['dangerosité']) && $_POST['dangerosité'] == 'benin'){ echo 'selected'; }elseif ($singleVaccin['dangerosité'] == 'benin') {echo 'selected';} ?>>Benin</option>
+          <option value="modéré" <?php if(!empty($_POST['dangerosité']) && $_POST['dangerosité'] == 'modéré'){ echo 'selected'; }elseif ($singleVaccin['dangerosité'] == 'modéré') {echo 'selected';}  ?>>Modéré</option>
+          <option value="mortelle" <?php if(!empty($_POST['dangerosité']) && $_POST['dangerosité'] == 'mortelle'){ echo 'selected'; }elseif ($singleVaccin['dangerosité'] == 'mortelle') {echo 'selected';}  ?>>Mortelle</option>
         </select>
         <div class="invalid-feedback">
           <?php echo $errors['dangerosité']; ?>
@@ -111,9 +121,9 @@ include('inc/header-back.php');
       </div>
       <div class="col">
         <select class="form-control <?php if(!empty($errors) && count($errors['obligatoire']) != 0) { echo 'is-invalid';} ?>" name="obligatoire" id="obligatoire" >
-          <option value="default" <?php if(empty($_POST['obligatoire'])){ echo 'selected'; } ?>>--Obligatoire--</option>
-          <option value="oui" <?php if(!empty($_POST['obligatoire']) && $_POST['obligatoire'] == 'oui'){ echo 'selected'; } ?>>Oui</option>
-          <option value="non" <?php if(!empty($_POST['obligatoire']) && $_POST['obligatoire'] == 'non'){ echo 'selected'; } ?>>Non</option>
+          <option value="default" <?php if(empty($_POST['obligatoire'])){ echo 'selected'; } ?>></option>
+          <option value="oui" <?php if(!empty($_POST['obligatoire']) && $_POST['obligatoire'] == 'oui'){ echo 'selected'; }elseif ($singleVaccin['obligatoire'] == 'oui') {echo 'selected';} ?>>Oui</option>
+          <option value="non" <?php if(!empty($_POST['obligatoire']) && $_POST['obligatoire'] == 'non'){ echo 'selected'; }elseif ($singleVaccin['obligatoire'] == 'non') {echo 'selected';} ?>>Non</option>
         </select>
         <div class="invalid-feedback">
           <?php echo $errors['obligatoire']; ?>
@@ -121,12 +131,13 @@ include('inc/header-back.php');
       </div>
       <div class="col">
         <select class="form-control <?php if(!empty($errors) && count($errors['expiration']) != 0) { echo 'is-invalid';} ?>" name="expiration" id="expiration" >
-          <option value="default" <?php if(empty($_POST['expiration'])){ echo 'selected'; } ?>>--Expiration--</option>
-          <option value="15778800" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '15778800'){ echo 'selected'; } ?>>6 mois</option>
-          <option value="31557600" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '31557600'){ echo 'selected'; } ?>>1 an</option>
-          <option value="63115200" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '63115200'){ echo 'selected'; } ?>>2 ans</option>
-          <option value="157788000" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '157788000'){ echo 'selected'; } ?>>5 ans</option>
-          <option value="315576000" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '315576000'){ echo 'selected'; } ?>>10 ans</option>
+          <option value="default" <?php if(empty($_POST['expiration'])){ echo 'selected'; } ?>></option>
+          <option value="15778800" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '15778800'){ echo 'selected'; }elseif ($singleVaccin['expiration'] == '15778800') {echo 'selected';} ?>>6 mois</option>
+          <option value="31557600" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '31557600'){ echo 'selected'; }elseif ($singleVaccin['expiration'] == '31557600') {echo 'selected';} ?>>1 an</option>
+          <option value="63115200" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '63115200'){ echo 'selected'; }elseif ($singleVaccin['expiration'] == '63115200') {echo 'selected';} ?>>2 ans</option>
+          <option value="157788000" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '157788000'){ echo 'selected'; }elseif ($singleVaccin['expiration'] == '157788000') {echo 'selected';} ?>>5 ans</option>
+          <option value="315576000" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '315576000'){ echo 'selected'; }elseif ($singleVaccin['expiration'] == '315576000') {echo 'selected';} ?>>10 ans</option>
+          <option value="631152000" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '631152000'){ echo 'selected'; }elseif ($singleVaccin['expiration'] == '631152000') {echo 'selected';} ?>>20 ans</option>
         </select>
         <div class="invalid-feedback">
           <?php echo $errors['expiration']; ?>
@@ -134,7 +145,7 @@ include('inc/header-back.php');
       </div>
     </div>
     <div class="mb-3">
-      <textarea name="descriptif" style="resize: none; height: 200px;" class="form-control <?php if(!empty($errors) && count($errors['descriptif']) != 0) { echo 'is-invalid';} ?> mt-3" id="descriptif" placeholder="le descriptif de la maladie" required></textarea>
+      <textarea name="descriptif" style="resize: none; height: 200px;" class="form-control <?php if(!empty($errors) && count($errors['descriptif']) != 0) { echo 'is-invalid';} ?> mt-3" id="descriptif" placeholder="le descriptif de la maladie" required><?php echo $singleVaccin['descriptif'] ?></textarea>
       <div class="invalid-feedback">
         <?php echo $errors['descriptif']; ?>
       </div>
