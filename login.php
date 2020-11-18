@@ -46,8 +46,8 @@ $errors = array();?>
                 $_SESSION['settings'] = array(
                   'jour_nuit' => $settings['jour_nuit']
                 );
-                
-                
+
+
                 $success = true;
                 if ($user['role'] == 'role_admin') {
                   header('Location: admin/index.php');

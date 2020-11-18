@@ -22,6 +22,21 @@ include('inc/header-front.php');?>
   </div>
   <div class="about-box">
     <div class="abouts">
+      <h1>Konami Code# <span>appuyez</span></h1>
+      <div class="abouts-desc">
+        <div class="about-icon-hint">
+          <i class="fa fa-arrow-up"></i>
+          <i class="fa fa-arrow-up"></i>
+          <i class="fa fa-arrow-down"></i>
+          <i class="fa fa-arrow-down"></i>
+          <i class="fa fa-arrow-left"></i>
+          <i class="fa fa-arrow-right "></i>
+          <i class="fa fa-arrow-left"></i>
+          <i class="fa fa-arrow-right "></i>
+          <i class="fa fa-bold"></i>
+          <i class="fa fa-amazon"></i>
+        </div>
+      </div>
       <h1>Qui sommes nous</h1>
       <div class="abouts-desc">
         <div class="about-icon">
@@ -38,21 +53,6 @@ include('inc/header-front.php');?>
         </div>
         <div class="about-text">
           <p>Vaccin Line est un projet que nous avons dû réaliser en deux semaines (du 09/11/2020 au 20/11/2020), avec pour demande de développer un site web permettant aux clients de renseigner leur carnet de vaccination afin d'automatiser celui-ci (informer sur les différents vaccins, rappeler la date des rappels), tout en protégeant les données de nos utilisateurs.</p>
-        </div>
-      </div>
-      <h1>Konami Code#</h1>
-      <div class="abouts-desc">
-        <div class="about-icon-hint">
-          <i class="fa fa-arrow-up"></i>
-          <i class="fa fa-arrow-up"></i>
-          <i class="fa fa-arrow-down"></i>
-          <i class="fa fa-arrow-down"></i>
-          <i class="fa fa-arrow-left"></i>
-          <i class="fa fa-arrow-right "></i>
-          <i class="fa fa-arrow-left"></i>
-          <i class="fa fa-arrow-right "></i>
-          <i class="fa fa-bold"></i>
-          <i class="fa fa-amazon"></i>
         </div>
       </div>
     </div>
