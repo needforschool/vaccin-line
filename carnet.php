@@ -104,7 +104,6 @@ if(!empty($_POST['ajoutvaccin'])) {
             <?php $result = timeRenouvellement($user_vaccins[$incre_fait_le]['fait_le'], $vaccin['expiration']);  ?>
             <div class="MB MB<?php echo $incre_MB; ?>" style="background-color:<?php if(c); ?>;">
               <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
-              <p>Fait le : <?php echo $user_vaccins[$incre_fait_le]['fait_le']; ?></p>
               <p <?php echo $result['color']; ?>>Rappel à faire avant le : <?php echo $result['prochainRappel'] ?> </p>
             </div>
             <?php
