@@ -9,9 +9,6 @@ include('inc/header-front.php');
 
 $success = false;
 $errors = array();?>
-<section>
-  <img src="asset/img/hugologonb.png" class="logo-fixed">
-</section>
 <?php if (!empty($_POST['submitted'])) {
     $email = cleanXss($_POST['email']);
     $password = cleanXss($_POST['password']);
