@@ -60,6 +60,7 @@ include('inc/header-back.php');
               <th>descriptif</th>
               <th>dangerosité</th>
               <th>obligatoire</th>
+              <th>Expiration</th>
               <th>Information</th>
             </tr>
           </thead>
@@ -69,6 +70,7 @@ include('inc/header-back.php');
               <th>descriptif</th>
               <th>dangerosité</th>
               <th>obligatoire</th>
+              <th>Expiration</th>
               <th>Information</th>
             </tr>
           </tfoot>
@@ -79,6 +81,7 @@ include('inc/header-back.php');
                 <th><?php echo ucfirst($vaccin['descriptif']); ?></th>
                 <th <?php if($vaccin['dangerosité'] == 'mortelle'){ echo 'class="text-danger"' ;}elseif($vaccin['dangerosité'] == 'modéré'){echo 'class="text-warning"' ;}elseif($vaccin['dangerosité'] == 'benin'){echo 'class="text-success"' ;} ?> ><?php echo ucfirst($vaccin['dangerosité']); ?></th>
                 <th><?php echo ucfirst($vaccin['obligatoire']); ?></th>
+                <th><?php echo ucfirst($vaccin['expiration']); ?></th>
                 <th class="gerer">
                   <div class="my-2"></div>
                   <a href="single-vaccin.php?id=<?php echo $vaccin['id']; ?>" class="btn btn-info btn-icon-split">
