@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vaccin Line</title>
+  <title><?php echo $title ?></title>
   <link rel="stylesheet" href="asset/css/style-front.css">   
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -92,23 +92,34 @@
       <?php if(!empty($_SESSION)) : ?>
         <?php if($title == 'Mon carnet') : ?>
           <li><a href="index.php" class="title">ACCEUIL</a></li>
+          <li><a href="settings.php">parametres du compte</a></li>
           <li><a href="contact.php" class="title">CONTACT</a></li>
           <li><a href="propos.php">À PROPOS</a></li>
         <?php endif; ?>
         <?php if($title == 'Home') : ?>
           <li><a href="carnet.php" class="title">MON CARNET</a></li>
+          <li><a href="settings.php">parametres du compte</a></li>
           <li><a href="contact.php" class="title">CONTACT</a></li>
           <li><a href="propos.php">À PROPOS</a></li>
         <?php endif; ?>
         <?php if($title == 'Contact') : ?>
           <li><a href="index.php" class="title">ACCEUIL</a></li>
           <li><a href="carnet.php">MON CARNET</a></li>
+          <li><a href="settings.php">parametres du compte</a></li>
           <li><a href="propos.php">À PROPOS</a></li>
         <?php endif; ?>
         <?php if($title == 'Mentions légales') : ?>
           <li><a href="index.php" class="title">ACCEUIL</a></li>
           <li><a href="carnet.php">MON CARNET</a></li>
+          <li><a href="settings.php">parametres du compte</a></li>
           <li><a href="propos.php">À PROPOS</a></li>
+          
+        <?php endif; ?>
+        <?php if($title == 'Parametres') : ?>
+          <li><a href="index.php" class="title">ACCEUIL</a></li>
+          <li><a href="carnet.php">MON CARNET</a></li>
+          <li><a href="propos.php">À PROPOS</a></li>
+
         <?php endif; ?>
         <?php if($_SESSION['user']['role'] == 'role_admin') : ?>
           <li><a href="admin/index.php">admin</a></li>

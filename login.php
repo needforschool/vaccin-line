@@ -41,7 +41,7 @@ $errors = array();?>
                 $settings = $query->fetch();
 
                 $_SESSION['settings'] = array(
-                  'jour_nuit' => $settings['jour_nuit']
+                  'relance' => $settings['relance']
                 );
                 
                 

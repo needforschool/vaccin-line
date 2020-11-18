@@ -8,9 +8,6 @@ $title = 'A propos';
 
 $errors = array();
 ?>
-<section>
-  <img src="asset/img/hugologo.png" class="logo-fixed">
-</section>
 <?php
 include('inc/header-front.php');?>
 
