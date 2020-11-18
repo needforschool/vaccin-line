@@ -9,36 +9,31 @@ $id = $_SESSION['user']['id'];
 $errors = array();
 $passchange = false;
 $paramchange = false;
-debug($_SESSION);
 
 include('inc/header-front.php');
-
-
 if (!empty($_POST['enregistrer'])) {
-    echo $_POST['relance'];
-
-    if (!empty($_POST['relance'])) {
+    if (empty($_POST['relance'])) {
         $paramchange = true;
-        $relance = 'on';
-    }
-    if ($_POST['relance']) {
-        $paramchange = true;
+        $_SESSION['settings']['relance'] = 'off';
         $relance = 'off';
+        echo $mode;
+    } elseif (!empty($_POST['relance'])) {
+        $paramchange = true;
+        $_SESSION['settings']['relance'] = 'on';
+        $relance = 'on';
+        echo $mode;
     }
-    $sql = "UPDATE vl_user_settings SET relance = :relance  WHERE ID = :id";
+
+    $sql = "UPDATE vl_user_settings SET relance = :relance  WHERE user_id = :id";
     $query = $pdo->prepare($sql);
     $query->bindValue(':relance',$relance,PDO::PARAM_STR);
-    $query->bindValue(':id',$_SESSION['user']['id'],PDO::PARAM_STR);
-    $query->execute();
-
-    $sql = "SELECT * FROM vl_user_settings WHERE user_id = :id";
-    $query = $pdo->prepare($sql);
     $query->bindValue(':id',$id,PDO::PARAM_STR);
     $query->execute();
-    $settings = $query->fetch();
 
-    $_SESSION['settings']['relance'] = $relance;
-}
+    header('Location: settings.php');
+
+
+}else 
 
 if (!empty($_POST['supprimer'])) {
     if (condition) {
@@ -86,6 +81,7 @@ if(!empty($_POST['modifmdp'])) {
         $query->bindValue(':passhash',$passhash,PDO::PARAM_STR);
         $query->bindValue(':id',$_SESSION['user']['id'],PDO::PARAM_STR);
         $query->execute();
+
     }
 }
 
@@ -141,7 +137,7 @@ if(!empty($_POST['modifmdp'])) {
                             </div>
                             <div class="relance-btn">
                                 <label class="switch">
-                                    <input type="checkbox" name="relance">
+                                    <input type="checkbox" name="relance" value="off">
                                     <span class="slider round"></span>
                                 </label>
                             </div>
@@ -149,11 +145,11 @@ if(!empty($_POST['modifmdp'])) {
                     <?php endif; ?>
                     <?php if($_SESSION['settings']['relance'] == "on") : ?>
                             <div class="relance-text">
-                                <p>Relance</p>
+                            <p>Alerte vaccin</p>
                             </div>
                             <div class="relance-btn">
                                 <label class="switch">
-                                    <input type="checkbox" name="relance" checked>
+                                    <input type="checkbox" name="relance" value="on" checked>
                                     <span class="slider round"></span>
                                 </label>
                             </div>
