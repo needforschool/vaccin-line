@@ -11,7 +11,10 @@ $errors = array();
 include('inc/header-front.php');?>
 
 <section id="mention">
-  <div class="wrap-section-mention">
+<div class="title-text">
+    <p>Mentions Légales</p>
+    <!-- <h1>Notre histoire</h1> -->
+  </div>
     <div class="mentions-legales">
       <div class="fond-mention">
       <h2>Mentions légales</h2>
@@ -30,7 +33,6 @@ include('inc/header-front.php');?>
       <p>Conformément aux dispositions de la loi 78-17 du 6 janvier 1978 modifiée, l’Utilisateur dispose d’un droit d’accès, de modification et de suppression des informations collectées par Vaccin'Corp. Pour exercer ce droit, il reviendra à l’Utilisateur d’envoyer un message à l’adresse suivante : vaccin.line@gmail.com</p>
       </div>
     </div>
-  </div>
 </section>
 
 
