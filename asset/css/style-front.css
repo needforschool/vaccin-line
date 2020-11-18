@@ -468,13 +468,6 @@ hr {
 }
 
 .footer-row {
-<<<<<<< HEAD
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-=======
 	width: 80%;
 	margin: 0 auto;
 	display: flex;
@@ -485,7 +478,6 @@ hr {
 	flex-basis: 45%;
 	padding: 10px;
 	margin-bottom: 20px;
->>>>>>> a5c1bf4be09483fffb5721dd8185bf889c2ba02b
 }
 
 .footer-right {
@@ -522,11 +514,11 @@ hr {
 	transform: translate(-50%,-50%);
 }
 .minifooter-img {
-	max-width: 300px;
+	max-width: 275px;
 	opacity: 0.1;
 	position: absolute;
 	left: 50%;
-	top: 50%;
+	top: 35%;
 	transform: translate(-50%,-50%);
   }
 .social-links {
