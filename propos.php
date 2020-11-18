@@ -2,7 +2,7 @@
 session_start();
 include('inc/pdo.php');
 include('inc/function.php');
-$title = 'Mentions légales';
+$title = 'A propos';
 //debug($_SESSION);
 //debug($_SESSION);
 
