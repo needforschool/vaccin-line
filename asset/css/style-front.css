@@ -64,14 +64,6 @@ table {
 	*zoom:1;
 }
 
-/* Perso */
-/* body {
-overflow-x: hidden;
-background-color: #8dc8e8;
-} */
-a {
-	text-decoration: none;
-}
 /* SCROLLBAR */
 ::-webkit-scrollbar {width:9px;}
 ::-webkit-scrollbar-thumb {
@@ -80,8 +72,11 @@ a {
 	box-shadow: inset 2px 2px 2px rgba(255,255,255,0.25), inset -2px -2px -2px
 	rgba(0,0,0,0.25);
 }
-/* MODIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF */
 
+/* mise en page principale */
+a {
+	text-decoration: none;
+}
 * {
 	margin: 0;
 	padding: 0;
@@ -456,17 +451,27 @@ hr {
 
 /* footer */
 
-#footer {
-	padding: 100px 0 20px;
-	background: #efefef;
-	position: relative;
-}
+/* mini footer */
 #minifooter {
 	padding: 20px 0 10px;
   background: #efefef;
   position: relative;
 }
 
+.minifooter-img {
+	max-width: 275px;
+	opacity: 0.1;
+	position: absolute;
+	left: 50%;
+	top: 35%;
+	transform: translate(-50%,-50%);
+}
+/* MINI FOOTER END */
+#footer {
+	padding: 100px 0 20px;
+	background: #efefef;
+	position: relative;
+}
 .footer-row {
 	width: 80%;
 	margin: 0 auto;
@@ -513,14 +518,6 @@ hr {
 	top: 35%;
 	transform: translate(-50%,-50%);
 }
-.minifooter-img {
-	max-width: 275px;
-	opacity: 0.1;
-	position: absolute;
-	left: 50%;
-	top: 35%;
-	transform: translate(-50%,-50%);
-  }
 .social-links {
 	text-align: center;
 }
@@ -559,6 +556,9 @@ hr {
 	.footer-img {
 		top: 25%;
 	}
+	.footer-row p a {
+		position: absolute;
+	}
 }
 @media screen and (max-width: 370px) {
 	.footer-img {
@@ -566,40 +566,22 @@ hr {
 		width: 90%;
 	}
 }
+#minifooter {
+	padding: 20px 0 10px;
+  background: #efefef;
+  position: relative;
+}
 
+.minifooter-img {
+	max-width: 275px;
+	opacity: 0.1;
+	position: absolute;
+	left: 50%;
+	top: 35%;
+	transform: translate(-50%,-50%);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* MODIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF */
+/* mise en page principale */
 
 p.success-message {
 	background-color: #32ff7e;
@@ -1042,6 +1024,7 @@ transition-delay: 0.75s;
 	font-weight: 100;
 	color: #575fcf;
 }
+.abouts h1 span {font-size: 15px;}
 .abouts-desc {
 	display: flex;
 	align-items: center;
