@@ -14,6 +14,8 @@ if (!empty($_POST['submitted'])) {
   $descriptif    = cleanXss($_POST['descriptif']);
   $dangerosité   = cleanXss($_POST['dangerosité']);
   $obligatoire   = cleanXss($_POST['obligatoire']);
+  $expiration    = cleanXss($_POST['expiration']);
+
   // validation message (min, max)
   $errors = validationText($errors,$maladie,'maladie',5,2000);
   $errors = validationText($errors,$descriptif,'descriptif',5,2000);
