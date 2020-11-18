@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="social-links">
-    <i class="fa fa-facebook"></i>
+  <a href="https://www.facebook.com/VaccinL/" target="_blank"><i class="fa fa-facebook"></i></a>
     <a href="https://twitter.com/VaccinL" target="_blank"><i class="fa fa-twitter"></i></a>
     
     <p>Copyright Vaccin'Line</p>

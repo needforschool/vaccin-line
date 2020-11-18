@@ -2,46 +2,42 @@
 session_start();
 include('inc/pdo.php');
 include('inc/function.php');
-$title = 'Home';
+$title = 'Parametres';
 
 $id = $_SESSION['user']['id'];
 
 $errors = array();
 $passchange = false;
 $paramchange = false;
+debug($_SESSION);
 
 include('inc/header-front.php');
 
+
 if (!empty($_POST['enregistrer'])) {
+    echo $_POST['relance'];
 
-    if ($_POST['journuit']) {
+    if (!empty($_POST['relance'])) {
         $paramchange = true;
-        echo $_POST['journuit'];
-        if ($_POST['journuit'] == 'on'){
-            $jour_nuit = 'nuit';
-        } elseif ($_POST['journuit'] == 'off' ) {
-            $jour_nuit = 'jour';
-        }
-
-        $sql = "UPDATE vl_user_settings SET jour_nuit = :jour_nuit  WHERE ID = :id";
-        $query = $pdo->prepare($sql);
-        $query->bindValue(':jour_nuit',$jour_nuit,PDO::PARAM_STR);
-        $query->bindValue(':id',$_SESSION['user']['id'],PDO::PARAM_STR);
-        $query->execute();
-
-        $sql = "SELECT * FROM vl_user_settings WHERE user_id = :id";
-        $query = $pdo->prepare($sql);
-        $query->bindValue(':id',$id,PDO::PARAM_STR);
-        $query->execute();
-        $settings = $query->fetch();
-
-        $_SESSION['settings']['jour_nuit'] = $settings['jour_nuit'];
-
-        debug($_SESSION);
-
-    } else {
-        echo 'journuit vide';
+        $relance = 'on';
     }
+    if ($_POST['relance']) {
+        $paramchange = true;
+        $relance = 'off';
+    }
+    $sql = "UPDATE vl_user_settings SET relance = :relance  WHERE ID = :id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':relance',$relance,PDO::PARAM_STR);
+    $query->bindValue(':id',$_SESSION['user']['id'],PDO::PARAM_STR);
+    $query->execute();
+
+    $sql = "SELECT * FROM vl_user_settings WHERE user_id = :id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':id',$id,PDO::PARAM_STR);
+    $query->execute();
+    $settings = $query->fetch();
+
+    $_SESSION['settings']['relance'] = $relance;
 }
 
 if (!empty($_POST['supprimer'])) {
@@ -103,48 +99,84 @@ if(!empty($_POST['modifmdp'])) {
 
 <!-- Connecté -->
 <?php if(!empty($_SESSION)) : ?>
-    <!-- Formulaire changement de mdp -->
-    <?php if($passchange == false) : ?>
-        <h4>Modifier votre mot de passe</h4>
-        <form action="settings.php" method="post">
-            <input type="password" name="pass" placeholder="Mot de passe actuel">
-            <span class="error"><?php if(!empty($errors['pass'])) { echo $errors['pass']; } ?></span>
-            <input type="password" name="newpass" placeholder="Nouveau mot de passe">
-            <span class="error"><?php if(!empty($errors['newpass1'])) { echo $errors['newpass1']; } ?></span>
-            <input type="password" name="newpassconfirm" placeholder="Confirmation nouveau mot de passe">
-            <span class="error"><?php if(!empty($errors['newpass2'])) { echo $errors['newpass2']; } ?></span> 
-            <input type="submit" name="modifmdp" value="Changer le mot de passe">
-        </form>
-    <?php endif; ?>
-    <?php if($passchange == true) : ?>
-        <h4>Mot de passe modifié !</h4>
-    <?php endif; ?>
-    <!-- Formulaire modification parametre -->
-    <form action="settings.php" method="post">
-        <h4>Mode jour/nuit</h4>
-        <?php if($paramchange == false) : ?>
-            <?php if($_SESSION['settings']['jour_nuit'] == "jour") : ?>
-                <label class="switch">
-                    <input type="checkbox" name="journuit">
-                    <span class="slider round"></span>
-                </label>
-            <?php endif; ?>
-            <?php if($_SESSION['settings']['jour_nuit'] == "nuit") : ?>
-                <label class="switch">
-                    <input type="checkbox" name="journuit" checked>
-                    <span class="slider round"></span>
-                </label>
-            <?php endif; ?>
+    <section id="parametre">
+    <div class="wrap-section-parametre">
+        <!-- Formulaire changement de mdp -->
+        <?php if($passchange == false) : ?>
+            
+            <form action="settings.php" method="post">
+            
+                <div class="form-param-1">
+                <h2>Modifier votre mot de passe</h2>
+                    <div class="w50">
+                        <input type="password" name="pass" placeholder="Mot de passe actuel">
+                        <span class="error"><?php if(!empty($errors['pass'])) { echo $errors['pass']; } ?></span>
+                    </div>    
+                    <div class="w50">
+                        <input type="password" name="newpass" placeholder="Nouveau mot de passe">
+                        <span class="error"><?php if(!empty($errors['newpass1'])) { echo $errors['newpass1']; } ?></span>
+                    </div>
+                    <div class="w50">
+                        <input type="password" name="newpassconfirm" placeholder="Confirmation nouveau mot de passe">
+                        <span class="error"><?php if(!empty($errors['newpass2'])) { echo $errors['newpass2']; } ?></span> 
+                    </div>
+                        <input type="submit" name="modifmdp" value="Changer le mot de passe">
+                </div>
+            </form>
+            
         <?php endif; ?>
-        <?php if($paramchange == true) : ?>
-            <h4>parametre modifié !</h4>
-        <?php endif; ?> 
-        <input type="submit" name="enregistrer" value="Enregister">
-    </form>
+        <?php if($passchange == true) : ?>
+            <h4>Mot de passe modifié !</h4>
+        <?php endif; ?>
+        <!-- Formulaire modification parametre -->
+        <form action="settings.php" method="post">
+            <div class="form-param-2">
+                <h2>Parametres</h2>
+                <div class="relance">
+                <?php if($paramchange == false) : ?>
+                    <?php if($_SESSION['settings']['relance'] == "off") : ?>
+                        
+                            <div class="relance-text">
+                                <p>Alerte vaccin</p>
+                            </div>
+                            <div class="relance-btn">
+                                <label class="switch">
+                                    <input type="checkbox" name="relance">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                
+                    <?php endif; ?>
+                    <?php if($_SESSION['settings']['relance'] == "on") : ?>
+                            <div class="relance-text">
+                                <p>Relance</p>
+                            </div>
+                            <div class="relance-btn">
+                                <label class="switch">
+                                    <input type="checkbox" name="relance" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                    <?php endif; ?>
+                <?php endif; ?>
+                
+            
+                <?php if($paramchange == true) : ?>
+                    <p>parametre modifié !</p>
+                <?php endif; ?> 
+                </div>
+                <input type="submit" name="enregistrer" value="Enregister">
+                
+            </div>
+
+        </form>
+    </div>
+    </section>
     <!-- Formulaire suppresion compte  -->
     <!-- <form action="settings.php" method="post">
         
         <input type="submit" name="supprimer" value="Supprimer" style="background: red;">
     </form> -->
 <?php endif; ?>
-<?php include('inc/footer-front.php');
+<?php 
+include('inc/mini-footer-front.php');

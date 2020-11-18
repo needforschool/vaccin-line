@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vaccin Line</title>
-  <link rel="stylesheet" href="asset/css/style-front.css">   
+  <title><?php echo $title ?></title>
+  <link rel="stylesheet" href="asset/css/style-front.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="book-medical-solid.svg">
   <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 </head>
 <body>
@@ -39,6 +40,8 @@
       <?php endif; ?>
     </div>
   </section>
+<?php elseif ($title == 'A propos' or $title == 'Mentions légales') : ?>
+
 <?php else : ?>
  <a href="index.php"><img src="asset/img/hugologonb.png" class="logo"></a>
 <?php endif; ?>
@@ -86,28 +89,49 @@
           <li><a href="propos.php">À PROPOS</a></li>
           <li><a href="contact.php">CONTACT</a></li>
         <?php endif; ?>
+        <?php if($title == 'A propos') : ?>
+          <li><a href="index.php" class="title">ACCEUIL</a></li>
+          <li><a href="signin.php">INSCRIPTION</a></li>
+          <li><a href="login.php">CONNEXION</a></li>
+          <li><a href="contact.php" class="title">CONTACT</a></li>
+        <?php endif; ?>
       <?php endif; ?>
       <!-- Si connecter -->
       <?php if(!empty($_SESSION)) : ?>
         <?php if($title == 'Mon carnet') : ?>
           <li><a href="index.php" class="title">ACCEUIL</a></li>
+          <li><a href="settings.php">parametres du compte</a></li>
           <li><a href="contact.php" class="title">CONTACT</a></li>
           <li><a href="propos.php">À PROPOS</a></li>
         <?php endif; ?>
         <?php if($title == 'Home') : ?>
           <li><a href="carnet.php" class="title">MON CARNET</a></li>
+          <li><a href="settings.php">parametres du compte</a></li>
           <li><a href="contact.php" class="title">CONTACT</a></li>
           <li><a href="propos.php">À PROPOS</a></li>
         <?php endif; ?>
         <?php if($title == 'Contact') : ?>
           <li><a href="index.php" class="title">ACCEUIL</a></li>
           <li><a href="carnet.php">MON CARNET</a></li>
+          <li><a href="settings.php">parametres du compte</a></li>
           <li><a href="propos.php">À PROPOS</a></li>
         <?php endif; ?>
         <?php if($title == 'Mentions légales') : ?>
           <li><a href="index.php" class="title">ACCEUIL</a></li>
           <li><a href="carnet.php">MON CARNET</a></li>
+          <li><a href="settings.php">parametres du compte</a></li>
           <li><a href="propos.php">À PROPOS</a></li>
+        <?php endif; ?>
+        <?php if($title == 'Parametres') : ?>
+          <li><a href="index.php" class="title">ACCEUIL</a></li>
+          <li><a href="carnet.php">MON CARNET</a></li>
+          <li><a href="propos.php">À PROPOS</a></li>
+        <?php endif; ?>
+        <?php if($title == 'A propos') : ?>
+          <li><a href="index.php" class="title">ACCEUIL</a></li>
+          <li><a href="signin.php">INSCRIPTION</a></li>
+          <li><a href="login.php">CONNEXION</a></li>
+          <li><a href="contact.php" class="title">CONTACT</a></li>
         <?php endif; ?>
         <?php if($_SESSION['user']['role'] == 'role_admin') : ?>
           <li><a href="admin/index.php">admin</a></li>
@@ -126,12 +150,12 @@
                 }
               } else {
                 echo '<a href="settings.php"><img src="asset/img/undraw_profile_3.svg" alt="" width="63px"></a><p class="nomPrenom">';
-              } 
+              }
               echo  strtoupper($_SESSION['user']['nom']) . ' '. ucfirst($_SESSION['user']['prenom']) . '</p>';
             ?>
             <div class="in-out">
               <a href="logout.php"><img src="asset/img/sign-out-alt-solid.svg" alt="" srcset="" width="25px"></a>
-            </div>  
+            </div>
           </div>
         </div>
         <?php endif; ?>

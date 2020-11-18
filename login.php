@@ -9,9 +9,6 @@ include('inc/header-front.php');
 
 $success = false;
 $errors = array();?>
-<section>
-  <img src="asset/img/hugologonb.png" class="logo-fixed">
-</section>
 <?php if (!empty($_POST['submitted'])) {
     $email = cleanXss($_POST['email']);
     $password = cleanXss($_POST['password']);
@@ -44,10 +41,10 @@ $errors = array();?>
                 $settings = $query->fetch();
 
                 $_SESSION['settings'] = array(
-                  'jour_nuit' => $settings['jour_nuit']
+                  'relance' => $settings['relance']
                 );
-                
-                
+
+
                 $success = true;
                 if ($user['role'] == 'role_admin') {
                   header('Location: admin/index.php');

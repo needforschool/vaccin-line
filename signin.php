@@ -149,6 +149,34 @@ include('inc/header-front.php');
       <h2>Inscription</h2>
       <form action="signin.php" method="post" class="formulaire">
         <div class="w50">
+          <input type="text" name="nom" required value="<?php if(!empty($_POST['nom'])) { echo $_POST['nom']; } ?>">
+          <span class="error"><?php if(!empty($errors['nom'])) { echo $errors['nom']; } ?></span>
+          <label>Nom</label>
+        </div>
+        <div class="w50">
+          <input type="text" name="prenom" required value="<?php if(!empty($_POST['prenom'])) { echo $_POST['prenom']; } ?>">
+          <span class="error"><?php if(!empty($errors['prenom'])) { echo $errors['prenom']; } ?></span>
+          <label>Prénom</label>
+        </div>
+        <div class="w50">
+          <input type="date" name="date_naissance" placeholder="date_naissance" value="<?php if(!empty($_POST['date_naissance'])) { echo $_POST['date_naissance']; } ?>">
+          <span class="error"><?php if(!empty($errors['date_naissance'])) { echo $errors['date_naissance']; } ?></span>
+        </div>
+        <div class="w50">
+          <input type="text" name="email" required value="<?php if(!empty($_POST['email'])) { echo $_POST['email']; } ?>">
+          <span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; } ?></span>
+          <label>E-mail</label>
+        </div>
+        <div class="w50">
+          <input type="password" name="password1" required value="<?php if(!empty($_POST['password1'])) { echo $_POST['password1']; } ?>">
+          <span class="error"><?php if(!empty($errors['password1'])) { echo $errors['password1']; } ?></span>
+          <label>Mot de passe</label>
+        </div>
+        <div class="w50">
+          <input type="password" name="password2" required value="<?php if(!empty($_POST['password2'])) { echo $_POST['password2']; } ?>">
+          <label>Confirmation</label>
+        </div>
+        <div class="w50">
           <select name="civilite" id="civilite">
             <?php if(empty($_POST['civilite'])) : ?>
               <option value="">--Civilité--</option>
@@ -160,29 +188,6 @@ include('inc/header-front.php');
             <option value="madame">Madame</option>
           </select>
           <span class="error"><?php if(!empty($errors['civilite'])) { echo $errors['civilite']; } ?></span>
-        </div>
-        <div class="w50">
-          <input type="text" name="nom" placeholder="Nom" value="<?php if(!empty($_POST['nom'])) { echo $_POST['nom']; } ?>">
-          <span class="error"><?php if(!empty($errors['nom'])) { echo $errors['nom']; } ?></span>
-        </div>
-        <div class="w50">
-          <input type="text" name="prenom" placeholder="Prénom" value="<?php if(!empty($_POST['prenom'])) { echo $_POST['prenom']; } ?>">
-          <span class="error"><?php if(!empty($errors['prenom'])) { echo $errors['prenom']; } ?></span>
-        </div>
-        <div class="w50">
-          <input type="date" name="date_naissance" placeholder="date_naissance" value="<?php if(!empty($_POST['date_naissance'])) { echo $_POST['date_naissance']; } ?>">
-          <span class="error"><?php if(!empty($errors['date_naissance'])) { echo $errors['date_naissance']; } ?></span>
-        </div>
-        <div class="w50">
-          <input type="text" name="email" placeholder="E-mail" value="<?php if(!empty($_POST['email'])) { echo $_POST['email']; } ?>">
-          <span class="error"><?php if(!empty($errors['email'])) { echo $errors['email']; } ?></span>
-        </div>
-        <div class="w50">
-          <input type="password" name="password1" placeholder="Mot de passe" value="<?php if(!empty($_POST['password1'])) { echo $_POST['password1']; } ?>">
-          <span class="error"><?php if(!empty($errors['password1'])) { echo $errors['password1']; } ?></span>
-        </div>
-        <div class="w50">
-          <input type="password" name="password2" placeholder="Confirmation" value="<?php if(!empty($_POST['password2'])) { echo $_POST['password2']; } ?>">
         </div>
         <div class="w50">
           <input type="submit" name="submitted" value="Envoyer">
