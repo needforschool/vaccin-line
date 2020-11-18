@@ -50,33 +50,15 @@
   <div class="social-links">
     <i class="fa fa-facebook"></i>
     <a href="https://twitter.com/VaccinL" target="_blank"><i class="fa fa-twitter"></i></a>
+<<<<<<< HEAD
     
     <p>Copyright Vaccin'Line</p>
+=======
+    <i class="fa fa-youtube-play"></i>
+    <p>Copyright Vaccin Line</p>
+>>>>>>> a5c1bf4be09483fffb5721dd8185bf889c2ba02b
     <p class="mention"><a href="mention.php">Mentions légales</a> | <a href="propos.php">À propos</a></p>
   </div>
 </section>
-
-<script>
-var menuBtn = document.getElementById("menuBtn")
-var sideNav = document.getElementById("sideNav")
-var menu = document.getElementById("menu")
-
-sideNav.style.right = "-250px";
-
-menuBtn.onclick = function(){
-  if (sideNav.style.right == "-250px") {
-    sideNav.style.right = "0";
-    menu.src = "asset/img/close.png";
-  }
-  else {
-    sideNav.style.right = "-250px";
-    menu.src = "asset/img/menu.png";
-  }
-}
-var scroll = new SmoothScroll('a[href*="#"]', {
-  speed: 1500,
-  speedAsDuration: true
-});
-</script>
 </body>
 </html

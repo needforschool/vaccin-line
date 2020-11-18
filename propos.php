@@ -13,16 +13,7 @@ $errors = array();
 </section>
 <?php
 include('inc/header-front.php');?>
-<!-- <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br> -->
+
 <script type="text/javascript" src="asset/js/konami.js"></script>
 <section id="about">
   <div class="title-text">
@@ -92,7 +83,7 @@ include('inc/header-front.php');?>
       </div>
       <div class="bigbox-left">
         <div class="stats-about">
-          <h1 id="florian">Florian AKA Legilmalas<span class="age"> (19)</span></h1><p class="role">(Team Front)</p>
+          <h1 id="florian">Florian AKA Legilmalas<span class="age"> (24)</span></h1><p class="role">(Team Front)</p>
           <p>Achetons-lui un micro !</p>
         </div>
         <div class="img-stats">
