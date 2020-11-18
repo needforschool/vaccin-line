@@ -12,8 +12,8 @@ include('inc/header-front.php');?>
 
 <section id="mention">
   <div class="title-text">
-    <p>Mentions Légales</p>
-    <h1>Nos Mentions</h1>
+    <p>Mentions</p>
+    <h1>Légales</h1>
   </div>
   <div class="mention-box">
     <div class="mentions">

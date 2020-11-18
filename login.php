@@ -43,8 +43,8 @@ $errors = array();?>
                 $_SESSION['settings'] = array(
                   'relance' => $settings['relance']
                 );
-                
-                
+
+
                 $success = true;
                 if ($user['role'] == 'role_admin') {
                   header('Location: admin/index.php');

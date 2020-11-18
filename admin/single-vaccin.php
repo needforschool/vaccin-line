@@ -97,6 +97,25 @@ include('inc/header-back.php');
             </div>
           </div>
 
+          <div class="col-xl col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                      expiration
+                    </div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php if($singleVaccin['expiration'] == '15778800'){echo '6 mois';} elseif ($singleVaccin['expiration'] == '31557600'){echo '1 ans';}elseif ($singleVaccin['expiration'] == '63115200'){echo '2 ans';}elseif ($singleVaccin['expiration'] == '157788000'){ echo '5 ans';}elseif ($singleVaccin['expiration'] == '315576000'){ echo '10 ans';}elseif ($singleVaccin['expiration'] == '631152000'){ echo '20 ans';} ?>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="far fa-clock fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           <a href="delete-vaccin.php?id=<?php echo $singleVaccin['id']; ?>"  class="btn btn-danger ml-3 btn-icon-split">
             <span class="icon text-white-50">
               <i class="fas fa-trash"></i>

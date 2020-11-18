@@ -74,7 +74,7 @@ if (!empty($_POST['submitted'])) {
             <label>Objet</label>
           </div>
           <div class="w50">
-            <textarea name="message" id="message" cols="55" rows="10" ></textarea>
+            <textarea name="message" id="message" required="" cols="65" rows="5" ></textarea>
             <span class="error"><?php if(!empty($errors['message'])) { echo $errors['message']; }?></span>
             <label>Message</label>
           </div>

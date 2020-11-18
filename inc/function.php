@@ -10,7 +10,8 @@ function cleanXss($toClean){
     return trim(strip_tags($toClean));
 }
 
-function validationText($errors,$data,$key,$min,$max) {
+function validationText($errors,$data,$key,$min,$max)
+{
 
     if(!empty($data)) {
       if(mb_strlen($data) < 2) {
@@ -24,70 +25,75 @@ function validationText($errors,$data,$key,$min,$max) {
       $errors['"'. $key .'"'] = 'Veuillez renseigner ce champ';
     }
     return $errors;
-  }
+}
 
-  function est_connecte(): bool
-  {
-    $isLogged = true;
-    if (empty($_SESSION['user'])) {
-      $isLogged = false;
-      return $isLogged;
-    } else {
-      foreach ($_SESSION['user'] as $key => $value) {
-        if (!isset($key) && !isset($value)) {
-          $isLogged = false;
-          return $isLogged;
-        }
-      }
-    }
+function est_connecte(): bool
+{
+  $isLogged = true;
+  if (empty($_SESSION['user'])) {
+    $isLogged = false;
     return $isLogged;
-  }
-
-  function timeToMY($englishTime)
-  {
-    return date('m/Y', strtotime($englishTime));
-  }
-
-  function TotalNonLu($contacts)
-  {
-    $a = 0;
-    foreach ($contacts as $contact) {
-      if ($contact['lu'] == 'non') {
-        ++$a;
+  } else {
+    foreach ($_SESSION['user'] as $key => $value) {
+      if (!isset($key) && !isset($value)) {
+        $isLogged = false;
+        return $isLogged;
       }
     }
+  }
+  return $isLogged;
+}
+
+function timeToMY($englishTime)
+{
+  return date('m/Y', strtotime($englishTime));
+}
+
+function TotalNonLu($contacts)
+{
+  $a = 0;
+  foreach ($contacts as $contact) {
+    if ($contact['lu'] == 'non') {
+      ++$a;
+    }
+  }
+  return $a;
+}
+
+function numberMail($a)
+{
+  if ($a < 4) {
     return $a;
+  }else {
+    return 4;
   }
+}
 
-  function numberMail($a)
-  {
-    if ($a < 4) {
-      return $a;
-    }else {
-      return 4;
+function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
     }
-  }
+    return $randomString;
+}
 
-  function generateRandomString($length = 10) {
-      $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-      $charactersLength = strlen($characters);
-      $randomString = '';
-      for ($i = 0; $i < $length; $i++) {
-          $randomString .= $characters[rand(0, $charactersLength - 1)];
-      }
-      return $randomString;
+function isActual($token_at) {
+  $token_at = strtotime($token_at);
+  $actualTime = strtotime(date('Y-m-d H:i:s'));
+  $interval = $actualTime - $token_at;
+  if ($interval > 600) {
+    return false;
+  } else {
+    return true;
   }
+}
 
-  function isActual($token_at) {
-    $token_at = strtotime($token_at);
-    $actualTime = strtotime(date('Y-m-d H:i:s'));
-    $interval = $actualTime - $token_at;
-    if ($interval > 600) {
-      return false;
-    } else {
-      return true;
-    }
-  }
+function timeRenouvellement()
+{
+  
+}
 
 function isAdmin()
 {

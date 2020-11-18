@@ -15,8 +15,9 @@
   <section id="banner">
     <a href="index.php"><img src="asset/img/hugologonb.png" class="logo"></a>
     <div class="banner-text">
-      <h1>Vaccin'Line</h1>
-      <p>Vaccin'Line Le Carnet Du Futur</p>
+      <h1>Vaccin Line</h1>
+      <p>Vaccin Line Le Carnet Du Futur</p>
+
       <div class="banner-btn">
         <?php if(!empty($_SESSION)) : ?>
           <a href="carnet.php"><span></span>Mon carnet</a>

@@ -26,11 +26,11 @@ include('inc/header-back.php');
 <div class="container-fluid">
   <?php if(!empty($_GET['success']) && $_GET['success'] == 'no'){ ?>
     <div class="alert alert-danger" role="alert">
-      Erreur lors de l'ajout du vaccin
+      Erreur lors de l'ajout ou de la modification du vaccin
     </div>
   <?php }elseif (!empty($_GET['success']) && $_GET['success'] == 'yes') {?>
     <div class="alert alert-success" role="alert">
-      Le vaccin a été ajouté
+      Le vaccin a été ajouté ou modifié
     </div>
   <?php } ?>
   <!-- Page Heading -->

@@ -104,7 +104,7 @@ if(!empty($_POST['ajoutvaccin'])) {
             <div class="MB MB<?php echo $incre_MB; ?>" style="background-color:<?php if(c); ?>;">
               <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
               <p>Fait le : <?php echo $user_vaccins[$incre_fait_le]['fait_le']; ?></p>
-            <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?>
+            <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> <p>Renouvelement : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p> <?php endif; ?>
             </div>
             <?php
               $incre_MB += 1;
@@ -116,7 +116,7 @@ if(!empty($_POST['ajoutvaccin'])) {
           <?php endforeach; ?>
         <?php else : ?>
           <p class="pasdevaccin">Vous n'avez pas de vaccin</p>
-        <?php endif;?>        
+        <?php endif;?>
         </div>
       <br>
       <!-- derniers VACCINs -->
@@ -135,7 +135,7 @@ if(!empty($_POST['ajoutvaccin'])) {
           // Affichage des 3 derniers vaccin
           $incre_MB = 1;
           $incre_fait_le = 0;
-          if (!empty($user_vaccins)) { 
+          if (!empty($user_vaccins)) {
             foreach ($vaccins as $vaccin) {
               echo '<div class="MB MB'. $incre_MB .'">';
                 echo '<p> Vaccin : '. $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie'] . '</p>';
@@ -156,7 +156,7 @@ if(!empty($_POST['ajoutvaccin'])) {
       </div>
         </div>
         <div class="vaccins">
-        <div class="rappel"> 
+        <div class="rappel">
         <h1>Vos vaccins :</h1>
       <?php
         $id = $_SESSION['user']['id'];
@@ -174,9 +174,9 @@ if(!empty($_POST['ajoutvaccin'])) {
             <div class="MB_carnet">
               <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
               <p>Fait le : <?php echo $user_vaccins[$incre_fait_le]['fait_le']; ?></p>
-              <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?> 
+              <?php if($vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] > 0) : ?>
                 <p>Renouvelemnt : <?php echo vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['expiration'] ; ?> </p>
-              <?php endif; ?> 
+              <?php endif; ?>
             </div>
             <?php
               $incre_fait_le +=1;
@@ -195,5 +195,5 @@ if(!empty($_POST['ajoutvaccin'])) {
   </div>
 </section>
 <?php endif; ?>
-<?php 
+<?php
   // include('inc/footer-front.php');
