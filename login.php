@@ -111,4 +111,4 @@ $errors = array();?>
 
 <!-- Mode MDP oublier  -->
 <?php
-include('inc/footer-front.php');
+include('inc/mini-footer-front.php');
