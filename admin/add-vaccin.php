@@ -37,7 +37,7 @@ if (!empty($_POST['submitted'])) {
   }
 
   if(!empty($expiration)) {
-    if ($expiration == '15778800' || $expiration == '31557600' || $expiration == '63115200' || $expiration == '157788000' || $expiration == '315576000') {
+    if ($expiration == '15778800' || $expiration == '31557600' || $expiration == '63115200' || $expiration == '157788000' || $expiration == '315576000' || $expiration == '631152000') {
     } else {
       $errors['expiration'] = 'Veuillez selectionner une expiration valide';
     }
@@ -126,6 +126,7 @@ include('inc/header-back.php');
           <option value="63115200" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '63115200'){ echo 'selected'; } ?>>2 ans</option>
           <option value="157788000" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '157788000'){ echo 'selected'; } ?>>5 ans</option>
           <option value="315576000" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '315576000'){ echo 'selected'; } ?>>10 ans</option>
+          <option value="631152000" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '631152000'){ echo 'selected'; } ?>>20 ans</option>
         </select>
         <div class="invalid-feedback">
           <?php echo $errors['expiration']; ?>
