@@ -4,7 +4,7 @@ include('../inc/pdo.php');
 include('../inc/function.php');
 isAdmin();
 
-$title = 'Ajouter un vaccin';
+$title = 'Modifier un vaccin';
 $errors = array();
 
 if (!empty($_POST['submitted'])) {
@@ -36,24 +36,14 @@ if (!empty($_POST['submitted'])) {
     $errors['obligatoire'] = 'Veuillez renseignez ce champ';
   }
 
-  if(!empty($expiration)) {
-    if ($expiration == '15778800' || $expiration == '31557600' || $expiration == '63115200' || $expiration == '157788000' || $expiration == '315576000' || $expiration == '631152000') {
-    } else {
-      $errors['expiration'] = 'Veuillez selectionner une expiration valide';
-    }
-  } else {
-    $errors['expiration'] = 'Veuillez renseignez ce champ';
-  }
-
   if(count($errors) == 0) {
 
-    $sql = "INSERT INTO vl_vaccins (maladie,descriptif,obligatoire,dangerosité,expiration) VALUES (:maladie,:description,:obligatoire,:danger,:expiration)";
+    $sql = "UPDATE vl_vaccins SET maladie =[:maladie], descriptif =[:descriptif], obligatoire =[:obligatoire], dangerosité =[:danger] WHERE id = :id";
     $query = $pdo->prepare($sql);
     $query->bindValue(':maladie',$maladie,PDO::PARAM_STR);
     $query->bindValue(':description',$descriptif,PDO::PARAM_STR);
     $query->bindValue(':obligatoire',$obligatoire,PDO::PARAM_STR);
     $query->bindValue(':danger',$dangerosité,PDO::PARAM_STR);
-    $query->bindValue(':expiration',$expiration,PDO::PARAM_INT);
     $query->execute();
 
     //redirection
@@ -75,11 +65,11 @@ include('inc/header-back.php');
 
   <?php if(!empty($_GET['error']) && $_GET['error'] == 'yes'){ ?>
     <div class="alert alert-danger" role="alert">
-      Erreur lors de l'envoi
+      Erreur lors de la modification
     </div>
   <?php }elseif (!empty($_GET['error']) && $_GET['error'] == 'no') {?>
     <div class="alert alert-success" role="alert">
-      L'ajout a été effectué
+      La modification a été effectué
     </div>
   <?php  } ?>
 
@@ -118,20 +108,6 @@ include('inc/header-back.php');
           <?php echo $errors['obligatoire']; ?>
         </div>
       </div>
-      <div class="col">
-        <select class="form-control <?php if(!empty($errors) && count($errors['expiration']) != 0) { echo 'is-invalid';} ?>" name="expiration" id="expiration" >
-          <option value="default" <?php if(empty($_POST['expiration'])){ echo 'selected'; } ?>>--Expiration--</option>
-          <option value="15778800" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '15778800'){ echo 'selected'; } ?>>6 mois</option>
-          <option value="31557600" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '31557600'){ echo 'selected'; } ?>>1 an</option>
-          <option value="63115200" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '63115200'){ echo 'selected'; } ?>>2 ans</option>
-          <option value="157788000" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '157788000'){ echo 'selected'; } ?>>5 ans</option>
-          <option value="315576000" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '315576000'){ echo 'selected'; } ?>>10 ans</option>
-          <option value="631152000" <?php if(!empty($_POST['expiration']) && $_POST['expiration'] == '631152000'){ echo 'selected'; } ?>>20 ans</option>
-        </select>
-        <div class="invalid-feedback">
-          <?php echo $errors['expiration']; ?>
-        </div>
-      </div>
     </div>
     <div class="mb-3">
       <textarea name="descriptif" style="resize: none; height: 200px;" class="form-control <?php if(!empty($errors) && count($errors['descriptif']) != 0) { echo 'is-invalid';} ?> mt-3" id="descriptif" placeholder="le descriptif de la maladie" required></textarea>
@@ -140,7 +116,7 @@ include('inc/header-back.php');
       </div>
     </div>
 
-    <input type="submit" name="submitted" value="Ajouter" class="btn btn-primary">
+    <input type="submit" name="submitted" value="Modifier" class="btn btn-primary">
 
   </form>
 
