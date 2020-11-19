@@ -11,6 +11,7 @@ $passchange = false;
 $paramchange = false;
 // debug($_SESSION);
 include('inc/header-front.php');
+
 if (!empty($_POST['enregistrer'])) {
     if (empty($_POST['relance'])) {
         $paramchange = true;

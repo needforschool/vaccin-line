@@ -114,7 +114,7 @@ function timeRenouvellement($userDate, $vaccinExp)
   } elseif ($interval <= 15778800 && $interval > 2629800) {
       $result['color'] = 'style="color: #ffa801;"';
     } elseif ($interval <= 2629800) {
-        $result['color'] = 'style="colo: #ff3f34;"';
+        $result['color'] = 'style="color: #ff3f34;"';
       }
   return $result;
 }
