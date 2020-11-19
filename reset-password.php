@@ -25,7 +25,7 @@ if (!empty($_GET['email'])) {
     header('location: login.php?error=yes');
   }
 } else {
-    header('location: admin/403.php');
+  header('location: admin/403.php');
 }
 
 if (!empty($_POST['submitted'])) {
@@ -89,7 +89,7 @@ if (!empty($_POST['submitted'])) {
       header('location: login.php?error=yes');
     }
   } else {
-      header('location: admin/403.php');
+    header('location: admin/403.php');
   }
 
 }
@@ -106,18 +106,18 @@ include('inc/header-front.php');
 <?php endif; ?>
 
 <?php if ($_GET['form'] == 'no'): ?>
-    <div class="resetMail">
-      <h1>Mail de : Vaccin'Line (vaccin-line@gmail.com)</h1>
-      <h2>Objet : Réinitialisation de mot de passe</h2>
-      <p>Bonjour <?php echo mb_strtoupper($user['nom']) . ' ' . ucfirst($user['prenom']); ?>,<br><br>
-        Un utilisateur a demandé un nouveau mot de passe pour le compte suivant sur VACCIN'LINE :<br><br>
-        Identifiant : <?php echo $user['email'] ?><br><br>
-        Si vous n'êtes pas l'auteur de cette demande, ignorez simplement cet e-mail.<br><br>
-        Pour continuer :<br><br>
-        <a href="reset-password.php?form=yes&email=<?php echo $user['email']; ?>&token=<?php echo $user['token'] ?>">Cliquez ici pour réinitialiser votre mot de passe</a><br><br>
-        Merci de votre attention.
-      </p>
-    </div>
+  <div class="resetMail">
+    <h1>Mail de : Vaccin'Line (vaccin-line@gmail.com)</h1>
+    <h2>Objet : Réinitialisation de mot de passe</h2>
+    <p>Bonjour <?php echo mb_strtoupper($user['nom']) . ' ' . ucfirst($user['prenom']); ?>,<br><br>
+      Un utilisateur a demandé un nouveau mot de passe pour le compte suivant sur VACCIN'LINE :<br><br>
+      Identifiant : <?php echo $user['email'] ?><br><br>
+      Si vous n'êtes pas l'auteur de cette demande, ignorez simplement cet e-mail.<br><br>
+      Pour continuer :<br><br>
+      <a href="reset-password.php?form=yes&email=<?php echo $user['email']; ?>&token=<?php echo $user['token'] ?>">Cliquez ici pour réinitialiser votre mot de passe</a><br><br>
+      Merci de votre attention.
+    </p>
+  </div>
 <?php else: ?>
   <section id="login">
     <div class="wrap-section-connexion-1">
