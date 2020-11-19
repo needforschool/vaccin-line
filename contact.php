@@ -43,7 +43,6 @@ if (!empty($_POST['submitted'])) {
     }
 
     if(count($errors) == 0) {
-        $succes = true;
 
         $sql = "INSERT INTO vl_contacts (email,message,created_at,lu,object,status)
         VALUES (:email,:message,NOW(),'non',:object,1)";
@@ -53,12 +52,18 @@ if (!empty($_POST['submitted'])) {
         $query->bindValue(':object',$object,PDO::PARAM_STR);
         $query->execute();
 
-        // header('Location: contact.php');
+        header('Location: contact.php?success=yes');
+    } else {
+      header('Location: contact.php?error=yes');
     }
 }
 ?>
-<?php if($succes == false) : ?>
   <section id="contact">
+    <?php if(!empty($_GET['error']) && $_GET['error'] == 'yes'){ ?>
+      <p class="error-message">Erreur, veuillez réessayer</p>
+    <?php  }elseif (!empty($_GET['success']) && $_GET['success'] == 'yes') {?>
+      <p class="success-message">Mail envoyé avec succès</p>
+    <?php  } ?>
     <div class="wrap-section-contact-1">
       <div class="form-contact">
         <h2>Contact</h2>
@@ -85,15 +90,5 @@ if (!empty($_POST['submitted'])) {
       </div>
     </div>
   </section>
-<?php endif; ?>
-
-<?php if($succes == true) : ?>
-    <div class="wrap-section-contact-1">
-      <div class="wrap-section-contact-2">
-        <p>Merci, votre message à bien été pris en compte</p>
-        <a href="index.php">Retour a mon carnet</a>
-      </div>
-    </div>
-<?php endif; ?>
 
 <?php include('inc/footer-front.php');

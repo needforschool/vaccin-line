@@ -79,7 +79,7 @@ $errors = array();?>
 <?php if(empty($_SESSION)) : ?>
   <section id="login">
     <?php if(!empty($_GET['error']) && $_GET['error'] == 'yes'){ ?>
-      <p class="error-message">Erreur lors de la modification mot de passe</p>
+      <p class="error-message">Erreur, veuillez réessayer</p>
     <?php }elseif (!empty($_GET['token']) && $_GET['token'] == 'off') {?>
       <p class="error-message">Le token n'est plus valable.</p>
     <?php  }elseif (!empty($_GET['success']) && $_GET['success'] == 'yes') {?>
