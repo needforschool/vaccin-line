@@ -100,26 +100,26 @@
       <?php if(!empty($_SESSION)) : ?>
         <?php if($title == 'Mon carnet') : ?>
           <li><a href="index.php" class="title">ACCEUIL</a></li>
-          <li><a href="settings.php">parametres du compte</a></li>
+          <li><a href="settings.php">paramètres du compte</a></li>
           <li><a href="contact.php" class="title">CONTACT</a></li>
           <li><a href="propos.php">À PROPOS</a></li>
         <?php endif; ?>
         <?php if($title == 'Home') : ?>
           <li><a href="carnet.php" class="title">MON CARNET</a></li>
-          <li><a href="settings.php">parametres du compte</a></li>
+          <li><a href="settings.php">paramètres du compte</a></li>
           <li><a href="contact.php" class="title">CONTACT</a></li>
           <li><a href="propos.php">À PROPOS</a></li>
         <?php endif; ?>
         <?php if($title == 'Contact') : ?>
           <li><a href="index.php" class="title">ACCEUIL</a></li>
           <li><a href="carnet.php">MON CARNET</a></li>
-          <li><a href="settings.php">parametres du compte</a></li>
+          <li><a href="settings.php">paramètres du compte</a></li>
           <li><a href="propos.php">À PROPOS</a></li>
         <?php endif; ?>
         <?php if($title == 'Mentions légales') : ?>
           <li><a href="index.php" class="title">ACCEUIL</a></li>
           <li><a href="carnet.php">MON CARNET</a></li>
-          <li><a href="settings.php">parametres du compte</a></li>
+          <li><a href="settings.php">paramètres du compte</a></li>
           <li><a href="propos.php">À PROPOS</a></li>
         <?php endif; ?>
         <?php if($title == 'Parametres') : ?>

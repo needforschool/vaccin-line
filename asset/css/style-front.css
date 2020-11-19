@@ -80,6 +80,9 @@ table {
 	padding: 0;
 	font-family: 'Poppins', sans-serif;
 }
+a {
+	text-decoration: none;
+}
 #banner {
 	background: linear-gradient(rgba(0,0,0,0.5),#575fcf),url(../img/banner.jpg);
 	background-size: cover;
@@ -962,6 +965,23 @@ p.error-message {
 	opacity: 0.9;
 	line-height: 1.3;
 }
+@media screen and (max-width: 690px) {
+	.bigbox-start img {
+		display: none;
+	}
+	.bigbox-right img {
+		display: none;
+	}
+	.bigbox-left img {
+		display: none;
+	}
+	.bigbox-end img {
+		display: none;
+	}
+	.stats-about {
+		width: 100%;
+	}
+}
 /* INSCRIPTION */
 
 #inscription {
@@ -1338,6 +1358,11 @@ p.error-message {
 .form-contact .w50 input[type=submit]:hover {
 	background-color: #575fcf;
 	color: #fff;
+}
+@media screen and (max-width: 1000px) {
+	.form-contact .w50 label {
+		padding: 0;
+	}
 }
 @media screen and (max-width: 770px) {
 	.form-contact {
