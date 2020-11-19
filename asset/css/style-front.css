@@ -1347,6 +1347,11 @@ p.error-message {
 		width: 90%;
 	}
 }
+@media screen and (max-width: 500px) {
+	.form-contact {
+		width: 100%;
+	}
+}
 /* MENTION */
 
 #mention {
