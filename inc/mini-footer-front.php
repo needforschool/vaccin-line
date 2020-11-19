@@ -4,7 +4,7 @@
   <img src="asset/img/minilogo.png" class="minifooter-img" alt="">
   <div class="footer-row">
     <div class="footer-left">
-      <h1>Nous envoyer un mail :</h1>
+      <h1>Nous envoyer un e-mail :</h1>
       <p><a href="contact.php"><i class="fa fa-envelope"></i> Page contact</a></p>
     </div>
     <div class="footer-right">
@@ -17,7 +17,7 @@
   <div class="social-links">
   <a href="https://www.facebook.com/VaccinL/" target="_blank"><i class="fa fa-facebook"></i></a>
     <a href="https://twitter.com/VaccinL" target="_blank"><i class="fa fa-twitter"></i></a>
-    
+
     <p>Copyright Vaccin'Line</p>
     <p class="mention"><a href="mention.php">Mentions légales</a> | <a href="propos.php">À propos</a></p>
   </div>

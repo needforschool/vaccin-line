@@ -58,7 +58,7 @@ include('inc/header-back.php');
             <tr>
               <th>maladie</th>
               <th>descriptif</th>
-              <th>dangerosité</th>
+              <th>danger</th>
               <th>obligatoire</th>
               <th>Expiration</th>
               <th>Information</th>
@@ -68,7 +68,7 @@ include('inc/header-back.php');
             <tr>
               <th>maladie</th>
               <th>descriptif</th>
-              <th>dangerosité</th>
+              <th>danger</th>
               <th>obligatoire</th>
               <th>Expiration</th>
               <th>Information</th>
@@ -79,7 +79,7 @@ include('inc/header-back.php');
               <tr>
                 <th><?php echo ucfirst($vaccin['maladie']); ?></th>
                 <th><?php echo ucfirst($vaccin['descriptif']); ?></th>
-                <th <?php if($vaccin['dangerosité'] == 'mortelle'){ echo 'class="text-danger"' ;}elseif($vaccin['dangerosité'] == 'modéré'){echo 'class="text-warning"' ;}elseif($vaccin['dangerosité'] == 'benin'){echo 'class="text-success"' ;} ?> ><?php echo ucfirst($vaccin['dangerosité']); ?></th>
+                <th <?php if($vaccin['danger'] == 'mortelle'){ echo 'class="text-danger"' ;}elseif($vaccin['danger'] == 'modéré'){echo 'class="text-warning"' ;}elseif($vaccin['danger'] == 'benin'){echo 'class="text-success"' ;} ?> ><?php echo ucfirst($vaccin['danger']); ?></th>
                 <th><?php echo ucfirst($vaccin['obligatoire']); ?></th>
                     <th><?php if($vaccin['expiration'] == '15778800'){echo '6 mois';} elseif ($vaccin['expiration'] == '31557600'){echo '1 ans';}elseif ($vaccin['expiration'] == '63115200'){echo '2 ans';}elseif ($vaccin['expiration'] == '157788000'){ echo '5 ans';}elseif ($vaccin['expiration'] == '315576000'){ echo '10 ans';}elseif ($vaccin['expiration'] == '631152000'){ echo '20 ans';} ?></th>
                 <th class="gerer">

@@ -8,7 +8,7 @@ if (!est_connecte()) {
   header('Location: 403.php');
 }
 
-$title = 'option vaccin';
+$title = 'OPTION VACCIN';
 
 $sql = "SELECT * FROM vl_contacts WHERE status = 1 AND lu = 'non'";
 $query = $pdo->prepare($sql);
@@ -67,9 +67,9 @@ include('inc/header-back.php');
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                  dangerosité
+                  danger
                 </div>
-                  <div <?php if($singleVaccin['dangerosité'] == 'mortelle'){ echo 'class="text-danger"' ;}elseif($singleVaccin['dangerosité'] == 'modéré'){echo 'class="text-warning"' ;}elseif($singleVaccin['dangerosité'] == 'benin'){echo 'class="text-success"' ;} ?>> <?php echo ucfirst($singleVaccin['dangerosité']); ?>
+                  <div <?php if($singleVaccin['danger'] == 'mortelle'){ echo 'class="text-danger"' ;}elseif($singleVaccin['danger'] == 'modéré'){echo 'class="text-warning"' ;}elseif($singleVaccin['danger'] == 'benin'){echo 'class="text-success"' ;} ?>> <?php echo ucfirst($singleVaccin['danger']); ?>
                   </div>
                 </div>
                 <div class="col-auto">

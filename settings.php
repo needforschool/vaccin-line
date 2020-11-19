@@ -9,7 +9,7 @@ $id = $_SESSION['user']['id'];
 $errors = array();
 $passchange = false;
 $paramchange = false;
-
+// debug($_SESSION);
 include('inc/header-front.php');
 
 if (!empty($_POST['enregistrer'])) {
@@ -34,7 +34,7 @@ if (!empty($_POST['enregistrer'])) {
     header('Location: settings.php');
 
 
-}else 
+}else
 
 if (!empty($_POST['supprimer'])) {
     if (condition) {
@@ -62,7 +62,7 @@ if(!empty($_POST['modifmdp'])) {
                     } else {
                         $errors['newpass1'] = "Les mots nouveaux mots de passe ne sont pas identiques ";
                     }
-                } 
+                }
             } else {
                 $errors['newpass1'] = "8 caracteres minimum";
             }
@@ -100,27 +100,30 @@ if(!empty($_POST['modifmdp'])) {
     <div class="wrap-section-parametre">
         <!-- Formulaire changement de mdp -->
         <?php if($passchange == false) : ?>
-            
+
             <form action="settings.php" method="post">
-            
+
                 <div class="form-param-1">
                 <h2>Modifier votre mot de passe</h2>
                     <div class="w50">
-                        <input type="password" name="pass" placeholder="Mot de passe actuel">
+                        <input type="password" name="pass" required>
                         <span class="error"><?php if(!empty($errors['pass'])) { echo $errors['pass']; } ?></span>
-                    </div>    
-                    <div class="w50">
-                        <input type="password" name="newpass" placeholder="Nouveau mot de passe">
-                        <span class="error"><?php if(!empty($errors['newpass1'])) { echo $errors['newpass1']; } ?></span>
+                        <label>Mot de passe actuel</label>
                     </div>
                     <div class="w50">
-                        <input type="password" name="newpassconfirm" placeholder="Confirmation nouveau mot de passe">
-                        <span class="error"><?php if(!empty($errors['newpass2'])) { echo $errors['newpass2']; } ?></span> 
+                        <input type="password" name="newpass" required>
+                        <span class="error"><?php if(!empty($errors['newpass1'])) { echo $errors['newpass1']; } ?></span>
+                        <label>Nouveau mot de passe</label>
+                    </div>
+                    <div class="w50">
+                        <input type="password" name="newpassconfirm" required>
+                        <span class="error"><?php if(!empty($errors['newpass2'])) { echo $errors['newpass2']; } ?></span>
+                        <label>Confirmation nouveau mot de passe</label>
                     </div>
                         <input type="submit" name="modifmdp" value="Changer le mot de passe">
                 </div>
             </form>
-            
+
         <?php endif; ?>
         <?php if($passchange == true) : ?>
             <h4>Mot de passe modifié !</h4>
@@ -128,11 +131,11 @@ if(!empty($_POST['modifmdp'])) {
         <!-- Formulaire modification parametre -->
         <form action="settings.php" method="post">
             <div class="form-param-2">
-                <h2>Parametres</h2>
+                <h2>Paramètres</h2>
                 <div class="relance">
                 <?php if($paramchange == false) : ?>
                     <?php if($_SESSION['settings']['relance'] == "off") : ?>
-                        
+
                             <div class="relance-text">
                                 <p>Alerte vaccin</p>
                             </div>
@@ -142,7 +145,7 @@ if(!empty($_POST['modifmdp'])) {
                                     <span class="slider round"></span>
                                 </label>
                             </div>
-                
+
                     <?php endif; ?>
                     <?php if($_SESSION['settings']['relance'] == "on") : ?>
                             <div class="relance-text">
@@ -156,14 +159,14 @@ if(!empty($_POST['modifmdp'])) {
                             </div>
                     <?php endif; ?>
                 <?php endif; ?>
-                
-            
+
+
                 <?php if($paramchange == true) : ?>
                     <p>parametre modifié !</p>
-                <?php endif; ?> 
+                <?php endif; ?>
                 </div>
                 <input type="submit" name="enregistrer" value="Enregister">
-                
+
             </div>
 
         </form>
@@ -171,9 +174,9 @@ if(!empty($_POST['modifmdp'])) {
     </section>
     <!-- Formulaire suppresion compte  -->
     <!-- <form action="settings.php" method="post">
-        
+
         <input type="submit" name="supprimer" value="Supprimer" style="background: red;">
     </form> -->
 <?php endif; ?>
-<?php 
+<?php
 include('inc/mini-footer-front.php');
