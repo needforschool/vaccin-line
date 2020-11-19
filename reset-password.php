@@ -125,11 +125,13 @@ include('inc/header-front.php');
         <h2>Nouveau mot de passe</h2>
         <form action="reset-password.php?form=yes&email=<?php echo $_GET['email']; ?>&token=<?php echo $_GET['token'] ?>" method="post">
           <div class="w50">
-            <input type="password" name="password" placeholder="Nouveau mot de passe">
+            <input type="password" name="password" required>
             <span class="error"><?php if(!empty($errors['password'])) { echo $errors['password']; } ?></span>
+            <label>Nouveau mot de passe</label>
           </div>
           <div class="w50">
-            <input type="password" name="confirm-password" placeholder="Confirmation">
+            <input type="password" name="confirm-password" required>
+            <label>Confirmation</label>
           </div>
           <div class="w50">
             <input type="submit" name="submitted" value="Envoyer">
