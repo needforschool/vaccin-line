@@ -15,13 +15,13 @@ include('inc/header-front.php')
   </div>
   <div class="feature-box">
     <div class="features">
-      <h1>Equipe d'expérience</h1>
+      <h1>Rapide et Efficace</h1>
       <div class="features-desc">
         <div class="feature-icon">
           <i class="fa fa-check-square-o"></i>
         </div>
         <div class="feature-text">
-          <p>Géré et sécurisé par une équipe expérimenté. Le carnet se veut accessible et fonctionnel.</p>
+          <p>Géré et sécurisé par une équipe expérimentée. Le carnet se veut accessible et fonctionnel.</p>
         </div>
       </div>
       <h1>Sécurité</h1>
@@ -30,7 +30,7 @@ include('inc/header-front.php')
           <i class="fa fa-shield"></i>
         </div>
         <div class="feature-text">
-          <p>L'adhésion se fait entièrement en ligne, procédure administrative simple et rapide, pour un gain de temps assuré.</p>
+          <p>Vos données personnelles sont cryptés et sécurisés sur notre base de données.</p>
         </div>
       </div>
       <h1>Gratuité</h1>
@@ -51,7 +51,7 @@ include('inc/header-front.php')
 <!-- service -->
 <section id="service">
   <div class="title-text">
-    <p>SERVICES</p>
+    <p>Services</p>
     <h1>Nos Meilleurs Services</h1>
   </div>
   <div class="service-box">
@@ -61,16 +61,16 @@ include('inc/header-front.php')
       <div class="service-desc">
         <h3>Inscription</h3>
         <hr>
-        <p>Rapide et Efficace, il suffit de vous inscrire pour que votre compte soit effectif et que vous puissiez commencer à mettre à jour votre carnet.</p>
+        <p>Il suffit de vous inscrire pour que votre compte soit effectif et que vous puissiez commencer à mettre à jour votre carnet.</p>
       </div>
     </div>
     <div class="single-service">
       <img src="asset/img/pic2.jpg" alt="">
       <div class="overlay"></div>
       <div class="service-desc">
-        <h3>Sécurité</h3>
+        <h3>Procédue Administrative</h3>
         <hr>
-        <p>Vos données personnelles sont cryptés et sécurisés sur notre serveur.</p>
+        <p>L'adhésion se fait entièrement en ligne, procédure administrative simple et rapide, pour un gain de temps assuré.</p>
       </div>
     </div>
     <div class="single-service">
@@ -96,7 +96,7 @@ include('inc/header-front.php')
 <!-- témoignages -->
 <section id="testimonial">
   <div class="title-text">
-    <p>TEMOIGNAGES</p>
+    <p>Témoignages</p>
     <h1>Commentaires Clients</h1>
   </div>
   <div class="testimonial-row">

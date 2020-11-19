@@ -80,6 +80,9 @@ table {
 	padding: 0;
 	font-family: 'Poppins', sans-serif;
 }
+p {
+	font-family: 'Poppins', sans-serif;
+}
 a {
 	text-decoration: none;
 }
@@ -871,10 +874,11 @@ p.error-message {
 	transform: translateY(7px);
 }
 .about-text p {
-	line-height: 1.1;
-	font-size: 17px;
+	line-height: 1.4;
+	font-size: 16px;
 	padding: 0 20px;
 	text-align: initial;
+	font-family: 'Poppins', sans-serif;
 }
 
 @media screen and (max-width: 770px) {
@@ -1418,10 +1422,11 @@ p.error-message {
 }
 
 .mention-text p {
-	line-height: 1.1;
-	font-size: 17px;
+	line-height: 1.4;
+	font-size: 16px;
 	padding: 0 20px;
 	text-align: initial;
+	font-family: 'Poppins', sans-serif;
 }
 
 @media screen and (max-width: 770px) {

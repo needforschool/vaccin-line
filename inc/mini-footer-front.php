@@ -9,9 +9,9 @@
     </div>
     <div class="footer-right">
       <h1>Entrer en Contact :</h1>
-      <p>17 Route de Paris, Rouen<i class="fa fa-map-marker"></i></p>
+      <p>24 place Saint Marc, Rouen<i class="fa fa-map-marker"></i></p>
       <p>vaccin.line@gmail.com<i class="fa fa-paper-plane"></i></p>
-      <p>+33 1 23 45 67 89<i class="fa fa-phone"></i></p>
+      <p>+33 2 35 45 67 89<i class="fa fa-phone"></i></p>
     </div>
   </div>
   <div class="social-links">

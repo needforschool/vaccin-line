@@ -15,7 +15,7 @@ include('inc/header-front.php');?>
 <section id="about">
   <div class="title-text">
     <p>À propos</p>
-    <h1>Notre histoire</h1>
+    <h1>Notre Histoire</h1>
   </div>
   <div class="about-box">
     <div class="abouts">
@@ -34,7 +34,7 @@ include('inc/header-front.php');?>
           <i class="fa fa-amazon"></i>
         </div>
       </div>
-      <h1>Qui sommes nous</h1>
+      <h1>Qui Sommes Nous</h1>
       <div class="abouts-desc">
         <div class="about-icon">
           <i class="fa fa-user-circle"></i>
