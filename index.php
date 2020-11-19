@@ -48,7 +48,7 @@ include('inc/header-front.php')
     </div>
   </div>
 </section>
-  <!-- service -->
+<!-- service -->
 <section id="service">
   <div class="title-text">
     <p>SERVICES</p>
@@ -93,7 +93,7 @@ include('inc/header-front.php')
     </div>
   </div>
 </section>
-  <!-- témoignages -->
+<!-- témoignages -->
 <section id="testimonial">
   <div class="title-text">
     <p>TEMOIGNAGES</p>
@@ -136,4 +136,4 @@ include('inc/header-front.php')
 <?php
 
 
-  include('inc/footer-front.php');
+include('inc/footer-front.php');

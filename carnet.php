@@ -48,12 +48,12 @@ if(!empty($_POST['ajoutvaccin'])) {
 <?php if(!empty($_SESSION) ) : ?>
   <!-- Connecté -->
   <!-- RAPPEL VACCINs -->
-<section id="carnet">
+  <section id="carnet">
     <!-- Formulaire ajout vaccin  -->
-  <div class="addvaccin">
-    <form action="carnet.php" method="post" class="form-addvaccin">
-      <h2>Ajouter un vaccin :</h2>
-      <select name="vaccin" id="vaccin">
+    <div class="addvaccin">
+      <form action="carnet.php" method="post" class="form-addvaccin">
+        <h2>Ajouter un vaccin :</h2>
+        <select name="vaccin" id="vaccin">
           <option value="">--VACCIN--</option>
           <?php
           $sql = "SELECT * FROM vl_vaccins ORDER BY maladie ASC";
@@ -65,7 +65,7 @@ if(!empty($_POST['ajoutvaccin'])) {
             echo '<option value="' . $select['id'].'">'. $select['maladie'] . '</option>';
           }
           ?>
-      </select>
+        </select>
         <span class="error"><?php if(!empty($errors['vaccin'])) { echo $errors['vaccin']; }?></span>
         <div class="w50">
           <input type="date" name="date">
@@ -74,17 +74,17 @@ if(!empty($_POST['ajoutvaccin'])) {
         <div class="w50">
           <input type="submit" name="ajoutvaccin">
         </div>
-    </form>
-        </div>
+      </form>
+    </div>
     <!-- RAPPEL VACCINS -->
     <div class="vaccins">
       <div class="rappel">
 
 
-      <h1>Vos prochains rappels de vaccin :</h1>
-      <br>
-      <div class="BB1">
-        <?php
+        <h1>Vos prochains rappels de vaccin :</h1>
+        <br>
+        <div class="BB1">
+          <?php
           $id = $_SESSION['user']['id'];
           // Recuperation des données de la table vl_vaccin
           $sql = "SELECT * FROM vl_vaccins";
@@ -98,33 +98,33 @@ if(!empty($_POST['ajoutvaccin'])) {
           $user_vaccins = $query->fetchAll();
           $incre_MB = 1;
           $incre_fait_le = 0;
-        ?>
-        <?php if(!empty($user_vaccins)) : ?>
-          <?php foreach($vaccins as $vaccin) : ?>
-            <?php $result = timeRenouvellement($user_vaccins[$incre_fait_le]['fait_le'], $vaccin['expiration']);  ?>
-            <div class="MB MB<?php echo $incre_MB; ?>" style="background-color:<?php if(c); ?>;">
-              <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
-              <p <?php echo $result['color']; ?>>Rappel à faire avant le : <?php echo $result['prochainRappel'] ?> </p>
-            </div>
-            <?php
+          ?>
+          <?php if(!empty($user_vaccins)) : ?>
+            <?php foreach($vaccins as $vaccin) : ?>
+              <?php $result = timeRenouvellement($user_vaccins[$incre_fait_le]['fait_le'], $vaccin['expiration']);  ?>
+              <div class="MB MB<?php echo $incre_MB; ?>" style="background-color:<?php if(c); ?>;">
+                <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
+                <p <?php echo $result['color']; ?>>Rappel à faire avant le : <?php echo $result['prochainRappel'] ?> </p>
+              </div>
+              <?php
               $incre_MB += 1;
               $incre_fait_le +=1;
               if($incre_fait_le == count($user_vaccins)) {
                 break;
               }
-            ?>
-          <?php endforeach; ?>
-        <?php else : ?>
-          <p class="pasdevaccin">Vous n'avez pas de vaccin</p>
-        <?php endif;?>
+              ?>
+            <?php endforeach; ?>
+          <?php else : ?>
+            <p class="pasdevaccin">Vous n'avez pas de vaccin</p>
+          <?php endif;?>
         </div>
-      <br>
-      <!-- derniers VACCINs -->
-      <h1>Vos derniers vaccins :</h1>
-      <br>
+        <br>
+        <!-- derniers VACCINs -->
+        <h1>Vos derniers vaccins :</h1>
+        <br>
 
-      <div class="BB2">
-        <?php
+        <div class="BB2">
+          <?php
           // Recuperation des données de la table vl_user_vaccin
           $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ORDER BY fait_le DESC LIMIT 3";
           $query = $pdo->prepare($sql);
@@ -138,8 +138,8 @@ if(!empty($_POST['ajoutvaccin'])) {
           if (!empty($user_vaccins)) {
             foreach ($vaccins as $vaccin) {
               echo '<div class="MB MB'. $incre_MB .'">';
-                echo '<p> Vaccin : '. $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie'] . '</p>';
-                echo '<p> Fait le : '. $user_vaccins[$incre_fait_le]['fait_le'] . '</p>';
+              echo '<p> Vaccin : '. $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie'] . '</p>';
+              echo '<p> Fait le : '. $user_vaccins[$incre_fait_le]['fait_le'] . '</p>';
               echo '</div>';
               $incre_MB += 1;
               $incre_fait_le +=1;
@@ -150,15 +150,15 @@ if(!empty($_POST['ajoutvaccin'])) {
           } else {
             echo '<p class="pasdevaccin"> Vous n\'avez pas de vaccin actuelement </p>';
           }
-        ?>
+          ?>
 
-      </div>
-      </div>
         </div>
-        <div class="vaccins">
-        <div class="rappel">
+      </div>
+    </div>
+    <div class="vaccins">
+      <div class="rappel">
         <h1>Vos vaccins :</h1>
-      <?php
+        <?php
         $id = $_SESSION['user']['id'];
         // Recuperation des données de la table vl_user_vaccin
         $sql = "SELECT * FROM vl_user_vaccin WHERE id_user = $id ORDER BY fait_le ASC";
@@ -166,33 +166,33 @@ if(!empty($_POST['ajoutvaccin'])) {
         $query->execute();
         $user_vaccins = $query->fetchAll();
         $incre_fait_le = 0;
-      ?>
-      <?php if (!empty($user_vaccins)) : ?>
+        ?>
+        <?php if (!empty($user_vaccins)) : ?>
 
-        <div class="BB_carnet">
-          <?php foreach($vaccins as $vaccin) : ?>
-            <?php $result = timeRenouvellement($user_vaccins[$incre_fait_le]['fait_le'], $vaccin['expiration']);  ?>
-            <div class="MB_carnet">
-              <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
-              <p>Fait le : <?php echo $user_vaccins[$incre_fait_le]['fait_le']; ?></p>
-              <p <?php echo $result['color']; ?>>Rappel à faire avant le : <?php echo $result['prochainRappel'] ?> </p>
-            </div>
-            <?php
+          <div class="BB_carnet">
+            <?php foreach($vaccins as $vaccin) : ?>
+              <?php $result = timeRenouvellement($user_vaccins[$incre_fait_le]['fait_le'], $vaccin['expiration']);  ?>
+              <div class="MB_carnet">
+                <p>Vaccin : <?php echo $vaccins[($user_vaccins[$incre_fait_le]['id_vaccin'] - 1)]['maladie']; ?></p>
+                <p>Fait le : <?php echo $user_vaccins[$incre_fait_le]['fait_le']; ?></p>
+                <p <?php echo $result['color']; ?>>Rappel à faire avant le : <?php echo $result['prochainRappel'] ?> </p>
+              </div>
+              <?php
               $incre_fait_le +=1;
               if($incre_fait_le == count($user_vaccins)) {
                 break;
               }
-            ?>
-          <?php endforeach; ?>
-        </div>
+              ?>
+            <?php endforeach; ?>
+          </div>
 
-      <?php else : ?>
-        <p class="pasdevaccin">Vous n'avez pas de vaccins actuellement</p>
-      <?php endif; ?>
+        <?php else : ?>
+          <p class="pasdevaccin">Vous n'avez pas de vaccins actuellement</p>
+        <?php endif; ?>
       </div>
     </div>
   </div>
 </section>
 <?php endif; ?>
 <?php
-  include('inc/mini-footer-front.php');
+include('inc/mini-footer-front.php');
