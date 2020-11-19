@@ -133,6 +133,17 @@ $succes = false;
             'role' => $user['role'],
             'ip' => $_SERVER['REMOTE_ADDR']
         );
+
+        $id = $user['id'];
+        $sql = "INSERT INTO vl_user_settings (user_id,relance)
+                VALUE (:id,'off')";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':id',$id,PDO::PARAM_STR);
+        $query->execute();
+        $_SESSION['settings'] = array(
+          'relance' => 'off'
+        );
+
         header('Location: index.php');
         die();
     }

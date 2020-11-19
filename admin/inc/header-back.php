@@ -65,6 +65,10 @@
                 <a class="nav-link" href="list-mail.php">
                     <i class="fas fa-envelope"></i>
                     <span>Boite mail</span></a>
+                
+                <a class="nav-link" href="mailrappel.php">
+                    <i class="fas fa-envelope"></i>
+                    <span>Envoyé mail rappel</span></a>
             </li>
 
         </ul>
