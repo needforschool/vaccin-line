@@ -59,9 +59,9 @@ include('inc/header-front.php')
       <img src="asset/img/pic1.jpg" alt="">
       <div class="overlay"></div>
       <div class="service-desc">
-        <h3>Inscription Valable à Vie</h3>
+        <h3>Inscription</h3>
         <hr>
-        <p>this is test under description of barber foundation this is test under description of barber foundation.</p>
+        <p>Rapide et Efficace, il suffit de vous inscrire pour que votre compte soit effectif et que vous puissiez commencer à mettre à jour votre carnet.</p>
       </div>
     </div>
     <div class="single-service">
@@ -70,7 +70,7 @@ include('inc/header-front.php')
       <div class="service-desc">
         <h3>Sécurité</h3>
         <hr>
-        <p>this is test under description of barber foundation this is test under description of barber foundation.</p>
+        <p>Vos données personnelles sont cryptés et sécurisés sur notre serveur.</p>
       </div>
     </div>
     <div class="single-service">
@@ -79,16 +79,16 @@ include('inc/header-front.php')
       <div class="service-desc">
         <h3>Automatisation des Tâches</h3>
         <hr>
-        <p>this is test under description of barber foundation this is test under description of barber foundation.</p>
+        <p>Les vaccins sont automatiquement rangés par ordres d'ajout. Le carnet de vaccination bénéficie aussi d'un système de rappel automatique.</p>
       </div>
     </div>
     <div class="single-service">
       <img src="asset/img/pic4.jpg" alt="">
       <div class="overlay"></div>
       <div class="service-desc">
-        <h3>Dry Shampoo</h3>
+        <h3>Services Clients</h3>
         <hr>
-        <p>this is test under description of barber foundation this is test under description of barber foundation.</p>
+        <p>Un service client 100% en ligne, disponible 7jr/7.</p>
       </div>
     </div>
   </div>

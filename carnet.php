@@ -52,7 +52,7 @@ if(!empty($_POST['ajoutvaccin'])) {
     <!-- Formulaire ajout vaccin  -->
   <div class="addvaccin">
     <form action="carnet.php" method="post" class="form-addvaccin">
-      <h2>Ajouter un vaccin :</h1>
+      <h2>Ajouter un vaccin :</h2>
       <select name="vaccin" id="vaccin">
           <option value="">--VACCIN--</option>
           <?php

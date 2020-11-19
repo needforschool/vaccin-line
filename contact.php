@@ -23,8 +23,8 @@ if (!empty($_POST['submitted'])) {
     }
     // VERIF Object
     if (!empty($object)) {
-        if(mb_strlen($object) < 10) {
-            $errors['object'] = '10 caracteres minimum';
+        if(mb_strlen($object) < 5) {
+            $errors['object'] = '5 caracteres minimum';
         } elseif (mb_strlen($object) > 100) {
             $errors['object'] = '100 caractere maximum';
         }
@@ -90,7 +90,7 @@ if (!empty($_POST['submitted'])) {
 <?php if($succes == true) : ?>
     <div class="wrap-section-contact-1">
       <div class="wrap-section-contact-2">
-        <p>Merci, Votre message a bien etait pris en compte</p>
+        <p>Merci, votre message à bien été pris en compte</p>
         <a href="index.php">Retour a mon carnet</a>
       </div>
     </div>
