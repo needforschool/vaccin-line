@@ -11,142 +11,142 @@ $succes = false;
 </section>
 <?php if (!empty($_POST['submitted'])) {
 
-    $nom = cleanXss($_POST['nom']);
-    $prenom = cleanXss($_POST['prenom']);
-    $date_naissance = cleanXss($_POST['date_naissance']);
-    $civilite = cleanXss($_POST['civilite']);
-    $email = cleanXss($_POST['email']);
-    $password1 = cleanXss($_POST['password1']);
-    $password2 = cleanXss($_POST['password2']);
-    $pseudo = $nom . '_' . $prenom;
+  $nom = cleanXss($_POST['nom']);
+  $prenom = cleanXss($_POST['prenom']);
+  $date_naissance = cleanXss($_POST['date_naissance']);
+  $civilite = cleanXss($_POST['civilite']);
+  $email = cleanXss($_POST['email']);
+  $password1 = cleanXss($_POST['password1']);
+  $password2 = cleanXss($_POST['password2']);
+  $pseudo = $nom . '_' . $prenom;
 
-    //Verif civilité
-    if(!empty($civilite)) {
+  //Verif civilité
+  if(!empty($civilite)) {
+  } else {
+    $errors['civilite'] = 'Veuillez renseignez ce champ';
+  }
+
+  // Verif nom
+  if(!empty($nom)) {
+    if(mb_strlen($nom) < 2) {
+      $errors['nom'] = 'Veuillez entrer un nom valide (2 caracteres minimum)';
+    }
+  } else {
+    $errors['nom'] = 'Veuillez renseignez ce champ';
+  }
+  // Verif prenom
+  if(!empty($prenom)) {
+    if(mb_strlen($prenom) < 2) {
+      $errors['prenom'] = 'Veuillez entrer un prenom valide (2 caracteres minimum)';
+    }
+  } else {
+    $errors['prenom'] = 'Veuillez renseignez ce champ';
+  }
+  // Verif date_naissance
+  if(!empty($date_naissance)) {
+    if(mb_strlen($date_naissance) != 10) {
+      $errors['date_naissance'] = 'Veuillez entrer un date_naissance valide (entre 1 et 110)';
     } else {
-        $errors['civilite'] = 'Veuillez renseignez ce champ';
-    }
+      $am = date('Y');
+      $an = explode('-', $date_naissance);
+      $age = ($am - $an[0]);
 
-    // Verif nom
-    if(!empty($nom)) {
-        if(mb_strlen($nom) < 2) {
-            $errors['nom'] = 'Veuillez entrer un nom valide (2 caracteres minimum)';
-        }
+      $date_naissance = date("d-m-Y", strtotime($date_naissance));
+
+      echo $date_naissance;
+    }
+  } else {
+    $errors['date_naissance'] = 'Veuillez renseignez ce champ';
+  }
+  // Verif E-mail
+  if (!empty($email)) {
+    if(mb_strlen($email) < 5 ) {
+      $errors['email'] = 'Veuillez entrer un email valide (plus de 5 caractéres)';
     } else {
-        $errors['nom'] = 'Veuillez renseignez ce champ';
+      $sql = "SELECT * FROM vl_users WHERE email = :email";
+      $query = $pdo->prepare($sql);
+      $query->bindValue(':email',$email,PDO::PARAM_STR);
+      $query->execute();
+      $useremail = $query->fetch();
+
+      if (!empty($useremail)) {
+        $errors['email'] = 'Cette adresse email est utilisée';
+      }
     }
-    // Verif prenom
-    if(!empty($prenom)) {
-        if(mb_strlen($prenom) < 2) {
-            $errors['prenom'] = 'Veuillez entrer un prenom valide (2 caracteres minimum)';
-        }
-    } else {
-        $errors['prenom'] = 'Veuillez renseignez ce champ';
+  } else {
+    $errors['email'] = 'Veuillez renseignez ce champ';
+  }
+  // Verif MDP et Hashash
+  if (!empty($password1)) {
+    if(mb_strlen($password1) < 8) {
+      $errors['password1'] = 'Votre mot de passe doit faire 8 caractere minimum';
     }
-    // Verif date_naissance
-    if(!empty($date_naissance)) {
-        if(mb_strlen($date_naissance) != 10) {
-            $errors['date_naissance'] = 'Veuillez entrer un date_naissance valide (entre 1 et 110)';
-        } else {
-            $am = date('Y');
-            $an = explode('-', $date_naissance);
-            $age = ($am - $an[0]);
+  } else {
+    $errors['password1'] = 'Veuillez renseignez ce champ';
+  }
+  if (!empty($password2)) {
 
-            $date_naissance = date("d-m-Y", strtotime($date_naissance));
+  } else {
+    $errors['password2'] = 'Veuillez renseignez ce champ';
+  }
 
-            echo $date_naissance;
-        }
-    } else {
-        $errors['date_naissance'] = 'Veuillez renseignez ce champ';
-    }
-    // Verif E-mail
-    if (!empty($email)) {
-        if(mb_strlen($email) < 5 ) {
-            $errors['email'] = 'Veuillez entrer un email valide (plus de 5 caractéres)';
-        } else {
-            $sql = "SELECT * FROM vl_users WHERE email = :email";
-            $query = $pdo->prepare($sql);
-            $query->bindValue(':email',$email,PDO::PARAM_STR);
-            $query->execute();
-            $useremail = $query->fetch();
+  if ($password2 != $password1) {
+    $errors['password1'] = 'Les mot de passe ne sont pas identiques';
+  }
 
-            if (!empty($useremail)) {
-                $errors['email'] = 'Cette adresse email est utilisée';
-            }
-        }
-    } else {
-        $errors['email'] = 'Veuillez renseignez ce champ';
-    }
-    // Verif MDP et Hashash
-    if (!empty($password1)) {
-        if(mb_strlen($password1) < 8) {
-            $errors['password1'] = 'Votre mot de passe doit faire 8 caractere minimum';
-        }
-    } else {
-        $errors['password1'] = 'Veuillez renseignez ce champ';
-    }
-    if (!empty($password2)) {
+  if (count($errors) == 0) {
+    $succes = true;
 
-    } else {
-        $errors['password2'] = 'Veuillez renseignez ce champ';
-    }
+    $passwordHash = password_hash($password1, PASSWORD_DEFAULT);
+    $token = openssl_random_pseudo_bytes(16);
+    $token = bin2hex($token);
+    $role = 'role_user';
 
-    if ($password2 != $password1) {
-        $errors['password1'] = 'Les mot de passe ne sont pas identiques';
-    }
+    $sql = "INSERT INTO vl_users (nom,prenom,password,email,token,date_naissance,created_at,civilite,role,age)
+    VALUES (:nom,:prenom,:passwordHash,:email,:token,:date_naissance,NOW(),:civilite,:role,:age)";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':nom',$nom,PDO::PARAM_STR);
+    $query->bindValue(':prenom',$prenom,PDO::PARAM_STR);
+    $query->bindValue(':date_naissance',$date_naissance,PDO::PARAM_STR);
+    $query->bindValue(':civilite',$civilite,PDO::PARAM_STR);
+    $query->bindValue(':email',$email,PDO::PARAM_STR);
+    $query->bindValue(':passwordHash',$passwordHash,PDO::PARAM_STR);
+    $query->bindValue(':role',$role,PDO::PARAM_STR);
+    $query->bindValue(':token',$token,PDO::PARAM_STR);
+    $query->bindValue(':age',$age,PDO::PARAM_STR);
+    $query->execute();
 
-    if (count($errors) == 0) {
-        $succes = true;
+    $sql = "SELECT * FROM vl_users WHERE email = :email";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':email',$email,PDO::PARAM_STR);
+    $query->execute();
+    $user = $query->fetch();
 
-        $passwordHash = password_hash($password1, PASSWORD_DEFAULT);
-        $token = openssl_random_pseudo_bytes(16);
-        $token = bin2hex($token);
-        $role = 'role_user';
+    $_SESSION['user'] = array(
+      'id' => $user['id'],
+      'nom' => $user['nom'],
+      'prenom' => $user['prenom'],
+      'date_naissance' => $user['date_naissance'],
+      'age' => $user['age'],
+      'email' => $user['email'],
+      'civilite' => $user['civilite'],
+      'role' => $user['role'],
+      'ip' => $_SERVER['REMOTE_ADDR']
+    );
 
-        $sql = "INSERT INTO vl_users (nom,prenom,password,email,token,date_naissance,created_at,civilite,role,age)
-                VALUES (:nom,:prenom,:passwordHash,:email,:token,:date_naissance,NOW(),:civilite,:role,:age)";
-        $query = $pdo->prepare($sql);
-        $query->bindValue(':nom',$nom,PDO::PARAM_STR);
-        $query->bindValue(':prenom',$prenom,PDO::PARAM_STR);
-        $query->bindValue(':date_naissance',$date_naissance,PDO::PARAM_STR);
-        $query->bindValue(':civilite',$civilite,PDO::PARAM_STR);
-        $query->bindValue(':email',$email,PDO::PARAM_STR);
-        $query->bindValue(':passwordHash',$passwordHash,PDO::PARAM_STR);
-        $query->bindValue(':role',$role,PDO::PARAM_STR);
-        $query->bindValue(':token',$token,PDO::PARAM_STR);
-        $query->bindValue(':age',$age,PDO::PARAM_STR);
-        $query->execute();
+    $id = $user['id'];
+    $sql = "INSERT INTO vl_user_settings (user_id,relance)
+    VALUE (:id,'off')";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':id',$id,PDO::PARAM_STR);
+    $query->execute();
+    $_SESSION['settings'] = array(
+      'relance' => 'off'
+    );
 
-        $sql = "SELECT * FROM vl_users WHERE email = :email";
-        $query = $pdo->prepare($sql);
-        $query->bindValue(':email',$email,PDO::PARAM_STR);
-        $query->execute();
-        $user = $query->fetch();
-
-        $_SESSION['user'] = array(
-            'id' => $user['id'],
-            'nom' => $user['nom'],
-            'prenom' => $user['prenom'],
-            'date_naissance' => $user['date_naissance'],
-            'age' => $user['age'],
-            'email' => $user['email'],
-            'civilite' => $user['civilite'],
-            'role' => $user['role'],
-            'ip' => $_SERVER['REMOTE_ADDR']
-        );
-
-        $id = $user['id'];
-        $sql = "INSERT INTO vl_user_settings (user_id,relance)
-                VALUE (:id,'off')";
-        $query = $pdo->prepare($sql);
-        $query->bindValue(':id',$id,PDO::PARAM_STR);
-        $query->execute();
-        $_SESSION['settings'] = array(
-          'relance' => 'off'
-        );
-
-        header('Location: index.php');
-        die();
-    }
+    header('Location: index.php');
+    die();
+  }
 }
 
 
@@ -195,7 +195,7 @@ include('inc/header-front.php');
             <?php if(!empty($_POST['civilite'])) : ?>
               <option value="<?php echo $_POST['civilite'] ?>"><?php echo ucwords($_POST['civilite']) ?></option>
             <?php endif; ?>
-              <option value="monsieur">Monsieur</option>
+            <option value="monsieur">Monsieur</option>
             <option value="madame">Madame</option>
           </select>
           <span class="error"><?php if(!empty($errors['civilite'])) { echo $errors['civilite']; } ?></span>

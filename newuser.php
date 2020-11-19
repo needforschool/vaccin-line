@@ -1,4 +1,4 @@
-<?php 
+<?php
 const MERCURY_PATH = 'C:\Apache\xampp\MercuryMail';
 $userFile = MERCURY_PATH . DIRECTORY_SEPARATOR . "PMAIL.USR";
 $mailDir = MERCURY_PATH . DIRECTORY_SEPARATOR . "MAIL";
@@ -9,38 +9,38 @@ $newPassword = "pass";
 $host = "localhost";
 
 if (! is_writeable ( $userFile )) {
-    die ( "You don't have permission to  Create new User" );
+  die ( "You don't have permission to  Create new User" );
 }
 
 if (! is_writeable ( $mailDir )) {
-    die ( "You don't have permission to add mail folder" );
+  die ( "You don't have permission to add mail folder" );
 }
 
 // Check if user exist
 
 if (is_file ( $userFile )) {
-    $users = file ( $userFile );
+  $users = file ( $userFile );
 
-    foreach ( $users as $user ) {
-        list ( $status, $username, $name ) = explode ( ";", strtolower ( $user ) );
+  foreach ( $users as $user ) {
+    list ( $status, $username, $name ) = explode ( ";", strtolower ( $user ) );
 
-        if (strtolower ( $newUsername ) == $username) {
-            die ( "User Already Exist" );
-        }
+    if (strtolower ( $newUsername ) == $username) {
+      die ( "User Already Exist" );
     }
+  }
 }
 
 $userData = "U;$newUsername;$newName";
 $fp = fopen ( $userFile, "a" );
 
 if ($fp) {
-    fwrite ( $fp, $userData . chr ( 10 ) );
-    fclose ( $fp );
+  fwrite ( $fp, $userData . chr ( 10 ) );
+  fclose ( $fp );
 }
 
 $folder = $mailDir . DIRECTORY_SEPARATOR . $newUsername;
 if (! mkdir ( $folder )) {
-    die ( "Error Creating Folder" );
+  die ( "Error Creating Folder" );
 }
 
 $pm = '# Mercury/32 User Information File' . chr ( 10 );

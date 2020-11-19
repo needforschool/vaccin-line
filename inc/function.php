@@ -7,24 +7,24 @@ function debug($tableau){
 }
 
 function cleanXss($toClean){
-    return trim(strip_tags($toClean));
+  return trim(strip_tags($toClean));
 }
 
 function validationText($errors,$data,$key,$min,$max)
 {
 
-    if(!empty($data)) {
-      if(mb_strlen($data) < 2) {
-        $errors[$key] = 'Min'. $min . ' ' . 'caractères';
-      } elseif(mb_strlen($data) > 140) {
-        $errors[$key] = 'Max'. $max . ' ' . 'caractères';
-      } else {
-        // no error sur ce champ
-      }
+  if(!empty($data)) {
+    if(mb_strlen($data) < 2) {
+      $errors[$key] = 'Min'. $min . ' ' . 'caractères';
+    } elseif(mb_strlen($data) > 140) {
+      $errors[$key] = 'Max'. $max . ' ' . 'caractères';
     } else {
-      $errors['"'. $key .'"'] = 'Veuillez renseigner ce champ';
+      // no error sur ce champ
     }
-    return $errors;
+  } else {
+    $errors['"'. $key .'"'] = 'Veuillez renseigner ce champ';
+  }
+  return $errors;
 }
 
 function est_connecte(): bool
@@ -70,13 +70,13 @@ function numberMail($a)
 }
 
 function generateRandomString($length = 10) {
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $charactersLength = strlen($characters);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[rand(0, $charactersLength - 1)];
-    }
-    return $randomString;
+  $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  $charactersLength = strlen($characters);
+  $randomString = '';
+  for ($i = 0; $i < $length; $i++) {
+    $randomString .= $characters[rand(0, $charactersLength - 1)];
+  }
+  return $randomString;
 }
 
 function isActual($token_at) {
@@ -94,9 +94,9 @@ function isAdmin()
 {
   if (!est_connecte()) {
     header('Location: ../admin/403.php');
-    } elseif ($_SESSION['user']['role'] != 'role_admin') {
+  } elseif ($_SESSION['user']['role'] != 'role_admin') {
     header('Location: ../admin/403.php');
-    }
+  }
 }
 
 function timeRenouvellement($userDate, $vaccinExp)
@@ -112,9 +112,9 @@ function timeRenouvellement($userDate, $vaccinExp)
   if ($interval > 15778800) {
     $result['color'] = 'style="color: #0be881;"';
   } elseif ($interval <= 15778800 && $interval > 2629800) {
-      $result['color'] = 'style="color: #ffa801;"';
-    } elseif ($interval <= 2629800) {
-        $result['color'] = 'style="color: #ff3f34;"';
-      }
+    $result['color'] = 'style="color: #ffa801;"';
+  } elseif ($interval <= 2629800) {
+    $result['color'] = 'style="color: #ff3f34;"';
+  }
   return $result;
 }

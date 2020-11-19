@@ -11,46 +11,46 @@ include('inc/header-front.php');
 $errors = array();
 
 if (!empty($_POST['submitted'])) {
-    $succes = false;
-    $email = cleanXss($_POST['email']);
-    $object = cleanXSS($_POST['object']);
-    $message = cleanXss($_POST['message']);
-    // VERIF EMAIL
-    if (!empty($email)) {
+  $succes = false;
+  $email = cleanXss($_POST['email']);
+  $object = cleanXSS($_POST['object']);
+  $message = cleanXss($_POST['message']);
+  // VERIF EMAIL
+  if (!empty($email)) {
 
-    } else {
-        $errors['email'] = 'Veuillez renseignez ce champ';
+  } else {
+    $errors['email'] = 'Veuillez renseignez ce champ';
+  }
+  // VERIF Object
+  if (!empty($object)) {
+    if(mb_strlen($object) < 5) {
+      $errors['object'] = '5 caracteres minimum';
+    } elseif (mb_strlen($object) > 100) {
+      $errors['object'] = '100 caractere maximum';
     }
-    // VERIF Object
-    if (!empty($object)) {
-        if(mb_strlen($object) < 5) {
-            $errors['object'] = '5 caracteres minimum';
-        } elseif (mb_strlen($object) > 100) {
-            $errors['object'] = '100 caractere maximum';
-        }
-    } else {
-        $errors['message'] = 'Veuillez renseignez ce champ';
+  } else {
+    $errors['message'] = 'Veuillez renseignez ce champ';
+  }
+  // VERIF MESSAGE
+  if (!empty($message)) {
+    if(mb_strlen($message) < 10) {
+      $errors['message'] = '10 caracteres minimum';
+    } elseif (mb_strlen($message) > 1000) {
+      $errors['message'] = '1000 caractere maximum';
     }
-    // VERIF MESSAGE
-    if (!empty($message)) {
-        if(mb_strlen($message) < 10) {
-            $errors['message'] = '10 caracteres minimum';
-        } elseif (mb_strlen($message) > 1000) {
-            $errors['message'] = '1000 caractere maximum';
-        }
-    } else {
-        $errors['message'] = 'Veuillez renseignez ce champ';
-    }
+  } else {
+    $errors['message'] = 'Veuillez renseignez ce champ';
+  }
 
     if(count($errors) == 0) {
 
-        $sql = "INSERT INTO vl_contacts (email,message,created_at,lu,object,status)
-        VALUES (:email,:message,NOW(),'non',:object,1)";
-        $query = $pdo->prepare($sql);
-        $query->bindValue(':email',$email,PDO::PARAM_STR);
-        $query->bindValue(':message',$message,PDO::PARAM_STR);
-        $query->bindValue(':object',$object,PDO::PARAM_STR);
-        $query->execute();
+    $sql = "INSERT INTO vl_contacts (email,message,created_at,lu,object,status)
+    VALUES (:email,:message,NOW(),'non',:object,1)";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':email',$email,PDO::PARAM_STR);
+    $query->bindValue(':message',$message,PDO::PARAM_STR);
+    $query->bindValue(':object',$object,PDO::PARAM_STR);
+    $query->execute();
 
         header('Location: contact.php?success=yes');
     } else {
