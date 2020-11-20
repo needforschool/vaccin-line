@@ -49,12 +49,12 @@ if (!empty($_POST['submitted'])) {
 
   if(count($errors) == 0) {
 
-    $sql = "INSERT INTO vl_vaccins (maladie,descriptif,obligatoire,dangerosité,expiration) VALUES (:maladie,:description,:obligatoire,:danger,:expiration)";
+    $sql = "INSERT INTO vl_vaccins (maladie,descriptif,obligatoire,danger,expiration) VALUES (:maladie,:description,:obligatoire,:danger,:expiration)";
     $query = $pdo->prepare($sql);
     $query->bindValue(':maladie',$maladie,PDO::PARAM_STR);
     $query->bindValue(':description',$descriptif,PDO::PARAM_STR);
     $query->bindValue(':obligatoire',$obligatoire,PDO::PARAM_STR);
-    $query->bindValue(':danger',$dangerosité,PDO::PARAM_STR);
+    $query->bindValue(':danger',$danger,PDO::PARAM_STR);
     $query->bindValue(':expiration',$expiration,PDO::PARAM_INT);
     $query->execute();
 
