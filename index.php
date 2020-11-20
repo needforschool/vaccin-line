@@ -68,7 +68,7 @@ include('inc/header-front.php')
       <img src="asset/img/pic2.jpg" alt="">
       <div class="overlay"></div>
       <div class="service-desc">
-        <h3>Procédue Administrative</h3>
+        <h3>Procédure Administrative</h3>
         <hr>
         <p>L'adhésion se fait entièrement en ligne, procédure administrative simple et rapide, pour un gain de temps assuré.</p>
       </div>
