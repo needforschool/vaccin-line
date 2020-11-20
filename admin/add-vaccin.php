@@ -12,7 +12,7 @@ if (!empty($_POST['submitted'])) {
   //protection Faille XSS
   $maladie       = cleanXss($_POST['maladie']);
   $descriptif    = cleanXss($_POST['descriptif']);
-  $dangerosité   = cleanXss($_POST['dangerosité']);
+  $danger   = cleanXss($_POST['danger']);
   $obligatoire   = cleanXss($_POST['obligatoire']);
   $expiration    = cleanXss($_POST['expiration']);
 
@@ -20,13 +20,13 @@ if (!empty($_POST['submitted'])) {
   $errors = validationText($errors,$maladie,'maladie',5,2000);
   $errors = validationText($errors,$descriptif,'descriptif',5,2000);
 
-  if(!empty($dangerosité)) {
-    if ($dangerosité == 'benin' || $dangerosité == 'modéré' || $dangerosité == 'mortelle') {
+  if(!empty($danger)) {
+    if ($danger == 'benin' || $danger == 'modéré' || $danger == 'mortelle') {
     } else {
-      $errors['dangerosité'] = 'Veuillez selectionner une dangerosité valide';
+      $errors['danger'] = 'Veuillez selectionner un danger valide';
     }
   } else {
-    $errors['dangerosité'] = 'Veuillez renseignez ce champ';
+    $errors['danger'] = 'Veuillez renseignez ce champ';
   }
 
   if(!empty($obligatoire)) {
@@ -100,14 +100,14 @@ include('inc/header-back.php');
         </div>
       </div>
       <div class="col">
-        <select class="form-control <?php if(!empty($errors) && count($errors['dangerosité']) != 0) { echo 'is-invalid';} ?>" name="dangerosité" id="dangerosité" >
-          <option value="default" <?php if(empty($_POST['dangerosité'])){ echo 'selected'; } ?>>--Dangerosité--</option>
-          <option value="benin" <?php if(!empty($_POST['dangerosité']) && $_POST['dangerosité'] == 'benin'){ echo 'selected'; } ?>>Benin</option>
-          <option value="modéré" <?php if(!empty($_POST['dangerosité']) && $_POST['dangerosité'] == 'modéré'){ echo 'selected'; } ?>>Modéré</option>
-          <option value="mortelle" <?php if(!empty($_POST['dangerosité']) && $_POST['dangerosité'] == 'mortelle'){ echo 'selected'; } ?>>Mortelle</option>
+        <select class="form-control <?php if(!empty($errors) && count($errors['danger']) != 0) { echo 'is-invalid';} ?>" name="danger" id="danger" >
+          <option value="default" <?php if(empty($_POST['danger'])){ echo 'selected'; } ?>>--danger--</option>
+          <option value="benin" <?php if(!empty($_POST['danger']) && $_POST['danger'] == 'benin'){ echo 'selected'; } ?>>Benin</option>
+          <option value="modéré" <?php if(!empty($_POST['danger']) && $_POST['danger'] == 'modéré'){ echo 'selected'; } ?>>Modéré</option>
+          <option value="mortelle" <?php if(!empty($_POST['danger']) && $_POST['danger'] == 'mortelle'){ echo 'selected'; } ?>>Mortelle</option>
         </select>
         <div class="invalid-feedback">
-          <?php echo $errors['dangerosité']; ?>
+          <?php echo $errors['danger']; ?>
         </div>
       </div>
       <div class="col">
