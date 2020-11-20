@@ -19,7 +19,7 @@ $errors = array();?>
     $query->execute();
     $user = $query->fetch();
     if(!empty($user)) {
-      if ((password_verify($password, $user['password']))){
+      if (password_verify($password, $user['password']) && $user['status'] == 1){
 
         $_SESSION['user'] = array(
           'id' => $user['id'],
