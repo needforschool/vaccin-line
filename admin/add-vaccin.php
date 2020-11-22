@@ -12,7 +12,7 @@ if (!empty($_POST['submitted'])) {
   //protection Faille XSS
   $maladie       = cleanXss($_POST['maladie']);
   $descriptif    = cleanXss($_POST['descriptif']);
-  $danger   = cleanXss($_POST['danger']);
+  $danger        = cleanXss($_POST['danger']);
   $obligatoire   = cleanXss($_POST['obligatoire']);
   $expiration    = cleanXss($_POST['expiration']);
 

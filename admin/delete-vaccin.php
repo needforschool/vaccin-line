@@ -1,6 +1,7 @@
 <?php
 include('../inc/pdo.php');
 include('../inc/function.php');
+isAdmin();
 
 if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
   $id = $_GET['id'];
