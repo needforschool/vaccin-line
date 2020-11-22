@@ -59,7 +59,7 @@ if (!empty($_POST['submitted'])) {
     $query->execute();
 
     //redirection
-    header('Location: manage-vaccin.php?success=yes');
+    // header('Location: manage-vaccin.php?success=yes');
   }
 
 }
